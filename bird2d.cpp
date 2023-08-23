@@ -53,6 +53,8 @@ namespace
   unsigned char direction:5;
  } TGA_image;
 
+ unsigned int mouse_x=0;
+ unsigned int mouse_y=0;
  unsigned int MAXIMUM_TEXTURE_SIZE=0;
  const size_t KEYBOARD=256;
  const size_t MOUSE=3;
@@ -112,37 +114,73 @@ namespace BIRD2D
        case XK_1:
        code=2;
        break;
+       case XK_exclam:
+       code=2;
+       break;
        case XK_2:
+       code=3;
+       break;
+       case XK_at:
        code=3;
        break;
        case XK_3:
        code=4;
        break;
+       case XK_numbersign:
+       code=4;
+       break;
        case XK_4:
+       code=5;
+       break;
+       case XK_dollar:
        code=5;
        break;
        case XK_5:
        code=6;
        break;
+       case XK_percent:
+       code=6;
+       break;
        case XK_6:
+       code=7;
+       break;
+       case XK_asciicircum:
        code=7;
        break;
        case XK_7:
        code=8;
        break;
+       case XK_ampersand:
+       code=8;
+       break;
        case XK_8:
+       code=9;
+       break;
+       case XK_asterisk:
        code=9;
        break;
        case XK_9:
        code=10;
        break;
+       case XK_parenleft:
+       code=10;
+       break;
        case XK_0:
+       code=11;
+       break;
+       case XK_parenright:
        code=11;
        break;
        case XK_minus:
        code=12;
        break;
+       case XK_underscore:
+       code=12;
+       break;
        case XK_equal:
+       code=13;
+       break;
+       case XK_plus:
        code=13;
        break;
        case XK_BackSpace:
@@ -286,7 +324,13 @@ namespace BIRD2D
        case XK_colon:
        code=39;
        break;
+       case XK_semicolon:
+       code=39;
+       break;
        case XK_quotedbl:
+       code=40;
+       break;
+       case XK_quoteright:
        code=40;
        break;
        case XK_asciitilde:
@@ -296,6 +340,9 @@ namespace BIRD2D
        code=42;
        break;
        case XK_backslash:
+       code=43;
+       break;
+       case XK_bar:
        code=43;
        break;
        case XK_Z:
@@ -343,10 +390,19 @@ namespace BIRD2D
        case XK_comma:
        code=51;
        break;
+       case XK_less:
+       code=51;
+       break;
        case XK_period:
        code=52;
        break;
+       case XK_greater:
+       code=52;
+       break;
        case XK_slash:
+       code=53;
+       break;
+       case XK_question:
        code=53;
        break;
        case XK_Shift_R:
@@ -643,9 +699,9 @@ namespace BIRD2D
      attributes.border_pixel=BlackPixel(display,visual_information->screen);
      attributes.background_pixel=WhitePixel(display,visual_information->screen);
      attributes.override_redirect=True;
-     attributes.event_mask=KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|StructureNotifyMask;
+     attributes.event_mask=KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|ButtonMotionMask|StructureNotifyMask;
      attributes.colormap=XCreateColormap(display,root,visual_information->visual,AllocNone);
-     window=XCreateWindow(display,root,0,0,display_width,display_height,0,visual_information->depth,InputOutput,visual_information->visual,CWBackPixel|CWColormap|CWBorderPixel|CWEventMask,&attributes);
+     window=XCreateWindow(display,root,0,0,display_width,display_height,0,visual_information->depth,InputOutput,visual_information->visual,CWOverrideRedirect|CWBackPixel|CWColormap|CWBorderPixel|CWEventMask,&attributes);
      if  (window==0)
      {
        BIRD2D::Halt("Can't create window");
@@ -675,7 +731,7 @@ namespace BIRD2D
 
    void Engine::event_setup()
    {
-     if (XSelectInput(display,window,KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|StructureNotifyMask)==0)
+     if (XSelectInput(display,window,KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|ButtonMotionMask|StructureNotifyMask)==0)
      {
        BIRD2D::Halt("Can't set event configuration");
      }
@@ -706,7 +762,8 @@ namespace BIRD2D
      bool run;
      XEvent event;
      run=true;
-     while (XCheckWindowEvent(display,window,KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|StructureNotifyMask,&event)==True)
+     XSetInputFocus(display,window,RevertToParent,CurrentTime);
+     while (XCheckWindowEvent(display,window,KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|ButtonMotionMask|StructureNotifyMask,&event)==True)
      {
        switch (event.type)
        {
@@ -718,6 +775,10 @@ namespace BIRD2D
          break;
          case KeyRelease:
          Keys[Internal::get_scan_code(XKeycodeToKeysym(display,event.xkey.keycode,0))]=KEY_RELEASE;
+         break;
+         case MotionNotify:
+         mouse_x=event.xbutton.x;
+         mouse_y=event.xbutton.y;
          break;
          case ButtonPress:
          if  (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_PRESS;
@@ -1402,12 +1463,12 @@ namespace BIRD2D
 
   unsigned int Mouse::get_x()
   {
-   return 0;
+   return mouse_x;
   }
 
   unsigned int Mouse::get_y()
   {
-   return 0;
+   return mouse_y;
   }
 
   bool Mouse::check_hold(const BIRD2D::MOUSE_BUTTON button)
@@ -1630,13 +1691,16 @@ namespace BIRD2D
 
   bool Surface::update()
   {
+   bool run;
+   run=false;
    if (this->get_context()!=NULL)
    {
     this->Swap();
     this->update_counter();
     this->clear_stage();
+    run=this->process_message();
    }
-   return this->process_message();
+   return run;
   }
 
   bool Surface::sync()

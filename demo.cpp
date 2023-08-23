@@ -18,7 +18,7 @@ int main()
  ship.load("./ship.tga",BIRD2D::HORIZONTAL_ANIMATED,2);
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
  text.load_font("./font.tga");
- text.set_position(0,80);
+ text.set_position(text.get_font_width(),text.get_font_height());
  mouse.hide();
  timer.set_timer(1);
  memset(perfomance,0,8);
