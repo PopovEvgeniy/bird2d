@@ -78,7 +78,7 @@ namespace BIRD2D
  namespace Internal
  {
 
-  unsigned char get_scan_code(const unsigned int key);
+  unsigned char get_scan_code(const KeySym key);
 
   class Synchronization
   {
@@ -101,6 +101,7 @@ namespace BIRD2D
    unsigned int display_width;
    unsigned int display_height;
    unsigned int display_depth;
+   Window root;
    XVisualInfo *visual_information;
    GLXContext context;
    void open_display();

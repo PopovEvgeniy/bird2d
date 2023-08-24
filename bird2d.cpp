@@ -86,8 +86,7 @@ namespace
  unsigned char Buttons[MOUSE]={KEY_RELEASE,KEY_RELEASE,KEY_RELEASE};
 
 Window window=0;
-Window root=0;
-Display *display=0;
+Display *display=NULL;
 }
 
 namespace BIRD2D
@@ -102,7 +101,7 @@ namespace BIRD2D
  namespace Internal
  {
 
-   unsigned char get_scan_code(const unsigned int key)
+   unsigned char get_scan_code(const KeySym key)
    {
      unsigned char code;
      code=0;
@@ -620,6 +619,7 @@ namespace BIRD2D
      display_width=0;
      display_height=0;
      display_depth=0;
+     root=0;
      visual_information=NULL;
      context=NULL;
    }
@@ -1458,7 +1458,12 @@ namespace BIRD2D
 
   void Mouse::set_position(const unsigned int x,const unsigned int y)
   {
-    ;
+    if  (window!=0)
+    {
+      XWarpPointer(display,None,window,0,0,0,0,x,y);
+      XFlush(display);
+    }
+
   }
 
   unsigned int Mouse::get_x()

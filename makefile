@@ -1,16 +1,21 @@
 flags=-g0 -O0 -lX11 -lGL
+game_engine=./demo/bird2d.a
+main_demo=./demo/demo
+tilemap_demo=./demo/tilemap
 
-library:
+all: engine examples
+engine:
 	@g++ -c bird2d.cpp $(flags) -o bird2d.o
-	@ar -r ./demo/bird2d.a bird2d.o
+	@ar -r $(game_engine) bird2d.o
 	@rm *.o
+	@echo "The game engine was successfully compile"
 examples:
-	@g++ tilemap.cpp ./demo/bird2d.a $(flags) -o ./demo/tilemap
-	@g++ demo.cpp ./demo/bird2d.a $(flags) -o ./demo/demo
-	@chmod ugo+rx ./demo/tilemap
-	@chmod ugo+rx ./demo/demo
+	@g++ tilemap.cpp $(game_engine) $(flags) -o $(tilemap_demo)
+	@g++ demo.cpp $(game_engine) $(flags) -o $(main_demo)
+	@chmod ugo+rx $(main_demo)
+	@chmod ugo+rx $(tilemap_demo)
+	@echo "Examples was successfully compile"
 clean:
-	@rm ./demo/bird2d.a
-	@rm ./demo/tilemap
-	@rm ./demo/demo
-all: library examples
+	@rm $(game_engine)
+	@rm $(tilemap_demo)
+	@rm $(main_demo)
