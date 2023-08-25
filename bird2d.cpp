@@ -85,7 +85,7 @@ namespace
 
  unsigned char Buttons[MOUSE]={KEY_RELEASE,KEY_RELEASE,KEY_RELEASE};
 
-Window window=0;
+Window window=None;
 Display *display=NULL;
 }
 
@@ -619,7 +619,7 @@ namespace BIRD2D
      display_width=0;
      display_height=0;
      display_depth=0;
-     root=0;
+     root=None;
      visual_information=NULL;
      context=NULL;
      glXSwapIntervalEXT=NULL;
@@ -633,10 +633,10 @@ namespace BIRD2D
        glXDestroyContext(display,context);
        context=NULL;
      }
-     if  (window!=0)
+     if  (window!=None)
      {
        XDestroyWindow(display,window);
-       window=0;
+       window=None;
      }
      if  (display!=NULL)
      {
@@ -676,7 +676,7 @@ namespace BIRD2D
    void Engine::get_root_window()
    {
      root=RootWindow(display,visual_information->screen);
-     if  (root==0)
+     if  (root==None)
     {
       BIRD2D::Halt("Can't get root window");
     }
@@ -703,7 +703,7 @@ namespace BIRD2D
      attributes.event_mask=KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|ButtonMotionMask|StructureNotifyMask;
      attributes.colormap=XCreateColormap(display,root,visual_information->visual,AllocNone);
      window=XCreateWindow(display,root,0,0,display_width,display_height,0,visual_information->depth,InputOutput,visual_information->visual,CWOverrideRedirect|CWBackPixel|CWColormap|CWBorderPixel|CWEventMask,&attributes);
-     if  (window==0)
+     if  (window==None)
      {
        BIRD2D::Halt("Can't create window");
      }
@@ -1479,10 +1479,21 @@ namespace BIRD2D
    preversion[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
    preversion[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
    preversion[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
+   hidden=None;
   }
 
   Mouse::~Mouse()
   {
+    if  (window!=None)
+    {
+      if  (hidden!=None)
+      {
+        XUndefineCursor(display,window);
+        XFlush(display);
+        XFreeCursor(display,hidden);
+      }
+
+    }
 
   }
 
@@ -1494,19 +1505,63 @@ namespace BIRD2D
    return accept;
   }
 
+  void Mouse::initialize()
+  {
+    XColor color;
+    Pixmap image;
+    color.flags=DoRed|DoGreen|DoBlue;
+    color.red=0;
+    color.green=0;
+    color.blue=0;
+    color.pad=0;
+    color.pixel=0;
+    if  (hidden==None)
+    {
+      if  (window!=None)
+      {
+        image=XCreateBitmapFromData(display,window,&color.pad,1,1);
+      }
+      if  (image!=None)
+      {
+        hidden=XCreatePixmapCursor(display,image,image,&color,&color,0,0);
+        XFreePixmap(display,image);
+      }
+
+    }
+
+  }
+
   void Mouse::show()
   {
-    ;
+    if  (window!=None)
+    {
+      if  (hidden!=None)
+      {
+        XUndefineCursor(display,window);
+        XFlush(display);
+      }
+
+    }
+
   }
 
   void Mouse::hide()
   {
-    ;
+    if  (window!=None)
+    {
+      if  (hidden!=None)
+      {
+        XDefineCursor(display,window,hidden);
+        XFlush(display);
+      }
+
+    }
+
   }
 
   void Mouse::set_position(const unsigned int x,const unsigned int y)
   {
-    if  (window!=0)
+    if  (window!=None)
     {
       XWarpPointer(display,None,window,0,0,0,0,x,y);
       XFlush(display);

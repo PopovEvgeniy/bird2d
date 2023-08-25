@@ -423,10 +423,12 @@ namespace BIRD2D
   {
    private:
    unsigned char preversion[3];
+   Cursor hidden;
    bool check_state(const BIRD2D::MOUSE_BUTTON button,const unsigned char state);
    public:
    Mouse();
    ~Mouse();
+   void initialize();
    void show();
    void hide();
    void set_position(const unsigned int x,const unsigned int y);

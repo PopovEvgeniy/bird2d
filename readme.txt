@@ -20,3 +20,4 @@ Features
  Timers.
  Collision detector.
  Integrated fps counter.
+ Powerful input subsystem: keyboard and mouse.
