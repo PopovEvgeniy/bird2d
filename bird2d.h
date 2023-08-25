@@ -41,6 +41,7 @@ freely, subject to the following restrictions:
 #include <GL/glx.h>
 #include <GL/gl.h>
 #include <GL/glxext.h>
+#include <sys/sysinfo.h>
 
 namespace BIRD2D
 {
@@ -104,6 +105,7 @@ namespace BIRD2D
    Window root;
    XVisualInfo *visual_information;
    GLXContext context;
+   PFNGLXSWAPINTERVALEXTPROC  glXSwapIntervalEXT;
    void open_display();
    void get_visual();
    void get_root_window();
@@ -125,6 +127,25 @@ namespace BIRD2D
    Engine();
    ~Engine();
   };
+
+ }
+
+ namespace Misc
+ {
+
+   class Memory
+   {
+    private:
+    struct sysinfo information;
+    void read_system_information();
+    public:
+    Memory();
+    ~Memory();
+     unsigned long long int get_total_physical();
+     unsigned long long int get_free_physical();
+     unsigned long long int get_total_virtual();
+     unsigned long long int get_free_virtual();
+   };
 
  }
 

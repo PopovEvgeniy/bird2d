@@ -622,6 +622,7 @@ namespace BIRD2D
      root=0;
      visual_information=NULL;
      context=NULL;
+     glXSwapIntervalEXT=NULL;
    }
 
    Engine::~Engine()
@@ -720,7 +721,6 @@ namespace BIRD2D
 
    void Engine::disable_vsync()
    {
-     PFNGLXSWAPINTERVALEXTPROC  glXSwapIntervalEXT=NULL;
      glXSwapIntervalEXT=reinterpret_cast<PFNGLXSWAPINTERVALEXTPROC>(glXGetProcAddress(reinterpret_cast<const GLubyte*>("glXSwapIntervalEXT")));
      if  (glXSwapIntervalEXT!=NULL)
      {
@@ -829,6 +829,54 @@ namespace BIRD2D
    }
 
  }
+
+ namespace Misc
+ {
+
+   Memory::Memory()
+   {
+    memset(&information,0,sizeof(struct sysinfo));
+   }
+
+  Memory::~Memory()
+  {
+
+  }
+
+   void Memory::read_system_information()
+   {
+    if (sysinfo(&information)==-1)
+   {
+     memset(&information,0,sizeof(struct sysinfo));
+   }
+
+  }
+
+  unsigned long long int Memory::get_total_physical()
+  {
+   this->read_system_information();
+   return information.totalram*information.mem_unit;
+  }
+
+  unsigned long long int Memory::get_free_physical()
+  {
+   this->read_system_information();
+   return information.freeram*information.mem_unit;
+  }
+
+  unsigned long long int Memory::get_total_virtual()
+  {
+   this->read_system_information();
+   return information.totalswap*information.mem_unit;
+  }
+
+  unsigned long long int Memory::get_free_virtual()
+  {
+   this->read_system_information();
+   return information.freeswap*information.mem_unit;
+  }
+
+  }
 
  namespace Core
  {

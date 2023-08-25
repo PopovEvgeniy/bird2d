@@ -13,7 +13,7 @@
       Table of contents</big>
     <ul id="mozToc">
       <!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
-      <li><a href="#mozTocId665557">Part 1. Welcome to Bird 2D</a>
+      <li><a href="#mozTocId665557">Part 1. Welcome to Bird 2D </a>
         <ul>
           <li><a href="#mozTocId471990">Chapter 1. Introduction</a></li>
           <li><a href="#mozTocId85003">Chapter 2. A special thanks</a></li>
@@ -52,14 +52,20 @@
           <li><a href="#mozTocId381935">Chapter 4. Collision</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId209024">Part 5. Misc</a>
+      <li><a href="#mozTocId611802">Part 5. Other important things</a>
+        <ul>
+          <li><a href="#mozTocId900597">Chapter 1. The sub–namespace</a></li>
+          <li><a href="#mozTocId942355">Chapter 2. Memory</a></li>
+        </ul>
+      </li>
+      <li><a href="#mozTocId209024">Part 6. Misc</a>
         <ul>
           <li><a href="#mozTocId608755">Chapter 1. File system</a></li>
           <li><a href="#mozTocId59386">Chapter 2. Tools</a></li>
           <li><a href="#mozTocId573582">Chapter 3. Resource manager</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId590919"> Part 6. Binary files</a>
+      <li><a href="#mozTocId590919"> Part 7. Binary files</a>
         <ul>
           <li><a href="#mozTocId200879">Chapter 1. The sub–namespace</a></li>
           <li><a href="#mozTocId961921"> Chapter 2. Base binary file subsystem</a></li>
@@ -67,14 +73,14 @@
           <li><a href="#mozTocId511135"> Chapter 4. File writer</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId291572">Part 7. Input</a>
+      <li><a href="#mozTocId291572">Part 8. Input</a>
         <ul>
           <li><a href="#mozTocId783369">Chapter 1. The sub–namespace</a></li>
           <li><a href="#mozTocId685403">Chapter 2. Keyboard</a></li>
           <li><a href="#mozTocId686993">Chapter 3. Mouse</a></li>
         </ul>
       </li>
-      <li><a href="#mozTocId309127">Part 8. Internal details of the engine
+      <li><a href="#mozTocId309127">Part 9. Internal details of the engine
           subsystems</a>
         <ul>
           <li><a href="#mozTocId383177">Chapter 1. A few words for a curious
@@ -936,9 +942,41 @@
       <br>
       <span style="font-style: italic;"> bool Collision::check_collision(const
         BIRD2D::BOX &amp;first_target,const BIRD2D::BOX &amp;second_target);</span>
-      – Set collision targets and check collision between it.</big><big><br>
-    </big><big> </big> <big> </big>
-    <h1><a name="mozTocId209024" class="mozTocH1"></a><big>Part 5. Misc</big></h1>
+      – Set collision targets and check collision between it.<br>
+      <br>
+    </big>
+    <h1><a class="mozTocH1" name="mozTocId611802"></a><big>Part 5. Other
+        important things</big></h1>
+    <big>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId900597"></a><big>Chapter 1. The
+        sub–namespace</big></h2>
+    <big>
+      All subsystems in this section declared in Misc sub–namespace.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId942355"></a><big>Chapter 2. Memory</big></h2>
+    <big>
+      RAM is an important resource. Just use <span style="font-style: italic;">Memory</span>
+      class to get total memory size and free memory size. Let's look at public
+      methods.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_total_physical();</span> – Return total physical memory size
+      in bytes.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_free_physical();</span> – Return free physical memory size
+      in bytes.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_total_virtual(); </span>– Return total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+        memory</a> size in bytes.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long long int
+        Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
+        memory</a> size in bytes.<span style="font-style: italic;"></span><br>
+    </big><big> </big><big> </big> <big> </big>
+    <h1><a name="mozTocId209024" class="mozTocH1"></a><big>Part 6. Misc</big></h1>
     <h2><a name="mozTocId608755" class="mozTocH2"></a><big>Chapter 1. File
         system</big></h2>
     <big><br>
@@ -1002,7 +1040,7 @@
       resource array if it already exists. This function takes resource array
       handle as argument.<br>
     </big>
-    <h1><a name="mozTocId590919" class="mozTocH1"></a><big> Part 6. Binary files</big></h1>
+    <h1><a name="mozTocId590919" class="mozTocH1"></a><big> Part 7. Binary files</big></h1>
     <h2><a name="mozTocId200879" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
     <big>All subsystems in this section declared in <span style="font-style: italic;">File</span>
@@ -1064,7 +1102,7 @@
     </big> <big><i>void Output_File::flush();</i> – Force writing internal
       buffer data to the file.</big><br>
     <big> </big>
-    <h1><a name="mozTocId291572" class="mozTocH1"></a><big>Part 7. Input</big></h1>
+    <h1><a name="mozTocId291572" class="mozTocH1"></a><big>Part 8. Input</big></h1>
     <h2><a name="mozTocId783369" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
     <big>All subsystems in this section declared in <span style="font-style: italic;">Input</span>
@@ -1418,7 +1456,7 @@
     </table>
     <big> </big> <big> <span style="font-style: italic;"></span><br>
     </big>
-    <h1><a name="mozTocId309127" class="mozTocH1"></a><big>Part 8. Internal
+    <h1><a name="mozTocId309127" class="mozTocH1"></a><big>Part 9. Internal
         details of the engine subsystems</big></h1>
     <big></big> <big> </big>
     <h2><a name="mozTocId383177" class="mozTocH2"></a><big>Chapter 1. A few
@@ -1537,7 +1575,10 @@
     </big><big>0.4.1 </big><big>– Mouse input improved.<br>
     </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small
       changes.<br>
-    </big><big>0.4.4 </big><big>– Makefile updated.</big><br>
+    </big><big>0.4.4 </big><big>– Makefile updated.<br>
+      0.4.5 – New subsystem added.<br>
+    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small
+      changes.</big><br>
     <big> </big>
     <p></p>
     <big> </big>
