@@ -1595,6 +1595,169 @@ namespace BIRD2D
    return this->check_state(button,KEY_RELEASE);
   }
 
+  Joystick::Joystick()
+  {
+    current.set_length(0);
+    preversion.set_length(0);
+    axe.set_length(0);
+    device=-1;
+  }
+
+  Joystick::~Joystick()
+  {
+    if  (device!=-1)
+    {
+      close(device);
+    }
+    current.destroy_buffer();
+    preversion.destroy_buffer();
+    axe.destroy_buffer();
+  }
+
+  void Joystick::open_device(const char *joystick)
+  {
+    if  (device==-1)
+    {
+      device=open(joystick,O_RDONLY|O_NONBLOCK);
+    }
+
+  }
+
+  void Joystick::read_configuration()
+  {
+    char amount;
+    amount=0;
+    if  (device!=-1)
+    {
+      if  (ioctl(device,JSIOCGAXES,&amount)==0)
+      {
+        axe.set_length(static_cast<size_t>(amount));
+        axe.create_buffer();
+        axe.fill_buffer(0);
+      }
+      if  (ioctl(device,JSIOCGBUTTONS,&amount)==0)
+      {
+        current.set_length(static_cast<size_t>(amount));
+        current.create_buffer();
+        current.fill_buffer(KEY_RELEASE);
+        preversion.set_length(static_cast<size_t>(amount));
+        preversion.create_buffer();
+        preversion.fill_buffer(KEY_RELEASE);
+      }
+
+    }
+
+  }
+
+   bool Joystick::check_current_button(const size_t button)
+   {
+     bool state;
+     state=false;
+     if  (current.get_length()>0)
+     {
+       if (button<current.get_length())
+       {
+         state=current[button]==KEY_PRESS;
+         preversion[button]=current[button];
+       }
+
+     }
+     return state;
+   }
+
+   bool Joystick::check_preversion_button(const size_t button)
+   {
+     bool state;
+     state=false;
+     if  (preversion.get_length()>0)
+     {
+       if (button<preversion.get_length())
+       {
+         state=preversion[button]==KEY_PRESS;
+       }
+
+     }
+     return state;
+   }
+
+  void Joystick::update()
+  {
+    js_event event;
+    if  (device!=-1)
+    {
+      while (read(device,&event,sizeof(js_event))>0)
+      {
+        switch (event.type)
+        {
+          case JS_EVENT_AXIS:
+          if  (axe.get_length()>0) axe[event.number]=event.value;
+          break;
+          case JS_EVENT_BUTTON:
+          if  (current.get_length()>0) current[event.number]=event.value;
+          break;
+          default:
+          ;
+          break;
+        }
+
+
+      }
+
+    }
+
+  }
+
+  void Joystick::initialize(const char *joystick)
+  {
+    this->open_device(joystick);
+    this->read_configuration();
+  }
+
+  bool Joystick::is_ready() const
+  {
+    return device!=-1;
+  }
+
+  bool Joystick::check_button_hold(const size_t button)
+  {
+   return this->check_current_button(button);
+  }
+
+  bool Joystick::check_button_press(const size_t button)
+  {
+   return (this->check_current_button(button)==true) && (this->check_preversion_button(button)==false);
+  }
+
+  bool Joystick::check_button_release(const size_t button)
+  {
+   return (this->check_current_button(button)==false) && (this->check_preversion_button(button)==true);
+  }
+
+  short int Joystick::get_axe(const size_t target)
+  {
+    short int value;
+    value=0;
+    if  (axe.get_length()>0)
+    {
+      if  (target<axe.get_length())
+      {
+        value=axe[target];
+      }
+
+    }
+    return value;
+  }
+
+  size_t Joystick::get_button_amount() const
+  {
+    return current.get_length();
+  }
+
+  size_t Joystick::get_axe_amount() const
+  {
+    return axe.get_length();
+  }
+
  }
 
  namespace File

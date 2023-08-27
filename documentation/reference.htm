@@ -1,17 +1,17 @@
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=windows-1251">
+    <meta http-equiv="content–type" content="text/html; charset=windows-1251">
     <title>Programmer reference</title>
   </head>
   <body>
     <p> <big> </big> </p>
     <div>
-      <div style="text-align: center;"><big>Bird 2d: Programmer reference</big></div>
+      <div style="text–align: center;"><big>Bird 2d: Programmer reference</big></div>
     </div>
     <big><br>
       Table of contents</big>
     <ul id="mozToc">
-      <!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
+      <!––mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6––>
       <li><a href="#mozTocId665557">Part 1. Welcome to Bird 2D </a>
         <ul>
           <li><a href="#mozTocId471990">Chapter 1. Introduction</a></li>
@@ -77,6 +77,7 @@
           <li><a href="#mozTocId783369">Chapter 1. The sub–namespace</a></li>
           <li><a href="#mozTocId685403">Chapter 2. Keyboard</a></li>
           <li><a href="#mozTocId686993">Chapter 3. Mouse</a></li>
+          <li><a href="#mozTocId316549">Chapter 3. Joystick</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId309127">Part 9. Internal details of the engine
@@ -87,6 +88,7 @@
           <li><a href="#mozTocId318160">Chapter 2. Internal classes</a></li>
           <li><a href="#mozTocId293644">Chapter 3. Base graphics subsystem</a></li>
           <li><a href="#mozTocId804583">Chapter 4. Input</a></li>
+          <li><a href="#mozTocId389200">Chapter 5. Joystick</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId78453">Version history</a></li>
@@ -98,7 +100,7 @@
     <big> </big>
     <h2><a name="mozTocId471990" class="mozTocH2"></a><big>Chapter 1.
         Introduction</big></h2>
-    <big> <span style="text-decoration: underline;"> Introduction</span><br>
+    <big> <span style="text–decoration: underline;"> Introduction</span><br>
       <br>
       Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
       individual programmer. I enjoy creating software. I also like old–school
@@ -106,7 +108,7 @@
       You need a good game engine for doing it. I made my own engine. I hope
       that my C++ game engine will be useful for many programmers.<br>
       <br>
-      <span style="text-decoration: underline;"> Features</span><br>
+      <span style="text–decoration: underline;"> Features</span><br>
       <br>
       Let me show the engine features. Let's go. </big>
     <ul>
@@ -117,7 +119,7 @@
           and <a href="https://mesa3d.org">Mesa 3d</a>.</big></li>
     </ul>
     <big><br>
-      <span style="text-decoration: underline;"> Feedback</span><br>
+      <span style="text–decoration: underline;"> Feedback</span><br>
       <br>
       Send me <a href="mailto:tuzik87@inbox.ru">e–mail</a> if you want contact
       with me. </big>
@@ -129,7 +131,7 @@
       <li><a href="https://github.com/dmitrysmagin"><big>Dmitry Smagin</big></a></li>
       <li><a href="https://bsg.org.ua"><big>Pavel Samko</big></a></li>
       <li><a href="https://github.com/EXL"><big>EXL</big></a></li>
-      <li><a href="http://www.almost-university.com"><big>Vladimir Mozhenkov</big></a></li>
+      <li><a href="http://www.almost–university.com"><big>Vladimir Mozhenkov</big></a></li>
       <li><a href="https://vk.com/strong666"><big>Vitaliy Molochkov</big></a></li>
       <li><a href="mailto:eyegem@mail.ru"><big>Evgenia Germanova</big></a></li>
       <li><big>DDMZ</big></li>
@@ -138,7 +140,7 @@
       Also thanks to PVS–Studio team for <a href="https://www.viva64.com/en/b/0614/">free
         license</a>. </big>
     <h2><a name="mozTocId810132" class="mozTocH2"></a><big>Chapter 3. License</big></h2>
-    <big> <span style="text-decoration: underline;">Bird 2d license</span><br>
+    <big> <span style="text–decoration: underline;">Bird 2d license</span><br>
       <br>
       Copyright (C) 2023 Popov Evgeniy Alekseyevich<br>
       <br>
@@ -159,17 +161,17 @@
       <br>
     </big>
     <h2><a name="mozTocId56069" class="mozTocH2"></a><big>Chapter 4. </big><big>Dependencies</big></h2>
-    <big><span style="text-decoration: underline;"></span></big><big>You
-      need&nbsp; libx11-dev and libgl1-mesa-dev packages for compile this game
+    <big><span style="text–decoration: underline;"></span></big><big>You
+      need&nbsp; libx11–dev and libgl1–mesa–dev packages for compile this game
       engine.</big>
     <h2><a name="mozTocId914689" class="mozTocH2"></a><big>Chapter 5. The engine
         name–space</big></h2>
-    <big><span style="font-style: italic;">BIRD2D</span> is the main name–space.</big><big>
+    <big><span style="font–style: italic;">BIRD2D</span> is the main name–space.</big><big>
       All the engine classes declared in few nested namespaces.<br>
     </big>
     <h2><a name="mozTocId417277" class="mozTocH2"></a><big>Chapter 6. Custom
         date types</big></h2>
-    <big>Almost all custom data types declared in <span style="font-style: italic;">BIRD2D</span>
+    <big>Almost all custom data types declared in <span style="font–style: italic;">BIRD2D</span>
       namespace.<br>
     </big>
     <h1><a name="mozTocId859712" class="mozTocH1"></a><big>Part 2. Base things</big></h1>
@@ -197,7 +199,7 @@
     <big> </big>
     <h2><a name="mozTocId552078" class="mozTocH2"></a><big>Chapter 2. Base
         graphics subsystem</big></h2>
-    <big> <span style="text-decoration: underline;"> Introduce to base graphics
+    <big> <span style="text–decoration: underline;"> Introduce to base graphics
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
@@ -205,110 +207,110 @@
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
     <big> <br>
-      <span style="text-decoration: underline;"> Render performance</span><br>
+      <span style="text–decoration: underline;"> Render performance</span><br>
       <br>
       Always use latest video–card drivers. It can increase render performance.
       You can also try to change screen resolution if you have low render
       performance.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;"> Fps limitation</span><br>
+      <br style="text–decoration: underline;">
+      <span style="text–decoration: underline;"> Fps limitation</span><br>
       <br>
       Fps is an important thing. Many fps need for good animation, but it also
       needs high processor usage. Fps limit is 60 by default. It is optimal
       value.<br>
       <br>
-      <span style="text-decoration: underline;"> Work with base graphics
+      <span style="text–decoration: underline;"> Work with base graphics
         subsystem</span><br>
       <br>
-      <span style="font-style: italic;"> Screen</span> class provide access to
+      <span style="font–style: italic;"> Screen</span> class provide access to
       the base graphic subsystem. Let's look at public methods.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;"> void Surface::clear_screen();</span> –
+      <br style="font–style: italic;">
+      <span style="font–style: italic;"> void Surface::clear_screen();</span> –
       Clear the screen. Fill it by black color.<br>
       <br>
-      <span style="font-style: italic;"> void Surface::initialize();</span> –
+      <span style="font–style: italic;"> void Surface::initialize();</span> –
       Initialize the base graphic subsystem with default screen resolution.<br>
-    </big><big style="font-style: italic;"></big><big><br>
-    </big><big> <span style="font-style: italic;"> bool Surface::sync();</span>
+    </big><big style="font–style: italic;"></big><big><br>
+    </big><big> <span style="font–style: italic;"> bool Surface::sync();</span>
       – Show current back–buffer content on screen. Return false if a game is
       terminated. This method uses fps limit and do wait between frames.<br>
       <br>
-      <span style="font-style: italic;"> bool Surface::update();</span> – Show
+      <span style="font–style: italic;"> bool Surface::update();</span> – Show
       current back–buffer content on screen. Return false if a game is
       terminated. This method ignoring fps limit and need high processor usage.<br>
       <br>
-      <span style="font-style: italic;"> bool Surface::is_ready();</span> –
+      <span style="font–style: italic;"> bool Surface::is_ready();</span> –
       Return true if the subsystem is already initialized.<br>
-      <span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;"> unsigned int Surface::get_fps() const;</span>
+      <span style="font–style: italic;"></span><br>
+      <span style="font–style: italic;"> unsigned int Surface::get_fps() const;</span>
       – Return current fps value.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Surface::get_color()
+      <span style="font–style: italic;"> unsigned int Surface::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Surface::get_width()
+      <span style="font–style: italic;"> unsigned int Surface::get_width()
         const;</span> – Return screen width in pixels.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Surface::get_height()
+      <span style="font–style: italic;"> unsigned int Surface::get_height()
         const;</span> – Return screen height in pixels.<br>
       <br>
-      <span style="font-style: italic;"> Surface* Surface::get_handle();</span>
+      <span style="font–style: italic;"> Surface* Surface::get_handle();</span>
       – Return the handle to base graphics subsystem object. </big>
     <h2><a name="mozTocId289525" class="mozTocH2"></a><big>Chapter 3. Picture
         subsystem</big></h2>
-    <big><span style="text-decoration: underline;"> An important subsystem</span><br>
+    <big><span style="text–decoration: underline;"> An important subsystem</span><br>
       <br>
       Picture subsystem implement image storage.<br>
       <br>
-    </big><big><span style="text-decoration: underline;"> Work with picture
+    </big><big><span style="text–decoration: underline;"> Work with picture
         subsystem</span><br>
       <br>
-      <span style="font-style: italic;"> Picture</span> class provide simple
+      <span style="font–style: italic;"> Picture</span> class provide simple
       access to picture subsystem. Don't use it directly. Let's look at public
       methods.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int *Picture::get_image();</span>
+      <span style="font–style: italic;"> unsigned int *Picture::get_image();</span>
       – Return handle to image storage.<br>
       <br>
-    </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
+    </big><big><span style="font–style: italic;">void Picture::destroy_image();</span>
       – Destroy an image in the storage.<br>
       <br>
-    </big><big> <span style="font-style: italic;"> bool
+    </big><big> <span style="font–style: italic;"> bool
         Picture::is_storage_empty() const;</span> – Return true if storage is
       empty.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Picture::get_image_width()
+      <span style="font–style: italic;"> unsigned int Picture::get_image_width()
         const;</span> – Return image width in pixels.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int
+      <span style="font–style: italic;"> unsigned int
         Picture::get_image_height() const;</span> – Return image height in
       pixels.<br>
       <br>
-    </big><big><span style="font-style: italic;">size_t
+    </big><big><span style="font–style: italic;">size_t
         Picture::get_image_lenght() const;</span> – Return image length in
       bytes.</big><br>
     <big> </big>
     <h2><a name="mozTocId501089" class="mozTocH2"></a><big>Chapter 4. Animation
         subsystem</big></h2>
-    <big><span style="text-decoration: underline;"> An important subsystem</span><br>
+    <big><span style="text–decoration: underline;"> An important subsystem</span><br>
       <br>
       Animation subsystem let you control animation frames.<br>
-      <br style="text-decoration: underline;">
-      <span style="text-decoration: underline;"> Frame indexing</span><br>
+      <br style="text–decoration: underline;">
+      <span style="text–decoration: underline;"> Frame indexing</span><br>
       <br>
       First frame index is 1.<br>
       <br>
-      <span style="text-decoration: underline;"> Work with animation subsystem</span><br>
+      <span style="text–decoration: underline;"> Work with animation subsystem</span><br>
       <br>
-      <span style="font-style: italic;"> Animation</span> class provide simple
+      <span style="font–style: italic;"> Animation</span> class provide simple
       access to animation subsystem. Don't use it directly. Let's look at public
       methods.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Animation::get_frames()
+      <span style="font–style: italic;"> unsigned int Animation::get_frames()
         const;</span> – Return amount of frames in scrollable background or
       animated sprite.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Animation::get_frame()
+      <span style="font–style: italic;"> unsigned int Animation::get_frame()
         const;</span> – Return current frame in scrollable background or
       animated sprite.<br>
     </big>
@@ -342,7 +344,7 @@
     </table>
     <br>
     <h2><a name="mozTocId738557" class="mozTocH2"></a><big>Chapter 6. Background</big></h2>
-    <big><span style="text-decoration: underline;"> Level decoration</span><br>
+    <big><span style="text–decoration: underline;"> Level decoration</span><br>
       <br>
       Background is a big image. It is like decoration in theater stage. Any
       game has a background. The background will stretch to screen resolution
@@ -354,204 +356,204 @@
       photo ribbon. Vertical orientated scrolling background look like vertical
       orientated photo ribbon.<br>
     </big><big><br>
-      <span style="text-decoration: underline;"> Work with background</span><br>
+      <span style="text–decoration: underline;"> Work with background</span><br>
       <br>
-      Just use <span style="font-style: italic;">Background</span> class to
+      Just use <span style="font–style: italic;">Background</span> class to
       work with background. Let's look at public methods.<br>
-    </big><big></big><big><br style="font-style: italic;">
-      <span style="font-style: italic;"> void Background::prepare(const Surface
+    </big><big></big><big><br style="font–style: italic;">
+      <span style="font–style: italic;"> void Background::prepare(const Surface
         *surface);</span> – Prepare for drawing.<br>
       <br>
-      <span style="font-style: italic;"> void Background::prepare(Screen
+      <span style="font–style: italic;"> void Background::prepare(Screen
         &amp;surface);</span> – Prepare for drawing.<br>
       <br>
-      <span style="font-style: italic;"> void Background::prepare(const unsigned
+      <span style="font–style: italic;"> void Background::prepare(const unsigned
         int width,const unsigned int heigt);</span> – Prepare for drawing.<br>
       <br>
-      <span style="font-style: italic;">void Background::disable_mirror();</span>
+      <span style="font–style: italic;">void Background::disable_mirror();</span>
       – Disable background mirroring mode.<br>
       <br>
-      <span style="font-style: italic;">void Background::horizontal_mirror();</span>
+      <span style="font–style: italic;">void Background::horizontal_mirror();</span>
       – Set horizontal background mirroring mode.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;">void Background::vertical_mirror();</span>
+      <br style="font–style: italic;">
+      <span style="font–style: italic;">void Background::vertical_mirror();</span>
       – Set vertical background mirroring mode.<br>
       <br>
-      <span style="font-style: italic;">void Background::complex_mirror();</span>
+      <span style="font–style: italic;">void Background::complex_mirror();</span>
       – Set both horizontal and vertical background mirroring mode.<br>
       <br>
-      <span style="font-style: italic;"> void Background::set_target(const
+      <span style="font–style: italic;"> void Background::set_target(const
         unsigned int target);</span> – Set target frame in scrollable
       background.<br>
       <br>
-      <span style="font-style: italic;"> void Background::step();</span> –
+      <span style="font–style: italic;"> void Background::step();</span> –
       Increase number of target frame in scrollable background. Set it to 1 if
       number of target frame more than frame amount.<br>
       <br>
-      <span style="font-style: italic;"> void Background::set_setting(const
+      <span style="font–style: italic;"> void Background::set_setting(const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Set
       setting. Last argument will ignore if background is not scrollable.<br>
-      <span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;">void Background::load(Image
+      <span style="font–style: italic;"></span><br>
+      <span style="font–style: italic;">void Background::load(Image
         *background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load background from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Background::load(Image
+      <span style="font–style: italic;">void Background::load(Image
         &amp;background,const BIRD2D::IMAGE_KIND kind,const unsigned int
         frames);</span> – Load background from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Background::load(Image
+      <span style="font–style: italic;">void Background::load(Image
         *background);</span> – Load normal background from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Background::load(Image
+      <span style="font–style: italic;">void Background::load(Image
         &amp;background);</span> – Load normal background from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Background::load(const char
+      <span style="font–style: italic;">void Background::load(const char
         *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> –
       Load background from target file.<br>
       <br>
-      <span style="font-style: italic;">void Background::load(const char *name);</span>
+      <span style="font–style: italic;">void Background::load(const char *name);</span>
       – Load normal background from target file.<br>
       <br>
-      <span style="font-style: italic;"> void Background::draw();</span> – Draw
+      <span style="font–style: italic;"> void Background::draw();</span> – Draw
       a background.<br>
       <br>
-      <span style="font-style: italic;">void Background::draw(const unsigned int
+      <span style="font–style: italic;">void Background::draw(const unsigned int
         target);</span> – Draw target frame in scrollable background.<br>
       <br>
-      <span style="font-style: italic;"> void Background::destroy_image();</span>
+      <span style="font–style: italic;"> void Background::destroy_image();</span>
       – Destroy a background image.<br>
       <br>
-      <span style="font-style: italic;"> void Background::destroy();</span> –
+      <span style="font–style: italic;"> void Background::destroy();</span> –
       Destroy a background image and destroy a background texture.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Background::get_frame()
+      <span style="font–style: italic;"> unsigned int Background::get_frame()
         const;</span> – Return current frame in scrollable background.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Background::get_frames()
+      <span style="font–style: italic;"> unsigned int Background::get_frames()
         const;</span> – Return frame amount in scrollable background.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Background::get_width()
+      <span style="font–style: italic;"> unsigned int Background::get_width()
         const;</span> – Return the width of the background.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Background::get_height()
+      <span style="font–style: italic;"> unsigned int Background::get_height()
         const;</span> – Return the height of the background.<br>
       <br>
-      <span style="font-style: italic;"> BIRD2D::IMAGE_KIND
+      <span style="font–style: italic;"> BIRD2D::IMAGE_KIND
         Background::get_kind() const;</span> – Get background type.<br>
       <br>
-      <span style="text-decoration: underline;"> Background texture</span><br>
+      <span style="text–decoration: underline;"> Background texture</span><br>
       <br>
       Background don't draw if background texture is don't exist. Background
       texture will automatically create after call load_background method.<br>
       <br>
-      <span style="text-decoration: underline;"> Important notice</span><br>
+      <span style="text–decoration: underline;"> Important notice</span><br>
       <br>
-      Always call <span style="font-style: italic;">prepare</span> method after
+      Always call <span style="font–style: italic;">prepare</span> method after
       set background setting or load background.<br>
     </big>
     <h2><a name="mozTocId309905" class="mozTocH2"></a><big>Chapter 7. Base
         sprite subsystem</big></h2>
-    <big> </big><big><span style="text-decoration: underline;">Small important
+    <big> </big><big><span style="text–decoration: underline;">Small important
         thing</span><br>
       <br>
       A sprite is a transparent image. It is useful for many things: enemies,
       bonuses, etc&amp;<br>
-    </big><big><span style="text-decoration: underline;"></span><br>
-      <span style="text-decoration: underline;"> Work with base sprite subsystem</span><br>
+    </big><big><span style="text–decoration: underline;"></span><br>
+      <span style="text–decoration: underline;"> Work with base sprite subsystem</span><br>
       <br>
-      <span style="font-style: italic;"> Billboard</span> class provide simple
+      <span style="font–style: italic;"> Billboard</span> class provide simple
       access to base sprite subsystem. Don't use it directly. Let's look at
       public methods.<br>
     </big><big><br>
-    </big><big><span style="font-style: italic;"> void
+    </big><big><span style="font–style: italic;"> void
         Billboard::set_transparent(const bool enabled);</span> – Enable or
       disable the transparent mode.<br>
       <br>
-      <span style="font-style: italic;"> bool Billboard::get_transparent()
+      <span style="font–style: italic;"> bool Billboard::get_transparent()
         const;</span> – Return true if transparent mode is enable.<br>
       <br>
-    </big><big><span style="font-style: italic;">void
+    </big><big><span style="font–style: italic;">void
         Billboard::set_position(const unsigned int x, const unsigned int y);</span>
       – Set sprite position.<br>
       <br>
-      <span style="font-style: italic;"> void Billboard::set_size(const unsigned
+      <span style="font–style: italic;"> void Billboard::set_size(const unsigned
         int width, const unsigned int height);</span> – Change the sprite size.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> void Billboard::set_x(const
+    </big> <big><span style="font–style: italic;"> void Billboard::set_x(const
         unsigned int x);</span> – Set x–coordinate of the sprite position.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> void Billboard::set_y(const
+    </big> <big><span style="font–style: italic;"> void Billboard::set_y(const
         unsigned int y);</span> – Set y–coordinate of the sprite position.<br>
       <br>
-    </big><big> <span style="font-style: italic;"> void
+    </big><big> <span style="font–style: italic;"> void
         Billboard::set_width(const unsigned int width);</span> – Change the
       sprite width.<br>
       <br>
-      <span style="font-style: italic;"> void Billboard::set_height(const
+      <span style="font–style: italic;"> void Billboard::set_height(const
         unsigned int height);</span> – Change the sprite height.<br>
       <br>
-    </big> <big><span style="font-style: italic;">unsigned int
+    </big> <big><span style="font–style: italic;">unsigned int
         Billboard::increase_x();</span> – Increase x–coordinate and return
       increased x–position.<br>
       <br>
-      <span style="font-style: italic;">unsigned int Billboard::decrease_x();</span>
+      <span style="font–style: italic;">unsigned int Billboard::decrease_x();</span>
       – Decrease x–coordinate and return decreased x–position.<br>
       <br>
-      <span style="font-style: italic;">unsigned int Billboard::increase_y();</span>
+      <span style="font–style: italic;">unsigned int Billboard::increase_y();</span>
       – Increase y–coordinate and return increased y–position.<br>
       <br>
-      <span style="font-style: italic;">unsigned int Billboard::decrease_y();</span>
+      <span style="font–style: italic;">unsigned int Billboard::decrease_y();</span>
       – Decrease y–coordinate and return increased y–position.<br>
       <br>
-      <span style="font-style: italic;">unsigned int Billboard::increase_x(const
+      <span style="font–style: italic;">unsigned int Billboard::increase_x(const
         unsigned int increment);</span> – Increase x–coordinate with user value
       and return increased x–position.<br>
       <br>
-      <span style="font-style: italic;">unsigned int Billboard::decrease_x(const
+      <span style="font–style: italic;">unsigned int Billboard::decrease_x(const
         unsigned int decrement);</span> – Decrease x–coordinate with user value
       and return decreased x–position.<br>
       <br>
-      <span style="font-style: italic;">unsigned int Billboard::increase_y(const
+      <span style="font–style: italic;">unsigned int Billboard::increase_y(const
         unsigned int increment);</span> – Increase y–coordinate with user value
       and return increased y–position.<br>
       <br>
-      <span style="font-style: italic;">unsigned int Billboard::decrease_y(const
+      <span style="font–style: italic;">unsigned int Billboard::decrease_y(const
         unsigned int decrement);</span> – Decrease y–coordinate with user value
       and return decreased y–position.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Billboard::get_x() const;</span>
+      <span style="font–style: italic;"> unsigned int Billboard::get_x() const;</span>
       – Return x–coordinate of the sprite position.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Billboard::get_y() const;</span>
+      <span style="font–style: italic;"> unsigned int Billboard::get_y() const;</span>
       – Return y–coordinate of the sprite position.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Billboard::get_width()
+      <span style="font–style: italic;"> unsigned int Billboard::get_width()
         const;</span> – Return the width of the sprite.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Billboard::get_height()
+      <span style="font–style: italic;"> unsigned int Billboard::get_height()
         const;</span> – Return the height of the sprite.<br>
       <br>
-    </big><big><span style="font-style: italic;">BIRD2D::BOX
+    </big><big><span style="font–style: italic;">BIRD2D::BOX
         Billboard::get_box() const;</span> – Return collision related
       information.<br>
       <br>
-      <span style="font-style: italic;">void Billboard::disable_mirror();</span>
+      <span style="font–style: italic;">void Billboard::disable_mirror();</span>
       – Disable sprite mirroring mode.<br>
       <br>
-      <span style="font-style: italic;">void Billboard::horizontal_mirror();</span>
+      <span style="font–style: italic;">void Billboard::horizontal_mirror();</span>
       – Set horizontal sprite mirroring mode.<br>
       <br>
-      <span style="font-style: italic;">void Billboard::vertical_mirror();</span>
+      <span style="font–style: italic;">void Billboard::vertical_mirror();</span>
       – Set vertical sprite mirroring mode.<br>
       <br>
-      <span style="font-style: italic;">void Billboard::complex_mirror();</span>
+      <span style="font–style: italic;">void Billboard::complex_mirror();</span>
       – Set both horizontal and vertical sprite mirroring mode.<br>
       <br>
-    </big><big> </big><big><span style="font-style: italic;">void
+    </big><big> </big><big><span style="font–style: italic;">void
         Billboard::draw();</span> – Draw a sprite.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> void Billboard::draw(const
+    </big> <big><span style="font–style: italic;"> void Billboard::draw(const
         unsigned int x, const unsigned int y);</span> – Set sprite position and
       draw it.<br>
       <br>
@@ -564,7 +566,7 @@
     <big> </big>
     <h2><a name="mozTocId662651" class="mozTocH2"></a><big> Chapter 8. Ordinary
         sprites</big></h2>
-    <big><span style="text-decoration: underline;"> Sprite types</span><br>
+    <big><span style="text–decoration: underline;"> Sprite types</span><br>
       <br>
       There are two kinds of ordinary sprites: normal sprites and strip. The
       strip is an animated sprite. Do you remember an analog camera? <br>
@@ -572,73 +574,73 @@
       orientated photo ribbon.<br>
       Vertical strip look like the vertical orientated photo ribbon.<br>
     </big><big><br>
-    </big><big><span style="text-decoration: underline;">Frame indexing</span><br>
+    </big><big><span style="text–decoration: underline;">Frame indexing</span><br>
       <br>
       First frame index is 1.</big><br>
-    <big><br style="text-decoration: underline;">
-      <span style="text-decoration: underline;"> Work with sprites</span><br>
+    <big><br style="text–decoration: underline;">
+      <span style="text–decoration: underline;"> Work with sprites</span><br>
       <br>
-      Just use <span style="font-style: italic;">Sprite</span> class to work
-      with a sprite. It is derived from threeclasses: </big><big><span style="font-style: italic;">Billboard</span>,
-      <span style="font-style: italic;">Animation</span> and <span style="font-style: italic;">Picture</span></big><big>.
+      Just use <span style="font–style: italic;">Sprite</span> class to work
+      with a sprite. It is derived from threeclasses: </big><big><span style="font–style: italic;">Billboard</span>,
+      <span style="font–style: italic;">Animation</span> and <span style="font–style: italic;">Picture</span></big><big>.
       Let's look at public methods.<br>
       <br>
-      <span style="font-style: italic;"> void Sprite::set_setting(const
+      <span style="font–style: italic;"> void Sprite::set_setting(const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Set sprite
       settings. Last argument will ignore if sprite not animated.<br>
       <br>
-      <span style="font-style: italic;"> void Sprite::load(Image *buffer,const
+      <span style="font–style: italic;"> void Sprite::load(Image *buffer,const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
       sprite from the buffer and set it setting.<br>
       <br>
-      <span style="font-style: italic;">void Sprite::load(Image *buffer);</span>
+      <span style="font–style: italic;">void Sprite::load(Image *buffer);</span>
       – Load a normal sprite from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Sprite::load(Image
+      <span style="font–style: italic;">void Sprite::load(Image
         &amp;buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite from the buffer and set it setting.<br>
       <br>
-      <span style="font-style: italic;">void Sprite::load(Image &amp;buffer);</span>
+      <span style="font–style: italic;">void Sprite::load(Image &amp;buffer);</span>
       – Load a normal sprite from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Sprite::load(const char *name,const
+      <span style="font–style: italic;">void Sprite::load(const char *name,const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
       sprite from target file and set it setting.<br>
       <br>
-      <span style="font-style: italic;">void Sprite::load(const char *name);</span>
+      <span style="font–style: italic;">void Sprite::load(const char *name);</span>
       – Load a normal sprite from target file.<br>
       <br>
-      <span style="font-style: italic;"> void Sprite::set_target(const unsigned
+      <span style="font–style: italic;"> void Sprite::set_target(const unsigned
         int target);</span> – Set target frame in strip.<br>
       <br>
-      <span style="font-style: italic;"> void Sprite::step();</span> – Increase
+      <span style="font–style: italic;"> void Sprite::step();</span> – Increase
       number of target frame in strip. Set it to 1 if number of target frame
       more than frame amount.<br>
       <br>
-      <span style="font-style: italic;"> BIRD2D::IMAGE_KIND Sprite::get_kind()
+      <span style="font–style: italic;"> BIRD2D::IMAGE_KIND Sprite::get_kind()
         const;</span> – Get sprite type.<br>
       <br>
-    </big><big> <span style="font-style: italic;"> Sprite*
+    </big><big> <span style="font–style: italic;"> Sprite*
         Sprite::get_handle();</span> – Return the handle to sprite object.<br>
       <br>
-      <span style="font-style: italic;"> void Sprite::clone(Sprite *target);</span>
+      <span style="font–style: italic;"> void Sprite::clone(Sprite *target);</span>
       – Create copy of the sprite if the image storage of target sprite is not
       empty.<br>
       <br>
-      <span style="font-style: italic;"> void Sprite::clone(Sprite &amp;target);</span>
+      <span style="font–style: italic;"> void Sprite::clone(Sprite &amp;target);</span>
       – Create copy of the sprite if the image storage of target sprite is not
       empty.<br>
       <br>
-      <span style="font-style: italic;"> void Sprite::destroy(); </span>–
+      <span style="font–style: italic;"> void Sprite::destroy(); </span>–
       Destroy a sprite image and destroy a sprite texture.</big><big><br>
     </big> <big><br>
-      <span style="text-decoration: underline;"> Sprite texture</span><br>
+      <span style="text–decoration: underline;"> Sprite texture</span><br>
       <br>
       Sprite will don't draw if sprite texture is don't exist. Sprite texture
       will automatically create when load or clone sprite.</big><big> </big>
     <h2><a name="mozTocId146800" class="mozTocH2"></a><big>Chapter 9. Sprite
         sheet</big></h2>
-    <big><span style="text-decoration: underline;"> Some words about sprite
+    <big><span style="text–decoration: underline;"> Some words about sprite
         sheet</span><br>
       <br>
       Sprite sheet is a special kind of animated sprites. Each frame has fixed
@@ -647,93 +649,93 @@
       <br>
       <img src="sheet.png"><br>
       <br>
-      <span style="text-decoration: underline;"> Row and column</span><br>
+      <span style="text–decoration: underline;"> Row and column</span><br>
       <br>
       First row is 1. First column is 1.<br>
     </big><big><br>
-    </big><big><span style="text-decoration: underline;"> Work with sprite sheet
+    </big><big><span style="text–decoration: underline;"> Work with sprite sheet
         subsystem</span><br>
       <br>
-      <span style="font-style: italic;"> Sheet</span> class provide access to
+      <span style="font–style: italic;"> Sheet</span> class provide access to
       the sprite sheet subsystem. </big><big>It is derived from&nbsp; three </big><big>classes:
-      <span style="font-style: italic;">Billboard</span>, <span style="font-style: italic;">Picture</span>
-      and <span style="font-style: italic;">Animation</span>. Let's look at
+      <span style="font–style: italic;">Billboard</span>, <span style="font–style: italic;">Picture</span>
+      and <span style="font–style: italic;">Animation</span>. Let's look at
       public methods.<br>
       <br>
-    </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-      style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
+    </big><big style="font–style: italic;"> unsigned int Sheet::get_row(</big><big
+      style="font–style: italic;">const unsigned int target</big><big><span style="font–style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-      style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
+      <span style="font–style: italic;"> unsigned int Sheet::get_column(</span></big><big
+      style="font–style: italic;">const unsigned int target</big><big><span style="font–style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
       <br>
-    </big> <big><span style="font-style: italic;">unsigned int
+    </big> <big><span style="font–style: italic;">unsigned int
         Sheet::calculate(const unsigned int row,const unsigned int column)
         const;</span> – Calculate the frame by row and column.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> unsigned int
+    </big> <big><span style="font–style: italic;"> unsigned int
         Sheet::get_rows() const;</span> – Return row amount.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Sheet::get_columns()
+      <span style="font–style: italic;"> unsigned int Sheet::get_columns()
         const;</span> – Return</big><big> column</big><big> amount.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> void Sheet::destroy();</span>
+    </big> <big><span style="font–style: italic;"> void Sheet::destroy();</span>
       – Destroy a sprite sheet image and destroy a sprite sheet texture.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> void Sheet::select(const
+    </big> <big><span style="font–style: italic;"> void Sheet::select(const
         unsigned int row,const unsigned int column);</span> – Select the sprite
       by row and column.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> void Sheet::select(const
+    </big> <big><span style="font–style: italic;"> void Sheet::select(const
         unsigned int target);</span> – Select the sprite by frame number.<br>
       <br>
-    </big><big><span style="font-style: italic;">void Sheet::step();</span> –
+    </big><big><span style="font–style: italic;">void Sheet::step();</span> –
       Increase number of target frame. Set it to 1 if number of target frame
       more than frame amount.<br>
       <br>
-    </big> <big><span style="font-style: italic;">void Sheet::load(Image
+    </big> <big><span style="font–style: italic;">void Sheet::load(Image
         *sheet,const unsigned int row_amount,const unsigned int column_amount);</span>&nbsp;
       – Load a sprite sheet from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Sheet::load(Image &amp;sheet,const
+      <span style="font–style: italic;">void Sheet::load(Image &amp;sheet,const
         unsigned int row_amount,const unsigned int column_amount);</span> – Load
       a sprite sheet from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Sheet::load(const char *name,const
+      <span style="font–style: italic;">void Sheet::load(const char *name,const
         unsigned int row_amount,const unsigned int column_amount);</span> – Load
       a sprite sheet from tagret file.<br>
       <br>
-      <span style="font-style: italic;">Sheet* Sheet::get_handle();</span> –
+      <span style="font–style: italic;">Sheet* Sheet::get_handle();</span> –
       Return the handle to sprite sheet.<br>
       <br>
-      <span style="font-style: italic;">void Sheet::clone(Sheet *target);</span>
+      <span style="font–style: italic;">void Sheet::clone(Sheet *target);</span>
       – Create copy of the sprite sheet if the image storage of target sprite
       sheet is not empty.<br>
       <br>
-      <span style="font-style: italic;">void Sheet::clone(Sheet &amp;target);</span>
+      <span style="font–style: italic;">void Sheet::clone(Sheet &amp;target);</span>
       – Create copy of the sprite sheet if the image storage of target sprite
       sheet is not empty.<br>
       <br>
-      <span style="text-decoration: underline;"> Sprite sheet texture</span><br>
+      <span style="text–decoration: underline;"> Sprite sheet texture</span><br>
       <br>
       Sprite will don't draw if sprite sheet texture is don't exist. A sprite
-      sheet texture will automatically create after call <span style="font-style: italic;">load_sheet</span>
+      sheet texture will automatically create after call <span style="font–style: italic;">load_sheet</span>
       method.<br>
     </big>
     <h2><a name="mozTocId752257" class="mozTocH2"></a><big>Chapter 10. Text</big></h2>
-    <big><span style="text-decoration: underline;"> How to draw a text?</span><br>
+    <big><span style="text–decoration: underline;"> How to draw a text?</span><br>
       <br>
       Just use text subsystem to draw a text. This subsystem need a font for
       text drawing. You must load a font before start draw the text. The font is
       just a sprite sheet with 16 rows and 16 columns.<br>
       <br>
-      <span style="text-decoration: underline;"> Valid characters</span><br>
+      <span style="text–decoration: underline;"> Valid characters</span><br>
       <br>
       Only 8–bit </big><big>characters</big><big> supported.<br>
       <br>
-    </big><big style="text-decoration: underline;">Text orientation</big><br>
+    </big><big style="text–decoration: underline;">Text orientation</big><br>
     <br>
     <big>Text orientation look as predefined constants. You can see it below.<br>
       <br>
@@ -757,121 +759,121 @@
       </tbody>
     </table>
     <big><br>
-      <span style="text-decoration: underline;"> Work with text</span><br>
+      <span style="text–decoration: underline;"> Work with text</span><br>
       <br>
-      <span style="font-style: italic;"> Text</span> class provide a simple
+      <span style="font–style: italic;"> Text</span> class provide a simple
       interface to text subsystem. Let's look at public methods.<br>
       <br>
-      <span style="font-style: italic;"> BIRD2D::TEXT_KIND
+      <span style="font–style: italic;"> BIRD2D::TEXT_KIND
         Text::get_orientation() const;</span> – Get current text orientation.<br>
       <br>
-      <span style="font-style: italic;"> void Text::set_orientation(const
+      <span style="font–style: italic;"> void Text::set_orientation(const
         BIRD2D::TEXT_KIND target);</span> – Set current text orientation.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Text::get_font_width()
+      <span style="font–style: italic;"> unsigned int Text::get_font_width()
         const;</span> – Get current font width in pixels.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Text::get_font_height()
+      <span style="font–style: italic;"> unsigned int Text::get_font_height()
         const;</span> – Get current font height in pixels.<br>
       <br>
-      <span style="font-style: italic;"> void Text::set_position(const unsigned
+      <span style="font–style: italic;"> void Text::set_position(const unsigned
         int x,const unsigned int y);</span> – Set output position.<br>
       <br>
-      <span style="font-style: italic;"> void Text::set_size(const unsigned int
+      <span style="font–style: italic;"> void Text::set_size(const unsigned int
         width,const unsigned int height);</span> – Change the font size.<br>
       <br>
-      <span style="font-style: italic;">void Text::set_width(const unsigned int
+      <span style="font–style: italic;">void Text::set_width(const unsigned int
         width);</span> – Set the font width.<br>
       <br>
-      <span style="font-style: italic;">void Text::set_height(const unsigned int
+      <span style="font–style: italic;">void Text::set_height(const unsigned int
         height);</span> – Set the font height.<br>
       <br>
-      <span style="font-style: italic;">void Text::set_setting(const unsigned
+      <span style="font–style: italic;">void Text::set_setting(const unsigned
         int width,const unsigned int height,const BIRD2D::TEXT_KIND kind);</span>
       – Set text output settings.<br>
       <br>
-      <span style="font-style: italic;">void Text::load_font(Image *font);</span>
+      <span style="font–style: italic;">void Text::load_font(Image *font);</span>
       – Load a font from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Text::load_font(Image &amp;font);</span>
+      <span style="font–style: italic;">void Text::load_font(Image &amp;font);</span>
       – Load a font from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Text::load_font(const char *name);</span>
+      <span style="font–style: italic;">void Text::load_font(const char *name);</span>
       – Load a font from target file.<br>
       <br>
-      <span style="font-style: italic;"> void Text::print(const char target);</span>
+      <span style="font–style: italic;"> void Text::print(const char target);</span>
       – Draw single character at current position.<br>
       <br>
-      <span style="font-style: italic;"> void Text::print(const char *target);</span>
+      <span style="font–style: italic;"> void Text::print(const char *target);</span>
       – Draw text at current position.<br>
       <br>
-      <span style="font-style: italic;"> void Text::print(const unsigned int
+      <span style="font–style: italic;"> void Text::print(const unsigned int
         x,const unsigned int y,const char target);</span> – Draw single
       character at specific position.<br>
       <br>
-      <span style="font-style: italic;"> void Text::print(const unsigned int
+      <span style="font–style: italic;"> void Text::print(const unsigned int
         x,const unsigned int y,const char *target);</span> – Draw text at
       specific position.<br>
       <br>
-      <span style="font-style: italic;">void Text::disable_mirror();</span> –
+      <span style="font–style: italic;">void Text::disable_mirror();</span> –
       Disable text mirroring mode.<br>
       <br>
-      <span style="font-style: italic;">void Text::horizontal_mirror();</span> –
+      <span style="font–style: italic;">void Text::horizontal_mirror();</span> –
       Set horizontal text mirroring mode.<br>
       <br>
-      <span style="font-style: italic;">void Text::vertical_mirror();</span> –
+      <span style="font–style: italic;">void Text::vertical_mirror();</span> –
       Set vertical text mirroring mode.<br>
       <br>
-      <span style="font-style: italic;">void Text::complex_mirror();</span> –
+      <span style="font–style: italic;">void Text::complex_mirror();</span> –
       Set both horizontal and vertical text mirroring mode.<br>
       <br>
-      <span style="font-style: italic;"> void Text::destroy_image();</span> –
+      <span style="font–style: italic;"> void Text::destroy_image();</span> –
       Destroy a font image.<br>
       <br>
-      <span style="font-style: italic;"> void Text::destroy_font();</span> –
+      <span style="font–style: italic;"> void Text::destroy_font();</span> –
       Destroy a font image and destroy a font texture.<br>
     </big><big> </big>
     <h2><a name="mozTocId67980" class="mozTocH2"></a><big>Chapter 11. Loading
         images</big></h2>
-    <big><span style="text-decoration: underline;"> Load an image from files</span><br>
+    <big><span style="text–decoration: underline;"> Load an image from files</span><br>
       <br>
-      Use image loader to load an image from a file. <span style="font-style: italic;">Image</span>
+      Use image loader to load an image from a file. <span style="font–style: italic;">Image</span>
       class provide simple access to image loader. It is a simple class with few
       methods.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;"> unsigned char *Image::load_tga(const
+      <br style="font–style: italic;">
+      <span style="font–style: italic;"> unsigned char *Image::load_tga(const
         char *name);</span> – Load a Truevision TGA image and return handle to
       image buffer.<br>
       <br>
-      <span style="font-style: italic;">unsigned char *Image::get_data();</span>
+      <span style="font–style: italic;">unsigned char *Image::get_data();</span>
       – Return handle to image buffer.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Image::get_width() const;</span>
+      <span style="font–style: italic;"> unsigned int Image::get_width() const;</span>
       – Return width of current image.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Image::get_height() const;</span>
+      <span style="font–style: italic;"> unsigned int Image::get_height() const;</span>
       – Return height of current image.<br>
       <br>
-      <span style="font-style: italic;"> size_t Image::get_length() const;</span>
+      <span style="font–style: italic;"> size_t Image::get_length() const;</span>
       – Return length of image buffer in bytes.<br>
-      <span style="font-style: italic;"></span><br>
-      <span style="font-style: italic;"> Image* Image::get_handle();</span> –
+      <span style="font–style: italic;"></span><br>
+      <span style="font–style: italic;"> Image* Image::get_handle();</span> –
       Return the handle to image loader.<br>
       <br>
-      <span style="font-style: italic;"> void Image::destroy_image();</span> –
+      <span style="font–style: italic;"> void Image::destroy_image();</span> –
       Destroy the current image and free image buffer.<br>
       <br>
-      <span style="text-decoration: underline;"> Important remark</span><br>
+      <span style="text–decoration: underline;"> Important remark</span><br>
       <br>
       A new will image replace current image if current image already exist.
       Incorrect images will ignore and don't load.<br>
       <br>
-      <span style="text-decoration: underline;"> Supported format</span><br>
+      <span style="text–decoration: underline;"> Supported format</span><br>
     </big>
     <p><big> All loading images must have correct specification. You can load an
         image from 32 bit </big><big><a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision
           TGA</a> pictures. </big></p>
-    <big><span style="text-decoration: underline;"> Recommend software</span><br>
+    <big><span style="text–decoration: underline;"> Recommend software</span><br>
       <br>
       You can use a wide range of graphics software to convert your images to
       the correct format. I recommend use <a href="https://www.gimp.org">GIMP</a>
@@ -880,66 +882,66 @@
     <h1><a name="mozTocId64443" class="mozTocH1"></a><big>Part 4. Common things</big></h1>
     <h2><a name="mozTocId597525" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
-    <big>Almost all subsystems in this section declared in <span style="font-style: italic;">Common</span>
+    <big>Almost all subsystems in this section declared in <span style="font–style: italic;">Common</span>
       sub–namespace.<br>
     </big> <big></big> <big> </big> <big> </big>
     <h2><a name="mozTocId853711" class="mozTocH2"></a><big>Chapter 2. Abnormal
         program termination</big></h2>
-    <big> You can use <span style="font-style: italic;">Halt</span> function to
+    <big> You can use <span style="font–style: italic;">Halt</span> function to
       terminate a program. This function declared in <i>BIRD2D</i> name–space.<br>
       <br>
-      <span style="font-style: italic;"> void BIRD2D::Halt(const char *message);</span>
+      <span style="font–style: italic;"> void BIRD2D::Halt(const char *message);</span>
       – Terminate the program. Write error message to log file if logging
       enabled. </big><big> </big>
     <h2><a name="mozTocId656377" class="mozTocH2"></a><big>Chapter 3. Timer</big></h2>
-    <big> Timer is a very useful thing. Just use <span style="font-style: italic;">Timer</span>
+    <big> Timer is a very useful thing. Just use <span style="font–style: italic;">Timer</span>
       class to work with the timer. Let's look at public methods.<br>
       <br>
-      <span style="font-style: italic;"> void Timer::set_timer(const double
+      <span style="font–style: italic;"> void Timer::set_timer(const double
         seconds); </span>– Set timer interval and initialize start point.<br>
       <br>
-      <span style="font-style: italic;">double Timer::get_interval() const;</span>
+      <span style="font–style: italic;">double Timer::get_interval() const;</span>
       – Return current timer interval.<br>
       <br>
-      <span style="font-style: italic;"> bool Timer::check_timer();</span> –
+      <span style="font–style: italic;"> bool Timer::check_timer();</span> –
       Return true and reinitialize start point if interval between stop and
       start points large or equal than specific seconds.</big><br>
     <h2><a name="mozTocId381935" class="mozTocH2"></a><big>Chapter 4. Collision</big></h2>
-    <big> <span style="text-decoration: underline;"> An important thing for any
+    <big> <span style="text–decoration: underline;"> An important thing for any
         game</span><br>
       <br>
       What is an important thing for a video games? A collision.<br>
       <br>
-      <span style="text-decoration: underline;"> Collision detail</span><br>
+      <span style="text–decoration: underline;"> Collision detail</span><br>
       <br>
       Collision detector using bounding box collision method to detect
       collision. Collision related information store in special custom data
       type.<br>
       <br>
-      <span style="font-style: italic;"> typedef struct</span><br style="font-style: italic;">
-      <span style="font-style: italic;"> {</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;"> unsigned int x;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;"> unsigned int y;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;"> unsigned int width;</span><br style="font-style: italic;">
-      &nbsp; <span style="font-style: italic;"> unsigned int height;</span><br
-        style="font-style: italic;">
-      <span style="font-style: italic;"> } BOX;</span><br>
+      <span style="font–style: italic;"> typedef struct</span><br style="font–style: italic;">
+      <span style="font–style: italic;"> {</span><br style="font–style: italic;">
+      &nbsp; <span style="font–style: italic;"> unsigned int x;</span><br style="font–style: italic;">
+      &nbsp; <span style="font–style: italic;"> unsigned int y;</span><br style="font–style: italic;">
+      &nbsp; <span style="font–style: italic;"> unsigned int width;</span><br style="font–style: italic;">
+      &nbsp; <span style="font–style: italic;"> unsigned int height;</span><br
+        style="font–style: italic;">
+      <span style="font–style: italic;"> } BOX;</span><br>
       <br>
-      <span style="text-decoration: underline;"> Work with collision detector</span><br>
+      <span style="text–decoration: underline;"> Work with collision detector</span><br>
       <br>
-      <span style="font-style: italic;"> Collision</span> class provide easy
+      <span style="font–style: italic;"> Collision</span> class provide easy
       access to collision detector. It is a simple class with few methods. Let's
       look at public methods.<br>
     </big><br>
-    <big><span style="font-style: italic;">void Collision::set_target(const
+    <big><span style="font–style: italic;">void Collision::set_target(const
         BIRD2D::BOX &amp;first_target,const BIRD2D::BOX &amp;second_target);</span>
       – Set targets for collision detector.<br>
       <br>
-      <span style="font-style: italic;"> bool Collision::check_collision()
+      <span style="font–style: italic;"> bool Collision::check_collision()
         const;</span> – Return true if collision between two objects is
       accepted.<br>
       <br>
-      <span style="font-style: italic;"> bool Collision::check_collision(const
+      <span style="font–style: italic;"> bool Collision::check_collision(const
         BIRD2D::BOX &amp;first_target,const BIRD2D::BOX &amp;second_target);</span>
       – Set collision targets and check collision between it.<br>
       <br>
@@ -952,38 +954,38 @@
     <big> All subsystems in this section declared in Misc sub–namespace.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId942355"></a><big>Chapter 2. Memory</big></h2>
-    <big> RAM is an important resource. Just use <span style="font-style: italic;">Memory</span>
+    <big> RAM is an important resource. Just use <span style="font–style: italic;">Memory</span>
       class to get total memory size and free memory size. Let's look at public
       methods.<br>
       <br>
-      <span style="font-style: italic;">unsigned long long int
+      <span style="font–style: italic;">unsigned long long int
         Memory::get_total_physical();</span> – Return total physical memory size
       in bytes.<br>
       <br>
-      <span style="font-style: italic;">unsigned long long int
+      <span style="font–style: italic;">unsigned long long int
         Memory::get_free_physical();</span> – Return free physical memory size
       in bytes.<br>
       <br>
-      <span style="font-style: italic;">unsigned long long int
+      <span style="font–style: italic;">unsigned long long int
         Memory::get_total_virtual(); </span>– Return total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
       <br>
-      <span style="font-style: italic;">unsigned long long int
+      <span style="font–style: italic;">unsigned long long int
         Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
-        memory</a> size in bytes.<span style="font-style: italic;"></span><br>
+        memory</a> size in bytes.<span style="font–style: italic;"></span><br>
     </big><big> </big><big> </big> <big> </big>
     <h1><a name="mozTocId209024" class="mozTocH1"></a><big>Part 6. Misc</big></h1>
     <h2><a name="mozTocId608755" class="mozTocH2"></a><big>Chapter 1. File
         system</big></h2>
     <big><br>
       File system subsystem implement as two simple functions. All these
-      functions declared in <span style="font-style: italic;">Filesystem</span>
+      functions declared in <span style="font–style: italic;">Filesystem</span>
       sub–namespace.<br>
       <br>
-      <span style="font-style: italic;"> file_exist</span> function check the
+      <span style="font–style: italic;"> file_exist</span> function check the
       target file for exist.<br>
       <br>
-      <span style="font-style: italic;"> delete_file</span> function delete the
+      <span style="font–style: italic;"> delete_file</span> function delete the
       target file.<br>
       <br>
       All functions take target file name as argument and return false if the
@@ -991,26 +993,26 @@
     <big> </big>
     <h2><a name="mozTocId59386" class="mozTocH2"></a><big>Chapter 2. Tools</big></h2>
     <big>This module implemented as few simple functions</big><big>. All these
-      functions declared in <span style="font-style: italic;">Tools</span>
+      functions declared in <span style="font–style: italic;">Tools</span>
       sub–namespace.<br>
       <br>
-      <span style="font-style: italic;">void quit();</span> – Exit from your
+      <span style="font–style: italic;">void quit();</span> – Exit from your
       program and return user to operating system.<br>
       <br>
-      <span style="font-style: italic;">bool enable_logging(const char *name);</span>
+      <span style="font–style: italic;">bool enable_logging(const char *name);</span>
       – Enable redirecting error messages to a log file and return false if the
       operation failed.<br>
       <br>
-      <span style="font-style: italic;">void randomize();</span> – Initialize
+      <span style="font–style: italic;">void randomize();</span> – Initialize
       random number generator.<br>
       <br>
-      <span style="font-style: italic;">unsigned int get_random(const int
+      <span style="font–style: italic;">unsigned int get_random(const int
         number);</span> – Return a random value between zero and the number.<br>
       <br>
-      <span style="font-style: italic;">unsigned int get_texture_size();</span>
+      <span style="font–style: italic;">unsigned int get_texture_size();</span>
       – Return maximum width or height of texture.<br>
       <br>
-      <span style="font-style: italic;">BIRD2D::BOX generate_box(const unsigned
+      <span style="font–style: italic;">BIRD2D::BOX generate_box(const unsigned
         int x,const unsigned int y,const unsigned int width,const unsigned int
         height);</span> – Generate collision related information.<br>
     </big>
@@ -1018,28 +1020,28 @@
         manager</big></h2>
     <big>A resource is an instance of a user–defined class or structure.
       Resource manager is storage for resources. It implemented as few template
-      functions. All these functions declared in <span style="font-style: italic;">Resource</span>
+      functions. All these functions declared in <span style="font–style: italic;">Resource</span>
       sub–namespace.<br>
       <br>
-      <span style="font-style: italic;"> create</span> function create single
+      <span style="font–style: italic;"> create</span> function create single
       resource or terminate the program if operation failed. It didn't take
       argument and return handle of the resource.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;"> create_array</span> function create
+      <br style="font–style: italic;">
+      <span style="font–style: italic;"> create_array</span> function create
       resource array or terminate the program if operation failed. It takes
       resource amount as argument and return handle of resource array.<br>
       <br>
-      <span style="font-style: italic;"> destroy</span> function delete resource
+      <span style="font–style: italic;"> destroy</span> function delete resource
       if it already exists. This function takes resource handle as argument.<br>
       <br>
-      <span style="font-style: italic;"> destroy_array</span> function delete
+      <span style="font–style: italic;"> destroy_array</span> function delete
       resource array if it already exists. This function takes resource array
       handle as argument.<br>
     </big>
     <h1><a name="mozTocId590919" class="mozTocH1"></a><big> Part 7. Binary files</big></h1>
     <h2><a name="mozTocId200879" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
-    <big>All subsystems in this section declared in <span style="font-style: italic;">File</span>
+    <big>All subsystems in this section declared in <span style="font–style: italic;">File</span>
       sub–namespace.</big><br>
     <big> </big>
     <h2><a name="mozTocId961921" class="mozTocH2"></a><big> Chapter 2. Base
@@ -1063,7 +1065,7 @@
       <i> bool Binary_File::check_error();</i> – Return true if last file
       operation failed.<br>
       <br>
-      <span style="font-style: italic;"> bool Binary_File::is_open() const;</span>
+      <span style="font–style: italic;"> bool Binary_File::is_open() const;</span>
       – Return true if the file was successfully open.<br>
       <br>
       <u>Important notice</u><br>
@@ -1101,40 +1103,39 @@
     <h1><a name="mozTocId291572" class="mozTocH1"></a><big>Part 8. Input</big></h1>
     <h2><a name="mozTocId783369" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
-    <big>All subsystems in this section declared in <span style="font-style: italic;">Input</span>
+    <big>All subsystems in this section declared in <span style="font–style: italic;">Input</span>
       sub–namespace.</big><br>
     <big> </big>
     <h2><a name="mozTocId685403" class="mozTocH2"></a><big>Chapter 2. Keyboard</big></h2>
-    <big><br>
-      <span style="text-decoration: underline;"> Low–level input</span><br>
+    <big> <span style="text–decoration: underline;"> Low–level input</span><br>
       <br>
       Any keyboard has a built–in chip. It generates a special code when user
       press or release key. This code called «scan code».<br>
       <br>
-      <span style="text-decoration: underline;"> Working with keyboard</span><br>
+      <span style="text–decoration: underline;"> Working with keyboard</span><br>
       <br>
-      Just use <span style="font-style: italic;">Keyboard</span> class to work
+      Just use <span style="font–style: italic;">Keyboard</span> class to work
       with a keyboard. Let's look at public methods.<br>
       <br>
-      <span style="font-style: italic;"> void Keyboard::initialize();</span> –
+      <span style="font–style: italic;"> void Keyboard::initialize();</span> –
       Initialize the subsystem.<br>
       <br>
-      <span style="font-style: italic;"> bool Keyboard::check_hold(const
+      <span style="font–style: italic;"> bool Keyboard::check_hold(const
         unsigned char code);</span> – Return true if key with specific scan–code
       is press or holding.<br>
       <br>
-      <span style="font-style: italic;"> bool Keyboard::check_press(const
+      <span style="font–style: italic;"> bool Keyboard::check_press(const
         unsigned char code);</span> – Return true if key with specific scan–code
       was press.<br>
       <br>
-      <span style="font-style: italic;"> bool Keyboard::check_release(const
+      <span style="font–style: italic;"> bool Keyboard::check_release(const
         unsigned char code);</span> – Return true if key with specific scan–code
       was release.<br>
       <br>
-      <span style="font-style: italic;"> bool Keyboard::is_ready() const;</span>
+      <span style="font–style: italic;"> bool Keyboard::is_ready() const;</span>
       – Return true if the subsystem is already initialized.<br>
       <br>
-      <span style="text-decoration: underline;"> List of supported scan–codes</span><br>
+      <span style="text–decoration: underline;"> List of supported scan–codes</span><br>
     </big>
     <p><big> You can see a list of scan–codes below.</big></p>
     <big> </big>
@@ -1388,47 +1389,47 @@
     </table>
     <big> </big>
     <h2><a name="mozTocId686993" class="mozTocH2"></a><big>Chapter 3. Mouse</big></h2>
-    <big> <span style="text-decoration: underline;"> A few words about mouse</span><br>
+    <big> <span style="text–decoration: underline;"> A few words about mouse</span><br>
       <br>
       Mouse is very useful for interaction with graphical user interface. But
       mouse also can use in a video games.<br>
       <br>
-      <span style="text-decoration: underline;"> Working with mouse</span><br>
+      <span style="text–decoration: underline;"> Working with mouse</span><br>
       <br>
-      Just use <span style="font-style: italic;">Mouse</span> class to work
+      Just use <span style="font–style: italic;">Mouse</span> class to work
       with a mouse. Let's look at public methods.<br>
       <br>
-      <span style="font-style: italic;">void Mouse::initialize();</span> –
+      <span style="font–style: italic;">void Mouse::initialize();</span> –
       Initialize the subsystem.<br>
       <br>
-      <span style="font-style: italic;"> void Mouse::show();</span> – Show mouse
+      <span style="font–style: italic;"> void Mouse::show();</span> – Show mouse
       cursor.<br>
       <br>
-      <span style="font-style: italic;"> void Mouse::hide();</span> – Hide mouse
+      <span style="font–style: italic;"> void Mouse::hide();</span> – Hide mouse
       cursor.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Mouse::get_x();</span> –
+      <span style="font–style: italic;"> unsigned int Mouse::get_x();</span> –
       Return x position of mouse.<br>
       <br>
-      <span style="font-style: italic;"> unsigned int Mouse::get_y();</span> –
+      <span style="font–style: italic;"> unsigned int Mouse::get_y();</span> –
       Return y position of mouse.<br>
       <br>
-      <span style="font-style: italic;"> void Mouse::set_position(const unsigned
+      <span style="font–style: italic;"> void Mouse::set_position(const unsigned
         int x,const unsigned int y);</span> – Set position of mouse.<br>
       <br>
-      <span style="font-style: italic;"> bool Mouse::check_hold(const
+      <span style="font–style: italic;"> bool Mouse::check_hold(const
         BIRD2D::MOUSE_BUTTON button);</span> – Return true if specific mouse
       button is press or holding.<br>
       <br>
-      <span style="font-style: italic;"> bool Mouse::check_press(const
+      <span style="font–style: italic;"> bool Mouse::check_press(const
         BIRD2D::MOUSE_BUTTON button);</span> – Return true if specific mouse
       button was press.<br>
       <br>
-      <span style="font-style: italic;"> bool Mouse::check_release(const
+      <span style="font–style: italic;"> bool Mouse::check_release(const
         BIRD2D::MOUSE_BUTTON button);</span> – Return true if specific mouse
       button was release.<br>
       <br>
-      <span style="text-decoration: underline;"> Mouse buttons</span><br>
+      <span style="text–decoration: underline;"> Mouse buttons</span><br>
     </big>
     <p><big> Mouse button codes look as predefined constants. You can see it
         below.</big></p>
@@ -1453,7 +1454,39 @@
         </tr>
       </tbody>
     </table>
-    <big> </big> <big> <span style="font-style: italic;"></span><br>
+    <big> </big> <big> <br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId316549"></a><big>Chapter 3. Joystick</big></h2>
+    <big><span style="font–style: italic;">Joystick</span> class provide simple
+      access to <a href="https://en.wikipedia.org/wiki/Joystick">joystick</a>.
+      It is a simple class with few methods.<br>
+      <br>
+      <span style="font–style: italic;">void Joystick::update()</span>; – Update
+      internal joystick state. Always call it before call another methods.<br>
+      <br>
+      <span style="font–style: italic;">void Joystick::initialize(const char
+        *joystick);</span> – Initialize the subsystem.<br>
+      <br>
+      <span style="font–style: italic;">bool Joystick::is_ready() const;</span>
+      – Return true if the subsystem is already initialized.<br>
+      <br>
+      <span style="font–style: italic;">bool Joystick::check_hold(const size_t
+        button) const;</span> – Return true if the button is press or holding.<br>
+      <br>
+      <span style="font–style: italic;">bool Joystick::check_press(const size_t
+        button) const;</span> – Return true if the button was press.<br>
+      <br>
+      <span style="font–style: italic;">bool Joystick::check_released(const
+        size_t button) const;</span> – Return true if the button was release.<br>
+      <br>
+      <span style="font–style: italic;">short int Joystick::get_axe(const size_t
+        target);</span> – Return current value of target joystick axe.<br>
+      <br>
+      <span style="font–style: italic;">size_t Joystick::get_button_amount()
+        const;</span> – Return amount of the joystick buttons.<br>
+      <br>
+      <span style="font–style: italic;">size_t Joystick::get_axe_amount() const;</span>
+      – Return amount of the joystick axe.<br>
     </big>
     <h1><a name="mozTocId309127" class="mozTocH1"></a><big>Part 9. Internal
         details of the engine subsystems</big></h1>
@@ -1466,81 +1499,81 @@
     <big> </big>
     <h2><a name="mozTocId318160" class="mozTocH2"></a><big>Chapter 2. Internal
         classes</big></h2>
-    <big><span style="text-decoration: underline;">Internal classes</span><br>
+    <big><span style="text–decoration: underline;">Internal classes</span><br>
       <br>
       Some classes designed for internal use only. Don't touch them. What doing
       these strange classes?<br>
       <br>
-      <span style="text-decoration: underline;">Linux specific classes</span><br>
+      <span style="text–decoration: underline;">Linux specific classes</span><br>
       <br>
-      All Unix specific classes declared in <span style="font-style: italic;">Internal</span>
+      All Unix specific classes declared in <span style="font–style: italic;">Internal</span>
       sub–namespace.<br>
       <br>
-      <span style="font-style: italic;"> Engine</span> creates the game window
+      <span style="font–style: italic;"> Engine</span> creates the game window
       and do message processing.<br>
-      <span style="font-style: italic;"> Synchronization</span> implements the
-      synchronization timer.</big><big><span style="font-style: italic;"></span></big><br>
-    <big><br style="text-decoration: underline;">
-      <span style="text-decoration: underline;"> Core classes</span><br>
+      <span style="font–style: italic;"> Synchronization</span> implements the
+      synchronization timer.</big><big><span style="font–style: italic;"></span></big><br>
+    <big><br style="text–decoration: underline;">
+      <span style="text–decoration: underline;"> Core classes</span><br>
       <br>
-      All engine core classes and functions declared in <span style="font-style: italic;">Core</span>
+      All engine core classes and functions declared in <span style="font–style: italic;">Core</span>
       sub–namespace.<br>
       <br>
-    </big> <big><span style="font-style: italic;"> FPS</span> implement fps
+    </big> <big><span style="font–style: italic;"> FPS</span> implement fps
       counter.</big><big><i></i><br>
-      <span style="font-style: italic;"> Buffer</span> implement custom memory
+      <span style="font–style: italic;"> Buffer</span> implement custom memory
       buffer.<br>
-    </big><big><span style="font-style: italic;"> Render</span> implement OPENGL
+    </big><big><span style="font–style: italic;"> Render</span> implement OPENGL
       render.<br>
-      <span style="font-style: italic;"> Resizer</span> intending to calculate
+      <span style="font–style: italic;"> Resizer</span> intending to calculate
       correct texture size.<br>
-      <span style="font-style: italic;"> Rectangle</span> intending to draw
+      <span style="font–style: italic;"> Rectangle</span> intending to draw
       textured rectangle.<br>
-      <span style="font-style: italic;"> Shape</span> is base class of <span style="font-style: italic;">Rectangle</span>
+      <span style="font–style: italic;"> Shape</span> is base class of <span style="font–style: italic;">Rectangle</span>
       class.<br>
     </big>
     <h2><a name="mozTocId293644" class="mozTocH2"></a><big>Chapter 3. Base
         graphics subsystem</big></h2>
-    <big> </big><big style="text-decoration: underline;">Visible object</big><br>
+    <big> </big><big style="text–decoration: underline;">Visible object</big><br>
     <big> </big><br>
     <big> Any visible object is a textured rectangle.</big><br>
     <big> </big><br>
-    <big style="text-decoration: underline;"> Images</big><br>
+    <big style="text–decoration: underline;"> Images</big><br>
     <big> </big><br>
     <big> A texture width must be a power of two. A texture height also must be
       a power of two. Any image will automatically resize before load.</big><br>
     <br>
-    <big style="text-decoration: underline;"> Vertex arrays and texture
+    <big style="text–decoration: underline;"> Vertex arrays and texture
       coordinates arrays</big><br>
     <big> </big><br>
     <big> Any rectangle need four vertexes and four texture coordinates.</big><br>
     <big> Single vertex represent by follow custom data type.</big><br>
     <big> </big><br>
-    <big style="font-style: italic;"> typedef struct Vertex</big><br style="font-style: italic;">
-    <big style="font-style: italic;"> {</big><br style="font-style: italic;">
-    &nbsp; <big style="font-style: italic;">int x;</big><br style="font-style: italic;">
-    &nbsp; <big style="font-style: italic;"> int y;</big><br style="font-style: italic;">
-    <big style="font-style: italic;"> };</big><br>
+    <big style="font–style: italic;"> typedef struct Vertex</big><br style="font–style: italic;">
+    <big style="font–style: italic;"> {</big><br style="font–style: italic;">
+    &nbsp; <big style="font–style: italic;">int x;</big><br style="font–style: italic;">
+    &nbsp; <big style="font–style: italic;"> int y;</big><br style="font–style: italic;">
+    <big style="font–style: italic;"> };</big><br>
     <big> </big><br>
     <big> </big><big>Single texture coordinate represent by follow custom data
       type.</big><br>
     <big> </big><br>
-    <big style="font-style: italic;"> typedef struct</big><br style="font-style: italic;">
-    <big style="font-style: italic;"> {</big><br style="font-style: italic;">
-    &nbsp; <big style="font-style: italic;">double u;</big><br style="font-style: italic;">
-    &nbsp; <big style="font-style: italic;"> double v;</big><br style="font-style: italic;">
-    <big style="font-style: italic;"> } Point;</big><br>
+    <big style="font–style: italic;"> typedef struct</big><br style="font–style: italic;">
+    <big style="font–style: italic;"> {</big><br style="font–style: italic;">
+    &nbsp; <big style="font–style: italic;">double u;</big><br style="font–style: italic;">
+    &nbsp; <big style="font–style: italic;"> double v;</big><br style="font–style: italic;">
+    <big style="font–style: italic;"> } Point;</big><br>
     <big> </big> <br>
-    <big>All these custom types declared in <span style="font-style: italic;">Core</span>
-      sub–namespace.</big><span style="font-weight: bold;"></span><big><br>
+    <big>All these custom types declared in <span style="font–style: italic;">Core</span>
+      sub–namespace.</big><span style="font–weight: bold;"></span><big><br>
       <br>
     </big>
     <h2><a name="mozTocId804583" class="mozTocH2"></a><big>Chapter 4. Input</big></h2>
-    <big> <span style="text-decoration: underline;"> Input back–end</span><br>
+    <big> <span style="text–decoration: underline;"> Input back–end</span><br>
       <br>
       Keyboard and mouse input subsystems are simple. It works over Xlib.<br>
       <br>
-      <span style="text-decoration: underline;"> Internal key state</span><br>
+      <span style="text–decoration: underline;"> Internal key state</span><br>
     </big>
     <p><big> Internal state of keyboard keys and mouse buttons look as
         predefined constants. You can see it below.</big></p>
@@ -1561,28 +1594,32 @@
         </tr>
       </tbody>
     </table>
-    <big> </big> <big></big><br>
+    <big> <br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId389200"></a><big>Chapter 5. Joystick</big></h2>
+    <big>Joystick subsystem working over <a href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/input/joydev/joystick–api.rst?h=v6.4.12">Linux
+        Joystick API</a>.<br>
+    </big>
     <h1><a name="mozTocId78453" class="mozTocH1"></a><big>Version history</big></h1>
     <big> 0.1 – </big><big>Initial version.<br>
       0.1.1 </big><big>– </big><big>0.3.4 </big><big>– Unstable branch.<br>
     </big><big>0.3.5 </big><big>– Preview release.<br>
-    </big><big> 0.3.6 </big><big>– </big><big>0.3.7 </big><big>– Small
-      changes.<br>
-      0.3.8 – Full-screen mode is implemented.<br>
+    </big><big> 0.3.6 </big><big>– </big><big>0.3.7 </big><big>– Small changes.<br>
+      0.3.8 – Full–screen mode is implemented.<br>
     </big><big>0.3.9 </big><big>– Mouse input improved.<br>
     </big><big>0.4 </big><big>– Keyboard input improved.<br>
     </big><big>0.4.1 </big><big>– Mouse input improved.<br>
-    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small
-      changes.<br>
+    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small changes.<br>
     </big><big>0.4.4 </big><big>– Makefile updated.<br>
       0.4.5 – New subsystem added.<br>
-    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small
-      changes.<br>
+    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small changes.<br>
       0.5 – 0.5.3 – Mouse input improved.<br>
-    </big><big> 0.5.4 </big><big>– </big><big>0.5.6 </big><big>– Small
-      changes.<br>
+    </big><big> 0.5.4 </big><big>– </big><big>0.5.6 </big><big>– Small changes.<br>
     </big><big>0.5.7 </big><big>– Stable release.<br>
       0.5.8 – Small changes.<br>
+      0.5.9 – Joystick support added.<br>
+      0.6 – 0.7.3 – Joystick support improved.<br>
+      0.7.4 – Small changes.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>

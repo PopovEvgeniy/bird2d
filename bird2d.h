@@ -34,7 +34,10 @@ freely, subject to the following restrictions:
 #include <limits.h>
 #include <new>
 #include <unistd.h>
+#include <fcntl.h>
 #include <sys/time.h>
+#include <sys/ioctl.h>
+#include <linux/joystick.h>
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <X11/keysymdef.h>
@@ -437,6 +440,31 @@ namespace BIRD2D
    bool check_hold(const BIRD2D::MOUSE_BUTTON button);
    bool check_press(const BIRD2D::MOUSE_BUTTON button);
    bool check_release(const BIRD2D::MOUSE_BUTTON button);
+  };
+
+  class Joystick
+  {
+    private:
+    Core::Buffer<short int> current;
+    Core::Buffer<short int> preversion;
+    Core::Buffer<short int> axe;
+    int device;
+    void open_device(const char *joystick);
+    void read_configuration();
+    bool check_current_button(const size_t button);
+    bool check_preversion_button(const size_t button);
+    public:
+    Joystick();
+    ~Joystick();
+    void update();
+    void initialize(const char *joystick);
+    bool is_ready() const;
+    bool check_button_hold(const size_t button);
+    bool check_button_press(const size_t button);
+    bool check_button_release(const size_t button);
+    short int get_axe(const size_t target);
+    size_t get_button_amount() const;
+    size_t get_axe_amount() const;
   };
 
  }
