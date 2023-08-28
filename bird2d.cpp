@@ -633,6 +633,11 @@ namespace BIRD2D
        glXDestroyContext(display,context);
        context=NULL;
      }
+     if  (visual_information!=NULL)
+     {
+       XFree(visual_information);
+       visual_information=NULL;
+     }
      if  (window!=None)
      {
        XDestroyWindow(display,window);
