@@ -705,9 +705,11 @@ namespace BIRD2D
      attributes.border_pixel=BlackPixel(display,visual_information->screen);
      attributes.background_pixel=WhitePixel(display,visual_information->screen);
      attributes.override_redirect=True;
+     attributes.save_under=False;
+     attributes.backing_store=NotUseful;
      attributes.event_mask=KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|ButtonMotionMask|StructureNotifyMask;
      attributes.colormap=XCreateColormap(display,root,visual_information->visual,AllocNone);
-     window=XCreateWindow(display,root,0,0,display_width,display_height,0,visual_information->depth,InputOutput,visual_information->visual,CWOverrideRedirect|CWBackPixel|CWColormap|CWBorderPixel|CWEventMask,&attributes);
+     window=XCreateWindow(display,root,0,0,display_width,display_height,0,visual_information->depth,InputOutput,visual_information->visual,CWSaveUnder|CWBackingStore|CWOverrideRedirect|CWBackPixel|CWColormap|CWBorderPixel|CWEventMask,&attributes);
      if  (window==None)
      {
        BIRD2D::Halt("Can't create window");
