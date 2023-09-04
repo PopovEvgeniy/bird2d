@@ -35,9 +35,11 @@ freely, subject to the following restrictions:
 #include <new>
 #include <unistd.h>
 #include <fcntl.h>
+#include <pthread.h>
 #include <sys/time.h>
 #include <sys/ioctl.h>
 #include <linux/joystick.h>
+#include <linux/soundcard.h>
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <X11/keysymdef.h>
@@ -77,12 +79,30 @@ namespace BIRD2D
   unsigned int height;
  } BOX;
 
+ typedef struct
+ {
+  char riff_signature[4];
+  unsigned long int riff_length:32;
+  char wave_signature[4];
+  char format[4];
+  unsigned long int description_length:32;
+  unsigned short int type:16;
+  unsigned short int channels:16;
+  unsigned long int rate:32;
+  unsigned long int block_length:32;
+  unsigned short int align:16;
+  unsigned short int bits:16;
+  char date_signature[4];
+  unsigned long int date_length:32;
+ } WAVE_head;
+
  void Halt(const char *message);
 
  namespace Internal
  {
 
   unsigned char get_scan_code(const KeySym key);
+  void* play_sound(void *buffer);
 
   class Synchronization
   {
@@ -130,25 +150,6 @@ namespace BIRD2D
    Engine();
    ~Engine();
   };
-
- }
-
- namespace Misc
- {
-
-   class Memory
-   {
-    private:
-    struct sysinfo information;
-    void read_system_information();
-    public:
-    Memory();
-    ~Memory();
-     unsigned long long int get_total_physical();
-     unsigned long long int get_free_physical();
-     unsigned long long int get_total_virtual();
-     unsigned long long int get_free_virtual();
-   };
 
  }
 
@@ -509,6 +510,103 @@ namespace BIRD2D
    void write(const void *buffer,const size_t length);
    void flush();
   };
+
+ }
+
+ namespace Misc
+ {
+
+   class Memory
+   {
+    private:
+    struct sysinfo information;
+    void read_system_information();
+    public:
+    Memory();
+    ~Memory();
+     unsigned long long int get_total_physical();
+     unsigned long long int get_free_physical();
+     unsigned long long int get_total_virtual();
+     unsigned long long int get_free_virtual();
+   };
+
+   class Sound
+   {
+    private:
+    Core::Buffer<char> internal;
+    size_t buffer_length;
+    pthread_t stream;
+    void open_device();
+    void set_format();
+    void set_channels(const int channels);
+    void set_rate(const int rate);
+    void get_buffer_length();
+    void configure_sound_card(const int rate,const int channels);
+    void start_stream();
+    void create_buffer();
+    public:
+    Sound();
+    ~Sound();
+    void initialize(const int rate,const int channels);
+    bool check_busy();
+    bool is_ready() const;
+    size_t get_length() const;
+    size_t send(const void *buffer,const size_t length);
+    Sound* get_handle();
+   };
+
+   class Audio
+   {
+    private:
+    File::Input_File target;
+    WAVE_head head;
+    void read_head();
+    void check_riff_signature();
+    void check_wave_signature();
+    void check_type() const;
+    void check_bits() const;
+    void check_channels() const;
+    void check_wave();
+    public:
+    Audio();
+    ~Audio();
+    Audio* get_handle();
+    size_t get_total() const;
+    size_t get_block() const;
+    unsigned long int get_rate() const;
+    unsigned short int get_channels() const;
+    unsigned short int get_bits() const;
+    void load(const char *name);
+    void read_data(void *buffer,const size_t length);
+    void go_start();
+   };
+
+   class Player
+   {
+    private:
+    Sound *sound;
+    Audio *target;
+    Core::Buffer<char> buffer;
+    size_t index;
+    size_t length;
+    size_t block;
+    void configure_player(Audio *audio);
+    void clear_buffer();
+    void create_buffer();
+    void read_sound_data();
+    void send_sound();
+    public:
+    Player();
+    ~Player();
+    void rewind();
+    bool is_end() const;
+    void load(Audio *audio);
+    void load(Audio &audio);
+    void initialize(Sound *target);
+    void initialize(Sound &target);
+    void play();
+    void loop();
+   };
 
  }
 

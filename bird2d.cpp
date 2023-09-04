@@ -89,6 +89,13 @@ Window window=None;
 Display *display=NULL;
 }
 
+namespace OSS_BACKEND
+{
+ volatile int sound_device=-1;
+ volatile size_t sound_buffer_length=0;
+ volatile bool run_stream=true;
+}
+
 namespace BIRD2D
 {
 
@@ -570,6 +577,24 @@ namespace BIRD2D
      return code;
    }
 
+    void* play_sound(void *buffer)
+    {
+     while (OSS_BACKEND::run_stream)
+     {
+      if (OSS_BACKEND::sound_buffer_length>0)
+      {
+       write(OSS_BACKEND::sound_device,buffer,OSS_BACKEND::sound_buffer_length);
+       OSS_BACKEND::sound_buffer_length=0;
+      }
+
+    }
+    if (OSS_BACKEND::sound_device!=-1)
+    {
+      close(OSS_BACKEND::sound_device);
+    }
+    return NULL;
+   }
+
    Synchronization::Synchronization()
    {
      start=0;
@@ -836,54 +861,6 @@ namespace BIRD2D
    }
 
  }
-
- namespace Misc
- {
-
-   Memory::Memory()
-   {
-    memset(&information,0,sizeof(struct sysinfo));
-   }
-
-  Memory::~Memory()
-  {
-
-  }
-
-   void Memory::read_system_information()
-   {
-    if (sysinfo(&information)==-1)
-   {
-     memset(&information,0,sizeof(struct sysinfo));
-   }
-
-  }
-
-  unsigned long long int Memory::get_total_physical()
-  {
-   this->read_system_information();
-   return information.totalram*information.mem_unit;
-  }
-
-  unsigned long long int Memory::get_free_physical()
-  {
-   this->read_system_information();
-   return information.freeram*information.mem_unit;
-  }
-
-  unsigned long long int Memory::get_total_virtual()
-  {
-   this->read_system_information();
-   return information.totalswap*information.mem_unit;
-  }
-
-  unsigned long long int Memory::get_free_virtual()
-  {
-   this->read_system_information();
-   return information.freeswap*information.mem_unit;
-  }
-
-  }
 
  namespace Core
  {
@@ -1923,6 +1900,456 @@ namespace BIRD2D
    if (this->get_target()!=NULL)
    {
     fflush(this->get_target());
+   }
+
+  }
+
+ }
+
+ namespace Misc
+ {
+
+   Memory::Memory()
+   {
+    memset(&information,0,sizeof(struct sysinfo));
+   }
+
+  Memory::~Memory()
+  {
+
+  }
+
+  void Memory::read_system_information()
+  {
+   if (sysinfo(&information)==-1)
+   {
+     memset(&information,0,sizeof(struct sysinfo));
+   }
+
+  }
+
+  unsigned long long int Memory::get_total_physical()
+  {
+   this->read_system_information();
+   return information.totalram*information.mem_unit;
+  }
+
+  unsigned long long int Memory::get_free_physical()
+  {
+   this->read_system_information();
+   return information.freeram*information.mem_unit;
+  }
+
+  unsigned long long int Memory::get_total_virtual()
+  {
+   this->read_system_information();
+   return information.totalswap*information.mem_unit;
+  }
+
+  unsigned long long int Memory::get_free_virtual()
+  {
+   this->read_system_information();
+   return information.freeswap*information.mem_unit;
+  }
+
+  Sound::Sound()
+  {
+   internal.set_length(0);
+   buffer_length=0;
+   stream=0;
+  }
+
+  Sound::~Sound()
+  {
+   OSS_BACKEND::run_stream=false;
+   internal.destroy_buffer();
+  }
+
+  void Sound::open_device()
+  {
+   OSS_BACKEND::sound_device=open("/dev/dsp",O_WRONLY,S_IRWXU|S_IRWXG|S_IRWXO);
+   if (OSS_BACKEND::sound_device==-1)
+   {
+    BIRD2D::Halt("Can't get access to sound card");
+   }
+
+  }
+
+  void Sound::set_format()
+  {
+   int format;
+   format=AFMT_S16_LE;
+   if (ioctl(OSS_BACKEND::sound_device,SNDCTL_DSP_SETFMT,&format)==-1)
+   {
+    BIRD2D::Halt("Can't set sound format");
+   }
+
+  }
+
+  void Sound::set_channels(const int channels)
+  {
+   if (ioctl(OSS_BACKEND::sound_device,SNDCTL_DSP_CHANNELS,&channels)==-1)
+   {
+    BIRD2D::Halt("Can't set number of audio channels");
+   }
+
+  }
+
+  void Sound::set_rate(const int rate)
+  {
+   if (ioctl(OSS_BACKEND::sound_device,SNDCTL_DSP_SPEED,&rate)==-1)
+   {
+    BIRD2D::Halt("Can't set sample rate");
+   }
+
+  }
+
+  void Sound::get_buffer_length()
+  {
+   audio_buf_info configuration;
+   memset(&configuration,0,sizeof(audio_buf_info));
+   if (ioctl(OSS_BACKEND::sound_device,SNDCTL_DSP_GETOSPACE,&configuration)==-1)
+   {
+    BIRD2D::Halt("Can't read configuration of sound buffer");
+   }
+   buffer_length=static_cast<size_t>(configuration.fragstotal)*static_cast<size_t>(configuration.fragsize);
+  }
+
+  void Sound::configure_sound_card(const int rate,const int channels)
+  {
+   this->open_device();
+   this->set_format();
+   this->set_rate(rate);
+   this->set_channels(channels);
+   this->get_buffer_length();
+  }
+
+  void Sound::start_stream()
+  {
+   if (pthread_create(&stream,NULL,Internal::play_sound,internal.get_buffer())!=0)
+   {
+    BIRD2D::Halt("Can't start sound stream");
+   }
+
+  }
+
+  void Sound::create_buffer()
+  {
+   internal.set_length(buffer_length);
+   internal.create_buffer();
+   internal.fill_buffer(0);
+  }
+
+  void Sound::initialize(const int rate,const int channels)
+  {
+    if (internal.get_buffer()==NULL)
+    {
+      this->configure_sound_card(rate,channels);
+      this->create_buffer();
+      this->start_stream();
+    }
+
+  }
+
+  bool Sound::check_busy()
+  {
+   return OSS_BACKEND::sound_buffer_length>0;
+  }
+
+  bool Sound::is_ready() const
+  {
+    return internal.get_length()>0;
+  }
+
+  size_t Sound::get_length() const
+  {
+   return buffer_length;
+  }
+
+  size_t Sound::send(const void *buffer,const size_t length)
+  {
+   size_t amount;
+   if (this->check_busy()==true)
+   {
+    amount=0;
+   }
+   else
+   {
+    amount=buffer_length;
+    if (length<buffer_length)
+    {
+      amount=length;
+    }
+    memcpy(internal.get_buffer(),buffer,amount);
+    OSS_BACKEND::sound_buffer_length=amount;
+   }
+   return amount;
+  }
+
+  Sound* Sound::get_handle()
+  {
+   return this;
+  }
+
+  Audio::Audio()
+  {
+   memset(&head,0,44);
+  }
+
+  Audio::~Audio()
+  {
+
+  }
+
+  void Audio::read_head()
+  {
+    if (target.is_open()==true)
+    {
+      target.read(&head,44);
+    }
+
+  }
+
+  void Audio::check_riff_signature()
+  {
+   if (strncmp(head.riff_signature,"RIFF",4)!=0)
+   {
+    BIRD2D::Halt("Incorrect riff signature");
+   }
+
+  }
+
+  void Audio::check_wave_signature()
+  {
+   if (strncmp(head.wave_signature,"WAVE",4)!=0)
+   {
+    BIRD2D::Halt("Incorrect wave signature");
+   }
+
+  }
+
+  void Audio::check_type() const
+  {
+   if (head.type!=1)
+   {
+    BIRD2D::Halt("Incorrect type of wave file");
+   }
+
+  }
+
+  void Audio::check_bits() const
+  {
+   if (head.bits!=16)
+   {
+    BIRD2D::Halt("Incorrect amount of sound bits");
+   }
+
+  }
+
+  void Audio::check_channels() const
+  {
+   if ((head.channels==0)||(head.channels>2))
+   {
+    BIRD2D::Halt("Incorrect number of audio channels");
+   }
+
+  }
+
+  void Audio::check_wave()
+  {
+   this->check_riff_signature();
+   this->check_wave_signature();
+   this->check_type();
+   this->check_bits();
+   this->check_channels();
+  }
+
+  Audio* Audio::get_handle()
+  {
+   return this;
+  }
+
+  size_t Audio::get_total() const
+  {
+   return head.date_length;
+  }
+
+  size_t Audio::get_block() const
+  {
+   return head.block_length;
+  }
+
+  unsigned long int Audio::get_rate() const
+  {
+   return head.rate;
+  }
+
+  unsigned short int Audio::get_channels() const
+  {
+   return head.channels;
+  }
+
+  unsigned short int Audio::get_bits() const
+  {
+   return head.bits;
+  }
+
+  void Audio::load(const char *name)
+  {
+   target.open(name);
+   this->read_head();
+   this->check_wave();
+  }
+
+  void Audio::read_data(void *buffer,const size_t length)
+  {
+    if (target.is_open()==true)
+    {
+      target.read(buffer,length);
+    }
+
+  }
+
+  void Audio::go_start()
+  {
+    if (target.is_open()==true)
+    {
+      target.set_position(44);
+    }
+
+  }
+
+  Player::Player()
+  {
+   buffer.set_length(0);
+   sound=NULL;
+   target=NULL;
+   index=0;
+   length=0;
+   block=0;
+  }
+
+  Player::~Player()
+  {
+    buffer.destroy_buffer();
+  }
+
+  void Player::configure_player(Audio *audio)
+  {
+   index=0;
+   target=audio;
+   length=target->get_total();
+  }
+
+  void Player::clear_buffer()
+  {
+    buffer.destroy_buffer();
+  }
+
+  void Player::create_buffer()
+  {
+   if (sound!=NULL)
+   {
+     buffer.set_length(sound->get_length());
+     buffer.create_buffer();
+     buffer.fill_buffer(0);
+   }
+
+  }
+
+  void Player::read_sound_data()
+  {
+    if (target!=NULL)
+     {
+       target->read_data(buffer.get_buffer(),block);
+     }
+
+  }
+
+  void Player::send_sound()
+  {
+    if (sound!=NULL)
+     {
+       index+=sound->send(buffer.get_buffer(),block);
+     }
+
+  }
+
+  void Player::rewind()
+  {
+    if (target!=NULL)
+    {
+      index=0;
+      target->go_start();
+    }
+
+  }
+
+  bool Player::is_end() const
+  {
+   return index==length;
+  }
+
+  void Player::load(Audio *audio)
+  {
+   if (audio!=NULL)
+   {
+     this->configure_player(audio);
+     this->clear_buffer();
+     this->create_buffer();
+   }
+
+  }
+
+  void Player::load(Audio &audio)
+  {
+    this->load(audio.get_handle());
+  }
+
+  void Player::initialize(Sound *target)
+  {
+    if (target!=NULL)
+    {
+      sound=target;
+      block=target->get_length();
+    }
+
+  }
+
+  void Player::initialize(Sound &target)
+  {
+    this->initialize(target.get_handle());
+  }
+
+  void Player::play()
+  {
+   size_t elapsed;
+   if (index<length)
+   {
+    if (sound->check_busy()==false)
+    {
+     elapsed=length-index;
+     if (block>elapsed)
+     {
+       block=elapsed;
+     }
+     this->read_sound_data();
+     this->send_sound();
+    }
+
+   }
+
+  }
+
+  void Player::loop()
+  {
+   if (this->is_end())
+   {
+    this->rewind();
+   }
+   else
+   {
+    this->play();
    }
 
   }
