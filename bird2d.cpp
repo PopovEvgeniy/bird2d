@@ -588,10 +588,6 @@ namespace BIRD2D
       }
 
     }
-    if (OSS_BACKEND::sound_device!=-1)
-    {
-      close(OSS_BACKEND::sound_device);
-    }
     return NULL;
    }
 
@@ -1954,6 +1950,7 @@ namespace BIRD2D
 
   Sound::Sound()
   {
+   OSS_BACKEND::run_stream=true;
    internal.set_length(0);
    buffer_length=1048576;
    stream=0;
@@ -1962,6 +1959,14 @@ namespace BIRD2D
   Sound::~Sound()
   {
    OSS_BACKEND::run_stream=false;
+   if (stream!=0)
+   {
+    pthread_join(stream,NULL);
+   }
+   if (OSS_BACKEND::sound_device!=-1)
+   {
+    close(OSS_BACKEND::sound_device);
+   }
    internal.destroy_buffer();
   }
 
@@ -2032,9 +2037,9 @@ namespace BIRD2D
   {
     if (internal.get_buffer()==NULL)
     {
-      this->configure_sound_card(rate,channels);
-      this->create_buffer();
-      this->start_stream();
+     this->configure_sound_card(rate,channels);
+     this->create_buffer();
+     this->start_stream();
     }
 
   }
@@ -2046,12 +2051,12 @@ namespace BIRD2D
 
   bool Sound::is_ready() const
   {
-    return internal.get_length()>0;
+   return internal.get_length()>0;
   }
 
   size_t Sound::get_length() const
   {
-   return buffer_length;
+   return internal.get_length();
   }
 
   size_t Sound::send(const void *buffer,const size_t length)
