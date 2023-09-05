@@ -2081,75 +2081,16 @@ namespace BIRD2D
 
   Audio::Audio()
   {
-   memset(&head,0,44);
+   target.set_position(0);
+   audio_channels=0;
+   audio_rate=0;
+   audio_bits=0;
+   total=0;
   }
 
   Audio::~Audio()
   {
-
-  }
-
-  void Audio::read_head()
-  {
-    if (target.is_open()==true)
-    {
-      target.read(&head,44);
-    }
-
-  }
-
-  void Audio::check_riff_signature()
-  {
-   if (strncmp(head.riff_signature,"RIFF",4)!=0)
-   {
-    BIRD2D::Halt("Incorrect riff signature");
-   }
-
-  }
-
-  void Audio::check_wave_signature()
-  {
-   if (strncmp(head.wave_signature,"WAVE",4)!=0)
-   {
-    BIRD2D::Halt("Incorrect wave signature");
-   }
-
-  }
-
-  void Audio::check_type() const
-  {
-   if (head.type!=1)
-   {
-    BIRD2D::Halt("Incorrect type of wave file");
-   }
-
-  }
-
-  void Audio::check_bits() const
-  {
-   if (head.bits!=16)
-   {
-    BIRD2D::Halt("Incorrect amount of sound bits");
-   }
-
-  }
-
-  void Audio::check_channels() const
-  {
-   if ((head.channels==0)||(head.channels>2))
-   {
-    BIRD2D::Halt("Incorrect number of audio channels");
-   }
-
-  }
-
-  void Audio::check_wave()
-  {
-   this->check_riff_signature();
-   this->check_wave_signature();
-   this->check_type();
-   this->check_bits();
-   this->check_channels();
+   target.close();
   }
 
   Audio* Audio::get_handle()
@@ -2159,41 +2100,63 @@ namespace BIRD2D
 
   size_t Audio::get_total() const
   {
-   return head.data_length;
+   return total;
   }
 
   size_t Audio::get_block() const
   {
-   return head.rate*head.channels*(head.bits/CHAR_BIT);
+   return audio_rate*audio_channels*(audio_bits/CHAR_BIT);
   }
 
-  unsigned long int Audio::get_rate() const
+  size_t Audio::get_rate() const
   {
-   return head.rate;
+   return audio_rate;
   }
 
-  unsigned short int Audio::get_channels() const
+  size_t Audio::get_channels() const
   {
-   return head.channels;
+   return audio_channels;
   }
 
-  unsigned short int Audio::get_bits() const
+  size_t Audio::get_bits() const
   {
-   return head.bits;
+   return audio_bits;
   }
 
   void Audio::load(const char *name)
   {
    target.open(name);
-   this->read_head();
-   this->check_wave();
+   if (target.is_open()==true)
+   {
+    total=target.get_length();
+   }
+
+  }
+
+  void Audio::set_setting(const size_t rate,const size_t channels,const size_t bits)
+  {
+    if (channels==0)
+    {
+     BIRD2D::Halt("Invalid amount of audio channels");
+    }
+    if (rate==0)
+    {
+     BIRD2D::Halt("Invalid sample rate");
+    }
+    if (bits==0)
+    {
+     BIRD2D::Halt("Invalid bits per sample");
+    }
+    audio_rate=rate;
+    audio_channels=channels;
+    audio_bits=bits;
   }
 
   void Audio::read_data(void *buffer,const size_t length)
   {
     if (target.is_open()==true)
     {
-      target.read(buffer,length);
+     target.read(buffer,length);
     }
 
   }
@@ -2202,7 +2165,7 @@ namespace BIRD2D
   {
     if (target.is_open()==true)
     {
-      target.set_position(44);
+     target.set_position(0);
     }
 
   }

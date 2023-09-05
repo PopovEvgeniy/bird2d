@@ -79,23 +79,6 @@ namespace BIRD2D
   unsigned int height;
  } BOX;
 
- typedef struct
- {
-  char riff_signature[4];
-  unsigned long int riff_length:32;
-  char wave_signature[4];
-  char format[4];
-  unsigned long int description_length:32;
-  unsigned short int type:16;
-  unsigned short int channels:16;
-  unsigned long int rate:32;
-  unsigned long int block_length:32;
-  unsigned short int align:16;
-  unsigned short int bits:16;
-  char date_signature[4];
-  unsigned long int data_length:32;
- } WAVE_head;
-
  void Halt(const char *message);
 
  namespace Internal
@@ -558,24 +541,21 @@ namespace BIRD2D
    {
     private:
     File::Input_File target;
-    WAVE_head head;
-    void read_head();
-    void check_riff_signature();
-    void check_wave_signature();
-    void check_type() const;
-    void check_bits() const;
-    void check_channels() const;
-    void check_wave();
+    size_t audio_channels;
+    size_t audio_rate;
+    size_t audio_bits;
+    size_t total;
     public:
     Audio();
     ~Audio();
     Audio* get_handle();
     size_t get_total() const;
     size_t get_block() const;
-    unsigned long int get_rate() const;
-    unsigned short int get_channels() const;
-    unsigned short int get_bits() const;
+    size_t get_rate() const;
+    size_t get_channels() const;
+    size_t get_bits() const;
     void load(const char *name);
+    void set_setting(const size_t rate,const size_t channels,const size_t bits);
     void read_data(void *buffer,const size_t length);
     void go_start();
    };

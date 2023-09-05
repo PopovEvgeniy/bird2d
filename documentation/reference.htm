@@ -1018,53 +1018,16 @@
         audio</big></h2>
     <big><span style="text-decoration: underline;">Audio loader</span><br>
       <br>
-      Audio loader let you load audio data from <a href="https://en.wikipedia.org/wiki/Wave_Sound">Waveform
-        Audio</a> files.<br>
-      <span style="text-decoration: underline;"></span><br>
-      <span style="text-decoration: underline;">Supported format</span><br>
-      <br>
-      All loading audio files must have correct specification. You can see it
-      below.<br>
-      <br>
-    </big>
-    <table style="text-align: left; width: 293px; height: 120px;" cellspacing="2"
-      cellpadding="2" border="1">
-      <tbody>
-        <tr>
-          <td style="vertical-align: top;"><big>Data format<br>
-            </big></td>
-          <td style="vertical-align: top;"><big>Signed PCM<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>Bits per sample<br>
-            </big></td>
-          <td style="vertical-align: top;"><big>16<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>Channels<br>
-            </big></td>
-          <td style="vertical-align: top;"><big>1or 2<br>
-            </big></td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;"><big>Compression<br>
-            </big></td>
-          <td style="vertical-align: top;"><big>None<br>
-            </big></td>
-        </tr>
-      </tbody>
-    </table>
-    <big><br>
+      Audio loader let you load audio data from <a href="https://en.wikipedia.org/wiki/Raw_audio_format">Raw
+        audio format</a> files.<br>
+      <span style="text-decoration: underline;"></span></big><big><br>
       <span style="text-decoration: underline;">Recommend software</span><br>
       <br>
-      You can use wide range of sound software for convert you audio to correct
-      format. I recommend use <a href="https://www.audacityteam.org">Audacity</a>
-      or <a href="http://www.freac.org">fre:ac</a> for do it.<br>
+      You can use wide range of sound software for convert you audio to Raw
+      audio format. I recommend use <a href="https://tenacityaudio.org">Tenacity</a>
+      for do it.<br>
       <br>
       <span style="text-decoration: underline;">Load audio from files</span><br
-
         style="text-decoration: underline;">
       <br>
       <span style="font-style: italic;">Audio</span> class provide simple access
@@ -1079,15 +1042,14 @@
       <span style="font-style: italic;">size_t Audio::get_block() const;</span>
       – Return length of audio block in bytes.<br>
       <br>
-      <span style="font-style: italic;">unsigned long int Audio::get_rate()
-        const;</span> – Return <a href="https://en.wikipedia.org/wiki/Sampling_rate">sound
-        rate</a>.<br>
+      <span style="font-style: italic;">size_t Audio::get_rate() const;</span> –
+      Return <a href="https://en.wikipedia.org/wiki/Sampling_rate">sound rate</a>.<br>
       <br>
-      <span style="font-style: italic;">unsigned short int Audio::get_channels()
-        const;</span> – Return number of audio channels.<br>
+      <span style="font-style: italic;">size_t Audio::get_channels() const;</span>
+      – Return number of audio channels.<br>
       <br>
-      <span style="font-style: italic;">unsigned short int Audio::get_bits()
-        const;</span> – Return amount of bits per sample.<br>
+      <span style="font-style: italic;">size_t Audio::get_bits() const;</span> –
+      Return amount of bits per sample.<br>
       <br>
       <span style="font-style: italic;">void Audio::go_start();</span> – Go to
       start of audio data.<br>
@@ -1096,7 +1058,12 @@
         size_t length);</span> – Read audio data.<br>
       <br>
       <span style="font-style: italic;">void Audio::load(const char *name);</span>
-      – Load audio from Waveform Audio file.<br>
+      – Load audio from target file.<br>
+      <br>
+      <span style="font-style: italic;">void Audio::set_setting(const size_t
+        rate,</span></big><big style="font-style: italic;">const size_t
+      channels,</big><big style="font-style: italic;">const size_t bits</big><big><span
+        style="font-style: italic;">);</span> – Set audio setting.<br>
     </big>
     <h2><a class="mozTocH2" name="mozTocId165370"></a><big>Chapter 5. Playing
         audio</big></h2>
@@ -1792,6 +1759,8 @@
       0.9.6 – 1.0 – Small changes.<br>
       1.0.1 – 1.0.2 – Small bug fixed.<br>
       1.0.3 – Memory usage reduced.<br>
+      1.0.3 – 1.0.8 – Audio loader improved.<br>
+      1.0.9 – Small changes.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>

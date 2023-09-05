@@ -29,7 +29,8 @@ int main()
  timer.set_timer(1);
  sound.initialize(44100,2);
  player.initialize(sound);
- audio.load("./space.wav");
+ audio.load("./space.raw");
+ audio.set_setting(44100,2,16);
  player.load(audio);
  memset(perfomance,0,8);
  while(screen.sync())
