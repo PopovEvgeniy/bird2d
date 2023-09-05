@@ -2232,14 +2232,14 @@ namespace BIRD2D
 
   void Player::clear_buffer()
   {
-    buffer.destroy_buffer();
+   buffer.destroy_buffer();
   }
 
   void Player::create_buffer()
   {
    if (sound!=NULL)
    {
-     buffer.set_length(length);
+     buffer.set_length(block);
      buffer.create_buffer();
      buffer.fill_buffer(0);
    }
