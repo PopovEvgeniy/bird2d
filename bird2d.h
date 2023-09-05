@@ -93,7 +93,7 @@ namespace BIRD2D
   unsigned short int align:16;
   unsigned short int bits:16;
   char date_signature[4];
-  unsigned long int date_length:32;
+  unsigned long int data_length:32;
  } WAVE_head;
 
  void Halt(const char *message);
@@ -540,7 +540,6 @@ namespace BIRD2D
     void set_format();
     void set_channels(const int channels);
     void set_rate(const int rate);
-    void get_buffer_length();
     void configure_sound_card(const int rate,const int channels);
     void start_stream();
     void create_buffer();
@@ -602,8 +601,8 @@ namespace BIRD2D
     bool is_end() const;
     void load(Audio *audio);
     void load(Audio &audio);
-    void initialize(Sound *target);
-    void initialize(Sound &target);
+    void initialize(Sound *card);
+    void initialize(Sound &card);
     void play();
     void loop();
    };

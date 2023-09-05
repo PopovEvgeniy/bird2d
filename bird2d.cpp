@@ -92,7 +92,7 @@ Display *display=NULL;
 namespace OSS_BACKEND
 {
  volatile int sound_device=-1;
- volatile size_t sound_buffer_length=0;
+ volatile size_t sample_length=0;
  volatile bool run_stream=true;
 }
 
@@ -581,10 +581,10 @@ namespace BIRD2D
     {
      while (OSS_BACKEND::run_stream)
      {
-      if (OSS_BACKEND::sound_buffer_length>0)
+      if (OSS_BACKEND::sample_length>0)
       {
-       write(OSS_BACKEND::sound_device,buffer,OSS_BACKEND::sound_buffer_length);
-       OSS_BACKEND::sound_buffer_length=0;
+       write(OSS_BACKEND::sound_device,buffer,OSS_BACKEND::sample_length);
+       OSS_BACKEND::sample_length=0;
       }
 
     }
@@ -1955,7 +1955,7 @@ namespace BIRD2D
   Sound::Sound()
   {
    internal.set_length(0);
-   buffer_length=0;
+   buffer_length=1048576;
    stream=0;
   }
 
@@ -2004,24 +2004,12 @@ namespace BIRD2D
 
   }
 
-  void Sound::get_buffer_length()
-  {
-   audio_buf_info configuration;
-   memset(&configuration,0,sizeof(audio_buf_info));
-   if (ioctl(OSS_BACKEND::sound_device,SNDCTL_DSP_GETOSPACE,&configuration)==-1)
-   {
-    BIRD2D::Halt("Can't read configuration of sound buffer");
-   }
-   buffer_length=static_cast<size_t>(configuration.fragstotal)*static_cast<size_t>(configuration.fragsize);
-  }
-
   void Sound::configure_sound_card(const int rate,const int channels)
   {
    this->open_device();
    this->set_format();
    this->set_rate(rate);
    this->set_channels(channels);
-   this->get_buffer_length();
   }
 
   void Sound::start_stream()
@@ -2053,7 +2041,7 @@ namespace BIRD2D
 
   bool Sound::check_busy()
   {
-   return OSS_BACKEND::sound_buffer_length>0;
+   return OSS_BACKEND::sample_length>0;
   }
 
   bool Sound::is_ready() const
@@ -2081,7 +2069,7 @@ namespace BIRD2D
       amount=length;
     }
     memcpy(internal.get_buffer(),buffer,amount);
-    OSS_BACKEND::sound_buffer_length=amount;
+    OSS_BACKEND::sample_length=amount;
    }
    return amount;
   }
@@ -2171,12 +2159,12 @@ namespace BIRD2D
 
   size_t Audio::get_total() const
   {
-   return head.date_length;
+   return head.data_length;
   }
 
   size_t Audio::get_block() const
   {
-   return head.block_length;
+   return head.rate*head.channels*(head.bits/CHAR_BIT);
   }
 
   unsigned long int Audio::get_rate() const
@@ -2238,6 +2226,7 @@ namespace BIRD2D
   {
    index=0;
    target=audio;
+   block=target->get_block();
    length=target->get_total();
   }
 
@@ -2250,7 +2239,7 @@ namespace BIRD2D
   {
    if (sound!=NULL)
    {
-     buffer.set_length(sound->get_length());
+     buffer.set_length(length);
      buffer.create_buffer();
      buffer.fill_buffer(0);
    }
@@ -2287,7 +2276,7 @@ namespace BIRD2D
 
   bool Player::is_end() const
   {
-   return index==length;
+   return (index+1)>=length;
   }
 
   void Player::load(Audio *audio)
@@ -2306,19 +2295,18 @@ namespace BIRD2D
     this->load(audio.get_handle());
   }
 
-  void Player::initialize(Sound *target)
+  void Player::initialize(Sound *card)
   {
-    if (target!=NULL)
+    if (card!=NULL)
     {
-      sound=target;
-      block=target->get_length();
+      sound=card;
     }
 
   }
 
-  void Player::initialize(Sound &target)
+  void Player::initialize(Sound &card)
   {
-    this->initialize(target.get_handle());
+    this->initialize(card.get_handle());
   }
 
   void Player::play()
