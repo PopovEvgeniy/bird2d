@@ -576,11 +576,12 @@ namespace BIRD2D
     size_t index;
     size_t length;
     size_t block;
+    size_t rate;
     void configure_player(Audio *audio);
     void clear_buffer();
     void create_buffer();
-    void read_sound_data();
-    void send_sound();
+    void read_sound_data(const size_t amount);
+    void send_sound(const size_t amount,const size_t frames);
     public:
     Player();
     ~Player();

@@ -2251,6 +2251,7 @@ namespace BIRD2D
    index=0;
    length=0;
    block=0;
+   rate=0;
   }
 
   Player::~Player()
@@ -2264,6 +2265,7 @@ namespace BIRD2D
    target=audio;
    block=target->get_block();
    length=target->get_total();
+   rate=target->get_rate();
   }
 
   void Player::clear_buffer()
@@ -2282,24 +2284,20 @@ namespace BIRD2D
 
   }
 
-  void Player::read_sound_data()
+  void Player::read_sound_data(const size_t amount)
   {
     if (target!=NULL)
      {
-       target->read_data(buffer.get_buffer(),block);
+       target->read_data(buffer.get_buffer(),amount);
      }
 
   }
 
-  void Player::send_sound()
+  void Player::send_sound(const size_t amount,const size_t frames)
   {
     if (sound!=NULL)
      {
-       if (target!=NULL)
-       {
-         index+=sound->send(buffer.get_buffer(),block,target->get_rate());
-       }
-
+       index+=sound->send(buffer.get_buffer(),amount,frames);
      }
 
   }
@@ -2351,33 +2349,24 @@ namespace BIRD2D
 
   void Player::play()
   {
-   size_t elapsed;
-   if (index<length)
-   {
-    if (sound->check_busy()==false)
+    if (index<length)
     {
-     elapsed=length-index;
-     if (block>elapsed)
-     {
-       block=elapsed;
-     }
-     this->read_sound_data();
-     this->send_sound();
-    }
+      if (sound->check_busy()==false)
+      {
+        this->read_sound_data(block);
+        this->send_sound(block,rate);
+      }
 
-   }
+    }
 
   }
 
   void Player::loop()
   {
-   if (this->is_end())
+   this->play();
+   if (this->is_end()==true)
    {
     this->rewind();
-   }
-   else
-   {
-    this->play();
    }
 
   }
