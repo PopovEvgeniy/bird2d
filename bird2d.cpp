@@ -89,10 +89,10 @@ Window window=None;
 Display *display=NULL;
 }
 
-namespace OSS_BACKEND
+namespace ALSA_BACKEND
 {
- volatile int sound_device=-1;
- volatile size_t sample_length=0;
+ snd_pcm_t *sound_device=NULL;
+ volatile size_t audio_frames=0;
  volatile bool run_stream=true;
 }
 
@@ -579,12 +579,12 @@ namespace BIRD2D
 
     void* play_sound(void *buffer)
     {
-     while (OSS_BACKEND::run_stream)
+     while (ALSA_BACKEND::run_stream)
      {
-      if (OSS_BACKEND::sample_length>0)
+      if (ALSA_BACKEND::audio_frames>0)
       {
-       write(OSS_BACKEND::sound_device,buffer,OSS_BACKEND::sample_length);
-       OSS_BACKEND::sample_length=0;
+       snd_pcm_writei(ALSA_BACKEND::sound_device,buffer,ALSA_BACKEND::audio_frames);
+       ALSA_BACKEND::audio_frames=0;
       }
 
     }
@@ -1950,71 +1950,136 @@ namespace BIRD2D
 
   Sound::Sound()
   {
-   OSS_BACKEND::run_stream=true;
+   ALSA_BACKEND::run_stream=true;
    internal.set_length(0);
    buffer_length=1048576;
    stream=0;
+   setting=NULL;
   }
 
   Sound::~Sound()
   {
-   OSS_BACKEND::run_stream=false;
+   ALSA_BACKEND::run_stream=false;
    if (stream!=0)
    {
     pthread_join(stream,NULL);
    }
-   if (OSS_BACKEND::sound_device!=-1)
+   if (ALSA_BACKEND::sound_device!=NULL)
    {
-    close(OSS_BACKEND::sound_device);
+    snd_pcm_close(ALSA_BACKEND::sound_device);
+    ALSA_BACKEND::sound_device=NULL;
+   }
+   if (setting!=NULL)
+   {
+     snd_pcm_hw_params_free(setting);
+     setting=NULL;
    }
    internal.destroy_buffer();
   }
 
   void Sound::open_device()
   {
-   OSS_BACKEND::sound_device=open("/dev/dsp",O_WRONLY,S_IRWXU|S_IRWXG|S_IRWXO);
-   if (OSS_BACKEND::sound_device==-1)
+   if (snd_pcm_open(&ALSA_BACKEND::sound_device,"default",SND_PCM_STREAM_PLAYBACK,0)<0)
    {
-    BIRD2D::Halt("Can't get access to sound card");
+     BIRD2D::Halt("Can't get access to sound card");
    }
+
+  }
+
+  void Sound::allocate_setting()
+  {
+    snd_pcm_hw_params_malloc(&setting);
+    if (setting==NULL)
+    {
+      BIRD2D::Halt("Can't allocate memory for audio setting");
+    }
+
+  }
+
+  void Sound::fill_setting()
+  {
+    if (snd_pcm_hw_params_any(ALSA_BACKEND::sound_device,setting)<0)
+    {
+      BIRD2D::Halt("Can't get audio setting");
+    }
+
+  }
+
+  void Sound::set_setting()
+  {
+    if (snd_pcm_hw_params(ALSA_BACKEND::sound_device,setting)<0)
+    {
+     BIRD2D::Halt("Can't set audio setting");
+    }
+
+  }
+
+  void Sound::set_period()
+  {
+    if (snd_pcm_hw_params_set_periods(ALSA_BACKEND::sound_device,setting,10,0)<0)
+    {
+      BIRD2D::Halt("Can't set amount of period");
+    }
+
+  }
+
+  void Sound::set_period_time()
+  {
+    if (snd_pcm_hw_params_set_period_time(ALSA_BACKEND::sound_device,setting,100000,0)<0)
+    {
+      BIRD2D::Halt("Can't set time of single period");
+    }
+
+  }
+
+  void Sound::set_access()
+  {
+    if (snd_pcm_hw_params_set_access(ALSA_BACKEND::sound_device,setting,SND_PCM_ACCESS_RW_INTERLEAVED)<0)
+    {
+      BIRD2D::Halt("Can't set access rights");
+    }
 
   }
 
   void Sound::set_format()
   {
-   int format;
-   format=AFMT_S16_LE;
-   if (ioctl(OSS_BACKEND::sound_device,SNDCTL_DSP_SETFMT,&format)==-1)
+   if (snd_pcm_hw_params_set_format(ALSA_BACKEND::sound_device,setting,SND_PCM_FORMAT_S16_LE)<0)
    {
     BIRD2D::Halt("Can't set sound format");
    }
 
   }
 
-  void Sound::set_channels(const int channels)
+  void Sound::set_channels(const unsigned int channels)
   {
-   if (ioctl(OSS_BACKEND::sound_device,SNDCTL_DSP_CHANNELS,&channels)==-1)
+   if (snd_pcm_hw_params_set_channels(ALSA_BACKEND::sound_device,setting,channels)<0)
    {
-    BIRD2D::Halt("Can't set number of audio channels");
+     BIRD2D::Halt("Can't set number of audio channels");
    }
 
   }
 
-  void Sound::set_rate(const int rate)
+  void Sound::set_rate(const unsigned int rate)
   {
-   if (ioctl(OSS_BACKEND::sound_device,SNDCTL_DSP_SPEED,&rate)==-1)
+   if (snd_pcm_hw_params_set_rate(ALSA_BACKEND::sound_device,setting,rate,0)<0)
    {
     BIRD2D::Halt("Can't set sample rate");
    }
 
   }
 
-  void Sound::configure_sound_card(const int rate,const int channels)
+  void Sound::configure_sound_card(const unsigned int rate,const unsigned int channels)
   {
    this->open_device();
+   this->allocate_setting();
+   this->fill_setting();
+   this->set_access();
    this->set_format();
    this->set_rate(rate);
    this->set_channels(channels);
+   this->set_period();
+   this->set_period_time();
+   this->set_setting();
   }
 
   void Sound::start_stream()
@@ -2033,7 +2098,7 @@ namespace BIRD2D
    internal.fill_buffer(0);
   }
 
-  void Sound::initialize(const int rate,const int channels)
+  void Sound::initialize(const unsigned int rate,const unsigned int channels)
   {
     if (internal.get_buffer()==NULL)
     {
@@ -2046,7 +2111,7 @@ namespace BIRD2D
 
   bool Sound::check_busy()
   {
-   return OSS_BACKEND::sample_length>0;
+   return ALSA_BACKEND::audio_frames>0;
   }
 
   bool Sound::is_ready() const
@@ -2059,7 +2124,7 @@ namespace BIRD2D
    return internal.get_length();
   }
 
-  size_t Sound::send(const void *buffer,const size_t length)
+  size_t Sound::send(const void *buffer,const size_t length,const size_t frames)
   {
    size_t amount;
    if (this->check_busy()==true)
@@ -2068,13 +2133,16 @@ namespace BIRD2D
    }
    else
    {
-    amount=buffer_length;
-    if (length<buffer_length)
+    if (length<=buffer_length)
     {
       amount=length;
     }
+    else
+    {
+     amount=buffer_length;
+    }
     memcpy(internal.get_buffer(),buffer,amount);
-    OSS_BACKEND::sample_length=amount;
+    ALSA_BACKEND::audio_frames=frames;
    }
    return amount;
   }
@@ -2227,7 +2295,11 @@ namespace BIRD2D
   {
     if (sound!=NULL)
      {
-       index+=sound->send(buffer.get_buffer(),block);
+       if (target!=NULL)
+       {
+         index+=sound->send(buffer.get_buffer(),block,target->get_rate());
+       }
+
      }
 
   }

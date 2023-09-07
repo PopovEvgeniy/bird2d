@@ -91,6 +91,7 @@
           <li><a href="#mozTocId293644">Chapter 3. Base graphics subsystem</a></li>
           <li><a href="#mozTocId804583">Chapter 4. Input</a></li>
           <li><a href="#mozTocId389200">Chapter 5. Joystick</a></li>
+          <li><a href="#mozTocId45292">Chapter 6. Low–level sound subsystem</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId78453">Version history</a></li>
@@ -118,8 +119,8 @@
       <li><big>Easy to use object–orientated design.</big></li>
       <li><big>Very fast.</big></li>
       <li><big>Minimum external dependencies: only <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>,
-          <a href="https://mesa3d.org">Mesa 3d</a> and <a href="https://en.wikipedia.org/wiki/Pthreads">Posix
-            Threads</a>.<br>
+          <a href="https://mesa3d.org">Mesa 3d</a>, <a href="https://www.alsa-project.org">ALSA</a>
+          and <a href="https://en.wikipedia.org/wiki/Pthreads">Posix Threads</a>.<br>
         </big></li>
     </ul>
     <big><br>
@@ -166,8 +167,9 @@
     </big>
     <h2><a name="mozTocId56069" class="mozTocH2"></a><big>Chapter 4. </big><big>Dependencies</big></h2>
     <big><span style=""></span></big><big>You need&nbsp; libx11–dev and
-      libgl1–mesa–dev packages for compile this game engine. You also need <a href="https://sourceforge.net/projects/osspd/">OSS
-        Proxy Daemon</a> for run the demos.</big>
+      libgl1–mesa–dev packages for compile this game engine. You also need
+      libasound2</big><big>–</big><big>dev for most Linux distributives or </big><big>libasound</big><big>–</big><big>dev
+      for very old Linux distributives.</big>
     <h2><a name="mozTocId914689" class="mozTocH2"></a><big>Chapter 5. The engine
         name–space</big></h2>
     <big><span style="font-style: italic;">BIRD2D</span> is the main name–space.</big><big>
@@ -1005,8 +1007,9 @@
       – Return sound buffer length in bytes.<br>
       <br>
       <span style="font-style: italic;">size_t Sound::send(const void
-        *buffer,const size_t length);</span> – Send audio data to sound device
-      and return amount of send data in bytes.<br>
+        *buffer,const size_t length</span></big><big><span style="font-style: italic;">,const
+        size_t frames</span></big><big><span style="font-style: italic;">);</span>
+      – Send audio data to sound device and return amount of send data in bytes.<br>
       <br>
       <span style="font-style: italic;">Sound* Sound::get_handle();</span> –
       Return the handle to low-level sound subsystem object.<br>
@@ -1697,7 +1700,6 @@
     <big> </big> <br>
     <big>All these custom types declared in <span style="font-style: italic;">Core</span>
       sub–namespace.</big><span style=""></span><big><br>
-      <br>
     </big>
     <h2><a name="mozTocId804583" class="mozTocH2"></a><big>Chapter 4. Input</big></h2>
     <big> <span style="text-decoration: underline;"> Input back–end</span><br>
@@ -1731,6 +1733,8 @@
     <big>Joystick subsystem working over <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux
         Joystick API</a>.<br>
     </big>
+    <h2><a class="mozTocH2" name="mozTocId45292"></a><big>Chapter 6. Low</big><big>–</big><big>level sound subsystem</big></h2>
+    <big>Low</big><big>–</big><big>level sound subsystem</big><big> works over ALSA.</big><br>
     <h1><a name="mozTocId78453" class="mozTocH1"></a><big>Version history</big></h1>
     <big> 0.1 – </big><big>Initial version.<br>
       0.1.1 </big><big>– </big><big>0.3.4 </big><big>– Unstable branch.<br>
@@ -1743,8 +1747,7 @@
     </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small changes.<br>
     </big><big>0.4.4 </big><big>– Makefile updated.<br>
       0.4.5 – New subsystem added.<br>
-    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small
-      changes.<br>
+    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small changes.<br>
       0.5 – 0.5.3 – Mouse input improved.<br>
     </big><big> 0.5.4 </big><big>– </big><big>0.5.6 </big><big>– Small changes.<br>
     </big><big>0.5.7 </big><big>– Stable release.<br>
@@ -1761,7 +1764,10 @@
       1.0.1 – 1.0.2 – Small bug fixed.<br>
       1.0.3 – Memory usage reduced.<br>
       1.0.3 – 1.0.8 – Audio loader improved.<br>
-      1.0.9 – 1.1 – Small changes.<br>
+      1.0.9 – 1.1.1 – Small changes.<br>
+      1.1.2 – 1.1.9 – Low-level sound subsystem improved.<br>
+      1.2 – Memory leak fixed.<br>
+      1.2.1 – 1.2.3 – Small bug fixed.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>

@@ -39,7 +39,7 @@ freely, subject to the following restrictions:
 #include <sys/time.h>
 #include <sys/ioctl.h>
 #include <linux/joystick.h>
-#include <linux/soundcard.h>
+#include <alsa/asoundlib.h>
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <X11/keysymdef.h>
@@ -519,21 +519,28 @@ namespace BIRD2D
     Core::Buffer<char> internal;
     size_t buffer_length;
     pthread_t stream;
+    snd_pcm_hw_params_t *setting;
     void open_device();
+    void allocate_setting();
+    void fill_setting();
+    void set_setting();
+    void set_period();
+    void set_period_time();
+    void set_access();
     void set_format();
-    void set_channels(const int channels);
-    void set_rate(const int rate);
-    void configure_sound_card(const int rate,const int channels);
+    void set_channels(const unsigned int channels);
+    void set_rate(const unsigned int rate);
+    void configure_sound_card(const unsigned int rate,const unsigned int channels);
     void start_stream();
     void create_buffer();
     public:
     Sound();
     ~Sound();
-    void initialize(const int rate,const int channels);
+    void initialize(const unsigned int rate,const unsigned int channels);
     bool check_busy();
     bool is_ready() const;
     size_t get_length() const;
-    size_t send(const void *buffer,const size_t length);
+    size_t send(const void *buffer,const size_t length,const size_t frames);
     Sound* get_handle();
    };
 

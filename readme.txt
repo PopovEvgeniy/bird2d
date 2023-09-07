@@ -8,7 +8,7 @@ Bird 2d distributed under Zlib license.
 
 Features
 
- Minimum external dependencies: only Xlib, Mesa 3d and Posix Threads.
+ Minimum external dependencies: only Xlib, Mesa 3d, ALSA and Posix Threads.
  Easy to use object-orientated API.
  Animated and static sprites.
  Scrollable and static backgrounds.
