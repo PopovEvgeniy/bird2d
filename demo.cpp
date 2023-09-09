@@ -6,9 +6,7 @@ int main()
  BIRD2D::Common::Timer timer;
  BIRD2D::Input::Keyboard keyboard;
  BIRD2D::Input::Joystick joystick;
- BIRD2D::Misc::Sound sound;
  BIRD2D::Misc::Audio audio;
- BIRD2D::Misc::Player player;
  BIRD2D::Input::Mouse mouse;
  BIRD2D::Graphics::Surface screen;
  BIRD2D::Graphics::Background space;
@@ -27,16 +25,13 @@ int main()
  mouse.initialize();
  mouse.hide();
  timer.set_timer(1);
- sound.initialize(44100,2);
- player.initialize(sound);
- audio.load("./space.raw");
- audio.set_setting(44100,2,16);
- player.load(audio);
+ audio.initialize();
+ audio.load("./space.mp3");
  memset(perfomance,0,8);
  while(screen.sync())
  {
   joystick.update();
-  player.loop();
+  audio.play_loop();
   if (mouse.check_press(BIRD2D::MOUSE_LEFT)==true)
   {
     break;

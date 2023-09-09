@@ -89,13 +89,6 @@ Window window=None;
 Display *display=NULL;
 }
 
-namespace ALSA_BACKEND
-{
- snd_pcm_t *sound_device=NULL;
- volatile size_t audio_frames=0;
- volatile bool run_stream=true;
-}
-
 namespace BIRD2D
 {
 
@@ -575,20 +568,6 @@ namespace BIRD2D
        break;
      }
      return code;
-   }
-
-    void* play_sound(void *buffer)
-    {
-     while (ALSA_BACKEND::run_stream)
-     {
-      if (ALSA_BACKEND::audio_frames>0)
-      {
-       snd_pcm_writei(ALSA_BACKEND::sound_device,buffer,ALSA_BACKEND::audio_frames);
-       ALSA_BACKEND::audio_frames=0;
-      }
-
-    }
-    return NULL;
    }
 
    Synchronization::Synchronization()
@@ -1905,471 +1884,218 @@ namespace BIRD2D
  namespace Misc
  {
 
-   Memory::Memory()
-   {
-    memset(&information,0,sizeof(struct sysinfo));
-   }
-
-  Memory::~Memory()
-  {
-
-  }
-
-  void Memory::read_system_information()
-  {
-   if (sysinfo(&information)==-1)
-   {
+    Memory::Memory()
+    {
      memset(&information,0,sizeof(struct sysinfo));
-   }
+    }
 
-  }
-
-  unsigned long long int Memory::get_total_physical()
-  {
-   this->read_system_information();
-   return information.totalram*information.mem_unit;
-  }
-
-  unsigned long long int Memory::get_free_physical()
-  {
-   this->read_system_information();
-   return information.freeram*information.mem_unit;
-  }
-
-  unsigned long long int Memory::get_total_virtual()
-  {
-   this->read_system_information();
-   return information.totalswap*information.mem_unit;
-  }
-
-  unsigned long long int Memory::get_free_virtual()
-  {
-   this->read_system_information();
-   return information.freeswap*information.mem_unit;
-  }
-
-  Sound::Sound()
-  {
-   ALSA_BACKEND::run_stream=true;
-   internal.set_length(0);
-   buffer_length=1048576;
-   stream=0;
-   setting=NULL;
-  }
-
-  Sound::~Sound()
-  {
-   ALSA_BACKEND::run_stream=false;
-   if (stream!=0)
+   Memory::~Memory()
    {
-    pthread_join(stream,NULL);
+
    }
-   if (ALSA_BACKEND::sound_device!=NULL)
+
+   void Memory::read_system_information()
    {
-    snd_pcm_close(ALSA_BACKEND::sound_device);
-    ALSA_BACKEND::sound_device=NULL;
+    if (sysinfo(&information)==-1)
+    {
+      memset(&information,0,sizeof(struct sysinfo));
+    }
+
    }
-   if (setting!=NULL)
+
+   unsigned long long int Memory::get_total_physical()
    {
-     snd_pcm_hw_params_free(setting);
-     setting=NULL;
+    this->read_system_information();
+    return information.totalram*information.mem_unit;
    }
-   internal.destroy_buffer();
-  }
 
-  void Sound::open_device()
-  {
-   if (snd_pcm_open(&ALSA_BACKEND::sound_device,"default",SND_PCM_STREAM_PLAYBACK,0)<0)
+   unsigned long long int Memory::get_free_physical()
    {
-     BIRD2D::Halt("Can't get access to sound card");
+    this->read_system_information();
+    return information.freeram*information.mem_unit;
    }
 
-  }
-
-  void Sound::allocate_setting()
-  {
-    snd_pcm_hw_params_malloc(&setting);
-    if (setting==NULL)
-    {
-      BIRD2D::Halt("Can't allocate memory for audio setting");
-    }
-
-  }
-
-  void Sound::fill_setting()
-  {
-    if (snd_pcm_hw_params_any(ALSA_BACKEND::sound_device,setting)<0)
-    {
-      BIRD2D::Halt("Can't get audio setting");
-    }
-
-  }
-
-  void Sound::set_setting()
-  {
-    if (snd_pcm_hw_params(ALSA_BACKEND::sound_device,setting)<0)
-    {
-     BIRD2D::Halt("Can't set audio setting");
-    }
-
-  }
-
-  void Sound::set_period()
-  {
-    if (snd_pcm_hw_params_set_periods(ALSA_BACKEND::sound_device,setting,10,0)<0)
-    {
-      BIRD2D::Halt("Can't set amount of period");
-    }
-
-  }
-
-  void Sound::set_period_time()
-  {
-    if (snd_pcm_hw_params_set_period_time(ALSA_BACKEND::sound_device,setting,100000,0)<0)
-    {
-      BIRD2D::Halt("Can't set time of single period");
-    }
-
-  }
-
-  void Sound::set_access()
-  {
-    if (snd_pcm_hw_params_set_access(ALSA_BACKEND::sound_device,setting,SND_PCM_ACCESS_RW_INTERLEAVED)<0)
-    {
-      BIRD2D::Halt("Can't set access rights");
-    }
-
-  }
-
-  void Sound::set_format()
-  {
-   if (snd_pcm_hw_params_set_format(ALSA_BACKEND::sound_device,setting,SND_PCM_FORMAT_S16_LE)<0)
+   unsigned long long int Memory::get_total_virtual()
    {
-    BIRD2D::Halt("Can't set sound format");
+    this->read_system_information();
+    return information.totalswap*information.mem_unit;
    }
 
-  }
-
-  void Sound::set_channels(const unsigned int channels)
-  {
-   if (snd_pcm_hw_params_set_channels(ALSA_BACKEND::sound_device,setting,channels)<0)
+   unsigned long long int Memory::get_free_virtual()
    {
-     BIRD2D::Halt("Can't set number of audio channels");
+    this->read_system_information();
+    return information.freeswap*information.mem_unit;
    }
 
-  }
-
-  void Sound::set_rate(const unsigned int rate)
-  {
-   if (snd_pcm_hw_params_set_rate(ALSA_BACKEND::sound_device,setting,rate,0)<0)
+   unsigned long long int Memory::get_usage()
    {
-    BIRD2D::Halt("Can't set sample rate");
+    this->read_system_information();
+    return (information.totalram-information.freeram)*information.mem_unit;
    }
 
-  }
-
-  void Sound::configure_sound_card(const unsigned int rate,const unsigned int channels)
-  {
-   this->open_device();
-   this->allocate_setting();
-   this->fill_setting();
-   this->set_access();
-   this->set_format();
-   this->set_rate(rate);
-   this->set_channels(channels);
-   this->set_period();
-   this->set_period_time();
-   this->set_setting();
-  }
-
-  void Sound::start_stream()
-  {
-   if (pthread_create(&stream,NULL,Internal::play_sound,internal.get_buffer())!=0)
+   Audio::Audio()
    {
-    BIRD2D::Halt("Can't start sound stream");
+     engine=NULL;
+     player=NULL;
+     media=NULL;
    }
 
-  }
-
-  void Sound::create_buffer()
-  {
-   internal.set_length(buffer_length);
-   internal.create_buffer();
-   internal.fill_buffer(0);
-  }
-
-  void Sound::initialize(const unsigned int rate,const unsigned int channels)
-  {
-    if (internal.get_buffer()==NULL)
-    {
-     this->configure_sound_card(rate,channels);
-     this->create_buffer();
-     this->start_stream();
-    }
-
-  }
-
-  bool Sound::check_busy()
-  {
-   return ALSA_BACKEND::audio_frames>0;
-  }
-
-  bool Sound::is_ready() const
-  {
-   return internal.get_length()>0;
-  }
-
-  size_t Sound::get_length() const
-  {
-   return internal.get_length();
-  }
-
-  size_t Sound::send(const void *buffer,const size_t length,const size_t frames)
-  {
-   size_t amount;
-   if (this->check_busy()==true)
+   Audio::~Audio()
    {
-    amount=0;
-   }
-   else
-   {
-    if (length<=buffer_length)
-    {
-      amount=length;
-    }
-    else
-    {
-     amount=buffer_length;
-    }
-    memcpy(internal.get_buffer(),buffer,amount);
-    ALSA_BACKEND::audio_frames=frames;
-   }
-   return amount;
-  }
-
-  Sound* Sound::get_handle()
-  {
-   return this;
-  }
-
-  Audio::Audio()
-  {
-   target.set_position(0);
-   audio_channels=0;
-   audio_rate=0;
-   audio_bits=0;
-   total=0;
-  }
-
-  Audio::~Audio()
-  {
-   target.close();
-  }
-
-  Audio* Audio::get_handle()
-  {
-   return this;
-  }
-
-  size_t Audio::get_total() const
-  {
-   return total;
-  }
-
-  size_t Audio::get_block() const
-  {
-   return audio_rate*audio_channels*(audio_bits/CHAR_BIT);
-  }
-
-  size_t Audio::get_rate() const
-  {
-   return audio_rate;
-  }
-
-  size_t Audio::get_channels() const
-  {
-   return audio_channels;
-  }
-
-  size_t Audio::get_bits() const
-  {
-   return audio_bits;
-  }
-
-  void Audio::load(const char *name)
-  {
-   target.open(name);
-   if (target.is_open()==true)
-   {
-    total=target.get_length();
-   }
-
-  }
-
-  void Audio::set_setting(const size_t rate,const size_t channels,const size_t bits)
-  {
-    if (channels==0)
-    {
-     BIRD2D::Halt("Invalid amount of audio channels");
-    }
-    if (rate==0)
-    {
-     BIRD2D::Halt("Invalid sample rate");
-    }
-    if (bits==0)
-    {
-     BIRD2D::Halt("Invalid bits per sample");
-    }
-    audio_rate=rate;
-    audio_channels=channels;
-    audio_bits=bits;
-  }
-
-  void Audio::read_data(void *buffer,const size_t length)
-  {
-    if (target.is_open()==true)
-    {
-     target.read(buffer,length);
-    }
-
-  }
-
-  void Audio::go_start()
-  {
-    if (target.is_open()==true)
-    {
-     target.set_position(0);
-    }
-
-  }
-
-  Player::Player()
-  {
-   buffer.set_length(0);
-   sound=NULL;
-   target=NULL;
-   index=0;
-   length=0;
-   block=0;
-   rate=0;
-  }
-
-  Player::~Player()
-  {
-    buffer.destroy_buffer();
-  }
-
-  void Player::configure_player(Audio *audio)
-  {
-   index=0;
-   target=audio;
-   block=target->get_block();
-   length=target->get_total();
-   rate=target->get_rate();
-  }
-
-  void Player::clear_buffer()
-  {
-   buffer.destroy_buffer();
-  }
-
-  void Player::create_buffer()
-  {
-   if (sound!=NULL)
-   {
-     buffer.set_length(block);
-     buffer.create_buffer();
-     buffer.fill_buffer(0);
-   }
-
-  }
-
-  void Player::read_sound_data(const size_t amount)
-  {
-    if (target!=NULL)
+     if (player!=NULL)
      {
-       target->read_data(buffer.get_buffer(),amount);
+       libvlc_media_player_stop(player);
+       libvlc_media_player_release(player);
+       player=NULL;
+     }
+     if (media!=NULL)
+     {
+       libvlc_media_release(media);
+       media=NULL;
+     }
+     if (engine!=NULL)
+     {
+       libvlc_release(engine);
+       engine=NULL;
      }
 
-  }
-
-  void Player::send_sound(const size_t amount,const size_t frames)
-  {
-    if (sound!=NULL)
-     {
-       index+=sound->send(buffer.get_buffer(),amount,frames);
-     }
-
-  }
-
-  void Player::rewind()
-  {
-    if (target!=NULL)
-    {
-      index=0;
-      target->go_start();
-    }
-
-  }
-
-  bool Player::is_end() const
-  {
-   return (index+1)>=length;
-  }
-
-  void Player::load(Audio *audio)
-  {
-   if (audio!=NULL)
-   {
-     this->configure_player(audio);
-     this->clear_buffer();
-     this->create_buffer();
    }
 
-  }
+   void Audio::create_engine()
+   {
+     if (engine==NULL)
+     {
+       engine=libvlc_new(0,NULL);
+     }
 
-  void Player::load(Audio &audio)
-  {
-    this->load(audio.get_handle());
-  }
+   }
 
-  void Player::initialize(Sound *card)
-  {
-    if (card!=NULL)
+   void Audio::create_player()
+   {
+     if (player==NULL)
+     {
+       if (engine!=NULL)
+       {
+         player=libvlc_media_player_new(engine);
+       }
+
+     }
+
+   }
+
+   void Audio::destoy_media()
+   {
+     if (media!=NULL)
+     {
+       libvlc_media_release(media);
+       media=NULL;
+     }
+
+   }
+
+   void Audio::load_media(const char *name)
+   {
+     if (media==NULL)
+     {
+       if (engine!=NULL)
+       {
+         media=libvlc_media_new_path(engine,name);
+       }
+
+     }
+
+   }
+
+   void Audio::set_media()
+   {
+     if (player!=NULL)
+     {
+       if (media!=NULL)
+       {
+         libvlc_media_player_set_media(player,media);
+         libvlc_media_add_option(media,"--no-video");
+       }
+
+     }
+
+   }
+
+   void Audio::play_media()
+   {
+     if (player!=NULL)
+     {
+       libvlc_media_player_play(player);
+     }
+
+   }
+
+   void Audio::initialize()
+   {
+     this->create_engine();
+     this->create_player();
+   }
+
+   void Audio::stop()
+   {
+     if (player!=NULL)
+     {
+       libvlc_media_player_stop(player);
+     }
+
+   }
+
+    void Audio::play()
     {
-      sound=card;
+      this->stop();
+      this->play_media();
     }
 
-  }
-
-  void Player::initialize(Sound &card)
-  {
-    this->initialize(card.get_handle());
-  }
-
-  void Player::play()
-  {
-    if (index<length)
+    void Audio::load(const char *name)
     {
-      if (sound->check_busy()==false)
+      this->stop();
+      this->destoy_media();
+      this->load_media(name);
+      this->set_media();
+    }
+
+    bool Audio::check_playing()
+    {
+      bool playing;
+      playing=false;
+      if (player!=NULL)
       {
-        this->read_sound_data(block);
-        this->send_sound(block,rate);
+        playing=libvlc_media_player_is_playing(player);
+      }
+      return playing;
+    }
+
+    void Audio::play_loop()
+    {
+      if (this->check_playing()==false)
+      {
+        this->play();
       }
 
     }
 
-  }
+    void Audio::play(const bool loop)
+    {
+      if (loop==true)
+      {
+        this->play_loop();
+      }
+      else
+      {
+        this->play();
+      }
 
-  void Player::loop()
-  {
-   this->play();
-   if (this->is_end()==true)
+    }
+
+   void Audio::initialize(const char *name)
    {
-    this->rewind();
+     this->initialize();
+     this->load(name);
    }
-
-  }
 
  }
 

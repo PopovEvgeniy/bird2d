@@ -35,11 +35,10 @@ freely, subject to the following restrictions:
 #include <new>
 #include <unistd.h>
 #include <fcntl.h>
-#include <pthread.h>
 #include <sys/time.h>
+#include <vlc/vlc.h>
 #include <sys/ioctl.h>
 #include <linux/joystick.h>
-#include <alsa/asoundlib.h>
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <X11/keysymdef.h>
@@ -85,7 +84,6 @@ namespace BIRD2D
  {
 
   unsigned char get_scan_code(const KeySym key);
-  void* play_sound(void *buffer);
 
   class Synchronization
   {
@@ -511,88 +509,32 @@ namespace BIRD2D
      unsigned long long int get_free_physical();
      unsigned long long int get_total_virtual();
      unsigned long long int get_free_virtual();
-   };
-
-   class Sound
-   {
-    private:
-    Core::Buffer<char> internal;
-    size_t buffer_length;
-    pthread_t stream;
-    snd_pcm_hw_params_t *setting;
-    void open_device();
-    void allocate_setting();
-    void fill_setting();
-    void set_setting();
-    void set_period();
-    void set_period_time();
-    void set_access();
-    void set_format();
-    void set_channels(const unsigned int channels);
-    void set_rate(const unsigned int rate);
-    void configure_sound_card(const unsigned int rate,const unsigned int channels);
-    void start_stream();
-    void create_buffer();
-    public:
-    Sound();
-    ~Sound();
-    void initialize(const unsigned int rate,const unsigned int channels);
-    bool check_busy();
-    bool is_ready() const;
-    size_t get_length() const;
-    size_t send(const void *buffer,const size_t length,const size_t frames);
-    Sound* get_handle();
+     unsigned long long int get_usage();
    };
 
    class Audio
    {
     private:
-    File::Input_File target;
-    size_t audio_channels;
-    size_t audio_rate;
-    size_t audio_bits;
-    size_t total;
+    libvlc_instance_t *engine;
+    libvlc_media_player_t *player;
+    libvlc_media_t *media;
+    void create_engine();
+    void create_player();
+    void destoy_media();
+    void load_media(const char *name);
+    void set_media();
+    void play_media();
     public:
     Audio();
     ~Audio();
-    Audio* get_handle();
-    size_t get_total() const;
-    size_t get_block() const;
-    size_t get_rate() const;
-    size_t get_channels() const;
-    size_t get_bits() const;
-    void load(const char *name);
-    void set_setting(const size_t rate,const size_t channels,const size_t bits);
-    void read_data(void *buffer,const size_t length);
-    void go_start();
-   };
-
-   class Player
-   {
-    private:
-    Sound *sound;
-    Audio *target;
-    Core::Buffer<char> buffer;
-    size_t index;
-    size_t length;
-    size_t block;
-    size_t rate;
-    void configure_player(Audio *audio);
-    void clear_buffer();
-    void create_buffer();
-    void read_sound_data(const size_t amount);
-    void send_sound(const size_t amount,const size_t frames);
-    public:
-    Player();
-    ~Player();
-    void rewind();
-    bool is_end() const;
-    void load(Audio *audio);
-    void load(Audio &audio);
-    void initialize(Sound *card);
-    void initialize(Sound &card);
+    void initialize();
+    void stop();
     void play();
-    void loop();
+    void load(const char *name);
+    bool check_playing();
+    void play_loop();
+    void play(const bool loop);
+    void initialize(const char *name);
    };
 
  }

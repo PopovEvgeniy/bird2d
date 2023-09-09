@@ -1,4 +1,4 @@
-flags=-g0 -O0 -lX11 -lGL -pthread -lasound
+flags=-g0 -O0 -lX11 -lGL -lvlc
 game_engine=./demo/bird2d.a
 main_demo=./demo/demo
 tilemap_demo=./demo/tilemap

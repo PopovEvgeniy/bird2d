@@ -5,7 +5,8 @@
   </head>
   <body>
     <p> <big> </big> </p>
-    <div style="text-align: center;"><big>Bird 2d: Programmer reference</big><br>
+    <div style="text-align: center;"><big>Bird 2d: Programmer
+        reference</big><br>
     </div>
     <br>
     <big> Table of contents</big>
@@ -54,9 +55,7 @@
         <ul>
           <li><a href="#mozTocId900597">Chapter 1. The sub–namespace</a></li>
           <li><a href="#mozTocId942355">Chapter 2. Memory</a></li>
-          <li><a href="#mozTocId484448">Chapter 3. Low-level sound subsystem</a></li>
-          <li><a href="#mozTocId522782">Chapter 4. Loading audio</a></li>
-          <li><a href="#mozTocId165370">Chapter 5. Playing audio</a></li>
+          <li><a href="#mozTocId522782">Chapter 3. Audio</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId209024">Part 6. Misc</a>
@@ -91,7 +90,7 @@
           <li><a href="#mozTocId293644">Chapter 3. Base graphics subsystem</a></li>
           <li><a href="#mozTocId804583">Chapter 4. Input</a></li>
           <li><a href="#mozTocId389200">Chapter 5. Joystick</a></li>
-          <li><a href="#mozTocId45292">Chapter 6. Low–level sound subsystem</a></li>
+          <li><a href="#mozTocId45292">Chapter 6. Audio subsystem</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId78453">Version history</a></li>
@@ -119,8 +118,7 @@
       <li><big>Easy to use object–orientated design.</big></li>
       <li><big>Very fast.</big></li>
       <li><big>Minimum external dependencies: only <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>,
-          <a href="https://mesa3d.org">Mesa 3d</a>, <a href="https://www.alsa-project.org">ALSA</a>
-          and <a href="https://en.wikipedia.org/wiki/Pthreads">Posix Threads</a>.<br>
+          <a href="https://mesa3d.org">Mesa 3d</a>, and <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a>.<br>
         </big></li>
     </ul>
     <big><br>
@@ -166,10 +164,8 @@
       <br>
     </big>
     <h2><a name="mozTocId56069" class="mozTocH2"></a><big>Chapter 4. </big><big>Dependencies</big></h2>
-    <big><span style=""></span></big><big>You need&nbsp; libx11–dev and
-      libgl1–mesa–dev packages for compile this game engine. You also need
-      libasound2</big><big>–</big><big>dev for most Linux distributives or </big><big>libasound</big><big>–</big><big>dev
-      for very old Linux distributives.</big>
+    <big><span style=""></span></big><big>You need&nbsp; libx11–dev,
+      libgl1–mesa–dev packages and libvlc–dev for compile this game engine.</big><big></big>
     <h2><a name="mozTocId914689" class="mozTocH2"></a><big>Chapter 5. The engine
         name–space</big></h2>
     <big><span style="font-style: italic;">BIRD2D</span> is the main name–space.</big><big>
@@ -949,7 +945,6 @@
       <span style="font-style: italic;"> bool Collision::check_collision(const
         BIRD2D::BOX &amp;first_target,const BIRD2D::BOX &amp;second_target);</span>
       – Set collision targets and check collision between it.<br>
-      <br>
     </big>
     <h1><a class="mozTocH1" name="mozTocId611802"></a><big>Part 5. Other
         important things</big></h1>
@@ -979,130 +974,44 @@
       <span style="font-style: italic;">unsigned long long int
         Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
+      <br>
+      <span style="font-style: italic;">unsigned long int Memory::get_usage();</span>
+      – Return amount of using physical memory in bytes.</big><big><br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId484448"></a><big><span style=""></span>Chapter
-        3. Low-level sound subsystem</big></h2>
-    <big><span style="text-decoration: underline;">Sound device</span><br>
-      <br>
-      Low-level sound subsystem provide simple access to sound device.<br>
-      <span style="text-decoration: underline;"></span><br>
-      <span style="text-decoration: underline;">Data conversion</span><br>
-      <br>
-      Low-level sound subsystem don’t support automatic conversion. Your
-      software must do source sound data conversion by itself.<br>
-      <br>
-      <span style="text-decoration: underline;">Work with low-level sound
+    <h2><a class="mozTocH2" name="mozTocId522782"></a><big>Chapter 3. Audio</big></h2>
+    <big><span style="text-decoration: underline;">A few words about multimedia
         subsystem</span><br>
       <br>
-      Just use <span style="font-style: italic;">Sound</span> class for work
-      with low-level sound subsystem. Let’s look to public methods.<br>
+      Audio subsystem intend for playing music and sounds.<br>
       <br>
-      <span style="font-style: italic;">void Sound::initialize(const int
-        rate,const int channels);</span> – Initialize the subsystem.<br>
+      <span style="text-decoration: underline;">Working with audio</span><br>
       <br>
-      <span style="font-style: italic;">bool Sound::check_busy();</span> –
-      Return true if sound device is busy.<br>
+      Just use <span style="font-style: italic;">Audio</span> class to work
+      with audio. Let's look at public methods.<br>
       <br>
-      <span style="font-style: italic;">size_t Sound::get_length() const;</span>
-      – Return sound buffer length in bytes.<br>
+      <span style="font-style: italic;">void Audio::initialize();</span> –
+      Initialize the subsystem.<br>
       <br>
-      <span style="font-style: italic;">size_t Sound::send(const void
-        *buffer,const size_t length</span></big><big><span style="font-style: italic;">,const
-        size_t frames</span></big><big><span style="font-style: italic;">);</span>
-      – Send audio data to sound device and return amount of send data in bytes.<br>
-      <br>
-      <span style="font-style: italic;">Sound* Sound::get_handle();</span> –
-      Return the handle to low-level sound subsystem object.<br>
-      <br>
-      <span style="font-style: italic;">bool Sound::is_ready() const;</span> –
-      Return true if the subsystem is already initialized.<br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId522782"></a><big>Chapter 4. Loading
-        audio</big></h2>
-    <big><span style="text-decoration: underline;">Audio loader</span><br>
-      <br>
-      Audio loader let you load audio data from <a href="https://en.wikipedia.org/wiki/Raw_audio_format">Raw
-        audio format</a> files.<br>
-      <span style="text-decoration: underline;"></span></big><big><br>
-      <span style="text-decoration: underline;">Recommend software</span><br>
-      <br>
-      You can use wide range of sound software for convert you audio to Raw
-      audio format. I recommend use <a href="https://tenacityaudio.org">Tenacity</a>
-      or <a href="https://www.audacityteam.org">Audacity</a> for do it.<br>
-      <br>
-      <span style="text-decoration: underline;">Load audio from files</span><br
-        style="text-decoration: underline;">
-      <br>
-      <span style="font-style: italic;">Audio</span> class provide simple access
-      to audio loader. Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">Audio* Audio::get_handle();</span> –
-      Return handle to audio loader subsystem.<br>
-      <br>
-      <span style="font-style: italic;">size_t Audio::get_total() const;</span>
-      – Return total length of audio data in bytes.<br>
-      <br>
-      <span style="font-style: italic;">size_t Audio::get_block() const;</span>
-      – Return length of audio block in bytes.<br>
-      <br>
-      <span style="font-style: italic;">size_t Audio::get_rate() const;</span> –
-      Return <a href="https://en.wikipedia.org/wiki/Sampling_rate">sound rate</a>.<br>
-      <br>
-      <span style="font-style: italic;">size_t Audio::get_channels() const;</span>
-      – Return number of audio channels.<br>
-      <br>
-      <span style="font-style: italic;">size_t Audio::get_bits() const;</span> –
-      Return amount of bits per sample.<br>
-      <br>
-      <span style="font-style: italic;">void Audio::go_start();</span> – Go to
-      start of audio data.<br>
-      <br>
-      <span style="font-style: italic;">void Audio::read_data(void *buffer,const
-        size_t length);</span> – Read audio data.<br>
+      <span style="font-style: italic;">void Audio::initialize(const char
+        *name);</span> – Initialize the subsystem and load a sound file.<br>
       <br>
       <span style="font-style: italic;">void Audio::load(const char *name);</span>
-      – Load audio from target file.<br>
+      – Load a sound file.<br>
       <br>
-      <span style="font-style: italic;">void Audio::set_setting(const size_t
-        rate,</span></big><big style="font-style: italic;">const size_t
-      channels,</big><big style="font-style: italic;">const size_t bits</big><big><span
-        style="font-style: italic;">);</span> – Set audio setting.<br>
-    </big>
-    <h2><a class="mozTocH2" name="mozTocId165370"></a><big>Chapter 5. Playing
-        audio</big></h2>
-    <big><span style="text-decoration: underline;">Audio player</span><br>
+      <span style="font-style: italic;">void Audio::play();</span> – Play a
+      content of the target file.<br>
       <br>
-      How play audio? Just audio player for do it.<br>
+      <span style="font-style: italic;">void Audio::play_loop();</span> –
+      Checking play status and restart play if needed.<br>
       <br>
-      <span style="text-decoration: underline;">Work with audio player</span><br>
+      <span style="font-style: italic;">void Audio::play(const bool loop);</span>
+      – Play a sound. You can set loop flag as true for loop playing mode.<br>
       <br>
-      Just use <span style="font-style: italic;">Player</span> class for work
-      with audio player. Let’s look to public methods.<br>
-      <br>
-      <span style="font-style: italic;">void Player::initialize(Sound *card);</span>
-      – Initialize the subsystem.<br>
-      <br>
-      <span style="font-style: italic;">void Player::initialize(Sound
-        &amp;card);</span> – Initialize the subsystem.<br>
-      <br>
-      <span style="font-style: italic;">void Player::load(Audio *audio);</span>
-      – Load audio.<br>
-      <br>
-      <span style="font-style: italic;">void Player::load(Audio &amp;audio);</span>
-      – Load audio.<br>
-      <br>
-      <span style="font-style: italic;">void Player::play();</span> – Send
-      current audio block to sound card and increase playing position.<br>
-      <br>
-      <span style="font-style: italic;">void Player::loop();</span> – Play
-      current audio block and increase playing position. Jump to start if don't
-      have available audio block anymore.<br>
-      <br>
-      <span style="font-style: italic;">bool Player::is_end() const;</span> –
-      Return true if don't have available audio block anymore.<br>
-      <br>
-      <span style="font-style: italic;">void Player::rewind();</span> – Set
-      playing position to start.<br>
+      <span style="font-style: italic;">void Audio::stop();</span> – Stop
+      playing a content of the target file.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">bool Audio::check_playing();</span> –
+      Return true if the sound resource is playing.<br>
     </big><big> </big><big> </big> <big> </big>
     <h1><a name="mozTocId209024" class="mozTocH1"></a><big>Part 6. Misc</big></h1>
     <h2><a name="mozTocId608755" class="mozTocH2"></a><big>Chapter 1. File
@@ -1733,8 +1642,9 @@
     <big>Joystick subsystem working over <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux
         Joystick API</a>.<br>
     </big>
-    <h2><a class="mozTocH2" name="mozTocId45292"></a><big>Chapter 6. Low</big><big>–</big><big>level sound subsystem</big></h2>
-    <big>Low</big><big>–</big><big>level sound subsystem</big><big> works over ALSA.</big><br>
+    <h2><a class="mozTocH2" name="mozTocId45292"></a><big>Chapter 6. </big><big>Audio
+        subsystem</big></h2>
+    <big>Audio subsystem</big><big> working over libVLC.</big><br>
     <h1><a name="mozTocId78453" class="mozTocH1"></a><big>Version history</big></h1>
     <big> 0.1 – </big><big>Initial version.<br>
       0.1.1 </big><big>– </big><big>0.3.4 </big><big>– Unstable branch.<br>
@@ -1771,6 +1681,9 @@
       1.2.4 – 1.2.5 – Small changes.<br>
       1.2.6 – Small bug fixed.<br>
       1.2.7 – 1.2.9 – Small changes.<br>
+      1.3 – Audio subsystem was totally rewritten.<br>
+      1.3.1 – 1.3.3 – Audio subsystem improved.<br>
+      1.3.4 – Small changes.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>
