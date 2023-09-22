@@ -2020,6 +2020,15 @@ namespace BIRD2D
 
    }
 
+   void Audio::set_volume()
+   {
+     if (player!=NULL)
+     {
+       libvlc_audio_set_volume(player,100);
+     }
+
+   }
+
    void Audio::play_media()
    {
      if (player!=NULL)
@@ -2056,6 +2065,7 @@ namespace BIRD2D
       this->destoy_media();
       this->load_media(name);
       this->set_media();
+      this->set_volume();
     }
 
     bool Audio::check_playing()

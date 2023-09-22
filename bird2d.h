@@ -523,6 +523,7 @@ namespace BIRD2D
     void destoy_media();
     void load_media(const char *name);
     void set_media();
+    void set_volume();
     void play_media();
     public:
     Audio();
