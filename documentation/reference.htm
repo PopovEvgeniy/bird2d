@@ -48,6 +48,7 @@
           <li><a href="#mozTocId853711">Chapter 2. Abnormal program termination</a></li>
           <li><a href="#mozTocId656377">Chapter 3. Timer</a></li>
           <li><a href="#mozTocId381935">Chapter 4. Collision</a></li>
+          <li><a href="#mozTocId423669">Chapter 5. Tile–map</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId611802">Part 5. Other important things</a>
@@ -159,7 +160,6 @@
       2. Altered source versions must be plainly marked as such, and must not be<br>
       misrepresented as being the original software.<br>
       3. This notice may not be removed or altered from any source distribution.<br>
-      <br>
     </big>
     <h2><a name="mozTocId56069" class="mozTocH2"></a><big>Chapter 4. </big><big>Dependencies</big></h2>
     <big><span style=""></span></big><big>You need&nbsp; libx11</big><big>-</big><big>dev,
@@ -204,7 +204,6 @@
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -651,9 +650,9 @@
       <br>
       <img src="sheet.png"><br>
       <br>
-      <span style="text-decoration: underline;"> Row and column</span><br>
+      <span style="text-decoration: underline;"> Rows and columns</span><br>
       <br>
-      First row is 1. First column is 1.<br>
+      First row index is 1. First column index is 1.<br>
     </big><big><br>
     </big><big><span style="text-decoration: underline;"> Work with sprite sheet
         subsystem</span><br>
@@ -946,6 +945,57 @@
       <span style="font-style: italic;"> bool Collision::check_collision(const
         BIRD2D::BOX &amp;first_target,const BIRD2D::BOX &amp;second_target);</span>
       – Set collision targets and check collision between it.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId423669"></a><big>Chapter 5. Tile–map</big></h2>
+    <big><span style="text-decoration: underline;">A few words about tile-map</span><br>
+      <br>
+      The tile–map is tile matrix. A tile is a small non–transparent sprite. A
+      tile–map is very useful thing for level background.<br>
+      <br>
+      <span style="text-decoration: underline;">Rows and columns</span><br>
+      <br>
+      First row index is 0. First column index is 0.<br>
+      <br>
+      <span style="text-decoration: underline;">Work with tile-map</span><br>
+      <br>
+      <span style="font-style: italic;">Tilemap</span> class provide easy access
+      to the tile–map. It is a simple class with few methods. Let's look at
+      public methods.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">void Tilemap::initialize(const unsigned
+        int tile_width,const unsigned int tile_height);</span> – Initialize the
+      subsystem.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int Tilemap::get_tile_width()
+        const;</span> – Return the tile width in pixels.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int Tilemap::get_tile_height()
+        const;</span> – Return the tile height in pixels.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int Tilemap::get_x(const
+        unsigned int row) const;</span> – Get x-coordinate from target row.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int Tilemap::get_y(const
+        unsigned int column) const;</span> – Get y-coordinate from target
+      column.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">unsigned int Tilemap::get_row(const
+        unsigned int x) const;</span> – Get the row from x-coordinate.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int Tilemap::get_column(const
+        unsigned int y) const;</span> – Get the column from y-coordinate.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int
+        Tilemap::get_row_amount(const unsigned int viewport_width) const;</span>
+      – Get amount of maximum visible rows.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int
+        Tilemap::get_column_amount(const unsigned int viewport_width) const;</span>
+      – Get amount of maximum visible columns.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">BIRD2D::BOX Tilemap::get_box(const
+        unsigned int row,const unsigned int column) const;</span> – Return
+      collision related information.<br>
     </big>
     <h1><a class="mozTocH1" name="mozTocId611802"></a><big>Part 5. Other
         important things</big></h1>
@@ -1650,17 +1700,21 @@
     <big> 0.1 – </big><big>Initial version.<br>
       0.1.1 </big><big>– </big><big>0.3.4 </big><big>– Unstable branch.<br>
     </big><big>0.3.5 </big><big>– Preview release.<br>
-    </big><big> 0.3.6 </big><big>– </big><big>0.3.7 </big><big>– Small changes.<br>
+    </big><big> 0.3.6 </big><big>– </big><big>0.3.7 </big><big>– Small
+      changes.<br>
       0.3.8 – Full–screen mode is implemented.<br>
     </big><big>0.3.9 </big><big>– Mouse input improved.<br>
     </big><big>0.4 </big><big>– Keyboard input improved.<br>
     </big><big>0.4.1 </big><big>– Mouse input improved.<br>
-    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small changes.<br>
+    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small
+      changes.<br>
     </big><big>0.4.4 </big><big>– Makefile updated.<br>
       0.4.5 – New subsystem added.<br>
-    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small changes.<br>
+    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small
+      changes.<br>
       0.5 – 0.5.3 – Mouse input improved.<br>
-    </big><big> 0.5.4 </big><big>– </big><big>0.5.6 </big><big>– Small changes.<br>
+    </big><big> 0.5.4 </big><big>– </big><big>0.5.6 </big><big>– Small
+      changes.<br>
     </big><big>0.5.7 </big><big>– Stable release.<br>
       0.5.8 – Small changes.<br>
       0.5.9 – Joystick support added.<br>
@@ -1687,6 +1741,7 @@
       1.3.4 – 1.3.6 – Small changes.<br>
       1.3.7 – Image resizer back-ported from Simple windows game framework 7.3.5.<br>
       1.3.8 – Image resizer back-ported from Eugene game development kit 7.3.7.<br>
+      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit 7.4.4.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>

@@ -2,29 +2,33 @@
 
 int main()
 {
- BIRD2D::Graphics::Surface screen;
+ BIRD2D::Graphics::Surface surface;
  BIRD2D::Graphics::Text text;
- BIRD2D::Graphics::Sheet tilemap;
+ BIRD2D::Graphics::Sheet tile;
  BIRD2D::Input::Keyboard keyboard;
- unsigned int x,y;
+ BIRD2D::Common::Tilemap tilemap;
+ unsigned int row,column,row_amount,column_amount;
  keyboard.initialize();
- screen.initialize();
+ surface.initialize();
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
- tilemap.load("grass.tga",6,3);
- tilemap.set_transparent(false);
- while (screen.sync())
+ tile.load("grass.tga",6,3);
+ tilemap.initialize(tile.get_width(),tile.get_height());
+ row_amount=tilemap.get_row_amount(surface.get_width());
+ column_amount=tilemap.get_column_amount(surface.get_height());
+ tile.set_transparent(false);
+ while (surface.sync())
  {
   if (keyboard.check_hold(1)==true)
   {
    break;
   }
-  for (x=0;x<screen.get_width();x+=tilemap.get_width())
+  for (row=0;row<row_amount;++row)
  {
-  for (y=0;y<screen.get_height();y+=tilemap.get_height())
+  for (column=0;column<column_amount;++column)
   {
-   tilemap.select(1,2);
-   tilemap.draw(x,y);
+   tile.select(1,2);
+   tile.draw(tilemap.get_x(row),tilemap.get_y(column));
   }
 
  }
