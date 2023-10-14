@@ -1,7 +1,7 @@
 /*
 Bird 2d made by Popov Evgeniy Alekseyevich
 
-Bird 2d kit license
+Bird 2d license
 
 Copyright (C) 2023 Popov Evgeniy Alekseyevich
 
@@ -3460,6 +3460,55 @@ namespace BIRD2D
   void Text::destroy_font()
   {
    text.destroy();
+  }
+
+ }
+
+ namespace Transformation
+ {
+
+  Coordinates::Coordinates()
+  {
+   half_viewport_width=1;
+   half_viewport_height=1;
+  }
+
+  Coordinates::~Coordinates()
+  {
+
+  }
+
+  void Coordinates::initialize(const int viewport_width,const int viewport_height)
+  {
+   if (viewport_width>1)
+   {
+    half_viewport_width=viewport_width/2;
+   }
+   if (viewport_height>1)
+   {
+    half_viewport_height=viewport_height/2;
+   }
+
+  }
+
+  int Coordinates::get_cartesian_x(const int x) const
+  {
+   return (x<0) ? 0:(x-half_viewport_width);
+  }
+
+  int Coordinates::get_cartesian_y(const int y) const
+  {
+   return (y<0) ? 0:(half_viewport_height-y);
+  }
+
+  int Coordinates::get_screen_x(const int x) const
+  {
+   return x+half_viewport_width;
+  }
+
+  int Coordinates::get_screen_y(const int y) const
+  {
+   return half_viewport_height-y;
   }
 
  }
