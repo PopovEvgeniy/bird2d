@@ -211,7 +211,6 @@
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -672,10 +671,12 @@
       public methods.<br>
       <br style="font-style: italic;">
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -892,48 +893,62 @@
     <big></big>
     <h2><a id="mozTocId688245" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
-    <big>
-      All subsystems in this section declared in <span style="font-style: italic;">Transformation</span>
+    <big> All subsystems in this section declared in <span style="font-style: italic;">Transformation</span>
       sub–namespace.<br>
     </big>
     <h2><a id="mozTocId531829" class="mozTocH2"></a><big>Chapter 2. Cartesian
         coordinates and screen coordinates.</big></h2>
-    <big><span style="text-decoration: underline;">
-        Cartesian coordinates</span><br>
+    <big><span style="text-decoration: underline;"> Cartesian coordinates</span><br>
       <br>
       Cartesian coordinates start at center of the screen. Look to this picture
       to understand it.<br>
       <br>
       <img style="width: 107px; height: 111px;" alt="" src="cartesian_system.png"><br>
       <br>
-      <span style="text-decoration: underline;">
-        Convert cartesian coordinates to screen coordinates and convert screen
-        coordinates to cartesian coordinates.</span><br>
+      <span style="text-decoration: underline;"> Cartesian coordinates to screen
+        coordinates conversion and screen coordinates to cartesian coordinates
+        conversion</span><br>
       <br>
       You can convert cartesian coordinates to screen coordinates. You can also
       convert screen coordinates to cartesian coordinates.<br>
-      Just use <span style="font-style: italic;">Coordinates</span> for doing
-      it. Let's look at public methods.<br>
+      Just use <span style="font-style: italic;">Coordinates</span> class for
+      doing it. Let's look at public methods.<br>
       <br style="font-style: italic;">
-      <span style="font-style: italic;">
-        void Coordinates::initialize(const int viewport_width,const int
-        viewport_height);</span> – Initialize the subsystem.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;">
-        int Coordinates::get_screen_x(const int x) const;</span> – Convert
-      cartesian x-coordinate to screen x-coordinate.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;">
-        int Coordinates::get_screen_y(const int x) const;</span> – Convert
-      cartesian y-coordinate to screen y-coordinate.<br>
+      <span style="font-style: italic;"> void Coordinates::initialize(const int
+        viewport_width,const int viewport_height);</span> – Initialize the
+      subsystem.<br>
       <br>
-      <span style="font-style: italic;">
-        int Coordinates::get_cartesian_x(const int x) const;</span> – Convert
-      screen x-coordinate to cartesian x-coordinate.<br>
+      <span style="font-style: italic;">int
+        Coordinates::get_lowest_cartesian_x() const;</span> – Return lowest
+      allowable cartesian x-coordinate.<br>
       <br>
-      <span style="font-style: italic;">
-        int Coordinates::get_cartesian_y(const int x) const;</span> – Convert
-      screen y-coordinate to cartesian y-coordinate.<br>
+      <span style="font-style: italic;">int
+        Coordinates::get_highest_cartesian_x() const;</span> – Return highest
+      allowable cartesian x-coordinate.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">int
+        Coordinates::get_lowest_cartesian_y() const;</span> – Return lowest
+      allowable cartesian y-coordinate.<br>
+      <br>
+      <span style="font-style: italic;">int
+        Coordinates::get_highest_cartesian_y() const;</span> – Return highest
+      allowable cartesian y-coordinate.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;"> int Coordinates::get_screen_x(const int
+        x) const;</span> – Convert cartesian x-coordinate to screen
+      x-coordinate.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;"> int Coordinates::get_screen_y(const int
+        x) const;</span> – Convert cartesian y-coordinate to screen
+      y-coordinate.<br>
+      <br>
+      <span style="font-style: italic;"> int Coordinates::get_cartesian_x(const
+        int x) const;</span> – Convert screen x-coordinate to cartesian
+      x-coordinate.<br>
+      <br>
+      <span style="font-style: italic;"> int Coordinates::get_cartesian_y(const
+        int x) const;</span> – Convert screen y-coordinate to cartesian
+      y-coordinate.<br>
     </big> <big> </big>
     <h1><a name="mozTocId64443" class="mozTocH1"></a><big>Part 5. Common things</big></h1>
     <h2><a name="mozTocId597525" class="mozTocH2"></a><big>Chapter 1. The
@@ -1760,15 +1775,12 @@
     </big><big>0.3.9 </big><big>– Mouse input improved.<br>
     </big><big>0.4 </big><big>– Keyboard input improved.<br>
     </big><big>0.4.1 </big><big>– Mouse input improved.<br>
-    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small
-      changes.<br>
+    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small changes.<br>
     </big><big>0.4.4 </big><big>– Makefile updated.<br>
       0.4.5 – New subsystem added.<br>
-    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small
-      changes.<br>
+    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small changes.<br>
       0.5 – 0.5.3 – Mouse input improved.<br>
-    </big><big> 0.5.4 </big><big>– </big><big>0.5.6 </big><big>– Small
-      changes.<br>
+    </big><big> 0.5.4 </big><big>– </big><big>0.5.6 </big><big>– Small changes.<br>
     </big><big>0.5.7 </big><big>– Stable release.<br>
       0.5.8 – Small changes.<br>
       0.5.9 – Joystick support added.<br>
@@ -1800,6 +1812,7 @@
       1.4.1 – Image resizer back-ported from Eugene game development kit 7.5.<br>
       1.4.2 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.3.<br>
       1.4.3 – Keyboard input improved.<br>
+      1.4.4 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.4.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>
