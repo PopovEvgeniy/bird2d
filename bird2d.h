@@ -42,7 +42,6 @@ freely, subject to the following restrictions:
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <X11/keysymdef.h>
-#include <X11/XKBlib.h>
 #include <GL/glx.h>
 #include <GL/gl.h>
 #include <GL/glxext.h>

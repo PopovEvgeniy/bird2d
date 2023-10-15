@@ -778,10 +778,10 @@ namespace BIRD2D
          run=false;
          break;
          case KeyPress:
-         Keys[Internal::get_scan_code(XkbKeycodeToKeysym(display,event.xkey.keycode,0,0))]=KEY_PRESS;
+         Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_PRESS;
          break;
          case KeyRelease:
-         Keys[Internal::get_scan_code(XkbKeycodeToKeysym(display,event.xkey.keycode,0,0))]=KEY_RELEASE;
+         Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_RELEASE;
          break;
          case MotionNotify:
          mouse_x=event.xbutton.x;
