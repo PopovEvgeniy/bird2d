@@ -827,6 +827,8 @@ namespace BIRD2D
    int get_highest_cartesian_x() const;
    int get_lowest_cartesian_y() const;
    int get_highest_cartesian_y() const;
+   bool check_cartesian_x(const int x) const;
+   bool check_cartesian_y(const int y) const;
    int get_cartesian_x(const int x) const;
    int get_cartesian_y(const int y) const;
    int get_screen_x(const int x) const;

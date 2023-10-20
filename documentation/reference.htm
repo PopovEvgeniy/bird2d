@@ -45,8 +45,8 @@
       <li><a href="#mozTocId806412">Part 4. Transformation</a>
         <ul>
           <li><a href="#mozTocId688245">Chapter 1. The sub–namespace</a></li>
-          <li><a href="#mozTocId531829">Chapter 2. Cartesian coordinates and
-              screen coordinates.</a></li>
+          <li><a href="#mozTocId925097">Chapter 2. Cartesian coordinates and
+              screen coordinates</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId64443">Part 5. Common things</a>
@@ -187,8 +187,8 @@
     <h2><a name="mozTocId312970" class="mozTocH2"></a><big>Chapter 1. Coordinate
         system</big></h2>
     <big><br>
-      The engine uses standard coordinate system. Coordinates start at top–left
-      corner. Look to this picture to understand it.<br>
+      The engine uses standard coordinate system by default. Coordinates start
+      at top–left corner. Look to this picture to understand it.<br>
       <br>
       <img style="width: 107px; height: 111px;" alt="" src="coordinate_system.png">
     </big>
@@ -671,12 +671,10 @@
       public methods.<br>
       <br style="font-style: italic;">
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -896,8 +894,8 @@
     <big> All subsystems in this section declared in <span style="font-style: italic;">Transformation</span>
       sub–namespace.<br>
     </big>
-    <h2><a id="mozTocId531829" class="mozTocH2"></a><big>Chapter 2. Cartesian
-        coordinates and screen coordinates.</big></h2>
+    <h2><a id="mozTocId925097" class="mozTocH2"></a><big>Chapter 2. Cartesian
+        coordinates and screen coordinates</big></h2>
     <big><span style="text-decoration: underline;"> Cartesian coordinates</span><br>
       <br>
       Cartesian coordinates start at center of the screen. Look to this picture
@@ -934,12 +932,20 @@
         Coordinates::get_highest_cartesian_y() const;</span> – Return highest
       allowable cartesian y-coordinate.<br>
       <br style="font-style: italic;">
+      <span style="font-style: italic;">bool
+        Coordinates::check_cartesian_x(const int x) const;</span> – Return true
+      if the cartesian x-coordinate is valid.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">bool
+        Coordinates::check_cartesian_y(const int y) const;</span> – Return true
+      if the cartesian y-coordinate is valid.<br>
+      <br style="font-style: italic;">
       <span style="font-style: italic;"> int Coordinates::get_screen_x(const int
         x) const;</span> – Convert cartesian x-coordinate to screen
       x-coordinate.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;"> int Coordinates::get_screen_y(const int
-        x) const;</span> – Convert cartesian y-coordinate to screen
+        y) const;</span> – Convert cartesian y-coordinate to screen
       y-coordinate.<br>
       <br>
       <span style="font-style: italic;"> int Coordinates::get_cartesian_x(const
@@ -947,7 +953,7 @@
       x-coordinate.<br>
       <br>
       <span style="font-style: italic;"> int Coordinates::get_cartesian_y(const
-        int x) const;</span> – Convert screen y-coordinate to cartesian
+        int y) const;</span> – Convert screen y-coordinate to cartesian
       y-coordinate.<br>
     </big> <big> </big>
     <h1><a name="mozTocId64443" class="mozTocH1"></a><big>Part 5. Common things</big></h1>
@@ -1814,6 +1820,7 @@
       1.4.3 – Keyboard input improved.<br>
       1.4.4 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.4.<br>
       1.4.5 – Keyboard input improved.<br>
+      1.4.6 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.8.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>
