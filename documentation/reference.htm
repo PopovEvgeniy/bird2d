@@ -145,6 +145,7 @@
       <li><a href="https://vk.com/strong666"><big>Vitaliy Molochkov</big></a></li>
       <li><a href="mailto:eyegem@mail.ru"><big>Evgenia Germanova</big></a></li>
       <li><big>DDMZ</big></li>
+      <li><big>Anastasiya</big></li>
     </ul>
     <big><br>
       Also thanks to PVS–Studio team for <a href="https://www.viva64.com/en/b/0614/">free
@@ -1068,6 +1069,19 @@
       <span style="font-style: italic;">unsigned int
         Tilemap::get_column_amount(const unsigned int viewport_width) const;</span>
       – Get amount of maximum visible columns.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int
+        Tilemap::get_tile_amount(const unsigned int viewport_width,const
+        unsigned int viewport_height) const;</span> – Get amount of maximum
+      visible tiles.<br>
+      <br>
+      <span style="font-style: italic;">bool Tilemap::check_row(const unsigned
+        int row,const unsigned int viewport_width) const;</span> – Return true
+      if the row is valid.<br>
+      <br>
+      <span style="font-style: italic;">bool Tilemap::check_column(const
+        unsigned int column,const unsigned int viewport_height) const;</span> –
+      Return true if the column is valid.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">BIRD2D::BOX Tilemap::get_box(const
         unsigned int row,const unsigned int column) const;</span> – Return
@@ -1673,7 +1687,8 @@
       <span style="text-decoration: underline;">Unix specific classes</span><br>
       <br>
       All <a href="https://en.wikipedia.org/wiki/Unix">Unix</a> specific
-      classes declared in <span style="">Internal</span> sub–namespace.<br>
+      classes declared in <span style="font-style: italic;">Internal</span>
+      sub–namespace.<br>
       <br>
       <span style="font-style: italic;"> Engine</span> creates the game window
       and do message processing.<br>
@@ -1682,7 +1697,7 @@
     <big><br style="">
       <span style="text-decoration: underline;"> Core classes</span><br>
       <br>
-      All engine core classes and functions declared in <span style="font-style: italic;">Core</span>
+      All engine core classes declared in <span style="font-style: italic;">Core</span>
       sub–namespace.<br>
       <br>
     </big> <big><span style="font-style: italic;"> FPS</span> implement fps
@@ -1821,6 +1836,7 @@
       1.4.4 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.4.<br>
       1.4.5 – Keyboard input improved.<br>
       1.4.6 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.8.<br>
+      1.4.7 – Source code synced with Eugene game development kit 7.6.3.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>
