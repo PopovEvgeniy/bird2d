@@ -583,13 +583,13 @@ namespace BIRD2D
 
    unsigned long int Synchronization::get_time() const
    {
-     timespec current;
-     if (clock_gettime(CLOCK_MONOTONIC,&current)!=0)
+     timeval current;
+     if (gettimeofday(&current,NULL)!=0)
      {
        current.tv_sec=0;
-       current.tv_nsec=1;
+       current.tv_usec=1;
      }
-     return (current.tv_sec*1000)+(current.tv_nsec/1000000);
+     return (current.tv_sec*1000)+(current.tv_usec/1000);
    }
 
    void Synchronization::do_pause(const unsigned long int interval)
