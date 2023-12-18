@@ -680,10 +680,12 @@
       public methods.<br>
       <br style="font-style: italic;">
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -991,23 +993,40 @@
       <br>
     </big><big><span style="font-style: italic;">void
         Isometric::set_target(const int x,const int y);</span> – Set target
-      point.<br>
+      point.</big><big><span style="font-style: italic;"></span></big><big><br>
       <br>
-    </big><big><span style="font-style: italic;">int
-        Isometric::get_isometric_x() const;</span> – Convert x-coordinate of
-      target point from cartesian system to isometric system.<br>
-      <br style="font-style: italic;">
+      <span style="font-style: italic;">int Isometric::get_isometric_x() const;</span>
+      – Convert x-coordinate of target point from cartesian system to isometric
+      system.<br>
+      <br>
       <span style="font-style: italic;">int Isometric::get_isometric_y() const;</span>
-      – </big><big>Convert y-coordinate of target point from cartesian system
-      to isometric system.</big><br>
-    <big> <br>
+      – Convert y-coordinate of target point from cartesian system to isometric
+      system.<br>
+      <br>
+      <span style="font-style: italic;">int Isometric::get_cartesian_x() const;</span>
+      – Convert x-coordinate of target point from isometric system to cartesian
+      system.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">int Isometric::get_cartesian_y() const;</span>
+      – Convert y-coordinate of target point from isometric system to cartesian
+      system.<br>
+      <br>
+      <span style="font-style: italic;">int Isometric::get_isometric_x(const int
+        x,const int y);</span> – Set target point and convert x-coordinate from
+      cartesian system to isometric system.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">int Isometric::get_isometric_y(const int
+        x,const int y);</span> – Set target point and convert y-coordinatefrom
+      cartesian system to isometric system.<br>
+      <br style="font-style: italic;">
       <span style="font-style: italic;">int Isometric::get_cartesian_x(const int
-        x) const;</span> – </big><big>Convert x-coordinate of target point from
-      isometric system to cartesian system.</big><br>
-    <big> <br style="font-style: italic;">
+        x,const int y);</span> – Set target point and convert x-coordinatefrom
+      isometric system to cartesian system.<br>
+      <br style="font-style: italic;">
       <span style="font-style: italic;">int Isometric::get_cartesian_y(const int
-        y) const;</span> – </big><big>Convert y-coordinate of target point from
-      isometric system to cartesian system.</big>
+        x,const int y);</span> – Set target point and convert y-coordinate from
+      isometric system to cartesian system.<br>
+    </big>
     <h2><a class="mozTocH2" name="mozTocId143616"></a><big>Chapter 4. Isometric
         level<br>
       </big></h2>
@@ -1909,11 +1928,11 @@
       1.3.4 – 1.3.6 – Small changes.<br>
       1.3.7 – Image resizer back-ported from Simple windows game framework 7.3.5.<br>
       1.3.8 – Image resizer back-ported from Eugene game development kit 7.3.7.<br>
-      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit 7.4.4.<br>
+      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit
+      7.4.4.<br>
       1.4 – Image resizer back-ported from Eugene game development kit 7.3.5.<br>
       1.4.1 – Image resizer back-ported from Eugene game development kit 7.5.<br>
-      1.4.2 – Coordinates conversion subsystem back-ported from Eugene game
-      development kit 7.5.3.<br>
+      1.4.2 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.3.<br>
       1.4.3 – Keyboard input improved.<br>
       1.4.4 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.4.<br>
       1.4.5 – Keyboard input improved.<br>
@@ -1931,8 +1950,9 @@
       1.5.7 – Image resizer back-ported from Eugene game development kit 7.7.5.<br>
       1.5.8 – Image resizer back-ported from Eugene game development kit 7.7.6.<br>
       1.5.9 – Synchronization timer improved.<br>
-    </big><big> 1.6 – Isometric subsystem back-ported from Eugene game development kit 7.8.</big><br>
-    <big> </big>
+    </big><big> 1.6 – Isometric subsystem back-ported from Eugene game development kit 7.8.<br>
+      1.6.1 – Isometric subsystem back-ported from Eugene game development kit 7.8.1.<br>
+    </big> <big> </big>
     <p></p>
     <big> </big>
   </body>
