@@ -680,12 +680,10 @@
       public methods.<br>
       <br style="font-style: italic;">
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1036,7 +1034,8 @@
       at public methods.<br>
       <br>
       <span style="font-style: italic;">void World::initialize(const int
-        tile_width,const int tile_height);</span> – Initialize the subsystem.<br>
+        tile_width,const int tile_height,const int screen_width,const int
+        screen_height);</span> – Initialize the subsystem.<br>
       <br>
       <span style="font-style: italic;">int World::get_target_x(const int row,</span></big><big
       style="font-style: italic;">const int column</big><big><span style="font-style: italic;">)
@@ -1055,8 +1054,17 @@
       <span style="font-style: italic;">int World::get_column(const int y</span></big><big
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int y</big><big><span style="font-style: italic;">) const;</span> – Get
-      the column</big><big> from target point.</big><br>
-    <big> </big>
+      the column</big><big> from target point.<br>
+      <br>
+      <span style="font-style: italic;">int World::get_row_amount() const;</span>
+      – Get amount of maximum visible rows.<br>
+      <br>
+      <span style="font-style: italic;">int World::get_column_amount() const;</span>
+      – Get amount of maximum visible columns.<br>
+      <br>
+      <span style="font-style: italic;">int World::get_tile_amount() const;</span>
+      – Get amount of maximum visible isometric tiles.<br>
+    </big> <big> </big>
     <h1><a name="mozTocId64443" class="mozTocH1"></a><big>Part 5. Common things</big></h1>
     <h2><a name="mozTocId597525" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
@@ -1928,15 +1936,15 @@
       1.3.4 – 1.3.6 – Small changes.<br>
       1.3.7 – Image resizer back-ported from Simple windows game framework 7.3.5.<br>
       1.3.8 – Image resizer back-ported from Eugene game development kit 7.3.7.<br>
-      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit
-      7.4.4.<br>
+      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit 7.4.4.<br>
       1.4 – Image resizer back-ported from Eugene game development kit 7.3.5.<br>
       1.4.1 – Image resizer back-ported from Eugene game development kit 7.5.<br>
       1.4.2 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.3.<br>
       1.4.3 – Keyboard input improved.<br>
       1.4.4 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.4.<br>
       1.4.5 – Keyboard input improved.<br>
-      1.4.6 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.8.<br>
+      1.4.6 – Coordinates conversion subsystem back-ported from Eugene game
+      development kit 7.5.8.<br>
       1.4.7 – Source code synced with Eugene game development kit 7.6.3.<br>
       1.4.8 – Tile–map subsystem back-ported from Eugene game development kit 7.6.4.<br>
       1.4.9 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.6.5.<br>
@@ -1952,6 +1960,7 @@
       1.5.9 – Synchronization timer improved.<br>
     </big><big> 1.6 – Isometric subsystem back-ported from Eugene game development kit 7.8.<br>
       1.6.1 – Isometric subsystem back-ported from Eugene game development kit 7.8.1.<br>
+      1.6.2 – Isometric level subsystem back-ported from Eugene game development kit 7.8.4.<br>
     </big> <big> </big>
     <p></p>
     <big> </big>
