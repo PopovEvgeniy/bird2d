@@ -3,7 +3,7 @@ Bird 2d made by Popov Evgeniy Alekseyevich
 
 Bird 2d license
 
-Copyright (C) 2023 Popov Evgeniy Alekseyevich
+Copyright (C) 2023 - 2024 Popov Evgeniy Alekseyevich
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages
@@ -2575,6 +2575,11 @@ namespace BIRD2D
   unsigned int Animation::get_frame() const
   {
    return frame;
+  }
+
+  bool Animation::is_last_frame() const
+  {
+   return frame==frames;
   }
 
   Billboard::Billboard()
