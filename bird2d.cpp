@@ -3049,6 +3049,16 @@ namespace BIRD2D
    return this;
   }
 
+  bool Sheet::check_row(const unsigned int target) const
+  {
+   return (target>0) && (target<=rows);
+  }
+
+  bool Sheet::check_column(const unsigned int target) const
+  {
+   return (target>0) && (target<=columns);
+  }
+
   unsigned int Sheet::get_row(const unsigned int target) const
   {
    unsigned int row;
@@ -3087,9 +3097,9 @@ namespace BIRD2D
   {
    unsigned int target;
    target=1;
-   if ((row>0)&&(row<=rows))
+   if (this->check_row(row)==true)
    {
-    if ((column>0)&&(column<=columns))
+    if (this->check_column(column)==true)
     {
      target+=(row-1)+(column-1)*rows;
     }
@@ -3147,9 +3157,9 @@ namespace BIRD2D
 
   void Sheet::select(const unsigned int row,const unsigned int column)
   {
-   if ((row>0)&&(row<=rows))
+   if (this->check_row(row)==true)
    {
-    if ((column>0)&&(column<=columns))
+    if (this->check_column(column)==true)
     {
      billboard.set_tile_offset(static_cast<double>(row),static_cast<double>(rows),static_cast<double>(column),static_cast<double>(columns));
     }
