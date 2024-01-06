@@ -19,7 +19,8 @@ int main()
  space.load("./space.tga");
  space.prepare(screen);
  ship.load("./ship.tga",BIRD2D::HORIZONTAL_ANIMATED,2);
- ship.set_position(screen.get_width()/2,screen.get_height()/2);
+ ship.set_start(screen.get_width()/2,screen.get_height()/2);
+ ship.go_start();
  text.load_font("./font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  mouse.initialize();
@@ -78,27 +79,27 @@ int main()
   }
   if (joystick.get_axe(7)<0)
   {
-    ship.decrease_y();
+   ship.decrease_y();
   }
   if (joystick.get_axe(7)>0)
   {
-    ship.increase_y();
+   ship.increase_y();
   }
   if (joystick.get_axe(6)>0)
   {
-    ship.increase_x();
+   ship.increase_x();
   }
   if (joystick.get_axe(6)<0)
   {
-    ship.decrease_x();
+   ship.decrease_x();
   }
-  if (ship.get_x()>screen.get_width())
+  if (screen.check_x(ship.get_x())==false)
   {
-   ship.set_x(screen.get_width()/2);
+   ship.go_start();
   }
-  if (ship.get_y()>screen.get_height())
+  if (screen.check_y(ship.get_y())==false)
   {
-   ship.set_y(screen.get_height()/2);
+   ship.go_start();
   }
   sprintf(perfomance,"%u",screen.get_fps());
   space.draw();
