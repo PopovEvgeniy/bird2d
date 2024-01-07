@@ -3380,8 +3380,6 @@ namespace BIRD2D
   {
    text.set_size(0,0);
    orientation=BIRD2D::HORIZONTAL_TEXT;
-   current_x=0;
-   current_y=0;
   }
 
   Text::~Text()
@@ -3404,7 +3402,7 @@ namespace BIRD2D
 
   void Text::restore_position()
   {
-   text.set_position(current_x,current_y);
+   text.go_start();
   }
 
   BIRD2D::TEXT_KIND Text::get_orientation() const
@@ -3429,9 +3427,8 @@ namespace BIRD2D
 
   void Text::set_position(const unsigned int x,const unsigned int y)
   {
-   current_x=x;
-   current_y=y;
-   text.set_position(current_x,current_y);
+   text.set_start(x,y);
+   text.set_position(x,y);
   }
 
   void Text::set_size(const unsigned int width,const unsigned int height)
