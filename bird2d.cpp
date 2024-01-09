@@ -2790,6 +2790,16 @@ namespace BIRD2D
    return current_y;
   }
 
+  unsigned int Billboard::get_start_x() const
+  {
+   return start_x;
+  }
+
+  unsigned int Billboard::get_start_y() const
+  {
+   return start_y;
+  }
+
   unsigned int Billboard::get_x() const
   {
    return current_x;
@@ -2842,8 +2852,7 @@ namespace BIRD2D
 
   void Billboard::go_start()
   {
-   current_x=start_x;
-   current_y=start_y;
+   this->set_position(start_x,start_y);
   }
 
   void Billboard::draw()
@@ -2960,7 +2969,6 @@ namespace BIRD2D
    this->load_image(buffer);
    if (this->is_storage_empty()==false)
    {
-    this->reset_animation_setting();
     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
     this->set_setting(kind,frames);
    }
