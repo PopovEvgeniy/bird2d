@@ -763,6 +763,7 @@ namespace BIRD2D
    public:
    Background();
    ~Background();
+   Background* get_handle();
    void prepare(const Surface *surface);
    void prepare(Surface &surface);
    void prepare(const unsigned int width,const unsigned int height);
@@ -783,6 +784,7 @@ namespace BIRD2D
    void draw(const unsigned int target);
    void destroy_image();
    void destroy();
+   bool is_last_frame() const;
    unsigned int get_frame() const;
    unsigned int get_frames() const;
    unsigned int get_width() const;

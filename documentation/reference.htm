@@ -381,6 +381,9 @@
       <br>
       Just use <span style="font-style: italic;">Background</span> class to
       work with background. Let's look at public methods.<br>
+      <br>
+      <span style="font-style: italic;">Background* Background::get_handle();</span>
+      – Return the handle to background object.<br>
     </big><big></big><big><br style="">
       <span style="font-style: italic;"> void Background::prepare(const Surface
         *surface);</span> – Prepare for drawing.<br>
@@ -447,6 +450,9 @@
       <br>
       <span style="font-style: italic;"> void Background::destroy();</span> –
       Destroy a background image and destroy a background texture.<br>
+      <br>
+      <span style="font-style: italic;">bool Background::is_last_frame() const;</span>
+      – Return true if current frame of scrollable background is last frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_frame()
         const;</span> – Return current frame in scrollable background.<br>
@@ -1921,8 +1927,7 @@
     <big> 0.1 – </big><big>Initial version.<br>
       0.1.1 </big><big>– </big><big>0.3.4 </big><big>– Unstable branch.<br>
     </big><big>0.3.5 </big><big>– Preview release.<br>
-    </big><big> 0.3.6 </big><big>– </big><big>0.3.7 </big><big>– Small
-      changes.<br>
+    </big><big> 0.3.6 </big><big>– </big><big>0.3.7 </big><big>– Small changes.<br>
       0.3.8 – Full–screen mode is implemented.<br>
     </big><big>0.3.9 </big><big>– Mouse input improved.<br>
     </big><big>0.4 </big><big>– Keyboard input improved.<br>
@@ -1980,16 +1985,17 @@
       1.5.7 – Image resizer back-ported from Eugene game development kit 7.7.5.<br>
       1.5.8 – Image resizer back-ported from Eugene game development kit 7.7.6.<br>
       1.5.9 – Synchronization timer improved.<br>
-    </big><big> 1.6 – Isometric subsystem back-ported from Eugene game development kit 7.8.<br>
-      1.6.1 – Isometric subsystem back-ported from Eugene game development kit 7.8.1.<br>
+      1.6 – Isometric subsystem back-ported from Eugene game development kit 7.8.<br>
+      1.6.1 – Isometric subsystem back-ported from Eugene game development kit7.8.1.<br>
       1.6.2 – Isometric level subsystem back-ported from Eugene game development kit 7.8.4.<br>
       1.6.3 – Animation subsystem back-ported from Eugene game development kit 7.8.6.<br>
       1.6.4 – Sprite sheet subsystem back-ported from Eugene game development kit 7.8.8.<br>
       1.6.5 – Base sprite subsystem back-ported from Eugene game development kit 7.8.9.<br>
       1.6.6 – Text drawing subsystem back-ported from Eugene game development kit 7.9.<br>
       1.6.7 – Base sprite subsystem back-ported from Eugene game development kit 7.9.1.<br>
-    <big> </big>
+      1.6.8 – Background subsystem back-ported from Eugene game development kit 7.9.2.<br>
+      <big> </big> </big>
     <p></p>
-    <big> </big>
+    <big> <big> </big> </big>
   </body>
 </html>
