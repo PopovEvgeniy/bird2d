@@ -37,9 +37,10 @@
           <li><a href="#mozTocId738557">Chapter 6. Background</a></li>
           <li><a href="#mozTocId309905">Chapter 7. Base sprite subsystem</a></li>
           <li><a href="#mozTocId662651"> Chapter 8. Ordinary sprites</a></li>
-          <li><a href="#mozTocId146800">Chapter 9. Sprite sheet</a></li>
-          <li><a href="#mozTocId752257">Chapter 10. Text</a></li>
-          <li><a href="#mozTocId67980">Chapter 11. Loading images</a></li>
+          <li><a href="#mozTocId66751">Chapter 9. Static sprites</a></li>
+          <li><a href="#mozTocId146800">Chapter 10. Sprite sheet</a></li>
+          <li><a href="#mozTocId752257">Chapter 11. Text</a></li>
+          <li><a href="#mozTocId67980">Chapter 12. Loading images</a></li>
         </ul>
       </li>
       <li><a href="#mozTocId696454">Part 4. Transformation</a>
@@ -676,8 +677,52 @@
       <span style="text-decoration: underline;"> Sprite texture</span><br>
       <br>
       Sprite will don't draw if sprite texture is don't exist. Sprite texture
-      will automatically create when load or clone sprite.</big><big> </big>
-    <h2><a name="mozTocId146800" class="mozTocH2"></a><big>Chapter 9. Sprite
+      will automatically create when load or clone sprite.<br>
+    </big>
+    <h2><a class="mozTocH2" name="mozTocId66751"></a><big>Chapter 9. Static
+        sprites</big></h2>
+    <big><span style="text-decoration: underline;">A few words about static
+        sprite</span><br>
+      <br>
+      The static sprite is simple kind of sprites. It contain one frame only.<br>
+    </big><big><span style="text-decoration: underline;"></span></big><big><br style="text-decoration: underline;">
+      <span style="text-decoration: underline;"> Work with static sprites</span><br>
+      <br>
+      Just use <span style="font-style: italic;">Cartoon</span> class to work
+      with a static sprite. It is derived from two classes: </big><big><span style="font-style: italic;">Billboard</span>
+      and <span style="font-style: italic;">Picture</span></big><big>. Let's
+      look at public methods.<br>
+      <span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;"> void Cartoon::load(Image *buffer);</span>
+      – Load a static sprite </big><big>from the buffer</big><big>.<br>
+      <span style="font-style: italic;"></span></big><big><br>
+      <span style="font-style: italic;"> void Cartoon::load(Image &amp;buffer);</span>
+      – Load a static sprite </big><big>from the buffer</big><big>.<br>
+      <span style="font-style: italic;"></span></big><big><br>
+      <span style="font-style: italic;">void Cartoon::load(</span></big><big style="font-style: italic;">const
+      char *name</big><big><span style="font-style: italic;">);</span> – Load a
+      static sprite from target file.<br>
+      <span style="font-style: italic;"></span><br>
+    </big><big> <span style="font-style: italic;"> Cartoon*
+        Cartoon::get_handle();</span> – Return the handle to sprite object.<br>
+      <br>
+      <span style="font-style: italic;"> void Cartoon::clone(Cartoon *target);</span>
+      – Create copy of the sprite if the image storage of target sprite is not
+      empty.<br>
+      <br>
+      <span style="font-style: italic;"> void Cartoon::clone(Cartoon
+        &amp;target);</span> – Create copy of the sprite if the image storage of
+      target sprite is not empty.<br>
+      <br>
+      <span style="font-style: italic;"> void Cartoon::destroy(); </span>–
+      Destroy a sprite image and destroy a sprite texture.</big><big><br>
+    </big> <big><br>
+      <span style="text-decoration: underline;"> Sprite texture</span><br>
+      <br>
+      Sprite will don't draw if sprite texture is don't exist. Sprite texture
+      will automatically create when load or clone sprite.</big><br>
+    <big> </big>
+    <h2><a name="mozTocId146800" class="mozTocH2"></a><big>Chapter 10. Sprite
         sheet</big></h2>
     <big><span style="text-decoration: underline;"> Some words about sprite
         sheet</span><br style="text-decoration: underline;">
@@ -769,7 +814,7 @@
       sheet texture will automatically create after call <span style="">load_sheet</span>
       method.<br>
     </big>
-    <h2><a name="mozTocId752257" class="mozTocH2"></a><big>Chapter 10. Text</big></h2>
+    <h2><a name="mozTocId752257" class="mozTocH2"></a><big>Chapter 11. Text</big></h2>
     <big><span style="text-decoration: underline;"> How to draw a text?</span><br>
       <br>
       Just use text subsystem to draw a text. This subsystem need a font for
@@ -878,7 +923,7 @@
       <span style="font-style: italic;"> void Text::destroy_font();</span> –
       Destroy a font image and destroy a font texture.<br>
     </big><big> </big>
-    <h2><a name="mozTocId67980" class="mozTocH2"></a><big>Chapter 11. Loading
+    <h2><a name="mozTocId67980" class="mozTocH2"></a><big>Chapter 12. Loading
         images</big></h2>
     <big><span style="text-decoration: underline;"> Load an image from files</span><br>
       <br>
@@ -1986,7 +2031,7 @@
       1.5.8 – Image resizer back-ported from Eugene game development kit 7.7.6.<br>
       1.5.9 – Synchronization timer improved.<br>
       1.6 – Isometric subsystem back-ported from Eugene game development kit 7.8.<br>
-      1.6.1 – Isometric subsystem back-ported from Eugene game development kit7.8.1.<br>
+      1.6.1 – Isometric subsystem back-ported from Eugene game development kit 7.8.1.<br>
       1.6.2 – Isometric level subsystem back-ported from Eugene game development kit 7.8.4.<br>
       1.6.3 – Animation subsystem back-ported from Eugene game development kit 7.8.6.<br>
       1.6.4 – Sprite sheet subsystem back-ported from Eugene game development kit 7.8.8.<br>
@@ -1994,7 +2039,7 @@
       1.6.6 – Text drawing subsystem back-ported from Eugene game development kit 7.9.<br>
       1.6.7 – Base sprite subsystem back-ported from Eugene game development kit 7.9.1.<br>
       1.6.8 – Background subsystem back-ported from Eugene game development kit 7.9.2.<br>
-      <big> </big> </big>
+      1.6.9 – Static sprite subsystem back-ported from Eugene game development kit 7.9.3.<br>
     <p></p>
     <big> <big> </big> </big>
   </body>
