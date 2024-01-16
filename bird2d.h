@@ -806,6 +806,31 @@ namespace BIRD2D
    BIRD2D::IMAGE_KIND get_kind() const;
   };
 
+  class Scene
+  {
+   private:
+   Graphics::Cartoon stage;
+   public:
+   Scene();
+   ~Scene();
+   Scene* get_handle();
+   void prepare(const Surface *surface);
+   void prepare(Surface &surface);
+   void prepare(const unsigned int width,const unsigned int height);
+   void load(Image *background);
+   void load(Image &background);
+   void load(const char *name);
+   void disable_mirror();
+   void horizontal_mirror();
+   void vertical_mirror();
+   void complex_mirror();
+   void draw();
+   void destroy_image();
+   void destroy();
+   unsigned int get_width() const;
+   unsigned int get_height() const;
+  };
+
   class Text
   {
    private:

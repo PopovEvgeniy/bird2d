@@ -9,7 +9,7 @@ int main()
  BIRD2D::Misc::Audio audio;
  BIRD2D::Input::Mouse mouse;
  BIRD2D::Graphics::Surface screen;
- BIRD2D::Graphics::Background space;
+ BIRD2D::Graphics::Scene space;
  BIRD2D::Graphics::Sprite ship;
  BIRD2D::Graphics::Text text;
  BIRD2D::Tools::enable_logging("./log.txt");
