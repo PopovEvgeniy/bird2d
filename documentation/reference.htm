@@ -828,12 +828,10 @@
         int target) const;</span> – Return true if target column is valid.<br>
       <br style="font-style: italic;">
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -930,6 +928,9 @@
       <br>
       <span style="font-style: italic;"> Text</span> class provide a simple
       interface to text subsystem. Let's look at public methods.<br>
+      <br>
+      <span style="font-style: italic;">Text* Text::get_handle();</span> –
+      Return the handle to text drawing subsystem.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;"> BIRD2D::TEXT_KIND
         Text::get_orientation() const;</span> – Get current text orientation.<br>
@@ -1071,6 +1072,9 @@
       convert screen coordinates to cartesian coordinates.<br>
       Just use <span style="font-style: italic;">Coordinates</span> class for
       doing it. Let's look at public methods.<br>
+      <br>
+      <span style="font-style: italic;">Coordinates* Coordinates::get_handle();</span>
+      – Return the handle to coordinates conversion subsystem.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;"> void Coordinates::initialize(const int
         viewport_width,const int viewport_height);</span> – Initialize the
@@ -1139,6 +1143,9 @@
       Just use <span style="font-style: italic;">Isometric</span> class for
       doing it. Let's look at public methods.<br>
       <br>
+      <span style="font-style: italic;">Isometric* Isometric::get_handle();</span>
+      – Return the handle to isometric subsystem.<br>
+      <br>
     </big><big><span style="font-style: italic;">void
         Isometric::set_target(const int x,const int y);</span> – Set target
       point.</big><big><span style="font-style: italic;"></span></big><big><br>
@@ -1180,9 +1187,11 @@
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
-
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
+      <br>
+      <span style="font-style: italic;">World* World::get_handle();</span> –
+      Return the handle to isometric level subsystem.<br>
       <br>
       <span style="font-style: italic;">void World::initialize(const int
         tile_width,const int tile_height,const int screen_width,const int
@@ -1234,6 +1243,9 @@
     <big> Timer is a very useful thing. Just use <span style="font-style: italic;">Timer</span>
       class to work with the timer. Let's look at public methods.<br>
       <br>
+      <span style="font-style: italic;">Timer* Timer::get_handle();</span> –
+      Return the handle to the timer.<br>
+      <br>
       <span style=""><span style="font-style: italic;"> void
           Timer::set_timer(const double seconds);</span> </span>– Set timer
       interval and initialize start point.<br>
@@ -1269,6 +1281,9 @@
       <span style="font-style: italic;"> Collision</span> class provide easy
       access to collision detector. It is a simple class with few methods. Let's
       look at public methods.<br>
+      <br>
+      <span style="font-style: italic;">Collision* Collision::get_handle();</span>
+      – Return the handle to the collision detector.<br>
     </big><br>
     <big><span style="font-style: italic;">void Collision::set_target(const
         BIRD2D::BOX &amp;first_target,const BIRD2D::BOX &amp;second_target);</span>
@@ -1297,6 +1312,9 @@
       <span style="font-style: italic;">Tilemap</span> class provide easy access
       to the tile–map. It is a simple class with few methods. Let's look at
       public methods.<br>
+      <br>
+      <span style="font-style: italic;">Tilemap* Tilemap::get_handle();</span> –
+      Return the handle to tile-map subsystem.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">void Tilemap::initialize(const unsigned
         int tile_width,const unsigned int tile_height);</span> – Initialize the
@@ -2119,7 +2137,9 @@
       1.6.8 – Background subsystem back-ported from Eugene game development kit 7.9.2.<br>
       1.6.9 – Static sprite subsystem back-ported from Eugene game development kit 7.9.3.<br>
       1.7 – Static background subsystem back-ported from Eugene game development kit 7.9.4.<br>
+      1.7.1 – Source code synced with Eugene game development kit 7.9.5.<br>
+    </big>
     <p></p>
-    <big> <big> <big> </big> </big> </big>
+    <big> <big> <big> <big> </big> </big> </big> </big>
   </body>
 </html>
