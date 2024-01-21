@@ -526,7 +526,6 @@
       buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load static background from target file.</big><br>
     <big><br>
@@ -1187,6 +1186,7 @@
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
+
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -1534,6 +1534,9 @@
       File reader is intending to reading data from a binary files. <i>Input_File</i>
       class provide access to file reader. It is derived from <i>Binary_File</i>
       class. Let's look at public methods.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">Input_File* Input_File::get_handle();</span>
+      – Return the handle to file reader.<br>
       <br>
       <i> void Input_File::open(const char *name);</i> – Open a file for read.<br>
       <br>
@@ -1545,6 +1548,9 @@
       File writer is intending to write data to binary files. <i>Output_File</i>
       class provide access to file writer. It is derived from <i>Binary_File</i>
       class. Let's look at public methods.<br>
+      <br>
+      <span style="font-style: italic;">Output_File* Output_File::get_handle();</span>
+      – Return the handle to file writer.<br>
       <br>
       <i> void Output_File::open(const char *name);</i> – Open a file for write.<br>
       <br>
@@ -2138,6 +2144,7 @@
       1.6.9 – Static sprite subsystem back-ported from Eugene game development kit 7.9.3.<br>
       1.7 – Static background subsystem back-ported from Eugene game development kit 7.9.4.<br>
       1.7.1 – Source code synced with Eugene game development kit 7.9.5.<br>
+      1.7.2 – Source code synced with Eugene game development kit 7.9.6.<br>
     </big>
     <p></p>
     <big> <big> <big> <big> </big> </big> </big> </big>
