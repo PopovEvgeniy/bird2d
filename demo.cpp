@@ -95,11 +95,11 @@ int main()
   }
   if (screen.check_x(ship.get_x())==false)
   {
-   ship.set_x(ship.get_start_x());
+   ship.go_start_x();
   }
   if (screen.check_y(ship.get_y())==false)
   {
-   ship.set_y(ship.get_start_y());
+   ship.go_start_y();
   }
   sprintf(perfomance,"%u",screen.get_fps());
   space.draw();

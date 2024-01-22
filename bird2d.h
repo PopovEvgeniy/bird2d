@@ -695,6 +695,8 @@ namespace BIRD2D
    void vertical_mirror();
    void complex_mirror();
    void go_start();
+   void go_start_x();
+   void go_start_y();
    void draw();
    void draw(const unsigned int x,const unsigned int y);
    void draw(const bool transparency);
