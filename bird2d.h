@@ -309,8 +309,6 @@ namespace BIRD2D
    unsigned int get_next_x(const unsigned int x) const;
    unsigned int get_next_y(const unsigned int y) const;
    void scale_image(const unsigned int *target);
-   void load_image(const unsigned int *target);
-   void resize_image(const unsigned int *target);
    void set_setting(const unsigned int width,const unsigned int height);
    void correct_size(const unsigned int limit);
    void calculate_ratio();
@@ -319,10 +317,11 @@ namespace BIRD2D
    public:
    Resizer();
    ~Resizer();
-   void make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit);
+   bool is_dont_need_resize() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
    unsigned int *get_buffer();
+   void make_texture(const unsigned int *target,const unsigned int width,const unsigned int height,const unsigned int limit);
   };
 
   class FPS
@@ -369,6 +368,7 @@ namespace BIRD2D
   {
    private:
    unsigned int texture;
+   void load_texture(const unsigned int width,const unsigned int height,const unsigned int *buffer);
    void create_texture(const unsigned int *buffer);
    void delete_texture();
    void check_texture();
