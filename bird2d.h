@@ -368,7 +368,7 @@ namespace BIRD2D
   {
    private:
    unsigned int texture;
-   void load_texture(const unsigned int width,const unsigned int height,const unsigned int *buffer);
+   void load_texture(const unsigned int width,const unsigned int height,const void *buffer);
    void create_texture(const unsigned int *buffer);
    void delete_texture();
    void check_texture();
@@ -566,7 +566,7 @@ namespace BIRD2D
  {
 
   class Surface:public Core::FPS, public Core::Render, public Internal::Engine, public Internal::Synchronization
- {
+  {
    private:
    void screen_setup();
    public:
@@ -586,7 +586,7 @@ namespace BIRD2D
    Surface* get_handle();
   };
 
-   class Image
+  class Image
   {
    private:
    Core::Buffer<unsigned char> data;

@@ -1211,7 +1211,7 @@ namespace BIRD2D
 
   }
 
-  void Rectangle::load_texture(const unsigned int width,const unsigned int height,const unsigned int *buffer)
+  void Rectangle::load_texture(const unsigned int width,const unsigned int height,const void *buffer)
   {
    glPixelStorei(GL_UNPACK_ALIGNMENT,1);
    glGenTextures(1,&texture);
@@ -3502,7 +3502,7 @@ namespace BIRD2D
 
   void Scene::prepare(const Surface *surface)
   {
-   if (screen!=NULL)
+   if (surface!=NULL)
    {
     stage.set_size(surface->get_width(),surface->get_height());
    }
