@@ -1239,17 +1239,6 @@ namespace BIRD2D
 
   }
 
-  void Rectangle::delete_texture()
-  {
-   if (texture!=0)
-   {
-    glBindTexture(GL_TEXTURE_2D,0);
-    glDeleteTextures(1,&texture);
-    texture=0;
-   }
-
-  }
-
   void Rectangle::check_texture()
   {
    if (glGetError()!=GL_NO_ERROR)
@@ -1283,31 +1272,37 @@ namespace BIRD2D
    glDisable(GL_BLEND);
   }
 
+  void Rectangle::destroy_texture()
+  {
+   if (texture!=0)
+   {
+    glBindTexture(GL_TEXTURE_2D,0);
+    glDeleteTextures(1,&texture);
+    texture=0;
+   }
+
+  }
+
   void Rectangle::prepare(const unsigned int *buffer)
   {
    if (buffer!=NULL)
    {
-    this->delete_texture();
+    this->destroy_texture();
     this->create_texture(buffer);
     this->check_texture();
    }
 
   }
 
- void Rectangle::draw(const Core::MIRROR_KIND kind)
- {
-  if (texture!=0)
+  void Rectangle::draw(const Core::MIRROR_KIND kind)
   {
-   this->set_data(kind);
-   this->load_data();
-   this->draw_rectangle();
-  }
+   if (texture!=0)
+   {
+    this->set_data(kind);
+    this->load_data();
+    this->draw_rectangle();
+   }
 
- }
-
-  void Rectangle::destroy_texture()
-  {
-   this->delete_texture();
   }
 
   bool Rectangle::is_texture_exist() const
