@@ -368,10 +368,10 @@
       before rendering the game scene.<br>
       <br>
       There are two background kinds: horizontal orientated scrolling background
-      and vertical orientated scrolling background. The scrolling background is
-      a big image with few frames. Horizontal orientated scrolling background
-      look like horizontal orientated photo ribbon. Vertical orientated
-      scrolling background look like vertical orientated photo ribbon.<br>
+      and vertical orientated scrolling background. It is a big image with few
+      frames. Horizontal orientated scrolling background look like horizontal
+      orientated photo ribbon. Vertical orientated scrolling background look
+      like vertical orientated photo ribbon.<br>
     </big><big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;"> Work with background</span><br>
       <br>
@@ -414,15 +414,15 @@
       <span style=""></span><br>
       <span style="font-style: italic;">void Background::load(Image
         *background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span>
-      – Load background from the buffer.<br>
+      – Load a background from the buffer.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">void Background::load(Image
         &amp;background,const BIRD2D::IMAGE_KIND kind,const unsigned int
-        frames);</span> – Load background from the buffer.<br>
+        frames);</span> – Load a background from the buffer.<br>
       <br>
       <span style="font-style: italic;">void Background::load(const char
         *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> –
-      Load background from target file.<br>
+      Load a background from target file.<br>
       <br>
       <span style="font-style: italic;"> void Background::draw();</span> – Draw
       a background.<br>
@@ -502,15 +502,14 @@
       Set both horizontal and vertical background mirroring mode.<br>
       <span style="font-style: italic;"></span><span style="font-style: italic;"></span></big><big><br>
       <span style="font-style: italic;"> void Scene::load(Image *background);</span>
-      – Load static background from the buffer.<br>
+      – Load a background from the buffer.<br>
       <br>
       <span style="font-style: italic;"> void Scene::load(Image
-        &amp;background);</span> – Load static background </big><big>from the
-      buffer</big><big>.<br>
+        &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
-      – Load static background from target file.</big><br>
+      – Load a background from target file.</big><br>
     <big><br>
       <span style="font-style: italic;"> void Scene::draw();</span> – Draw a
       background.<br>
@@ -695,15 +694,15 @@
       <br>
       <span style="font-style: italic;"> void Sprite::load(Image *buffer,const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
-      sprite from the buffer and set it setting.<br>
+      sprite from the buffer.<br>
       <br>
       <span style="font-style: italic;">void Sprite::load(Image
         &amp;buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span>
-      – Load a sprite from the buffer and set it setting.<br>
+      – Load a sprite from the buffer.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">void Sprite::load(const char *name,const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
-      sprite from target file and set it setting.<br>
+      sprite from target file.<br>
       <br>
       <span style="font-style: italic;"> void Sprite::set_target(const unsigned
         int target);</span> – Set target frame.<br>
@@ -808,12 +807,10 @@
         int target) const;</span> – Return true if target column is valid.<br>
       <br style="font-style: italic;">
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -1185,15 +1182,18 @@
       column.<br>
       <br>
       <span style="font-style: italic;">int World::get_target_y(const int row</span></big><big
+
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int column</big><big><span style="font-style: italic;">) const;</span> –
       Get target cartesian y-coordinate </big><big>from the row and column.<br>
       <br>
     </big><big><span style="font-style: italic;">int World::get_row(const int x,</span></big><big
+
       style="font-style: italic;">const int y</big><big><span style="font-style: italic;">)
         const;</span> – Get the row from target point.<br>
       <br>
       <span style="font-style: italic;">int World::get_column(const int y</span></big><big
+
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int y</big><big><span style="font-style: italic;">) const;</span> – Get
       the column</big><big> from target point.<br>
@@ -2093,7 +2093,7 @@
       1.3.4 – 1.3.6 – Small changes.<br>
       1.3.7 – Image resizer back-ported from Simple windows game framework 7.3.5.<br>
       1.3.8 – Image resizer back-ported from Eugene game development kit 7.3.7.<br>
-      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit7.4.4.<br>
+      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit 7.4.4.<br>
       1.4 – Image resizer back-ported from Eugene game development kit 7.3.5.<br>
       1.4.1 – Image resizer back-ported from Eugene game development kit 7.5.<br>
       1.4.2 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.3.<br>
@@ -2140,6 +2140,7 @@
       1.8.3 – Source code synced with Eugene game development kit 8.1.7.<br>
       1.8.4 – Source code synced with Eugene game development kit 8.1.8.<br>
       1.8.5 – Source code synced with Eugene game development kit 8.2.1.<br>
+      1.8.6 – Small changes.<br>
     </big>
     <p></p>
   </body>

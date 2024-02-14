@@ -778,8 +778,8 @@ namespace BIRD2D
    Background();
    ~Background();
    Background* get_handle();
-   void prepare(const Screen *screen);
-   void prepare(Screen &screen);
+   void prepare(const Surface *screen);
+   void prepare(Surface &screen);
    void prepare(const unsigned int width,const unsigned int height);
    void set_setting(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(Image *background,const IMAGE_KIND kind,const unsigned int frames);
