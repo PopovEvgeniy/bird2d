@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
@@ -206,8 +205,7 @@
       What is the main point in your game? A game cycle. You can see the
       structure of a typical game cycle below.<br>
       <br>
-      <img style="width: 379px; height: 354px;" alt="" src="game_cycle.png">
-    </big>
+      <img style="width: 379px; height: 354px;" alt="" src="game_cycle.png"> </big>
     <h1><a name="mozTocId760374" class="mozTocH1"></a><big>Part 3. Graphics</big></h1>
     <h2><a name="mozTocId182571" class="mozTocH2"></a><big>Chapter 1. The
         sub–namespace</big></h2>
@@ -330,12 +328,10 @@
       methods.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;"> unsigned int Animation::get_frames()
-        const;</span> – Return amount of frames in scrollable background or
-      animated sprite.<br>
+        const;</span> – Return amount of frames.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Animation::get_frame()
-        const;</span> – Return current frame in scrollable background or
-      animated sprite.<br>
+        const;</span> – Return current frame.<br>
       <br>
       <span style="font-style: italic;">bool Animation::is_last_frame() const;</span>
       – Return true if current frame is last frame.<br>
@@ -351,11 +347,6 @@
           <td><big>Image kind<br>
             </big></td>
           <td><big>Description </big></td>
-        </tr>
-        <tr>
-          <td><big>STATIC_IMAGE </big></td>
-          <td><big>Normal background or normal sprite<br>
-            </big></td>
         </tr>
         <tr>
           <td><big>HORIZONTAL_ANIMATED </big></td>
@@ -376,11 +367,11 @@
       game has a background. The background will stretch to screen resolution
       before rendering the game scene.<br>
       <br>
-      There are two background kinds: normal background and scrolling
-      background. The scrolling background is a big image with few frames.
-      Horizontal orientated scrolling background look like horizontal orientated
-      photo ribbon. Vertical orientated scrolling background look like vertical
-      orientated photo ribbon.<br>
+      There are two background kinds: horizontal orientated scrolling background
+      and vertical orientated scrolling background. The scrolling background is
+      a big image with few frames. Horizontal orientated scrolling background
+      look like horizontal orientated photo ribbon. Vertical orientated
+      scrolling background look like vertical orientated photo ribbon.<br>
     </big><big><br style="text-decoration: underline;">
       <span style="text-decoration: underline;"> Work with background</span><br>
       <br>
@@ -412,16 +403,14 @@
       – Set both horizontal and vertical background mirroring mode.<br>
       <br>
       <span style="font-style: italic;"> void Background::set_target(const
-        unsigned int target);</span> – Set target frame in scrollable
-      background.<br>
+        unsigned int target);</span> – Set target frame.<br>
       <br>
       <span style="font-style: italic;"> void Background::step();</span> –
-      Increase number of target frame in scrollable background. Set it to 1 if
-      number of target frame more than frame amount.<br>
+      Increase number of target frame. Set it to 1 if number of target frame
+      more than frame amount.<br>
       <br>
       <span style=""> void Background::set_setting(const BIRD2D::IMAGE_KIND
-        kind,const unsigned int frames);</span> – Set setting. Last argument
-      will ignore if background is not scrollable.<br>
+        kind,const unsigned int frames);</span> – Set setting.<br>
       <span style=""></span><br>
       <span style="font-style: italic;">void Background::load(Image
         *background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span>
@@ -431,24 +420,15 @@
         &amp;background,const BIRD2D::IMAGE_KIND kind,const unsigned int
         frames);</span> – Load background from the buffer.<br>
       <br>
-      <span style="font-style: italic;">void Background::load(Image
-        *background);</span> – Load normal background from the buffer.<br>
-      <br>
-      <span style="font-style: italic;">void Background::load(Image
-        &amp;background);</span> – Load normal background from the buffer.<br>
-      <br>
       <span style="font-style: italic;">void Background::load(const char
         *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> –
       Load background from target file.<br>
-      <br style="font-style: italic;">
-      <span style="font-style: italic;">void Background::load(const char *name);</span>
-      – Load normal background from target file.<br>
       <br>
       <span style="font-style: italic;"> void Background::draw();</span> – Draw
       a background.<br>
       <br>
       <span style="font-style: italic;">void Background::draw(const unsigned int
-        target);</span> – Draw target frame in scrollable background.<br>
+        target);</span> – Draw target frame.<br>
       <br>
       <span style="font-style: italic;"> void Background::destroy_image();</span>
       – Destroy a background image.<br>
@@ -457,13 +437,13 @@
       Destroy a background image and destroy a background texture.<br>
       <br>
       <span style="font-style: italic;">bool Background::is_last_frame() const;</span>
-      – Return true if current frame of scrollable background is last frame.<br>
+      – Return true if current frame is last frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_frame()
-        const;</span> – Return current frame in scrollable background.<br>
+        const;</span> – Return current frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_frames()
-        const;</span> – Return frame amount in scrollable background.<br>
+        const;</span> – Return frame amount.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_width()
         const;</span> – Return the width of the background.<br>
@@ -529,7 +509,6 @@
       buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load static background from target file.</big><br>
     <big><br>
@@ -692,8 +671,9 @@
         sprites</big></h2>
     <big><span style="text-decoration: underline;"> Sprite types</span><br>
       <br>
-      There are two kinds of ordinary sprites: normal sprites and strip. The
-      strip is an animated sprite. Do you remember an analog camera? <br>
+      There are two kinds of ordinary sprites: horizontal strip and vertical
+      strip. The strip is an animated sprite. Do you remember an analog camera?
+      <br>
       Strip look like photo ribbon. Horizontal strip look like the horizontal
       orientated photo ribbon.<br>
       Vertical strip look like the vertical orientated photo ribbon.<br>
@@ -705,41 +685,32 @@
       <span style="text-decoration: underline;"> Work with sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Sprite</span> class to work
-      with a sprite. It is derived from threeclasses: </big><big><span style="font-style: italic;">Billboard</span>,
+      with a sprite. It is derived from three classes: </big><big><span style="font-style: italic;">Billboard</span>,
       <span style="font-style: italic;">Animation</span> and <span style="font-style: italic;">Picture</span></big><big>.
       Let's look at public methods.<br>
       <br>
       <span style="font-style: italic;"> void Sprite::set_setting(const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Set sprite
-      settings. Last argument will ignore if sprite not animated.<br>
+      settings.<br>
       <br>
       <span style="font-style: italic;"> void Sprite::load(Image *buffer,const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
       sprite from the buffer and set it setting.<br>
       <br>
-      <span style="font-style: italic;">void Sprite::load(Image *buffer);</span>
-      – Load a normal sprite from the buffer.<br>
-      <br>
       <span style="font-style: italic;">void Sprite::load(Image
         &amp;buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite from the buffer and set it setting.<br>
-      <br>
-      <span style="font-style: italic;">void Sprite::load(Image &amp;buffer);</span>
-      – Load a normal sprite from the buffer.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;">void Sprite::load(const char *name,const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
       sprite from target file and set it setting.<br>
       <br>
-      <span style="font-style: italic;">void Sprite::load(const char *name);</span>
-      – Load a normal sprite from target file.<br>
-      <br>
       <span style="font-style: italic;"> void Sprite::set_target(const unsigned
-        int target);</span> – Set target frame in strip.<br>
+        int target);</span> – Set target frame.<br>
       <br>
       <span style="font-style: italic;"> void Sprite::step();</span> – Increase
-      number of target frame in strip. Set it to 1 if number of target frame
-      more than frame amount.<br>
+      number of target frame. Set it to 1 if number of target frame more than
+      frame amount.<br>
       <br style="font-style: italic;">
       <span style="font-style: italic;"> BIRD2D::IMAGE_KIND Sprite::get_kind()
         const;</span> – Get sprite type.<br>
@@ -837,10 +808,12 @@
         int target) const;</span> – Return true if target column is valid.<br>
       <br style="font-style: italic;">
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
+
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
@@ -2120,7 +2093,7 @@
       1.3.4 – 1.3.6 – Small changes.<br>
       1.3.7 – Image resizer back-ported from Simple windows game framework 7.3.5.<br>
       1.3.8 – Image resizer back-ported from Eugene game development kit 7.3.7.<br>
-      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit 7.4.4.<br>
+      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit7.4.4.<br>
       1.4 – Image resizer back-ported from Eugene game development kit 7.3.5.<br>
       1.4.1 – Image resizer back-ported from Eugene game development kit 7.5.<br>
       1.4.2 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.3.<br>
@@ -2166,6 +2139,7 @@
       1.8.2 – Source code synced with Eugene game development kit 8.1.6.<br>
       1.8.3 – Source code synced with Eugene game development kit 8.1.7.<br>
       1.8.4 – Source code synced with Eugene game development kit 8.1.8.<br>
+      1.8.5 – Source code synced with Eugene game development kit 8.2.1.<br>
     </big>
     <p></p>
   </body>

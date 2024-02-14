@@ -5,7 +5,7 @@ int main()
  int x,y,row,column;
  BIRD2D::Graphics::Surface screen;
  BIRD2D::Graphics::Scene sky;
- BIRD2D::Graphics::Sprite ground;
+ BIRD2D::Graphics::Cartoon ground;
  BIRD2D::Graphics::Text text;
  BIRD2D::Transformation::Coordinates cartesian;
  BIRD2D::Transformation::World level;

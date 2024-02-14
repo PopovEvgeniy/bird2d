@@ -52,9 +52,8 @@ namespace BIRD2D
 
  typedef enum
  {
-  STATIC_IMAGE=0,
-  HORIZONTAL_ANIMATED=1,
-  VERTICAL_ANIMATED=2
+  HORIZONTAL_ANIMATED=0,
+  VERTICAL_ANIMATED=1
  } IMAGE_KIND;
 
  typedef enum
@@ -719,11 +718,8 @@ namespace BIRD2D
    BIRD2D::IMAGE_KIND get_kind() const;
    void set_setting(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(Image *buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
-   void load(Image *buffer);
    void load(Image &buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
-   void load(Image &buffer);
    void load(const char *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
-   void load(const char *name);
    void set_target(const unsigned int target);
    void step();
    void destroy();
@@ -782,16 +778,13 @@ namespace BIRD2D
    Background();
    ~Background();
    Background* get_handle();
-   void prepare(const Surface *surface);
-   void prepare(Surface &surface);
+   void prepare(const Screen *screen);
+   void prepare(Screen &screen);
    void prepare(const unsigned int width,const unsigned int height);
    void set_setting(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(Image *background,const IMAGE_KIND kind,const unsigned int frames);
-   void load(Image *background);
    void load(Image &background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
-   void load(Image &background);
    void load(const char *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
-   void load(const char *name);
    void disable_mirror();
    void horizontal_mirror();
    void vertical_mirror();
