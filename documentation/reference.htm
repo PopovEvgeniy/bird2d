@@ -218,6 +218,7 @@
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
+
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -335,6 +336,10 @@
       <br>
       <span style="font-style: italic;">bool Animation::is_last_frame() const;</span>
       – Return true if current frame is last frame.<br>
+      <br>
+      <span style="font-style: italic;">bool Animation::check_frame(const
+        unsigned int target) const;</span> – Return true if target frame is
+      valid.<br>
     </big>
     <h2><a name="mozTocId904725" class="mozTocH2"></a><big>Chapter 5. Image kind</big></h2>
     <big></big>
@@ -508,6 +513,7 @@
         &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load a background from target file.</big><br>
     <big><br>
@@ -1166,7 +1172,6 @@
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
-
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -2091,14 +2096,12 @@
       1.3.4 – 1.3.6 – Small changes.<br>
       1.3.7 – Image resizer back-ported from Simple windows game framework 7.3.5.<br>
       1.3.8 – Image resizer back-ported from Eugene game development kit 7.3.7.<br>
-      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit
-      7.4.4.<br>
+      1.3.9 – Tile–map subsystem back-ported from Eugene game development kit 7.4.4.<br>
       1.4 – Image resizer back-ported from Eugene game development kit 7.3.5.<br>
       1.4.1 – Image resizer back-ported from Eugene game development kit 7.5.<br>
       1.4.2 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.3.<br>
       1.4.3 – Keyboard input improved.<br>
-      1.4.4 – Coordinates conversion subsystem back-ported from Eugene game
-      development kit 7.5.4.<br>
+      1.4.4 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.4.<br>
       1.4.5 – Keyboard input improved.<br>
       1.4.6 – Coordinates conversion subsystem back-ported from Eugene game development kit 7.5.8.<br>
       1.4.7 – Source code synced with Eugene game development kit 7.6.3.<br>
@@ -2146,7 +2149,9 @@
       1.8.9 – Source code synced with Eugene game development kit 8.2.6.<br>
       1.9 – Source code synced with Eugene game development kit 8.2.8.<br>
       1.9.1 – Source code synced with Eugene game development kit 8.3.<br>
-    </big>
+      1.9.2 – Source code synced with Eugene game development kit 8.3.1.<br>
+      1.9.3 – Source code synced with Eugene game development kit 8.3.2.<br>
+    </big><big> 1.9.4 – Source code synced with Eugene game development kit 8.3.3.</big><br>
     <p></p>
   </body>
 </html>
