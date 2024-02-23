@@ -797,6 +797,7 @@ namespace BIRD2D
    void destroy_image();
    void destroy();
    bool is_last_frame() const;
+   bool check_frame(const unsigned int target) const;
    unsigned int get_frame() const;
    unsigned int get_frames() const;
    unsigned int get_width() const;

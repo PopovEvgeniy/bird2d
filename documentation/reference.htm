@@ -218,7 +218,6 @@
         subsystem</span><br>
       <br>
       Base graphics subsystem do rendering game scene. This subsystem using <a
-
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
       activate if </big><big>hardware acceleration not available.</big><br>
@@ -443,6 +442,10 @@
       <br>
       <span style="font-style: italic;">bool Background::is_last_frame() const;</span>
       – Return true if current frame is last frame.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">bool Background::check_frame(const
+        unsigned int target) const;</span> – Return true if target frame is
+      valid.<br>
       <br>
       <span style="font-style: italic;"> unsigned int Background::get_frame()
         const;</span> – Return current frame.<br>
@@ -2151,7 +2154,8 @@
       1.9.1 – Source code synced with Eugene game development kit 8.3.<br>
       1.9.2 – Source code synced with Eugene game development kit 8.3.1.<br>
       1.9.3 – Source code synced with Eugene game development kit 8.3.2.<br>
-    </big><big> 1.9.4 – Source code synced with Eugene game development kit 8.3.3.</big><br>
+    </big><big> 1.9.4 – Source code synced with Eugene game development kit 8.3.3.<br>
+    </big><big>1.9.5 – Source code synced with Eugene game development kit 8.3.4.</big><br>
     <p></p>
   </body>
 </html>
