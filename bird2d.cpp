@@ -2249,6 +2249,15 @@ namespace BIRD2D
    return this->update();
   }
 
+  bool Surface::sync(const bool limit)
+  {
+   if (limit==true)
+   {
+    this->wait_timer();
+   }
+   return this->update();
+  }
+
   bool Surface::is_ready()
   {
    return this->get_context()!=NULL;

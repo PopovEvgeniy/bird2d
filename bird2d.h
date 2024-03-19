@@ -574,6 +574,7 @@ namespace BIRD2D
    void initialize();
    bool update();
    bool sync();
+   bool sync(const bool limit);
    bool is_ready();
    unsigned long int get_color() const;
    unsigned int get_fps() const;
