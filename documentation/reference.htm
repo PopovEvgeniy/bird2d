@@ -218,12 +218,14 @@
       Base graphics subsystem do rendering game scene. This subsystem using <a
         href="http://opengl.org">OPENGL</a> for render. Most modern video–card
       support hardware accelerated OPENGL. Software emulated OPENGL will
-      activate if </big><big>hardware acceleration not available.</big><br>
-    <big> <span style="text-decoration: underline;"> Render performance</span><br>
+      activate if </big><big>hardware acceleration not available.<br>
+      <br>
+    </big> <big> <span style="text-decoration: underline;"> Render performance</span><br>
       <br>
       Always use latest video–card drivers. It can increase render performance.
       You can also try to change screen resolution if you have low render
       performance.<br>
+      <br>
       <span style="text-decoration: underline;"> Fps limitation</span><br>
       <br>
       Fps is an important thing. Many fps need for good animation, but it also
@@ -235,6 +237,7 @@
       <br>
       <span style="font-style: italic;"> Surface</span> class provide access to
       the base graphic subsystem. Let's look at public methods.<br>
+      <br>
       <span style="font-style: italic;"> void Surface::clear_screen();</span> –
       Clear the screen. Fill it by black color.<br>
       <br>
@@ -261,8 +264,10 @@
       <br>
       <span style="font-style: italic;"> unsigned int Surface::get_color()
         const;</span> – Return current color depth in bits per pixel.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Surface::get_width()
         const;</span> – Return screen width in pixels.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Surface::get_height()
         const;</span> – Return screen height in pixels.<br>
       <br>
@@ -271,6 +276,7 @@
       <br>
       <span style="font-style: italic;">bool Surface::check_y(const unsigned int
         y) const;</span> – Return true if y-coordinate is valid.<br>
+      <br>
       <span style="font-style: italic;"> Surface* Surface::get_handle();</span>
       – Return the handle to base graphics subsystem object. </big>
     <h2><a name="mozTocId289525" class="mozTocH2"></a><big>Chapter 3. Picture
@@ -285,14 +291,17 @@
       <span style="font-style: italic;"> Picture</span> class provide simple
       access to picture subsystem. Don't use it directly. Let's look at public
       methods.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int *Picture::get_image();</span>
       – Return handle to image storage.<br>
+      <br>
     </big><big><span style="font-style: italic;">void Picture::destroy_image();</span>
       – Destroy an image in the storage.<br>
       <br>
     </big><big> <span style="font-style: italic;"> bool
         Picture::is_storage_empty() const;</span> – Return true if storage is
       empty.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Picture::get_image_width()
         const;</span> – Return image width in pixels.<br>
       <br>
@@ -309,6 +318,7 @@
     <big><span style="text-decoration: underline;"> An important subsystem</span><br>
       <br>
       Animation subsystem let you control animation frames.<br>
+      <br>
       <span style="text-decoration: underline;"> Frame indexing</span><br>
       <br>
       First frame index is 1.<br>
@@ -318,6 +328,7 @@
       <span style="font-style: italic;"> Animation</span> class provide simple
       access to animation subsystem. Don't use it directly. Let's look at public
       methods.<br>
+      <br>
       <span style="font-style: italic;"> unsigned int Animation::get_frames()
         const;</span> – Return amount of frames.<br>
       <br>
@@ -367,6 +378,7 @@
       frames. Horizontal orientated scrolling background look like horizontal
       orientated photo ribbon. Vertical orientated scrolling background look
       like vertical orientated photo ribbon.<br>
+      <br>
     </big><big> <span style="text-decoration: underline;"> Work with background</span><br>
       <br>
       Just use <span style="font-style: italic;">Background</span> class to
@@ -374,6 +386,7 @@
       <br>
       <span style="font-style: italic;">Background* Background::get_handle();</span>
       – Return the handle to background object.<br>
+      <br>
     </big><big> <span style="font-style: italic;"> void
         Background::prepare(const Surface *surface);</span> – Prepare for
       drawing.<br>
@@ -383,11 +396,13 @@
       <br>
       <span style="font-style: italic;"> void Background::prepare(const unsigned
         int width,const unsigned int heigt);</span> – Prepare for drawing.<br>
+      <br>
       <span style="font-style: italic;">void Background::disable_mirror();</span>
       – Disable background mirroring mode.<br>
       <br>
       <span style="font-style: italic;">void Background::horizontal_mirror();</span>
       – Set horizontal background mirroring mode.<br>
+      <br>
       <span style="font-style: italic;">void Background::vertical_mirror();</span>
       – Set vertical background mirroring mode.<br>
       <br>
@@ -401,12 +416,14 @@
       Increase number of target frame. Set it to 1 if number of target frame
       more than frame amount.<br>
       <br>
-      <span style=""> void Background::set_setting(const BIRD2D::IMAGE_KIND
-        kind,const unsigned int frames);</span> – Set setting.<br>
+      <span style="font-style: italic;"> void Background::set_setting(const
+        BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Set
+      setting.<br>
       <span style=""></span><br>
       <span style="font-style: italic;">void Background::load(Image
         *background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a background from the buffer.<br>
+      <br>
       <span style="font-style: italic;">void Background::load(Image
         &amp;background,const BIRD2D::IMAGE_KIND kind,const unsigned int
         frames);</span> – Load a background from the buffer.<br>
@@ -429,6 +446,7 @@
       <br>
       <span style="font-style: italic;">bool Background::is_last_frame() const;</span>
       – Return true if current frame is last frame.<br>
+      <br>
       <span style="font-style: italic;">bool Background::check_frame(const
         unsigned int target) const;</span> – Return true if target frame is
       valid.<br>
@@ -473,6 +491,7 @@
       <br>
       <span style="font-style: italic;">Scene* Scene::get_handle();</span> –
       Return the handle to background object.<br>
+      <br>
     </big><big> <span style="font-style: italic;"> void Scene::prepare(const
         Surface *surface);</span> – Prepare for drawing.<br>
       <br>
@@ -501,6 +520,7 @@
         &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load a background from target file.</big><br>
     <big><br>
@@ -629,8 +649,10 @@
       <br>
       <span style="font-style: italic;">void Billboard::horizontal_mirror();</span>
       – Set horizontal sprite mirroring mode.<br>
+      <br>
       <span style="font-style: italic;">void Billboard::vertical_mirror();</span>
       – Set vertical sprite mirroring mode.<br>
+      <br>
       <span style="font-style: italic;">void Billboard::complex_mirror();</span>
       – Set both horizontal and vertical sprite mirroring mode.<br>
       <br>
@@ -662,16 +684,16 @@
     <big><span style="text-decoration: underline;"> Sprite types</span><br>
       <br>
       There are two kinds of ordinary sprites: horizontal strip and vertical
-      strip. It is a small image with few frames. Do you remember an analog
-      camera? <br>
-      Strip look like photo ribbon. Horizontal strip look like the horizontal
-      orientated photo ribbon.<br>
+      strip. It is a small image with few frames.<br>
+      Do you remember an analog camera? Strip look like photo ribbon.<br>
+      Horizontal strip look like the horizontal orientated photo ribbon.
       Vertical strip look like the vertical orientated photo ribbon.<br>
     </big><big><br>
     </big><big><span style="text-decoration: underline;">Frame indexing</span><br>
       <br>
-      First frame index is 1.</big><br>
-    <big> <span style="text-decoration: underline;"> Work with sprites</span><br>
+      First frame index is 1.<br>
+      <br>
+    </big> <big> <span style="text-decoration: underline;"> Work with sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Sprite</span> class to work
       with a sprite. It is derived from three classes: </big><big><span style="font-style: italic;">Billboard</span>,
@@ -689,6 +711,7 @@
       <span style="font-style: italic;">void Sprite::load(Image
         &amp;buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span>
       – Load a sprite from the buffer.<br>
+      <br>
       <span style="font-style: italic;">void Sprite::load(const char *name,const
         BIRD2D::IMAGE_KIND kind,const unsigned int frames);</span> – Load a
       sprite from target file.<br>
@@ -699,6 +722,7 @@
       <span style="font-style: italic;"> void Sprite::step();</span> – Increase
       number of target frame. Set it to 1 if number of target frame more than
       frame amount.<br>
+      <br>
       <span style="font-style: italic;"> BIRD2D::IMAGE_KIND Sprite::get_kind()
         const;</span> – Get sprite type.<br>
       <br>
@@ -727,6 +751,7 @@
         sprite</span><br>
       <br>
       The static sprite is simple kind of sprites. It contain one frame only.<br>
+      <br>
     </big><big><span style="text-decoration: underline;"></span></big><big> <span
         style="text-decoration: underline;"> Work with static sprites</span><br>
       <br>
@@ -767,7 +792,8 @@
     <h2><a name="mozTocId146800" class="mozTocH2"></a><big>Chapter 11. Sprite
         sheet</big></h2>
     <big><span style="text-decoration: underline;"> Some words about sprite
-        sheet</span> <br>
+        sheet</span><br>
+      <br>
       Sprite sheet is a special kind of animated sprites. Each frame has fixed
       size. A sprite sheet is a matrix of frames. Look to this picture to
       understand it.<br>
@@ -786,11 +812,13 @@
       <span style="font-style: italic;">Billboard</span>, <span style="font-style: italic;">Picture</span>
       and <span style="font-style: italic;">Animation</span>. Let's look at
       public methods.<br>
+      <br>
       <span style="font-style: italic;">bool Sheet::check_row(const unsigned int
         target) const;</span> – Return true if target row is valid.<br>
       <br>
       <span style="font-style: italic;">bool Sheet::check_column(const unsigned
         int target) const;</span> – Return true if target column is valid.<br>
+      <br>
     </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return row of target frame.<br>
@@ -799,6 +827,7 @@
       style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
         const;</span> – Return</big><big> column</big><big> </big><big>of
       target frame</big><big>.<br>
+      <br>
     </big> <big><span style="font-style: italic;">unsigned int
         Sheet::calculate(const unsigned int row,const unsigned int column)
         const;</span> – Calculate the frame by row and column.<br>
@@ -841,6 +870,7 @@
       <span style="font-style: italic;">void Sheet::clone(Sheet *target);</span>
       – Create copy of the sprite sheet if the image storage of target sprite
       sheet is not empty.<br>
+      <br>
       <span style="font-style: italic;">void Sheet::clone(Sheet &amp;target);</span>
       – Create copy of the sprite sheet if the image storage of target sprite
       sheet is not empty.<br>
@@ -857,6 +887,7 @@
       Just use text subsystem to draw a text. This subsystem need a font for
       text drawing. You must load a font before start draw the text. The font is
       just a sprite sheet with 16 rows and 16 columns.<br>
+      <br>
       <span style="text-decoration: underline;"> Valid characters</span><br>
       <br>
       Only 8–bit </big><big>characters</big><big> supported.<br>
@@ -892,8 +923,10 @@
       <br>
       <span style="font-style: italic;">Text* Text::get_handle();</span> –
       Return the handle to text drawing subsystem.<br>
+      <br>
       <span style="font-style: italic;"> BIRD2D::TEXT_KIND
         Text::get_orientation() const;</span> – Get current text orientation.<br>
+      <br>
       <span style="font-style: italic;"> void Text::set_orientation(const
         BIRD2D::TEXT_KIND target);</span> – Set current text orientation.<br>
       <br>
@@ -930,6 +963,7 @@
       <br>
       <span style="font-style: italic;"> void Text::print(const char target);</span>
       – Draw single character at current position.<br>
+      <br>
       <span style="font-style: italic;"> void Text::print(const char *target);</span>
       – Draw text at current position.<br>
       <br>
@@ -949,8 +983,10 @@
       <br>
       <span style="font-style: italic;">void Text::vertical_mirror();</span> –
       Set vertical text mirroring mode.<br>
+      <br>
       <span style="font-style: italic;">void Text::complex_mirror();</span> –
       Set both horizontal and vertical text mirroring mode.<br>
+      <br>
       <span style="font-style: italic;"> void Text::destroy_image();</span> –
       Destroy a font image.<br>
       <br>
@@ -964,6 +1000,7 @@
       Use image loader to load an image from a file. <span style="font-style: italic;">Image</span>
       class provide simple access to image loader. It is a simple class with few
       methods.<br>
+      <br>
       <span style="font-style: italic;"> unsigned char *Image::load_tga(const
         char *name);</span> – Load a Truevision TGA image and return handle to
       image buffer.<br>
@@ -1030,6 +1067,7 @@
       <br>
       <span style="font-style: italic;">Coordinates* Coordinates::get_handle();</span>
       – Return the handle to coordinates conversion subsystem.<br>
+      <br>
       <span style="font-style: italic;"> void Coordinates::initialize(const int
         viewport_width,const int viewport_height);</span> – Initialize the
       subsystem.<br>
@@ -1047,6 +1085,7 @@
       <span style="font-style: italic;">int
         Coordinates::get_highest_cartesian_x() const;</span> – Return highest
       allowable cartesian x-coordinate.<br>
+      <br>
       <span style="font-style: italic;">int
         Coordinates::get_lowest_cartesian_y() const;</span> – Return lowest
       allowable cartesian y-coordinate.<br>
@@ -1054,15 +1093,19 @@
       <span style="font-style: italic;">int
         Coordinates::get_highest_cartesian_y() const;</span> – Return highest
       allowable cartesian y-coordinate.<br>
+      <br>
       <span style="font-style: italic;">bool
         Coordinates::check_cartesian_x(const int x) const;</span> – Return true
       if the cartesian x-coordinate is valid.<br>
+      <br>
       <span style="font-style: italic;">bool
         Coordinates::check_cartesian_y(const int y) const;</span> – Return true
       if the cartesian y-coordinate is valid.<br>
+      <br>
       <span style="font-style: italic;"> int Coordinates::get_screen_x(const int
         x) const;</span> – Convert cartesian x-coordinate to screen
       x-coordinate.<br>
+      <br>
       <span style="font-style: italic;"> int Coordinates::get_screen_y(const int
         y) const;</span> – Convert cartesian y-coordinate to screen
       y-coordinate.<br>
@@ -1110,6 +1153,7 @@
       <span style="font-style: italic;">int Isometric::get_cartesian_x() const;</span>
       – Convert x-coordinate of target point from isometric system to cartesian
       system.<br>
+      <br>
       <span style="font-style: italic;">int Isometric::get_cartesian_y() const;</span>
       – Convert y-coordinate of target point from isometric system to cartesian
       system.<br>
@@ -1117,12 +1161,15 @@
       <span style="font-style: italic;">int Isometric::get_isometric_x(const int
         x,const int y);</span> – Set target point and convert x-coordinate from
       cartesian system to isometric system.<br>
+      <br>
       <span style="font-style: italic;">int Isometric::get_isometric_y(const int
         x,const int y);</span> – Set target point and convert y-coordinatefrom
       cartesian system to isometric system.<br>
+      <br>
       <span style="font-style: italic;">int Isometric::get_cartesian_x(const int
         x,const int y);</span> – Set target point and convert x-coordinatefrom
       isometric system to cartesian system.<br>
+      <br>
       <span style="font-style: italic;">int Isometric::get_cartesian_y(const int
         x,const int y);</span> – Set target point and convert y-coordinate from
       isometric system to cartesian system.<br>
@@ -1148,6 +1195,7 @@
       column.<br>
       <br>
       <span style="font-style: italic;">int World::get_target_y(const int row</span></big><big
+
       style="font-style: italic;">,</big><big style="font-style: italic;">const
       int column</big><big><span style="font-style: italic;">) const;</span> –
       Get target cartesian y-coordinate </big><big>from the row and column.<br>
@@ -1213,12 +1261,13 @@
       collision. Collision related information store in special custom data
       type.<br>
       <br>
-      <span style="font-style: italic;"> typedef struct</span> <span style="font-style: italic;">
-        {</span> <span style="font-style: italic;"> &nbsp; unsigned int x;</span>
-      <span style="font-style: italic;"> &nbsp; unsigned int y;</span> <span style="font-style: italic;">
-        &nbsp; unsigned int width;</span> <span style="font-style: italic;">
-        &nbsp; unsigned int height;</span> <span style="font-style: italic;"> }
-        BOX;</span><br>
+      <span style="font-style: italic;"> typedef struct</span> <span style="font-style: italic;"><br>
+        {<br>
+        &nbsp; unsigned int x;<br>
+        &nbsp; unsigned int y;<br>
+        &nbsp; unsigned int width;<br>
+        &nbsp; unsigned int height;</span><span style="font-style: italic;"><br>
+        } BOX;</span><br>
       <br>
       <span style="text-decoration: underline;"> Work with collision detector</span><br>
       <br>
@@ -1232,6 +1281,7 @@
     <big><span style="font-style: italic;">void Collision::set_target(const
         BIRD2D::BOX &amp;first_target,const BIRD2D::BOX &amp;second_target);</span>
       – Set targets for collision detector.<br>
+      <br>
       <span style="font-style: italic;"> bool Collision::check_collision()
         const;</span> – Return true if collision between two objects is
       accepted.<br>
@@ -1258,11 +1308,14 @@
       <br>
       <span style="font-style: italic;">Tilemap* Tilemap::get_handle();</span> –
       Return the handle to tile-map subsystem.<br>
+      <br>
       <span style="font-style: italic;">void Tilemap::initialize(const unsigned
         int tile_width,const unsigned int tile_height);</span> – Initialize the
       subsystem.<br>
+      <br>
       <span style="font-style: italic;">unsigned int Tilemap::get_tile_width()
         const;</span> – Return the tile width in pixels.<br>
+      <br>
       <span style="font-style: italic;">unsigned int Tilemap::get_tile_height()
         const;</span> – Return the tile height in pixels.<br>
       <br>
@@ -1272,6 +1325,7 @@
       <span style="font-style: italic;">unsigned int Tilemap::get_y(const
         unsigned int column) const;</span> – Get y-coordinate from target
       column.<br>
+      <br>
       <span style="font-style: italic;">unsigned int Tilemap::get_row(const
         unsigned int x) const;</span> – Get the row from x-coordinate.<br>
       <br>
@@ -1298,6 +1352,7 @@
       <span style="font-style: italic;">bool Tilemap::check_column(const
         unsigned int column,const unsigned int viewport_height) const;</span> –
       Return true if the column is valid.<br>
+      <br>
       <span style="font-style: italic;">BIRD2D::BOX Tilemap::get_box(const
         unsigned int row,const unsigned int column) const;</span> – Return
       collision related information.<br>
@@ -1318,12 +1373,15 @@
       <span style="font-style: italic;">unsigned long long int
         Memory::get_total_physical();</span> – Return total physical memory size
       in bytes.<br>
+      <br>
       <span style="font-style: italic;">unsigned long long int
         Memory::get_free_physical();</span> – Return free physical memory size
       in bytes.<br>
+      <br>
       <span style=""><span style="font-style: italic;">unsigned long long int
           Memory::get_total_virtual();</span> </span>– Return total <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
+      <br>
       <span style="font-style: italic;">unsigned long long int
         Memory::get_free_virtual();</span> – Return free <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual
         memory</a> size in bytes.<br>
@@ -1362,6 +1420,7 @@
       <br>
       <span style="font-style: italic;">void Audio::stop();</span> – Stop
       playing a content of the target file.<br>
+      <br>
       <span style="font-style: italic;">bool Audio::check_playing();</span> –
       Return true if the sound resource is playing.<br>
     </big><big> </big><big> </big> <big> </big>
@@ -1386,6 +1445,7 @@
     <big>This module implemented as few simple functions</big><big>. All these
       functions declared in <span style="font-style: italic;">Tools</span>
       sub–namespace.<br>
+      <br>
       <span style="font-style: italic;">void quit();</span> – Exit from your
       program and return user to operating system.<br>
       <br>
@@ -1395,6 +1455,7 @@
       <br>
       <span style="font-style: italic;">void randomize();</span> – Initialize
       random number generator.<br>
+      <br>
       <span style="font-style: italic;">unsigned int get_random(const int
         number);</span> – Return a random value between zero and the number.<br>
       <br>
@@ -1415,6 +1476,7 @@
       <span style="font-style: italic;"> create</span> function create single
       resource or terminate the program if operation failed. It didn't take
       argument and return handle of the resource.<br>
+      <br>
       <span style="font-style: italic;"> create_array</span> function create
       resource array or terminate the program if operation failed. It takes
       resource amount as argument and return handle of resource array.<br>
@@ -1434,8 +1496,7 @@
     <big> </big>
     <h2><a name="mozTocId961921" class="mozTocH2"></a><big> Chapter 2. Base
         binary file subsystem</big></h2>
-    <big> <br>
-      <u> Work with binary files</u><br>
+    <big> <u> Work with binary files</u><br>
       <br>
       <i>Binary_File</i> class provide simple access to base binary subsystem.
       Don't use it directly. Let's look at public methods.<br>
@@ -1461,10 +1522,10 @@
       Target file size limit is 2 gigabytes. </big>
     <h2><a name="mozTocId424835" class="mozTocH2"></a><big> Chapter 3. File
         reader</big></h2>
-    <big> <br>
-      File reader is intending to reading data from a binary files. <i>Input_File</i>
+    <big> File reader is intending to reading data from a binary files. <i>Input_File</i>
       class provide access to file reader. It is derived from <i>Binary_File</i>
       class. Let's look at public methods.<br>
+      <br>
       <span style="font-style: italic;">Input_File* Input_File::get_handle();</span>
       – Return the handle to file reader.<br>
       <br>
@@ -1474,8 +1535,7 @@
       data from the file. </big>
     <h2><a name="mozTocId511135" class="mozTocH2"></a><big> Chapter 4. File
         writer</big></h2>
-    <big> <br>
-      File writer is intending to write data to binary files. <i>Output_File</i>
+    <big> File writer is intending to write data to binary files. <i>Output_File</i>
       class provide access to file writer. It is derived from <i>Binary_File</i>
       class. Let's look at public methods.<br>
       <br>
@@ -1786,6 +1846,7 @@
       <br>
       Mouse is very useful for interaction with graphical user interface. But
       mouse also can use in a video games.<br>
+      <br>
       <span style="text-decoration: underline;"> Working with mouse</span><br>
       <br>
       Just use <span style="font-style: italic;">Mouse</span> class to work
@@ -1867,6 +1928,7 @@
       <br>
       <span style="font-style: italic;">bool Joystick::check_press(const size_t
         button) const;</span> – Return true if the button was press.<br>
+      <br>
       <span style="font-style: italic;">bool Joystick::check_released(const
         size_t button) const;</span> – Return true if the button was release.<br>
       <br>
@@ -1904,7 +1966,8 @@
       <span style="font-style: italic;"> Engine</span> creates the game window
       and do message processing.<br>
       <span style="font-style: italic;"> Synchronization</span> implements the
-      synchronization timer.</big><big><span style=""></span></big><br>
+      synchronization timer.<br>
+    </big><big><span style=""></span></big><br>
     <big> <span style="text-decoration: underline;"> Core classes</span><br>
       <br>
       All engine core classes and functions declared in <span style="font-style: italic;">Core</span>
@@ -1941,17 +2004,23 @@
     <big> Single vertex represent by follow custom data type.</big><br>
     <big> </big><br>
     <big style="font-style: italic;"> typedef struct</big> <big style="font-style: italic;">
-      {</big> <span style="font-style: italic;"> &nbsp; </span><big style="font-style: italic;">int
-      x;</big> <span style="font-style: italic;"> &nbsp; </span><big style="font-style: italic;">
-      int y;</big> <big style="font-style: italic;"> } Vertex;</big><br>
+      <br>
+      {</big> <span style="font-style: italic;"><br>
+      &nbsp; </span><big style="font-style: italic;">int x;</big> <span style="font-style: italic;"><br>
+    </span><big style="font-style: italic;">&nbsp; int y;</big><big style="font-style: italic;"><br>
+      } Vertex;</big><br>
     <big> </big><br>
     <big> </big><big>Single texture coordinate represent by follow custom data
       type.</big><br>
     <big> </big><br>
     <big style="font-style: italic;"> typedef struct</big> <big style="font-style: italic;">
-      {</big> <span style="font-style: italic;"> &nbsp; </span><big style="font-style: italic;">float
-      u;</big> <span style="font-style: italic;"> &nbsp; </span><big style="font-style: italic;">float
-      v;</big> <big style="font-style: italic;"> } Point;</big><br>
+      <br>
+      {</big><br>
+    &nbsp; <span style="font-style: italic;"></span><big style="font-style: italic;">float
+      u;</big><br>
+    <span style="font-style: italic;"></span><big style="font-style: italic;">
+      float v;</big><big style="font-style: italic;"><br>
+      } Point;</big><br>
     <big> </big> <br>
     <big>All these custom types declared in <span style="font-style: italic;">Core</span>
       sub–namespace.</big><span style=""></span><big><br>
@@ -2000,8 +2069,7 @@
     </big><big>0.3.9 </big><big>– Mouse input improved.<br>
     </big><big>0.4 </big><big>– Keyboard input improved.<br>
     </big><big>0.4.1 </big><big>– Mouse input improved.<br>
-    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small
-      changes.<br>
+    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small changes.<br>
     </big><big>0.4.4 </big><big>– Makefile updated.<br>
       0.4.5 – New subsystem added.<br>
     </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small changes.<br>
@@ -2093,6 +2161,6 @@
       1.9.6 – Source code synced with Eugene game development kit 8.4.2.<br>
       1.9.7 – Source code synced with Eugene game development kit 8.4.4.<br>
       1.9.8 – Source code synced with Eugene game development kit 8.4.5.<br>
-    </big>
+    </big><big> 1.9.8.1 – Documentation updated.</big><br>
   </body>
 </html>
