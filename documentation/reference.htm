@@ -371,7 +371,7 @@
       <br>
       Background is a big image. It is like decoration in theater stage. Any
       game has a background. The background will stretch to screen resolution
-      before rendering the game scene.<br>
+      before rendering the game scene. Background transparency is disabled.<br>
       <br>
       There are two background kinds: horizontal orientated scrolling background
       and vertical orientated scrolling background. It is a big image with few
@@ -520,7 +520,6 @@
         &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load a background from target file.</big><br>
     <big><br>
@@ -753,7 +752,6 @@
       The static sprite is simple kind of sprites. It contain one frame only.<br>
       <br>
     </big><big><span style="text-decoration: underline;"></span></big><big> <span
-
         style="text-decoration: underline;"> Work with static sprites</span><br>
       <br>
       Just use <span style="font-style: italic;">Cartoon</span> class to work
@@ -1028,11 +1026,13 @@
       <br>
       A new image will replace current image if current image already exist.
       Incorrect images will ignore and don't load.<br>
+      Source image will convert to <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a>
+      format. Pixels equal to top-left pixel will mark as transparent.<br>
       <br>
       <span style="text-decoration: underline;"> Supported format</span><br>
     </big>
     <p><big> All loading images must have correct specification. You can load an
-        image from 32 bit </big><big><a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision
+        image from 24 bit </big><big><a href="https://en.wikipedia.org/wiki/Truevision_TGA">Truevision
           TGA</a> pictures. </big></p>
     <big><span style="text-decoration: underline;"> Recommend software</span><br>
       <br>
@@ -1180,7 +1180,6 @@
       </big></h2>
     <big><span style="text-decoration: underline;"></span> Isometric level
       subsystem intend for help you to create an isometric levels. Just use <span
-
         style="font-style: italic;">World</span> class for doing it. Let's look
       at public methods.<br>
       <br>
@@ -2062,21 +2061,21 @@
         subsystem</big></h2>
     <big>Audio subsystem</big><big> working over libVLC.</big><br>
     <h1><a name="mozTocId78453" class="mozTocH1"></a><big>Version history</big></h1>
-    <big> 0.1 – </big><big>Initial version.<br>
-      0.1.1 </big><big>– </big><big>0.3.4 </big><big>– Unstable branch.<br>
-    </big><big>0.3.5 </big><big>– Preview release.<br>
-    </big><big> 0.3.6 </big><big>– </big><big>0.3.7 </big><big>– Small changes.<br>
+    <big> 0.1 – Initial version.<br>
+      0.1.1 – 0.3.4 – Unstable branch.<br>
+      0.3.5 – Preview release.<br>
+      0.3.6 – 0.3.7 – Small changes.<br>
       0.3.8 – Full–screen mode is implemented.<br>
-    </big><big>0.3.9 </big><big>– Mouse input improved.<br>
-    </big><big>0.4 </big><big>– Keyboard input improved.<br>
-    </big><big>0.4.1 </big><big>– Mouse input improved.<br>
-    </big><big> 0.4.2 </big><big>– </big><big>0.4.3 </big><big>– Small changes.<br>
-    </big><big>0.4.4 </big><big>– Makefile updated.<br>
+      0.3.9 – Mouse input improved.<br>
+      0.4 – Keyboard input improved.<br>
+      0.4.1 – Mouse input improved.<br>
+      0.4.2 – 0.4.3 – Small changes.<br>
+      0.4.4 – Makefile updated.<br>
       0.4.5 – New subsystem added.<br>
-    </big><big>0.4.5 </big><big>– </big><big>0.4.9 </big><big>– Small changes.<br>
+      0.4.5 – 0.4.9 – Small changes.<br>
       0.5 – 0.5.3 – Mouse input improved.<br>
-    </big><big> 0.5.4 </big><big>– </big><big>0.5.6 </big><big>– Small changes.<br>
-    </big><big>0.5.7 </big><big>– Stable release.<br>
+      0.5.4 – 0.5.6 – Small changes.<br>
+      0.5.7 – Stable release.<br>
       0.5.8 – Small changes.<br>
       0.5.9 – Joystick support added.<br>
       0.6 – 0.7.3 – Joystick support improved.<br>
@@ -2157,13 +2156,15 @@
       1.9.1 – Source code synced with Eugene game development kit 8.3.<br>
       1.9.2 – Source code synced with Eugene game development kit 8.3.1.<br>
       1.9.3 – Source code synced with Eugene game development kit 8.3.2.<br>
-    </big><big> 1.9.4 – Source code synced with Eugene game development kit 8.3.3.<br>
-    </big><big>1.9.5 – Source code synced with Eugene game development kit 8.3.4.<br>
+      1.9.4 – Source code synced with Eugene game development kit 8.3.3.<br>
+      1.9.5 – Source code synced with Eugene game development kit 8.3.4.<br>
       1.9.6 – Source code synced with Eugene game development kit 8.4.2.<br>
       1.9.7 – Source code synced with Eugene game development kit 8.4.4.<br>
       1.9.8 – Source code synced with Eugene game development kit 8.4.5.<br>
-    </big><big> 1.9.8.1 – Documentation updated.</big><br>
-    <big> 1.9.9 – Source code synced with Eugene game development kit 8.4.6.</big><br>
-    <big> 2.0 – Source code synced with Eugene game development kit 8.4.8.</big><br>
+      1.9.8.1 – Documentation updated.<br>
+      1.9.9 – Source code synced with Eugene game development kit 8.4.6.<br>
+      2.0 – Source code synced with Eugene game development kit 8.4.8.<br>
+      2.0.1 – Source code synced with Eugene game development kit 8.5.<br>
+    </big>
   </body>
 </html>

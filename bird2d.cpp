@@ -61,7 +61,6 @@ namespace
  const unsigned char KEY_RELEASE=0;
  const unsigned char KEY_PRESS=1;
  const unsigned int RECTANGLE_VERTEXES=4;
- const unsigned char IMAGE_COLOR=32;
 
  unsigned char Keys[KEYBOARD]={KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,
                                KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,KEY_RELEASE,
@@ -2330,9 +2329,8 @@ namespace BIRD2D
       data[index]=target[position+1];
       data[index+1]=target[position+2];
       data[index+2]=target[position+3];
-      data[index+3]=target[position+4];
-      index+=sizeof(unsigned int);
-      position+=sizeof(unsigned int);
+      index+=3;
+      position+=3;
      }
      ++position;
     }
@@ -2343,10 +2341,9 @@ namespace BIRD2D
       data[index]=target[position+1];
       data[index+1]=target[position+2];
       data[index+2]=target[position+3];
-      data[index+3]=target[position+4];
-      index+=sizeof(unsigned int);
+      index+=3;
      }
-     position+=1+sizeof(unsigned int);
+     position+=sizeof(unsigned int);
     }
 
    }
@@ -2366,8 +2363,8 @@ namespace BIRD2D
    target.read(&image,10);
    width=image.width;
    height=image.height;
-   uncompressed_length=static_cast<size_t>(width)*static_cast<size_t>(height)*sizeof(unsigned int);
-   if (image.color==IMAGE_COLOR)
+   uncompressed_length=static_cast<size_t>(width)*static_cast<size_t>(height)*3;
+   if (image.color==24)
    {
     data.set_length(uncompressed_length);
     data.create_buffer();
@@ -2498,7 +2495,7 @@ namespace BIRD2D
     {
      image[index]=Core::make_pixel(target[position+2],target[position+1],target[position],UCHAR_MAX);
     }
-    position+=sizeof(unsigned int);
+    position+=3;
    }
 
   }
