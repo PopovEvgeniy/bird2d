@@ -600,6 +600,8 @@ namespace BIRD2D
    Core::Buffer<unsigned char> data;
    unsigned int width;
    unsigned int height;
+   size_t get_target_position(const unsigned int x,const unsigned int y,const Core::MIRROR_KIND mirror);
+   void mirror_image(const Core::MIRROR_KIND mirror);
    void uncompress_tga_data(const unsigned char *target);
    void load_tga(File::Input_File &target);
    public:
@@ -610,6 +612,9 @@ namespace BIRD2D
    size_t get_length() const;
    unsigned char *get_data();
    Image* get_handle();
+   void horizontal_mirror();
+   void vertical_mirror();
+   void complex_mirror();
    void destroy_image();
    unsigned char *load_tga(const char *name);
   };

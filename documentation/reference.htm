@@ -520,6 +520,7 @@
         &amp;background);</span> – Load a background </big><big>from the buffer</big><big>.<br>
       <br>
     </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
       style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);</span>
       – Load a background from target file.</big><br>
     <big><br>
@@ -1018,6 +1019,15 @@
       <span style=""></span><br>
       <span style="font-style: italic;"> Image* Image::get_handle();</span> –
       Return the handle to image loader.<br>
+      <br>
+      <span style="font-style: italic;">void Image::horizontal_mirror();</span>
+      – Do horizontal image mirror.<br>
+      <br>
+      <span style="font-style: italic;">void Image::vertical_mirror();</span> –
+      Do vertical image mirror.<br>
+      <br>
+      <span style="font-style: italic;">void Image::complex_mirror();</span> –
+      Do both horizontal and vertical image mirror.<br>
       <br>
       <span style="font-style: italic;"> void Image::destroy_image();</span> –
       Destroy the current image and free image buffer.<br>
@@ -2166,6 +2176,7 @@
       2.0 – Source code synced with Eugene game development kit 8.4.8.<br>
       2.0.1 – Source code synced with Eugene game development kit 8.5.<br>
       2.0.2 – Source code synced with Eugene game development kit 8.5.5.<br>
+      2.0.3 – Source code synced with Eugene game development kit 8.5.6.<br>
     </big>
   </body>
 </html>
