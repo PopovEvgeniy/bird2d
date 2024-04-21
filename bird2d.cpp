@@ -49,8 +49,7 @@ namespace
   unsigned short int width:16;
   unsigned short int height:16;
   unsigned char color:8;
-  unsigned char alpha:3;
-  unsigned char direction:5;
+  unsigned char descriptor:8;
  } TGA_image;
 
  unsigned int mouse_x=0;
@@ -2396,6 +2395,26 @@ namespace BIRD2D
 
   }
 
+  void Image::mirror_tga(const unsigned char descriptor)
+  {
+   switch (descriptor)
+   {
+    case 0x00: // Bottom-left
+    this->mirror_image(Core::VERTICAL_MIRROR);
+    break;
+    case 0x30: // Top-right
+    this->mirror_image(Core::HORIZONTAL_MIRROR);
+    break;
+    case 0x10: // Bottom-right
+    this->mirror_image(Core::MIRROR_BOTH);
+    break;
+    default: // Top-left
+    ;
+    break;
+   }
+
+  }
+
   void Image::load_tga(File::Input_File &target)
   {
    Core::Buffer<unsigned char> compressed_buffer;
@@ -2432,7 +2451,7 @@ namespace BIRD2D
      data.destroy_buffer();
      break;
     }
-
+    this->mirror_tga(image.descriptor);
    }
    else
    {
