@@ -1385,10 +1385,11 @@ namespace BIRD2D
 
   void Render::set_render_hints()
   {
+   glHint(GL_FOG_HINT,GL_FASTEST);
    glHint(GL_LINE_SMOOTH_HINT,GL_FASTEST);
    glHint(GL_POINT_SMOOTH_HINT,GL_FASTEST);
    glHint(GL_POLYGON_SMOOTH_HINT,GL_FASTEST);
-   glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_FASTEST);
+   glHint(GL_PERSPECTIVE_CORRECTION_HINT,GL_NICEST);
   }
 
   void Render::set_common_setting()
