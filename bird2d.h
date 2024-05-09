@@ -978,9 +978,9 @@ namespace BIRD2D
    Collision();
    ~Collision();
    Collision* get_handle();
-   void set_target(const BIRD2D::BOX &first_target,const BIRD2D::BOX &second_target);
+   void set_target(const BIRD2D::BOX first_target,const BIRD2D::BOX second_target);
    bool check_collision() const;
-   bool check_collision(const BIRD2D::BOX &first_target,const BIRD2D::BOX &second_target);
+   bool check_collision(const BIRD2D::BOX first_target,const BIRD2D::BOX second_target);
   };
 
   class Tilemap
