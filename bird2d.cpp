@@ -3178,8 +3178,8 @@ namespace BIRD2D
 
   Sheet::Sheet()
   {
-   rows=0;
-   columns=0;
+   rows=1;
+   columns=1;
   }
 
   Sheet::~Sheet()
@@ -3189,8 +3189,8 @@ namespace BIRD2D
 
   void Sheet::reset_sheet_setting()
   {
-   rows=0;
-   columns=0;
+   rows=1;
+   columns=1;
   }
 
   void Sheet::prepare_sheet()
@@ -3218,13 +3218,9 @@ namespace BIRD2D
   {
    unsigned int row;
    row=1;
-   if (target>0)
+   if (this->check_frame(target)==true)
    {
-    if (target<=this->get_frames())
-    {
-     row=target%rows;
-    }
-
+    row=target%rows;
    }
    if (row==0)
    {
