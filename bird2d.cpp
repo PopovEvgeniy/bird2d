@@ -2245,7 +2245,7 @@ namespace BIRD2D
    return this->get_context()!=NULL;
   }
 
-  unsigned long int Surface::get_color() const
+  unsigned int Surface::get_color() const
   {
    return this->get_depth();
   }
