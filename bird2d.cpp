@@ -2615,13 +2615,9 @@ namespace BIRD2D
 
   void Animation::set_frame(const unsigned int target)
   {
-   if (target>0)
+   if (this->check_frame(target)==true)
    {
-    if (target<=frames)
-    {
-     frame=target;
-    }
-
+    frame=target;
    }
 
   }
