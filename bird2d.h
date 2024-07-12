@@ -266,16 +266,6 @@ namespace BIRD2D
 
   }
 
-  void copy_data(const DATA_TYPE *target)
-  {
-   size_t index;
-   for (index=0;index<length;++index)
-   {
-    buffer[index]=target[index];
-   }
-
-  }
-
   void create_buffer()
   {
    Resource::create(&buffer,length);
