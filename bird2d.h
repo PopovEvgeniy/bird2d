@@ -386,6 +386,7 @@ namespace BIRD2D
   {
    private:
    unsigned int get_maximum_texture_size() const;
+   void set_image_setting();
    void set_perfomance_setting();
    void set_render_hints();
    void set_common_setting();
