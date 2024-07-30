@@ -2921,6 +2921,11 @@ namespace BIRD2D
    return sprite_height;
   }
 
+  bool Billboard::is_load() const
+  {
+   return billboard.is_texture_exist();
+  }
+
   BIRD2D::BOX Billboard::get_box() const
   {
    BIRD2D::BOX collision;

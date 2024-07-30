@@ -695,6 +695,7 @@ namespace BIRD2D
    unsigned int get_y() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
+   bool is_load() const;
    BIRD2D::BOX get_box() const;
    void disable_mirror();
    void horizontal_mirror();
