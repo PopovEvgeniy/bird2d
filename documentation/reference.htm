@@ -447,6 +447,9 @@
       <span style="font-style: italic;"> void Background::destroy();</span> –
       Destroy a background image and destroy a background texture.<br>
       <br>
+      <span style="font-style: italic;">bool Background::is_load() const;</span>
+      – Return true if a background is already loaded.<br>
+      <br>
       <span style="font-style: italic;">bool Background::is_last_frame() const;</span>
       – Return true if current frame is last frame.<br>
       <br>
@@ -534,6 +537,9 @@
       <br>
       <span style="font-style: italic;"> void Scene::destroy();</span> – Destroy
       a background image and destroy a background texture.<br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;">bool Scene::is_load() const;</span> –
+      Return true if a static background is already loaded.<br>
       <span style="font-style: italic;"></span><br>
       <span style="font-style: italic;"> unsigned int Scene::get_width() const;</span>
       – Return the width of the background.<br>
@@ -2198,6 +2204,7 @@
       2.2.8 – Keyboard input subsystem back-ported from Neon game development kit 7.9.1.<br>
       2.2.9 – Source code synced with Eugene game development kit 9.0.3.<br>
       2.3 – Source code synced with Eugene game development kit 9.0.4.<br>
+      2.3.1 – Source code synced with Eugene game development kit 9.0.5.<br>
     </big>
   </body>
 </html>
