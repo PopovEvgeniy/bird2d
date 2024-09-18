@@ -1,5 +1,5 @@
 /*
-Bird 2d made by Popov Evgeniy Alekseyevich
+Bird 2d was made by Popov Evgeniy Alekseyevich
 
 Bird 2d license
 

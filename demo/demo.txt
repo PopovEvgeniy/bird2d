@@ -8,9 +8,9 @@ Left mouse button - Exit from demo
 F1 - Disable background mirroring
 F2 - Do horizontal background mirror
 F3 - Do vertical background mirror
-F4 - Do both horizontal and vertical background mirror
+F4 - Do both horizontal and vertical background mirrors
 
-Controls for game-pad(Xbox compatible game-pad only)
+Controls for the game-pad (Xbox compatible controllers only)
 
 D-pad - Move
 A - Exit from demo
