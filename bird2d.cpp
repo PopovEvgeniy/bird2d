@@ -2014,10 +2014,16 @@ namespace BIRD2D
     return information.freeswap*information.mem_unit;
    }
 
-   unsigned long long int Memory::get_usage()
+   unsigned long long int Memory::get_physical_usage()
    {
     this->read_system_information();
     return (information.totalram-information.freeram)*information.mem_unit;
+   }
+
+   unsigned long long int Memory::get_virtual_usage()
+   {
+    this->read_system_information();
+    return (information.totalswap-information.freeswap)*information.mem_unit;
    }
 
    Audio::Audio()

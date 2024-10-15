@@ -526,7 +526,8 @@ namespace BIRD2D
      unsigned long long int get_free_physical();
      unsigned long long int get_total_virtual();
      unsigned long long int get_free_virtual();
-     unsigned long long int get_usage();
+     unsigned long long int get_physical_usage();
+     unsigned long long int get_virtual_usage();
    };
 
    class Audio
