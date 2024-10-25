@@ -132,7 +132,7 @@
           object-oriented design.</big></li>
       <li><big>Very fast.</big></li>
       <li><big>Minimum external dependencies: only <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>,
-          <a href="https://mesa3d.org">Mesa 3d</a>, and standard <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a>
+          <a href="https://mesa3d.org">Mesa 3d</a>, and <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a>
           libraries.</big></li>
       <li><big>You don't need to link a main program with the engine binary
           file. The engine is just the source code files.<br>
@@ -216,8 +216,8 @@
     <h2><a class="mozTocH2" name="mozTocId312970"></a><big>Chapter 1. Coordinate
         system</big><br>
     </h2>
-    <p><big>The engine uses the standard coordinate system by default.
-        Coordinates start at the top-left corner. Look at this picture to
+    <p><big>The engine uses the standard coordinate system by default. The
+        coordinates start at the top-left corner. Look at this picture to
         understand it.</big></p>
     <p><img style="width: 107px; height: 111px;" alt="" src="coordinate_system.png"><br>
     </p>
@@ -443,7 +443,7 @@
         Increase the target frame. Set it to 1 if the target is more than the
         number of frames.<br>
         <br>
-        <span style="font-style: italic;"> void Background::set_setting(const
+        <span style="font-style: italic;"> void Background::set_settings(const
           BIRD2D::IMAGE_KIND kind, const unsigned int frames); -</span> Set the
         background settings.<br>
         <br>
@@ -551,6 +551,7 @@
           background); -</span> Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
+
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);
           -</span> Load a background from the target file.</big><br>
       <big><br>
@@ -741,7 +742,7 @@
         and <span style="font-style: italic;">Picture. </span></big><big>Let's
         look at the publicly available methods.<br>
         <br>
-        <span style="font-style: italic;"> void Sprite::set_setting(const
+        <span style="font-style: italic;"> void Sprite::set_settings(const
           BIRD2D::IMAGE_KIND kind, const unsigned int frames); -</span> Set the
         sprite settings.<br>
         <br>
@@ -863,12 +864,10 @@
         is valid.<br>
         <br>
       </big><big style="font-style: italic;"> unsigned int Sheet::get_row(</big><big
-
         style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
           const; -</span> Return the row of the the target frame.<br>
         <br>
         <span style="font-style: italic;"> unsigned int Sheet::get_column(</span></big><big
-
         style="font-style: italic;">const unsigned int target</big><big><span style="font-style: italic;">)
           const; -</span> Return</big><big> column</big><big> </big><big>of the
         target frame</big><big>.<br>
@@ -997,7 +996,7 @@
       </big><big><span style="font-style: italic;"> void Text::set_height(const
           unsigned int height); -</span> Set the font height.</big><br>
       <big><br>
-        <span style="font-style: italic;">void Text::set_setting(const unsigned
+        <span style="font-style: italic;">void Text::set_settings(const unsigned
           int width, const unsigned int height, const BIRD2D::TEXT_KIND kind); -</span>
         Set the text output settings.<br>
         <br>
@@ -1103,8 +1102,8 @@
         2. Cartesian coordinates and screen coordinates</big></h2>
     <p><big><span style="text-decoration: underline;">Cartesian coordinates</span><br>
         <br>
-        The Cartesian coordinates start at the center of the screen. Look at this
-        picture to understand it.<br>
+        The Cartesian coordinates start at the center of the screen. Look at
+        this picture to understand it.<br>
       </big></p>
     <p><big><img style="width: 107px; height: 111px;" alt="" src="cartesian_system.png"><br>
         <br>
@@ -1436,6 +1435,7 @@
         Return true if the column is valid.<br>
         <br>
         <span style="font-style: italic;">BIRD2D::BOX Tilemap::get_box(</span></big><big
+
         style="font-style: italic;">const </big><big style="font-style: italic;">unsigned
         int row,const unsigned int column</big><big><span style="font-style: italic;">)
           const; -</span> Return the collision-related information.<br>
@@ -2104,7 +2104,7 @@
         sub-namespace.</big><br>
       <big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId472209"></a><big>Chapter 4. Joystick</big></h2>
-    <p><big>The joystick subsystem working over the <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux
+    <p><big>The joystick subsystem is working over the <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux
           Joystick API</a>. </big></p>
     <h2><a class="mozTocH2" name="mozTocId804583"></a><big>Chapter 5. Input</big></h2>
     <p><big><span style="text-decoration: underline;">Input backend</span><br>
@@ -2134,7 +2134,7 @@
       </tbody>
     </table>
     <h2><a class="mozTocH2" name="mozTocId692266"></a><big>Chapter 6. Audio</big></h2>
-    <p><big>Audio subsystem working over <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a>.<br>
+    <p><big>The audio subsystem is working over <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a>.<br>
       </big></p>
     <h1><a class="mozTocH1" name="mozTocId670307"></a><big>Version history<br>
       </big></h1>
@@ -2280,6 +2280,7 @@
       2.3.6: The memory subsystem improved.<br>
       2.3.7: The source code synced with the Eugene game development kit 9.1.<br>
       2.3.8: The source code synced with the Eugene game development kit 9.2.1.<br>
+      2.3.9: The source code synced with the Eugene game development kit 9.2.2.<br>
     </big>
   </body>
 </html>

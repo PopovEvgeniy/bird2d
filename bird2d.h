@@ -725,7 +725,7 @@ namespace BIRD2D
    ~Sprite();
    Sprite* get_handle();
    BIRD2D::IMAGE_KIND get_kind() const;
-   void set_setting(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
+   void set_settings(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(Image *buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(Image &buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(const char *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
@@ -790,7 +790,7 @@ namespace BIRD2D
    void prepare(const Surface *screen);
    void prepare(Surface &screen);
    void prepare(const unsigned int width,const unsigned int height);
-   void set_setting(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
+   void set_settings(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(Image *background,const IMAGE_KIND kind,const unsigned int frames);
    void load(Image &background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(const char *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
@@ -860,7 +860,7 @@ namespace BIRD2D
    void set_size(const unsigned int width,const unsigned int height);
    void set_width(const unsigned int width);
    void set_height(const unsigned int height);
-   void set_setting(const unsigned int width,const unsigned int height,const BIRD2D::TEXT_KIND kind);
+   void set_settings(const unsigned int width,const unsigned int height,const BIRD2D::TEXT_KIND kind);
    void load_font(Image *font);
    void load_font(Image &font);
    void load_font(const char *name);
