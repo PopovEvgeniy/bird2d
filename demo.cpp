@@ -77,19 +77,19 @@ int main()
   {
    break;
   }
-  if (joystick.get_axe(7)<0)
+  if (joystick.get_axis(7)<0)
   {
    ship.decrease_y();
   }
-  if (joystick.get_axe(7)>0)
+  if (joystick.get_axis(7)>0)
   {
    ship.increase_y();
   }
-  if (joystick.get_axe(6)>0)
+  if (joystick.get_axis(6)>0)
   {
    ship.increase_x();
   }
-  if (joystick.get_axe(6)<0)
+  if (joystick.get_axis(6)<0)
   {
    ship.decrease_x();
   }

@@ -448,7 +448,7 @@ namespace BIRD2D
     private:
     Core::Buffer<short int> current;
     Core::Buffer<short int> preversion;
-    Core::Buffer<short int> axe;
+    Core::Buffer<short int> axis;
     int device;
     void open_device(const char *joystick);
     void read_configuration();
@@ -463,9 +463,9 @@ namespace BIRD2D
     bool check_button_hold(const size_t button);
     bool check_button_press(const size_t button);
     bool check_button_release(const size_t button);
-    short int get_axe(const size_t target);
+    short int get_axis(const size_t target);
     size_t get_button_amount() const;
-    size_t get_axe_amount() const;
+    size_t get_axes() const;
   };
 
  }

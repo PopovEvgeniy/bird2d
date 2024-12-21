@@ -1,18 +1,18 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
-    <title>Programmer reference</title>
+    <title>Programmer Reference</title>
   </head>
   <body>
     <div>
-      <div style="text-align: center;"><big>Bird 2d: programmer reference</big></div>
+      <div style="text-align: center;"><big>Bird 2D: Programmer Reference</big></div>
     </div>
     <p><big><br>
         Table of contents<br>
       </big></p>
     <ul id="mozToc">
       <!--mozToc h1 1 h2 2 h3 3 h4 4 h5 5 h6 6-->
-      <li><a href="#mozTocId665557">Part 1. Welcome to Bird2d</a>
+      <li><a href="#mozTocId665557">Part 1. Welcome to Bird 2D</a>
         <ul>
           <li><a href="#mozTocId471990">Chapter 1. Introduction</a></li>
           <li><a href="#mozTocId85003">Chapter 2. A special thanks</a></li>
@@ -110,7 +110,7 @@
     </ul>
     <p><big> </big></p>
     <h1><a class="mozTocH1" name="mozTocId665557"></a><big>Part 1. Welcome to
-        Bird2d</big></h1>
+        Bird 2D</big></h1>
     <p><big> </big></p>
     <h2><a class="mozTocH2" name="mozTocId471990"></a><big>Chapter 1.
         Introduction<br>
@@ -198,7 +198,7 @@
         distribution.</big></p>
     <h2><a class="mozTocH2" name="mozTocId307309"></a><big>Chapter 4.
         Dependencies</big></h2>
-    <big>You need&nbsp; libx11-dev, libgl1-mesa-dev and libvlc-dev packages to
+    <big>You need libx11-dev, libgl1-mesa-dev and libvlc-dev packages to
       compile this game engine.</big>
     <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 5. The engine
         namespace</big></h2>
@@ -247,7 +247,7 @@
         performance. You can also try to change the screen resolution if you
         have low rendering performance.<br>
         <br>
-        <span style="text-decoration: underline;"> Fps limitation</span><br>
+        <span style="text-decoration: underline;"> FPS limitation</span><br>
         <br>
         FPS is an important thing. Many FPS are needed for good animation, but
         it also needs high processor usage. The FPS limit is 60 by default. It
@@ -551,7 +551,6 @@
           background); -</span> Load a background </big><big>from the buffer.</big><big><br>
         <br>
       </big><big><span style="font-style: italic;">void Scene::load(</span></big><big
-
         style="font-style: italic;">const char *name</big><big><span style="font-style: italic;">);
           -</span> Load a background from the target file.</big><br>
       <big><br>
@@ -636,6 +635,7 @@
         x-coordinate and return it</big><big>.<br>
         <br>
       </big> <big style="outline-color: navy ! important; outline-style: dashed ! important; outline-width: 2px ! important;"><em></em></big><big><span
+
           style="font-style: italic;">unsigned int Billboard::increase_y(); -</span>
         Increase the y-coordinate and return it.<br>
         <br>
@@ -1311,9 +1311,8 @@
         Return the current timer interval.<br>
         <br>
         <span style="font-style: italic;"> bool Timer::check_timer(); -</span>
-        Return true and reinitialize the start point if the interval
-        between the stop and start points is large or equal to specific
-        seconds.</big></p>
+        Return true and reinitialize the start point if the interval between the
+        stop and start points is large or equal to specific seconds.</big></p>
     <h2><a class="mozTocH2" name="mozTocId381935"></a><big>Chapter 4. Collision</big></h2>
     <p><big><span style="text-decoration: underline;">An important thing for any
           game</span><br>
@@ -2015,14 +2014,14 @@
       <span style="font-style: italic;">bool Joystick::check_released(const
         size_t button) const; -</span> Return true if the button was released.<br>
       <br>
-      <span style="font-style: italic;">short int Joystick::get_axe(const size_t
-        target); -</span> Return the current value of the joystick axis.<br>
+      <span style="font-style: italic;">short int Joystick::get_axis(const
+        size_t target); -</span> Return the current value of the joystick axis.<br>
       <br>
       <span style="font-style: italic;">size_t Joystick::get_button_amount()
         const; -</span> Return the number of the joystick buttons.<br>
       <br>
-      <span style="font-style: italic;">size_t Joystick::get_axe_amount() const;
-        -</span> Return the number of the joystick axes.</big><br>
+      <span style="font-style: italic;">size_t Joystick::get_axes() const; -</span>
+      Return the number of the joystick axes.</big><br>
     <h1><a class="mozTocH1" name="mozTocId54918"></a><big>Part 10. Internal
         details of the engine subsystems</big></h1>
     <h2><a class="mozTocH2" name="mozTocId383177"></a><big>Chapter 1. A few
@@ -2283,6 +2282,7 @@
       2.3.9.1: The documentation has been updated.<br>
       2.4: The source code synced with the Eugene game development kit 9.2.3.<br>
       2.4.0.1-2.4.0.4: The documentation has been updated.<br>
+      2.4.1: The small changes.<br>
     </big>
   </body>
 </html>

@@ -1658,7 +1658,7 @@ namespace BIRD2D
   {
     current.set_length(0);
     preversion.set_length(0);
-    axe.set_length(0);
+    axis.set_length(0);
     device=-1;
   }
 
@@ -1670,7 +1670,7 @@ namespace BIRD2D
     }
     current.destroy_buffer();
     preversion.destroy_buffer();
-    axe.destroy_buffer();
+    axis.destroy_buffer();
   }
 
   void Joystick::open_device(const char *joystick)
@@ -1690,9 +1690,9 @@ namespace BIRD2D
     {
       if  (ioctl(device,JSIOCGAXES,&amount)==0)
       {
-        axe.set_length(static_cast<size_t>(amount));
-        axe.create_buffer();
-        axe.fill_buffer(0);
+        axis.set_length(static_cast<size_t>(amount));
+        axis.create_buffer();
+        axis.fill_buffer(0);
       }
       if  (ioctl(device,JSIOCGBUTTONS,&amount)==0)
       {
@@ -1749,7 +1749,7 @@ namespace BIRD2D
         switch (event.type)
         {
           case JS_EVENT_AXIS:
-          if  (axe.get_length()>0) axe[event.number]=event.value;
+          if  (axis.get_length()>0) axis[event.number]=event.value;
           break;
           case JS_EVENT_BUTTON:
           if  (current.get_length()>0) current[event.number]=event.value;
@@ -1792,15 +1792,15 @@ namespace BIRD2D
    return (this->check_current_button(button)==false) && (this->check_preversion_button(button)==true);
   }
 
-  short int Joystick::get_axe(const size_t target)
+  short int Joystick::get_axis(const size_t target)
   {
     short int value;
     value=0;
-    if  (axe.get_length()>0)
+    if  (axis.get_length()>0)
     {
-      if  (target<axe.get_length())
+      if  (target<axis.get_length())
       {
-        value=axe[target];
+        value=axis[target];
       }
 
     }
@@ -1812,9 +1812,9 @@ namespace BIRD2D
     return current.get_length();
   }
 
-  size_t Joystick::get_axe_amount() const
+  size_t Joystick::get_axes() const
   {
-    return axe.get_length();
+    return axis.get_length();
   }
 
  }
