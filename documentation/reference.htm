@@ -198,8 +198,8 @@
         distribution.</big></p>
     <h2><a class="mozTocH2" name="mozTocId307309"></a><big>Chapter 4.
         Dependencies</big></h2>
-    <big>You need libx11-dev, libgl1-mesa-dev and libvlc-dev packages to
-      compile this game engine.</big>
+    <big>You need libx11-dev, libgl1-mesa-dev and libvlc-dev packages to compile
+      this game engine.</big>
     <h2><a class="mozTocH2" name="mozTocId914689"></a><big>Chapter 5. The engine
         namespace</big></h2>
     <p><big><span style="font-style: italic;">BIRD2D</span> is the main
@@ -221,7 +221,8 @@
         understand it.</big></p>
     <p><img style="width: 107px; height: 111px;" alt="" src="coordinate_system.png"><br>
     </p>
-    <h2><a class="mozTocH2" name="mozTocId544184"></a><big>Chapter 2. A game loop</big><br>
+    <h2><a class="mozTocH2" name="mozTocId544184"></a><big>Chapter 2. A game
+        loop</big><br>
     </h2>
     <p><big>What is the main point in your game? A game loop. You can see the
         structure of a typical game loop below.</big></p>
@@ -635,7 +636,6 @@
         x-coordinate and return it</big><big>.<br>
         <br>
       </big> <big style="outline-color: navy ! important; outline-style: dashed ! important; outline-width: 2px ! important;"><em></em></big><big><span
-
           style="font-style: italic;">unsigned int Billboard::increase_y(); -</span>
         Increase the y-coordinate and return it.<br>
         <br>
@@ -982,8 +982,13 @@
         <br>
         <span style="font-style: italic;"> unsigned int Text::get_font_height()
           const; -</span> Get the current font height in pixels.<br>
-        <br>
-        <span style="font-style: italic;"> void Text::set_position(const
+      </big></p>
+    <big><span style="font-style: italic;">unsigned int Text::get_x() const; -</span>
+      Get the x-coordinate of the text output position.<br>
+      <br>
+      <span style="font-style: italic;">unsigned int Text::get_y() const; -</span>
+      Get the y-coordinate of the text output position.</big>
+    <p><big> <span style="font-style: italic;"> void Text::set_position(const
           unsigned int x, const unsigned int y); -</span> Set the output
         position.<br>
         <br>
@@ -2284,6 +2289,7 @@
       2.4.0.1-2.4.0.4: The documentation has been updated.<br>
       2.4.1: The small changes.<br>
       2.4.1.1: The documentation has been updated.<br>
+      2.4.2: The source code synced with the Eugene game development kit 9.2.6.<br>
     </big>
   </body>
 </html>
