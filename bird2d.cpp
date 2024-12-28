@@ -3766,7 +3766,13 @@ namespace BIRD2D
    text.draw(true);
   }
 
-  void Text::print(const char *target)
+  void Text::print(const unsigned int x,const unsigned int y,const char target)
+  {
+   this->set_position(x,y);
+   this->print(target);
+  }
+
+  size_t Text::print(const char *target)
   {
    size_t index,length;
    length=strlen(target);
@@ -3776,19 +3782,13 @@ namespace BIRD2D
     this->print(target[index]);
     this->increase_position();
    }
-
+   return length;
   }
 
-  void Text::print(const unsigned int x,const unsigned int y,const char target)
+  size_t Text::print(const unsigned int x,const unsigned int y,const char *target)
   {
    this->set_position(x,y);
-   this->print(target);
-  }
-
-  void Text::print(const unsigned int x,const unsigned int y,const char *target)
-  {
-   this->set_position(x,y);
-   this->print(target);
+   return this->print(target);
   }
 
   void Text::disable_mirror()
