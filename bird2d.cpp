@@ -3,7 +3,7 @@ Bird 2d was made by Popov Evgeniy Alekseyevich
 
 Bird 2d license
 
-Copyright (C) 2023 - 2024 Popov Evgeniy Alekseyevich
+Copyright (C) 2023 - 2025 Popov Evgeniy Alekseyevich
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages
@@ -4242,15 +4242,6 @@ namespace BIRD2D
    if (x>cell_width)
    {
     row=x/cell_width;
-    if ((x%cell_width)==0)
-    {
-     --row;
-    }
-    else
-    {
-     ++row;
-    }
-
    }
    return row;
   }
@@ -4262,15 +4253,6 @@ namespace BIRD2D
    if (y>cell_height)
    {
     column=y/cell_height;
-    if ((y%cell_height)==0)
-    {
-     --column;
-    }
-    else
-    {
-     ++column;
-    }
-
    }
    return column;
   }
