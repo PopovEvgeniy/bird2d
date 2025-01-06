@@ -6,14 +6,14 @@ isometric_demo=./demo/isometric
 
 all: engine examples
 engine:
-	@g++ -c bird2d.cpp $(flags) -o bird2d.o
-	@ar -r $(game_engine) bird2d.o
+	@$(CXX) -c bird2d.cpp $(flags) -o bird2d.o
+	@$(AR) -r $(game_engine) bird2d.o
 	@rm *.o
 	@echo "The game engine was successfully compiled"
 examples:
-	@g++ tilemap.cpp $(game_engine) $(flags) -o $(tilemap_demo)
-	@g++ demo.cpp $(game_engine) $(flags) -o $(main_demo)
-	@g++ isometric.cpp $(game_engine) $(flags) -o $(isometric_demo)
+	@$(CXX) tilemap.cpp $(game_engine) $(flags) -o $(tilemap_demo)
+	@$(CXX) demo.cpp $(game_engine) $(flags) -o $(main_demo)
+	@$(CXX) isometric.cpp $(game_engine) $(flags) -o $(isometric_demo)
 	@chmod ugo+rx $(main_demo)
 	@chmod ugo+rx $(tilemap_demo)
 	@chmod ugo+rx $(isometric_demo)
