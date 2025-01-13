@@ -1,7 +1,7 @@
 /*
-Bird 2d was made by Popov Evgeniy Alekseyevich
+Bird 2D was made by Popov Evgeniy Alekseyevich
 
-Bird 2d license
+Bird 2D license
 
 Copyright (C) 2023 - 2025 Popov Evgeniy Alekseyevich
 
@@ -914,6 +914,22 @@ namespace BIRD2D
    static int get_isometric_y(const int x,const int y);
    static int get_cartesian_x(const int x,const int y);
    static int get_cartesian_y(const int x,const int y);
+  };
+
+  class Entity
+  {
+   private:
+   int entity_width;
+   int entity_height;
+   public:
+   Entity();
+   ~Entity();
+   void initialize(const int width,const int height);
+   Entity *get_handle();
+   int get_with() const;
+   int get_height() const;
+   int get_x(const int x,const int y) const;
+   int get_y(const int x,const int y) const;
   };
 
   class World
