@@ -6,7 +6,7 @@ int main()
  BIRD2D::Graphics::Text text;
  BIRD2D::Graphics::Sheet tile;
  BIRD2D::Input::Keyboard keyboard;
- BIRD2D::Common::Tilemap tilemap;
+ BIRD2D::Map::Tilemap tilemap;
  unsigned int row,column,row_amount,column_amount;
  keyboard.initialize();
  surface.initialize();
