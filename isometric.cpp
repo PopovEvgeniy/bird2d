@@ -8,7 +8,7 @@ int main()
  BIRD2D::Graphics::Cartoon ground;
  BIRD2D::Graphics::Text text;
  BIRD2D::Transformation::Coordinates cartesian;
- BIRD2D::Transformation::Entity level;
+ BIRD2D::Transformation::Level level;
  BIRD2D::Input::Keyboard keyboard;
  keyboard.initialize();
  surface.initialize();
@@ -30,7 +30,7 @@ int main()
   {
    for (column=0;column<10;++column)
    {
-    ground.draw(cartesian.get_surface_x(level.get_x(row,column)),cartesian.get_surface_y(level.get_y(row,column)));
+    ground.draw(cartesian.get_screen_x(level.get_x(row,column)),cartesian.get_screen_y(level.get_y(row,column)));
    }
 
   }
