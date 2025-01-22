@@ -3,6 +3,7 @@
 int main()
 {
  char perfomance[8];
+ bool limit;
  BIRD2D::Common::Timer timer;
  BIRD2D::Input::Keyboard keyboard;
  BIRD2D::Input::Joystick joystick;
@@ -29,7 +30,8 @@ int main()
  audio.initialize();
  audio.load("./space.mp3");
  memset(perfomance,0,8);
- while(screen.sync())
+ limit=true;
+ while(screen.sync(limit))
  {
   joystick.update();
   audio.play_loop();
@@ -52,6 +54,14 @@ int main()
   if (keyboard.check_hold(62)==true)
   {
    space.complex_mirror();
+  }
+   if (keyboard.check_hold(63)==true)
+  {
+   limit=true;
+  }
+  if (keyboard.check_hold(64)==true)
+  {
+   limit=false;
   }
   if (keyboard.check_hold(57)==true)
   {
