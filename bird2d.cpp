@@ -3258,11 +3258,7 @@ namespace BIRD2D
    row=1;
    if (this->check_frame(target)==true)
    {
-    row=target%rows;
-   }
-   if (row==0)
-   {
-    row=rows;
+    row+=(target-1)%rows;
    }
    return row;
   }
@@ -3271,13 +3267,9 @@ namespace BIRD2D
   {
    unsigned int column;
    column=1;
-   if (target>rows)
+   if (this->check_frame(target)==true)
    {
-    if (this->check_frame(target)==true)
-    {
-     column+=(target-1)/rows;
-    }
-
+    column+=(target-1)/rows;
    }
    return column;
   }
@@ -3360,7 +3352,11 @@ namespace BIRD2D
   void Sheet::set_target(const unsigned int target)
   {
    this->set_frame(target);
-   this->select(this->get_row(this->get_frame()),this->get_column(this->get_frame()));
+   if (this->check_frame(target)==true)
+   {
+    this->select(this->get_row(target),this->get_column(target));
+   }
+
   }
 
   void Sheet::step()
