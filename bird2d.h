@@ -353,6 +353,7 @@ namespace BIRD2D
    void set_tile_offset(const float row,const float rows,const float column,const float columns);
    void set_horizontal_offset(const float current,const float total);
    void set_vertical_offset(const float current,const float total);
+   void set_texture_coordinates(const size_t index,const float u,const float v);
   };
 
   class Rectangle:public Shape
@@ -665,6 +666,7 @@ namespace BIRD2D
    public:
    Billboard();
    ~Billboard();
+   void set_texture_coordinates(const size_t index,const float u,const float v);
    void set_transparent(const bool enabled);
    bool get_transparent() const;
    void set_width(const unsigned int width);
