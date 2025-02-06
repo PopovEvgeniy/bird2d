@@ -3,6 +3,7 @@ game_engine=./demo/bird2d.a
 main_demo=./demo/demo
 tilemap_demo=./demo/tilemap
 isometric_demo=./demo/isometric
+parallax_demo=./demo/parallax
 
 all: engine examples
 engine:
@@ -14,13 +15,16 @@ examples:
 	@$(CXX) tilemap.cpp $(game_engine) $(flags) -o $(tilemap_demo)
 	@$(CXX) demo.cpp $(game_engine) $(flags) -o $(main_demo)
 	@$(CXX) isometric.cpp $(game_engine) $(flags) -o $(isometric_demo)
+	@$(CXX) parallax.cpp $(game_engine) $(flags) -o $(parallax_demo)
 	@chmod ugo+rx $(main_demo)
 	@chmod ugo+rx $(tilemap_demo)
 	@chmod ugo+rx $(isometric_demo)
+	@chmod ugo+rx $(parallax_demo)
 	@echo "The examples have been successfully compiled"
 clean:
 	@rm $(game_engine)
 	@rm $(tilemap_demo)
 	@rm $(main_demo)
 	@rm $(isometric_demo)
+	@rm $(parallax_demo)
 	@echo "Cleaning was successfully completed"

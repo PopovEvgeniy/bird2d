@@ -11,7 +11,8 @@ Features
  Minimum external dependencies: only Xlib, Mesa 3d and libVLC.
  Easy-to-use object-oriented API.
  Animated and static sprites.
- Scrollable and static backgrounds.
+ Animated backgrounds.
+ Parallax and static backgrounds.
  Sprite-sheets.
  Tile-maps.
  Image transformation: resizing and mirroring.
