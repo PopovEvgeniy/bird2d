@@ -840,8 +840,9 @@ namespace BIRD2D
    Graphics::Cartoon stage;
    float u_offset;
    float v_offset;
-   void calculate_u_offset(const float speed);
-   void calculate_v_offset(const float speed);
+   float u_speed;
+   float v_speed;
+   void calculate_offset();
    void reset_u_offset();
    void reset_v_offset();
    void set_texture_coordinates();
@@ -859,7 +860,10 @@ namespace BIRD2D
    void horizontal_mirror();
    void vertical_mirror();
    void complex_mirror();
-   void draw(const float horizontal_speed,const float vertical_speed);
+   void set_speed(const float horizontal,const float vertical);
+   float get_horizontal_speed() const;
+   float get_vertical_speed() const;
+   void draw();
    void destroy_image();
    void destroy();
    bool is_load() const;
