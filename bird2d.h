@@ -582,6 +582,8 @@ namespace BIRD2D
    unsigned int get_height() const;
    bool check_x(const unsigned int x) const;
    bool check_y(const unsigned int y) const;
+   bool check_horizontal_border(const BIRD2D::BOX target) const;
+   bool check_vertical_border(const BIRD2D::BOX target) const;
    Surface* get_handle();
   };
 

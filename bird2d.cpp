@@ -2311,6 +2311,16 @@ namespace BIRD2D
    return y<this->get_height();
   }
 
+  bool Surface::check_horizontal_border(const BIRD2D::BOX target) const
+  {
+   return (target.x+target.width)>=this->get_width();
+  }
+
+  bool Surface::check_vertical_border(const BIRD2D::BOX target) const
+  {
+   return (target.y+target.height)>=this->get_height();
+  }
+
   Surface* Surface::get_handle()
   {
    return this;
