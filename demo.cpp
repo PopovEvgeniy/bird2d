@@ -9,7 +9,7 @@ int main()
  BIRD2D::Input::Joystick joystick;
  BIRD2D::Misc::Audio audio;
  BIRD2D::Input::Mouse mouse;
- BIRD2D::Graphics::Surface screen;
+ BIRD2D::Graphics::Screen screen;
  BIRD2D::Graphics::Scene space;
  BIRD2D::Graphics::Sprite ship;
  BIRD2D::Graphics::Text text;

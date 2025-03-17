@@ -563,13 +563,13 @@ namespace BIRD2D
  namespace Graphics
  {
 
-  class Surface:public Core::FPS, public Core::Render, public Internal::Engine, public Internal::Synchronization
+  class Screen:public Core::FPS, public Core::Render, public Internal::Engine, public Internal::Synchronization
   {
    private:
    void screen_setup();
    public:
-   Surface();
-   ~Surface();
+   Screen();
+   ~Screen();
    void clear_screen();
    void initialize();
    bool update();
@@ -584,7 +584,7 @@ namespace BIRD2D
    bool check_y(const unsigned int y) const;
    bool check_horizontal_border(const BIRD2D::BOX target) const;
    bool check_vertical_border(const BIRD2D::BOX target) const;
-   Surface* get_handle();
+   Screen* get_handle();
   };
 
   class Image
@@ -791,8 +791,8 @@ namespace BIRD2D
    Background();
    ~Background();
    Background* get_handle();
-   void prepare(const Surface *screen);
-   void prepare(Surface &screen);
+   void prepare(const Screen *screen);
+   void prepare(Screen &screen);
    void prepare(const unsigned int width,const unsigned int height);
    void set_settings(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void load(Image *background,const IMAGE_KIND kind,const unsigned int frames);
@@ -826,8 +826,8 @@ namespace BIRD2D
    Scene();
    ~Scene();
    Scene* get_handle();
-   void prepare(const Surface *surface);
-   void prepare(Surface &surface);
+   void prepare(const Screen *screen);
+   void prepare(Screen &screen);
    void prepare(const unsigned int width,const unsigned int height);
    void load(Image *background);
    void load(Image &background);
@@ -859,8 +859,8 @@ namespace BIRD2D
    Parallax();
    ~Parallax();
    Parallax* get_handle();
-   void prepare(const Surface *surface);
-   void prepare(Surface &surface);
+   void prepare(const Screen *screen);
+   void prepare(Screen &screen);
    void prepare(const unsigned int width,const unsigned int height);
    void load(Image *background);
    void load(Image &background);

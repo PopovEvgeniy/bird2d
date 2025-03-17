@@ -3,7 +3,7 @@
 int main()
 {
  int row,column;
- BIRD2D::Graphics::Surface surface;
+ BIRD2D::Graphics::Screen screen;
  BIRD2D::Graphics::Scene sky;
  BIRD2D::Graphics::Cartoon ground;
  BIRD2D::Graphics::Text text;
@@ -11,15 +11,15 @@ int main()
  BIRD2D::Transformation::Level level;
  BIRD2D::Input::Keyboard keyboard;
  keyboard.initialize();
- surface.initialize();
+ screen.initialize();
  sky.load("sky.tga");
- sky.prepare(surface);
+ sky.prepare(screen);
  ground.load("ground.tga");
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
- cartesian.initialize(surface.get_width(),surface.get_height());
+ cartesian.initialize(screen.get_width(),screen.get_height());
  level.initialize(ground.get_width(),ground.get_height());
- while (surface.sync())
+ while (screen.sync())
  {
   if (keyboard.check_hold(1)==true)
   {

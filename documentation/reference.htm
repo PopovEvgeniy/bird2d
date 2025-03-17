@@ -206,32 +206,32 @@
   <br>
   <span style="text-decoration: underline;">Work with the base graphics subsystem</span><br>
   <br>
-  The <span style="font-style: italic;">Surface</span> class provides access to the base graphics subsystem. Let's look at the publicly available methods.<br>
+  The <span style="font-style: italic;">Screen</span> class provides access to the base graphics subsystem. Let's look at the publicly available methods.<br>
   <br>
-  <span style="font-style: italic;">void Surface::clear_screen(); -</span> Clear the screen. Fill it with black color.<br>
+  <span style="font-style: italic;">void Screen::clear_screen(); -</span> Clear the screen. Fill it with black color.<br>
   <br>
-  <span style="font-style: italic;">void Surface::initialize(); -</span> Initializes the base graphic subsystem.<br></big> <big><br></big> <big><span style="font-style: italic;">bool Surface::sync(); -</span> Show the current content of the back buffer on the screen. Return false if a game is terminated. This method uses the FPS limits and waits between frames.<br>
+  <span style="font-style: italic;">void Screen::initialize(); -</span> Initializes the base graphic subsystem.<br></big> <big><br></big> <big><span style="font-style: italic;">bool Screen::sync(); -</span> Show the current content of the back buffer on the screen. Return false if a game is terminated. This method uses the FPS limits and waits between frames.<br>
   <br>
-  <span style="font-style: italic;">bool Surface::update(); -</span> Show the current content of the back buffer on the screen. Return false if a game is terminated. This method ignores the FPS limit and needs high processor usage.<br>
+  <span style="font-style: italic;">bool Screen::update(); -</span> Show the current content of the back buffer on the screen. Return false if a game is terminated. This method ignores the FPS limit and needs high processor usage.<br>
   <br>
-  <span style="font-style: italic;">bool Surface::sync(const bool limit); -</span> Show the current content of the back buffer on the screen. Return false if a game is terminated.<br>
+  <span style="font-style: italic;">bool Screen::sync(const bool limit); -</span> Show the current content of the back buffer on the screen. Return false if a game is terminated.<br>
   <br>
-  <span style="font-style: italic;">bool Surface::is_ready(); -</span> Return true if the subsystem has already been initialized.<br>
+  <span style="font-style: italic;">bool Screen::is_ready(); -</span> Return true if the subsystem has already been initialized.<br>
   <br>
-  <span style="font-style: italic;">unsigned int Surface::get_fps() const; -</span> Return the current FPS value.<br>
+  <span style="font-style: italic;">unsigned int Screen::get_fps() const; -</span> Return the current FPS value.<br>
   <br>
-  <span style="font-style: italic;">unsigned int Surface::get_color() const; -</span> Return the current color depth in bits per pixel.<br>
+  <span style="font-style: italic;">unsigned int Screen::get_color() const; -</span> Return the current color depth in bits per pixel.<br>
   <br>
-  <span style="font-style: italic;">unsigned int Surface::get_width() const; -</span> Return the screen width in pixels.<br>
+  <span style="font-style: italic;">unsigned int Screen::get_width() const; -</span> Return the screen width in pixels.<br>
   <br>
-  <span style="font-style: italic;">unsigned int Surface::get_height() const; -</span> Return the screen height in pixels.<br>
+  <span style="font-style: italic;">unsigned int Screen::get_height() const; -</span> Return the screen height in pixels.<br>
   <br>
-  <span style="font-style: italic;">bool Surface::check_x(const unsigned int x) const; -</span> Return true if the x-coordinate is valid.<br>
-  <br></big> <big><span style="font-style: italic;">bool Surface::check_y(const unsigned int y) const; -</span> Return true if the y-coordinate is valid.<br></big></p>
-  <p><big><span style="font-style: italic;">bool Surface::check_horizontal_border(const BIRD2D::BOX target) const; -</span> Return true if a game object is collided with the horizontal screen border.<br>
+  <span style="font-style: italic;">bool Screen::check_x(const unsigned int x) const; -</span> Return true if the x-coordinate is valid.<br>
+  <br></big> <big><span style="font-style: italic;">bool Screen::check_y(const unsigned int y) const; -</span> Return true if the y-coordinate is valid.<br></big></p>
+  <p><big><span style="font-style: italic;">bool Screen::check_horizontal_border(const BIRD2D::BOX target) const; -</span> Return true if a game object is collided with the horizontal screen border.<br>
   <br>
-  <span style="font-style: italic;">bool Surface::check_vertical_border(const BIRD2D::BOX target) const; -</span> Return true if a game object is collided with the vertical screen border.<br></big><br>
-  <big><span style="font-style: italic;">Surface *Surface::get_handle(); -</span> Return the handle to the base graphics subsystem object.</big></p>
+  <span style="font-style: italic;">bool Screen::check_vertical_border(const BIRD2D::BOX target) const; -</span> Return true if a game object is collided with the vertical screen border.<br></big><br>
+  <big><span style="font-style: italic;">Screen *Screen::get_handle(); -</span> Return the handle to the base graphics subsystem object.</big></p>
   <h2><a class="mozTocH2" name="mozTocId289525" id="mozTocId289525"></a><big>Chapter 3. Picture subsystem</big></h2>
   <p><big><span style="text-decoration: underline;">An important subsystem</span><br>
   <br>
@@ -322,9 +322,9 @@
   Just use the <span style="font-style: italic;">Background</span> class to work with the background. Let's look at the publicly available methods.<br>
   <br>
   <span style="font-style: italic;">Background *Background::get_handle(); -</span> Return the handle to the background object.<br>
-  <br></big> <big><span style="font-style: italic;">void Background::prepare(const Surface *screen); -</span> Prepare for drawing.<br>
+  <br></big> <big><span style="font-style: italic;">void Background::prepare(const Screen *screen); -</span> Prepare for drawing.<br>
   <br>
-  <span style="font-style: italic;">void Background::prepare(Surface &amp;screen); -</span> Prepare for drawing.<br>
+  <span style="font-style: italic;">void Background::prepare(Screen &amp;screen); -</span> Prepare for drawing.<br>
   <br>
   <span style="font-style: italic;">void Background::prepare(const unsigned int width, const unsigned int height); -</span> Prepare for drawing.<br>
   <br>
@@ -383,9 +383,9 @@
   Just use the <span style="font-style: italic;">Scene</span> class to work with the static background. Let's look at the publicly available methods.<br>
   <br>
   <span style="font-style: italic;">Scene *Scene::get_handle(); -</span> Return the handle to the background object.<br>
-  <br></big> <big><span style="font-style: italic;">void Scene::prepare(const Surface *screen); -</span> Prepare for drawing.<br>
+  <br></big> <big><span style="font-style: italic;">void Scene::prepare(const Screen *screen); -</span> Prepare for drawing.<br>
   <br>
-  <span style="font-style: italic;">void Scene::prepare(Surface &amp;screen); -</span> Prepare for drawing.<br>
+  <span style="font-style: italic;">void Scene::prepare(Screen &amp;screen); -</span> Prepare for drawing.<br>
   <br>
   <span style="font-style: italic;">void Scene::prepare(const unsigned int width, const unsigned int height); -</span> Prepare for drawing.<br>
   <br>
@@ -430,9 +430,9 @@
   Just use the <span style="font-style: italic;">Parallax</span> class to work with the parallax background. Let's look at the publicly available methods.<br>
   <br>
   <span style="font-style: italic;">Parallax *Parallax::get_handle(); -</span> Return the handle to the background object.<br>
-  <br></big> <big><span style="font-style: italic;">void Parallax::prepare(const Surface *surface); -</span> Prepare for drawing.<br>
+  <br></big> <big><span style="font-style: italic;">void Parallax::prepare(const Screen *screen); -</span> Prepare for drawing.<br>
   <br>
-  <span style="font-style: italic;">void Parallax::prepare(Surface &amp;surface); -</span> Prepare for drawing.<br>
+  <span style="font-style: italic;">void Parallax::prepare(Screen &amp;screen); -</span> Prepare for drawing.<br>
   <br>
   <span style="font-style: italic;">void Parallax::prepare(const unsigned int width, const unsigned int height); -</span> Prepare for drawing.<br>
   <br>
@@ -1557,6 +1557,7 @@
   2.6.6: The source code synced with the Eugene game development kit 9.5.4.<br>
   2.6.7: The source code synced with the Eugene game development kit 9.5.5.<br>
   2.6.8: The source code synced with the Eugene game development kit 9.5.6.<br>
-  2.6.9: The source code synced with the Eugene game development kit 9.5.7.<br></big>
+  2.6.9: The source code synced with the Eugene game development kit 9.5.7.<br>
+  2.7: The small changes.<br></big>
 </body>
 </html>

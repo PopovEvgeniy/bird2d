@@ -2,22 +2,22 @@
 
 int main()
 {
- BIRD2D::Graphics::Surface surface;
+ BIRD2D::Graphics::Screen screen;
  BIRD2D::Graphics::Text text;
  BIRD2D::Graphics::Sheet tile;
  BIRD2D::Input::Keyboard keyboard;
  BIRD2D::Common::Tilemap tilemap;
  unsigned int row,column,row_amount,column_amount;
  keyboard.initialize();
- surface.initialize();
+ screen.initialize();
  text.load_font("font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
  tile.load("grass.tga",6,3);
  tilemap.initialize(tile.get_width(),tile.get_height());
- row_amount=tilemap.get_row_amount(surface.get_width());
- column_amount=tilemap.get_column_amount(surface.get_height());
+ row_amount=tilemap.get_row_amount(screen.get_width());
+ column_amount=tilemap.get_column_amount(screen.get_height());
  tile.set_transparent(false);
- while (surface.sync())
+ while (screen.sync())
  {
   if (keyboard.check_hold(1)==true)
   {

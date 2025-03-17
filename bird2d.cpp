@@ -2174,7 +2174,7 @@ namespace BIRD2D
       playing=false;
       if (player!=NULL)
       {
-        playing=libvlc_media_player_is_playing(player);
+       playing=libvlc_media_player_is_playing(player);
       }
       return playing;
     }
@@ -2183,7 +2183,7 @@ namespace BIRD2D
     {
       if (this->check_playing()==false)
       {
-        this->play();
+       this->play();
       }
 
     }
@@ -2192,11 +2192,11 @@ namespace BIRD2D
     {
       if (loop==true)
       {
-        this->play_loop();
+       this->play_loop();
       }
       else
       {
-        this->play();
+       this->play();
       }
 
     }
@@ -2212,24 +2212,24 @@ namespace BIRD2D
  namespace Graphics
  {
 
-  Surface::Surface()
+  Screen::Screen()
   {
 
   }
 
-  Surface::~Surface()
+  Screen::~Screen()
   {
 
   }
 
-  void Surface::screen_setup()
+  void Screen::screen_setup()
   {
    this->prepare_engine();
    this->start_render(this->get_display_width(),this->get_display_height());
    this->set_timer(17);
   }
 
-  void Surface::clear_screen()
+  void Screen::clear_screen()
   {
    if (this->get_context()!=NULL)
    {
@@ -2238,7 +2238,7 @@ namespace BIRD2D
 
   }
 
-  void Surface::initialize()
+  void Screen::initialize()
   {
    if (this->get_context()==NULL)
    {
@@ -2247,7 +2247,7 @@ namespace BIRD2D
 
   }
 
-  bool Surface::update()
+  bool Screen::update()
   {
    bool run;
    run=false;
@@ -2261,13 +2261,13 @@ namespace BIRD2D
    return run;
   }
 
-  bool Surface::sync()
+  bool Screen::sync()
   {
    this->wait_timer();
    return this->update();
   }
 
-  bool Surface::sync(const bool limit)
+  bool Screen::sync(const bool limit)
   {
    if (limit==true)
    {
@@ -2276,52 +2276,52 @@ namespace BIRD2D
    return this->update();
   }
 
-  bool Surface::is_ready()
+  bool Screen::is_ready()
   {
    return this->get_context()!=NULL;
   }
 
-  unsigned int Surface::get_color() const
+  unsigned int Screen::get_color() const
   {
    return this->get_depth();
   }
 
-  unsigned int Surface::get_fps() const
+  unsigned int Screen::get_fps() const
   {
    return this->get_fps_amount();
   }
 
-  unsigned int Surface::get_width() const
+  unsigned int Screen::get_width() const
   {
    return this->get_display_width();
   }
 
-  unsigned int Surface::get_height() const
+  unsigned int Screen::get_height() const
   {
    return this->get_display_height();
   }
 
-  bool Surface::check_x(const unsigned int x) const
+  bool Screen::check_x(const unsigned int x) const
   {
    return x<this->get_width();
   }
 
-  bool Surface::check_y(const unsigned int y) const
+  bool Screen::check_y(const unsigned int y) const
   {
    return y<this->get_height();
   }
 
-  bool Surface::check_horizontal_border(const BIRD2D::BOX target) const
+  bool Screen::check_horizontal_border(const BIRD2D::BOX target) const
   {
    return (target.x+target.width)>=this->get_width();
   }
 
-  bool Surface::check_vertical_border(const BIRD2D::BOX target) const
+  bool Screen::check_vertical_border(const BIRD2D::BOX target) const
   {
    return (target.y+target.height)>=this->get_height();
   }
 
-  Surface* Surface::get_handle()
+  Screen* Screen::get_handle()
   {
    return this;
   }
@@ -3427,11 +3427,11 @@ namespace BIRD2D
    return this;
   }
 
-  void Background::prepare(const Surface *surface)
+  void Background::prepare(const Screen *screen)
   {
-   if (surface!=NULL)
+   if (screen!=NULL)
    {
-    stage.set_size(surface->get_width(),surface->get_height());
+    stage.set_size(screen->get_width(),screen->get_height());
    }
 
   }
@@ -3441,9 +3441,9 @@ namespace BIRD2D
    stage.set_size(width,height);
   }
 
-  void Background::prepare(Surface &surface)
+  void Background::prepare(Screen &screen)
   {
-   this->prepare(surface.get_handle());
+   this->prepare(screen.get_handle());
   }
 
   void Background::set_settings(const BIRD2D::IMAGE_KIND kind,const unsigned int frames)
@@ -3572,11 +3572,11 @@ namespace BIRD2D
    return this;
   }
 
-  void Scene::prepare(const Surface *surface)
+  void Scene::prepare(const Screen *screen)
   {
-   if (surface!=NULL)
+   if (screen!=NULL)
    {
-    stage.set_size(surface->get_width(),surface->get_height());
+    stage.set_size(screen->get_width(),screen->get_height());
    }
 
   }
@@ -3586,9 +3586,9 @@ namespace BIRD2D
    stage.set_size(width,height);
   }
 
-  void Scene::prepare(Surface &surface)
+  void Scene::prepare(Screen &screen)
   {
-   this->prepare(surface.get_handle());
+   this->prepare(screen.get_handle());
   }
 
   void Scene::load(Image *background)
@@ -3702,11 +3702,11 @@ namespace BIRD2D
    return this;
   }
 
-  void Parallax::prepare(const Surface *surface)
+  void Parallax::prepare(const Screen *screen)
   {
-   if (surface!=NULL)
+   if (screen!=NULL)
    {
-    stage.set_size(surface->get_width(),surface->get_height());
+    stage.set_size(screen->get_width(),screen->get_height());
    }
 
   }
@@ -3716,9 +3716,9 @@ namespace BIRD2D
    stage.set_size(width,height);
   }
 
-  void Parallax::prepare(Surface &surface)
+  void Parallax::prepare(Screen &screen)
   {
-   this->prepare(surface.get_handle());
+   this->prepare(screen.get_handle());
   }
 
   void Parallax::load(Image *background)
