@@ -2432,7 +2432,7 @@ namespace BIRD2D
   {
    unsigned int highest_x;
    highest_x=x_offset+viewport_width;
-   if (highest_x>=highest_x_offset)
+   if (highest_x>screen_width)
    {
     highest_x=screen_width;
    }
@@ -2443,21 +2443,21 @@ namespace BIRD2D
   {
    unsigned int highest_y;
    highest_y=y_offset+viewport_height;
-   if (highest_y>=highest_y_offset)
+   if (highest_y>screen_height)
    {
     highest_y=screen_height;
    }
    return highest_y;
   }
 
-  unsigned int Camera::get_highest_x_offset() const
+  unsigned int Camera::get_lowest_x() const
   {
-   return highest_x_offset;
+   return this->get_highest_x()-viewport_width;
   }
 
-  unsigned int Camera::get_highest_y_offset() const
+  unsigned int Camera::get_lowest_y() const
   {
-   return highest_y_offset;
+   return this->get_highest_y()-viewport_height;
   }
 
   unsigned int Camera::get_world_x(const unsigned int screen_x)

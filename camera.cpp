@@ -10,8 +10,8 @@ int main()
  BIRD2D::Input::Keyboard keyboard;
  BIRD2D::Input::Mouse mouse;
  keyboard.initialize();
- mouse.hide();
  screen.initialize();
+ mouse.hide();
  city.load("city.tga");
  punk.load("punk.tga");
  text.load_font("font.tga");
