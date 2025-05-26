@@ -5,7 +5,6 @@ int main()
  BIRD2D::Graphics::Screen screen;
  BIRD2D::Graphics::Scene city;
  BIRD2D::Graphics::Cartoon punk;
- BIRD2D::Graphics::Text text;
  BIRD2D::Graphics::Camera camera;
  BIRD2D::Input::Keyboard keyboard;
  BIRD2D::Input::Mouse mouse;
@@ -14,7 +13,6 @@ int main()
  mouse.hide();
  city.load("city.tga");
  punk.load("punk.tga");
- text.load_font("font.tga");
  city.prepare(screen);
  camera.initialize(screen);
  camera.set_viewport(640,screen.get_height());
