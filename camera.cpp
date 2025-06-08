@@ -10,6 +10,7 @@ int main()
  BIRD2D::Input::Mouse mouse;
  keyboard.initialize();
  screen.initialize();
+ mouse.initialize();
  mouse.hide();
  city.load("city.tga");
  punk.load("punk.tga");
