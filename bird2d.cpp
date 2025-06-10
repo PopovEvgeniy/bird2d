@@ -2428,16 +2428,6 @@ namespace BIRD2D
    return y_offset+viewport_height;
   }
 
-  unsigned int Camera::get_lowest_x() const
-  {
-   return this->get_highest_x()-viewport_width;
-  }
-
-  unsigned int Camera::get_lowest_y() const
-  {
-   return this->get_highest_y()-viewport_height;
-  }
-
   unsigned int Camera::get_world_x(const unsigned int screen_x)
   {
    return (screen_x*viewport_width)/screen_width+x_offset;
