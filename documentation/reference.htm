@@ -109,11 +109,8 @@
       </li>
       <li><a href="#mozTocId707314">Version history</a></li>
     </ol>
-    <big>
-    </big>
     <h1><a id="mozTocId251512" class="mozTocH1"></a><big>
         Part 1. Welcome to Bird 2D</big></h1>
-    <big></big>
     <h2><a id="mozTocId644886" class="mozTocH2"></a><big>
         Chapter 1. Introduction</big></h2>
     <big>
@@ -239,7 +236,6 @@
     </big>
     <h1><a id="mozTocId855711" class="mozTocH1"></a><big>
         Part 2. Base things</big></h1>
-    <big></big>
     <h2><a id="mozTocId441637" class="mozTocH2"></a><big>
         Chapter 1. Coordinate system</big></h2>
     <big><br>
@@ -261,7 +257,6 @@
     </big>
     <h1><a id="mozTocId506974" class="mozTocH1"></a><big>
         Part 3. Graphics</big></h1>
-    <big></big>
     <h2><a id="mozTocId104881" class="mozTocH2"></a><big>
         Chapter 1. The sub-namespace</big></h2>
     <big>
@@ -422,7 +417,7 @@
       <br>
       <i>
         bool Animation::check_frame(const unsigned int target) const; - </i>Return
-true if the target frame is valid.<br>
+        true if the target frame is valid.<br>
     </big>
     <h2><a id="mozTocId754248" class="mozTocH2"></a><big>
         Chapter 5. Vertex index</big></h2>
@@ -735,17 +730,21 @@ true if the target frame is valid.<br>
       background mirroring modes.<br>
       <br>
       <i>
-        void Parallax::load(Image *background); -</i> Load a background from the
-      buffer.<br>
+        void Parallax::load(Image *background); -</i> Load a background from the buffer.<br>
       <br>
       <i>
         void Parallax::load(Image &amp; background); -</i> Load a background
-      from
-      the buffer.<br>
+      from the buffer.<br>
       <br>
       <i>
         void Parallax::load(const char *name); -</i> Load a background from the
       target file.<br>
+      <br>
+      <i>void Parallax::set_horizontal_speed(const float speed);
+        -</i> Set the horizontal scrolling speed.<br>
+      <br>
+       <i>void Parallax::set_vertical_speed(const float speed);
+        -</i> Set the vertical scrolling speed.<br>
       <br>
       <i>
         void Parallax::set_speed(const float horizontal,const float vertical);
@@ -1004,7 +1003,7 @@ true if the target frame is valid.<br>
         Chapter 12. Static sprites</big></h2>
     <big>
       <u>
-        A few words about static sprite</u><br>
+        A few words about static sprites</u><br>
       <br>
       The static sprite is a simple kind of sprite. It contains one frame only.<br>
       <br>
@@ -1460,7 +1459,6 @@ true if the target frame is valid.<br>
     </big>
     <h1><a id="mozTocId516694" class="mozTocH1"></a><big>
         Part 4. Transformation</big></h1>
-    <big></big>
     <h2><a id="mozTocId771051" class="mozTocH2"></a><big>
         Chapter 1. The sub-namespace</big></h2>
     <big>
@@ -1605,7 +1603,6 @@ true if the target frame is valid.<br>
     </big>
     <h1><a id="mozTocId411027" class="mozTocH1"></a><big>
         Part 5. Common things</big></h1>
-    <big></big>
     <h2><a id="mozTocId370034" class="mozTocH2"></a><big>
         Chapter 1. The sub-namespace</big></h2>
     <big>
@@ -1638,8 +1635,8 @@ true if the target frame is valid.<br>
         double Timer::get_interval() const; -</i> Return the current timer interval.<br>
       <i><br>
         bool Timer::check_timer(); -</i> Return true and reinitialize the start
-      point if the interval between the stop and start points is large or
-      equal to specific seconds.<br>
+      point if the interval between the stop and start points is larger than or
+      equal to a specific number of seconds.<br>
     </big>
     <h2><a id="mozTocId340292" class="mozTocH2"></a><big>
         Chapter 4. Collision</big></h2>
@@ -1759,7 +1756,6 @@ true if the target frame is valid.<br>
     </big>
     <h1><a id="mozTocId147043" class="mozTocH1"></a><big>
         Part 6. Other important things</big></h1>
-    <big></big>
     <h2><a id="mozTocId53728" class="mozTocH2"></a><big>
         Chapter 1. The sub-namespace</big></h2>
     <big>
@@ -1838,7 +1834,6 @@ true if the target frame is valid.<br>
     </big>
     <h1><a id="mozTocId15273" class="mozTocH1"></a><big>
         Part 7. Misc</big></h1>
-    <big></big>
     <h2><a id="mozTocId631611" class="mozTocH2"></a><big>
         Chapter 1. File system</big></h2>
     <big>
@@ -1905,7 +1900,6 @@ true if the target frame is valid.<br>
     </big>
     <h1><a id="mozTocId242557" class="mozTocH1"></a><big>
         Part 8. Binary files</big></h1>
-    <big></big>
     <h2><a id="mozTocId843024" class="mozTocH2"></a><big>
         Chapter 1. The sub-namespace</big></h2>
     <big>
@@ -1951,10 +1945,9 @@ true if the target frame is valid.<br>
     <h2><a id="mozTocId983262" class="mozTocH2"></a><big>
         Chapter 3. File reader</big></h2>
     <big>
-      <i>
-        File Reader</i> is intended to read data from the binary files. The
-      Input_file class provides access to a file reader. It is derived from
-      the Binary_File class. Let's look at the publicly available methods.<br>
+      The file reader is intended to read data from the binary files. The
+      <i>Input_File</i> class provides access to a file reader. It is derived from
+      the <i>Binary_File</i> class. Let's look at the publicly available methods.<br>
       <i><br>
         Input_File* Input_File::get_handle(); -</i> Return the handle to the
       file reader.<br>
@@ -1969,15 +1962,13 @@ true if the target frame is valid.<br>
     <h2><a id="mozTocId541605" class="mozTocH2"></a><big>
         Chapter 4. File writer</big></h2>
     <big>
-      <i>
-        File Writer</i> is intended to write data to the binary files. The
-      Output_File class provides access to a file writer. It is derived from
-      the Binary_File class. Let's look at the publicly available methods.<br>
+      The file writer is intended to write data to the binary files. The
+      <i>Output_File</i> class provides access to a file writer. It is derived from
+      the <i>Binary_File</i> class. Let's look at the publicly available methods.<br>
       <br>
       <i>
         Output_File* Output_File::get_handle(); -</i> Return the handle to the
-      file
-      writer.<br>
+      file writer.<br>
       <br>
       <i>
         void Output_File::open(const char *name); -</i> Open a file to write.<br>
@@ -1995,7 +1986,6 @@ true if the target frame is valid.<br>
     </big>
     <h1><a id="mozTocId579355" class="mozTocH1"></a><big>
         Part 9. Input</big></h1>
-    <big></big>
     <h2><a id="mozTocId524142" class="mozTocH2"></a><big>
         Chapter 1. The sub-namespace</big></h2>
     <big>
@@ -2401,7 +2391,6 @@ true if the target frame is valid.<br>
     </big>
     <h1><a id="mozTocId811838" class="mozTocH1"></a><big>
         Part 10. Internal details of the engine subsystems</big></h1>
-    <big></big>
     <h2><a id="mozTocId841757" class="mozTocH2"></a><big>
         Chapter 1. A few words for a curious programmer</big></h2>
     <big>
@@ -2718,6 +2707,7 @@ true if the target frame is valid.<br>
       2.7.7: The source code synced with the Black game development kit 7.5.<br>
       2.7.8: The source code synced with the Black game development kit 7.5.1.<br>
       2.7.8.1: The documentation has been updated.<br>
+      2.7.9: The source code synced with the Black game development kit 7.5.2.<br>
     </big>
   </body>
 </html>

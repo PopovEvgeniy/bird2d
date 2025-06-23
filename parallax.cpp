@@ -19,7 +19,7 @@ int main()
  joystick.initialize("/dev/input/js0");
  sky.load("./sky.tga");
  sky.prepare(screen);
- sky.set_speed(0.0f,0.001f);
+ sky.set_vertical_speed(0.001f);
  ship.load("./ship.tga",BIRD2D::HORIZONTAL_ANIMATED,2);
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
  text.load_font("./font.tga");
