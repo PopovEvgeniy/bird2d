@@ -583,15 +583,18 @@ namespace BIRD2D
      timeval current;
      if (gettimeofday(&current,NULL)!=0)
      {
-       current.tv_sec=0;
-       current.tv_usec=1;
+      current.tv_sec=0;
+      current.tv_usec=0;
      }
      return (current.tv_sec*1000)+(current.tv_usec/1000);
    }
 
    void Synchronization::do_pause(const unsigned long int interval)
    {
-     usleep(interval*1000);
+    timespec pause;
+    pause.tv_sec=0;
+    pause.tv_nsec=interval*1000000;
+    nanosleep(&pause,NULL);
    }
 
    void Synchronization::set_timer(const unsigned long int interval)
