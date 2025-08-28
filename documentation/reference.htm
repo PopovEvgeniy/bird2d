@@ -62,7 +62,7 @@
           <li><a href="#mozTocId50801">Chapter 2. Abnormal program termination</a></li>
           <li><a href="#mozTocId287426">Chapter 3. Timer</a></li>
           <li><a href="#mozTocId340292">Chapter 4. Collision</a></li>
-          <li><a href="#mozTocId237921">Chapter 5. Tile map</a></li>
+          <li><a href="#mozTocId237921">Chapter 5. Tilemap</a></li>
         </ol>
       </li>
       <li><a href="#mozTocId147043">Part 6. Other important things</a>
@@ -267,8 +267,7 @@
       <br>
       The base graphics subsystem does render a game scene. This subsystem
       uses <a href="http://opengl.org">OPENGL</a> for rendering. All modern
-      video cards support
-      hardware-accelerated OPENGL. The software OPENGL will be activated if
+      video cards support hardware-accelerated OPENGL. The software implementation will be activated if
       the acceleration is not available.<br>
       <u><br>
         Render performance</u><br>
@@ -1130,10 +1129,10 @@
         Chapter 14. Text</big></h2>
     <big>
       <u>
-        How do I draw a text?</u><br>
+        How to print a text?</u><br>
       <br>
-      Just use the text subsystem to draw a text. This subsystem needs a font
-      for text drawing. You must load a font before starting to draw the
+      Just use the text subsystem to print a text. This subsystem needs a font
+      for text printing. You must load a font before starting to print the
       text. The font is just a sprite sheet with 16 rows and 16 columns.<br>
       <br>
       <u>
@@ -1173,8 +1172,7 @@
       The <i>Text</i> class provides a simple interface to the text subsystem.
       Let's look at the publicly available methods.<br>
       <i><br>
-        Text *Text::get_handle(); -</i> Return the handle to the text drawing
-      subsystem.<br>
+        Text *Text::get_handle(); -</i> Return the handle to the text printing subsystem.<br>
       <br>
       <i>
         BIRD2D::TEXT_KIND Text::get_orientation() const; -</i> Get the current
@@ -1218,8 +1216,7 @@
         void Text::set_height(const unsigned int height); -</i> Set the font height.<br>
       <i><br>
         void Text::set_settings(const unsigned int width, const unsigned int
-        height, const BIRD2D::TEXT_KIND kind); -</i> Set the text output
-      settings.<br>
+        height, const BIRD2D::TEXT_KIND kind); -</i> Set the text output settings.<br>
       <br>
       <i>
         void Text::load_font(Image *font); -</i> Load a font from the buffer.<br>
@@ -1231,20 +1228,20 @@
       target file.<br>
       <br>
       <i>
-        void Text::print(const char target); -</i> Draw a single character at
+        void Text::print(const char target); -</i> Print a single character at
       the current position.<br>
       <br>
       <i>
         void Text::print(const unsigned int x, const unsigned int y, const char
-        target); -</i> Draw a single character at the specific position.<br>
+        target); -</i> Print a single character at the specific position.<br>
       <br>
       <i>
-        size_t Text::print(const char *target); -</i> Draw a text at the current
+        size_t Text::print(const char *target); -</i> Print a text at the current
       position and return the text length.<br>
       <br>
       <i>
         size_t Text::print(const unsigned int x, const unsigned int y, const
-        char *target); -</i> Draw a text at the specific position and return the
+        char *target); -</i> Print a text at the specific position and return the
       text length.<br>
       <i><br>
         void Text::disable_mirror(); -</i> Disable text mirroring mode.<br>
@@ -1538,9 +1535,8 @@
       <u>
         A few words about isometric games</u><br>
       <br>
-      <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometry</a>
-      is a very popular way for pseudo-3D games. Many old-school
-      games are isometric games.<br>
+      <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric projection</a>
+      is a very popular way for pseudo-3D games. Many old-school games are isometric games.<br>
       <br>
       <u>
         Coordinates conversion</u><br>
@@ -1680,26 +1676,26 @@
       between them.<br>
     </big>
     <h2><a id="mozTocId237921" class="mozTocH2"></a><big>
-        Chapter 5. Tile map</big></h2>
+        Chapter 5. Tilemap</big></h2>
     <big>
       <u>
-        A few words about tile maps</u><br>
+        A few words about a tilemap</u><br>
       <br>
-      The tile map is a tile matrix. A tile is a small, non-transparent
-      sprite. A tile map is a very useful thing for the background.<br>
+      The tilemap is a tile matrix. A tile is a small, non-transparent
+      sprite. A tilemap is a very useful thing for the background.<br>
       <u><br>
         Rows and columns</u><br>
       <br>
       The first row index is 0. The first column index is 0.<br>
       <br>
       <u>
-        Work with the tile map</u><br>
+        Work with the tilemap</u><br>
       <br>
-      The <i>Tilemap</i> class provides easy access to the tile map. It is a
+      The <i>Tilemap</i> class provides easy access to the tilemap. It is a
       simple class with few methods. Let's look at the publicly available methods.<br>
       <br>
       <i>
-        Tilemap *Tilemap::get_handle(); -</i> Return the handle to the tile-map subsystem.<br>
+        Tilemap *Tilemap::get_handle(); -</i> Return the handle to the tilemap subsystem.<br>
       <br>
       <i>
         void Tilemap::initialize(const unsigned int tile_width, const unsigned
@@ -2554,7 +2550,7 @@
       1.3.4-1.3.6: The small changes.<br>
       1.3.7: The image resizer is backported from the Simple Windows game framework 7.3.5.<br>
       1.3.8: The image resizer is backported from the Eugene game development kit 7.3.7.<br>
-      1.3.9: The tile-map subsystem is backported from the Eugene game development kit 7.4.4.<br>
+      1.3.9: The tilemap subsystem is backported from the Eugene game development kit 7.4.4.<br>
       1.4: The image resizer is backported from the Eugene game development kit 7.3.5.<br>
       1.4.1: The image resizer is backported from the Eugene game development kit 7.5.<br>
       1.4.2 The coordinates conversion subsystem is backported from the Eugene game development kit 7.5.3.<br>
@@ -2707,6 +2703,7 @@
       2.7.9.1-2.7.9.2: The documentation has been updated.<br>
       2.8: The synchronization timer has improved.<br>
       2.8.1: The small changes.<br>
+      2.8.1.1: The documentation has been updated.<br>
     </big>
   </body>
 </html>

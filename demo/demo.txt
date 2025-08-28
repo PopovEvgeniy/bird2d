@@ -12,7 +12,7 @@ F4 - Do both horizontal and vertical background mirrors
 F5 - Enable FPS limit
 F6 - Disable FPS limit
 
-Controls for the game-pad (Xbox compatible controllers only)
+Controls for the gamepad (Xbox-compatible controllers only)
 
 D-pad - Move
 A - Exit from demo
