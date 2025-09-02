@@ -49,18 +49,15 @@
       <li><a href="#mozTocId47390">Part 4. The transformation</a>
         <ol>
           <li><a href="#mozTocId771051">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId151671">Chapter 2. The Cartesian coordinates and
-              screen coordinates</a></li>
-          <li><a href="#mozTocId148985">Chapter 3. The Cartesian coordinates and
-              the isometric coordinates</a></li>
+          <li><a href="#mozTocId151671">Chapter 2. The Cartesian coordinates and the screen coordinates</a></li>
+          <li><a href="#mozTocId148985">Chapter 3. The Cartesian coordinates and the isometric coordinates</a></li>
           <li><a href="#mozTocId962088">Chapter 4. An isometric level</a></li>
         </ol>
       </li>
       <li><a href="#mozTocId456967">Part 5. The common things</a>
         <ol>
           <li><a href="#mozTocId370034">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId389651">Chapter 2. The abnormal program
-              termination</a></li>
+          <li><a href="#mozTocId389651">Chapter 2. The abnormal program termination</a></li>
           <li><a href="#mozTocId649102">Chapter 3. The timer</a></li>
           <li><a href="#mozTocId241190">Chapter 4. The collision detector</a></li>
           <li><a href="#mozTocId994359">Chapter 5. The tilemap</a></li>
@@ -83,8 +80,7 @@
       <li><a href="#mozTocId443113">Part 8. The binary files</a>
         <ol>
           <li><a href="#mozTocId843024">Chapter 1. The sub-namespace</a></li>
-          <li><a href="#mozTocId294133">Chapter 2. The base binary file
-              subsystem</a></li>
+          <li><a href="#mozTocId294133">Chapter 2. The base binary file subsystem</a></li>
           <li><a href="#mozTocId308140">Chapter 3. The file reader</a></li>
           <li><a href="#mozTocId270683">Chapter 4. The file writer</a></li>
         </ol>
@@ -97,11 +93,9 @@
           <li><a href="#mozTocId771509">Chapter 4. A joystick</a></li>
         </ol>
       </li>
-      <li><a href="#mozTocId104989">Part 10. The internal details of the engine
-          subsystems</a>
+      <li><a href="#mozTocId104989">Part 10. The internal details of the engine subsystems</a>
         <ol>
-          <li><a href="#mozTocId841757">Chapter 1. A few words for a curious
-              programmer</a></li>
+          <li><a href="#mozTocId841757">Chapter 1. A few words for a curious programmer</a></li>
           <li><a href="#mozTocId136763">Chapter 2. The internal classes</a></li>
           <li><a href="#mozTocId388620">Chapter 3. The base graphics subsystem</a></li>
           <li><a href="#mozTocId762700">Chapter 4. The joystick</a></li>
@@ -112,8 +106,7 @@
       <li><a href="#mozTocId707314">Version history</a></li>
     </ol>
     <h1><a id="mozTocId168425" class="mozTocH1"></a><big> Part 1. Welcome</big></h1>
-    <h2><a id="mozTocId515651" class="mozTocH2"></a><big> Chapter 1. The
-        introduction</big></h2>
+    <h2><a id="mozTocId515651" class="mozTocH2"></a><big> Chapter 1. The introduction</big></h2>
     <big> <u>The introduction.</u><br>
       <br>
       Hello from Russia. My name is Popov Evgeniy Alekseyevich. I am the
@@ -129,11 +122,10 @@
     </big>
     <ul>
       <li><big> Open source code.</big></li>
-      <li><big> Easy-to-use object-oriented design.</big></li>
       <li><big> Very fast.</big></li>
-      <li><big> Minimum external dependencies: <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>,
-          <a href="https://mesa3d.org">Mesa 3D</a>, and <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a>
-          libraries.</big></li>
+      <li><big> The easy-to-use object-oriented design.</big></li>
+      <li><big> The minimum number of external dependencies: <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>,
+          <a href="https://mesa3d.org">Mesa 3D</a>, and <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a> libraries.</big></li>
       <li><big> You don't need to link a main program with the engine binary
           file. The engine is just the source code files.</big></li>
     </ul>
@@ -155,10 +147,8 @@
       <br>
       Yes. This is really all you need to do.<br>
     </big>
-    <h2><a id="mozTocId712481" class="mozTocH2"></a><big> Chapter 2. A special
-        thanks</big></h2>
-    <big> I want to say «Big thanks for the technical consultation» to these
-      people:<br>
+    <h2><a id="mozTocId712481" class="mozTocH2"></a><big> Chapter 2. A special thanks</big></h2>
+    <big> I want to say «Big thanks for the technical consultation» to these people:<br>
       <br>
     </big>
     <ul>
@@ -172,8 +162,7 @@
       <li><big> Anastasiya</big></li>
     </ul>
     <big><br>
-      Thanks to the PVS-Studio team for the <a href="https://www.viva64.com/en/b/0614/">free
-        license</a>.<br>
+      Thanks to the PVS-Studio team for the <a href="https://www.viva64.com/en/b/0614/">free license</a>.<br>
     </big>
     <h2><a id="mozTocId714927" class="mozTocH2"></a><big> Chapter 3. The license</big></h2>
     <big> Copyright (C) 2023 – 2025 Popov Evgeniy Alekseyevich<br>
@@ -192,24 +181,19 @@
       misrepresented as being the original software.<br>
       3. This notice may not be removed or altered from any source distribution.<br>
     </big>
-    <h2><a id="mozTocId607623" class="mozTocH2"></a><big> Chapter 4. The
-        dependencies</big></h2>
+    <h2><a id="mozTocId607623" class="mozTocH2"></a><big> Chapter 4. The dependencies</big></h2>
     <big> You need libx11-dev, libgl1-mesa-dev and libvlc-dev packages to
       compile this game engine.<br>
     </big>
-    <h2><a id="mozTocId87585" class="mozTocH2"></a><big> Chapter 5. The engine
-        namespace</big></h2>
+    <h2><a id="mozTocId87585" class="mozTocH2"></a><big> Chapter 5. The engine namespace</big></h2>
     <big><i> BIRD2D</i> is the main namespace. All the engine classes are
       declared in a few nested namespaces.<br>
     </big>
-    <h2><a id="mozTocId979940" class="mozTocH2"></a><big> Chapter 6. The custom
-        data types</big></h2>
-    <big> Almost all custom data types are declared in the <i>BIRD2D</i>
-      namespace.<br>
+    <h2><a id="mozTocId979940" class="mozTocH2"></a><big> Chapter 6. The custom data types</big></h2>
+    <big> Almost all custom data types are declared in the <i>BIRD2D</i> namespace.<br>
     </big>
     <h1><a id="mozTocId211240" class="mozTocH1"></a><big> Part 2. Basic things</big></h1>
-    <h2><a id="mozTocId878435" class="mozTocH2"></a><big> Chapter 1. The
-        coordinate system</big></h2>
+    <h2><a id="mozTocId878435" class="mozTocH2"></a><big> Chapter 1. The coordinate system</big></h2>
     <big><br>
       The engine uses the standard coordinate system by default. The coordinates
       start at the top-left corner. Look at this picture to understand it.<br>
@@ -230,18 +214,17 @@
     <big> <br>
       All classes in this section are declared in the Graphics sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId65720" class="mozTocH2"></a><big> Chapter 2. The base
-        graphics subsystem</big></h2>
-    <big> <u> Introduce.</u><br>
+    <h2><a id="mozTocId65720" class="mozTocH2"></a><big> Chapter 2. The base graphics subsystem</big></h2>
+    <big> <u>The introduction.</u><br>
       <br>
       The base graphics subsystem does render a game scene. This subsystem uses
       <a href="http://opengl.org">OPENGL</a> for rendering. All modern video
-      cards support hardware-accelerated OPENGL. The software implementation
+      cards support hardware acceleration. The software implementation
       will be activated if the acceleration is not available.<br>
       <u><br>
         The render performance.</u><br>
       <br>
-      Always use the latest video card drivers. It may increase rendering
+      Always use the latest video card drivers. It may increase the rendering
       performance. You can also try to change the screen resolution if you have
       low rendering performance.<br>
       <br>
@@ -303,8 +286,7 @@
       <i> Screen *Screen::get_handle(); -</i> Return the handle to the base
       graphics subsystem object.<br>
     </big>
-    <h2><a id="mozTocId517211" class="mozTocH2"></a><big> Chapter 3. The picture
-        subsystem</big></h2>
+    <h2><a id="mozTocId517211" class="mozTocH2"></a><big> Chapter 3. The picture subsystem</big></h2>
     <big> <u> An important subsystem.</u><br>
       <br>
       The picture subsystem implements an image storage.<br>
@@ -362,11 +344,9 @@
       <i> bool Animation::check_frame(const unsigned int target) const; - </i>Return
       true if the target frame is valid.<br>
     </big>
-    <h2><a id="mozTocId943391" class="mozTocH2"></a><big> Chapter 5. The vertex
-        index</big></h2>
+    <h2><a id="mozTocId943391" class="mozTocH2"></a><big> Chapter 5. The vertex index</big></h2>
     <big> <br>
-      The vertex index looks like the predefined constants. You can see it
-      below.<br>
+      The vertex index looks like the predefined constants. You can see it below.<br>
       <br>
     </big>
     <table style="width: 358px; height: 139px;" border="1">
@@ -424,8 +404,7 @@
     </table>
     <big><br>
     </big>
-    <h2><a id="mozTocId512412" class="mozTocH2"></a><big> Chapter 7. The
-        ordinary background</big></h2>
+    <h2><a id="mozTocId512412" class="mozTocH2"></a><big> Chapter 7. The ordinary background</big></h2>
     <big> <u>The decoration for a level.</u><br>
       <br>
       A background is a big image with a few frames. Any game has a background.
@@ -487,13 +466,11 @@
       <br>
       <i> void Background::draw(); -</i> Draw a background.<br>
       <i><br>
-        void Background::draw(const unsigned int target); -</i> Draw the target
-      frame.<br>
+        void Background::draw(const unsigned int target); -</i> Draw the target frame.<br>
       <br>
       <i> void Background::destroy_image(); -</i> Destroy a background image.<br>
       <br>
-      <i> void Background::destroy(); -</i> Destroy a background image and the
-      texture.<br>
+      <i> void Background::destroy(); -</i> Destroy a background image and the texture.<br>
       <br>
       <i> bool Background::is_load() const; -</i> Return true if a background
       has already been loaded.<br>
@@ -504,11 +481,9 @@
       <i> bool Background::check_frame(const unsigned int target) const; -</i>
       Return true if the target frame is valid.<br>
       <i><br>
-        unsigned int Background::get_frame() const; -</i> Return the current
-      frame.<br>
+        unsigned int Background::get_frame() const; -</i> Return the current frame.<br>
       <i><br>
-        unsigned int Background::get_frames() const; -</i> Return the number of
-      the frames.<br>
+        unsigned int Background::get_frames() const; -</i> Return the number of the frames.<br>
       <i><br>
         unsigned int Background::get_width() const; -</i> Return the width of
       the background.<br>
@@ -516,8 +491,7 @@
       <i> unsigned int Background::get_height() const; -</i> Return the height
       of the background.<br>
       <br>
-      <i> BIRD2D::IMAGE_KIND Background::get_kind() const; -</i> Get the
-      background kind.<br>
+      <i> BIRD2D::IMAGE_KIND Background::get_kind() const; -</i> Get the background kind.<br>
       <u><br>
         A background texture.</u><br>
       <br>
@@ -528,8 +502,7 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId541338" class="mozTocH2"></a><big> Chapter 8. The static
-        background</big></h2>
+    <h2><a id="mozTocId541338" class="mozTocH2"></a><big> Chapter 8. The static background</big></h2>
     <big> <u> A few words about the static background.</u><br>
       <br>
       The static background is a simple kind of background. It contains one
@@ -540,8 +513,7 @@
       Just use the <i>Scene</i> class to work with the static background. Let's
       look at the publicly available methods.<br>
       <i><br>
-        Scene *Scene::get_handle(); -</i> Return the handle to the background
-      object.<br>
+        Scene *Scene::get_handle(); -</i> Return the handle to the background object.<br>
       <i><br>
         void Scene::prepare(const Screen *screen); -</i> Prepare for drawing.<br>
       <i><br>
@@ -550,8 +522,7 @@
       <i> void Scene::prepare(const unsigned int width, const unsigned int
         height); -</i> Prepare for drawing.<br>
       <br>
-      <i> void Scene::disable_mirror(); -</i> Disable the background mirroring
-      mode.<br>
+      <i> void Scene::disable_mirror(); -</i> Disable the background mirroring mode.<br>
       <i><br>
         void Scene::horizontal_mirror(); -</i> Set the horizontal background
       mirroring mode.<br>
@@ -568,24 +539,20 @@
         void Scene::load(Image &amp; background); -</i> Load a background from
       the buffer.<br>
       <br>
-      <i> void Scene::load(const char *name); -</i> Load a background from the
-      target file.<br>
+      <i> void Scene::load(const char *name); -</i> Load a background from the target file.<br>
       <br>
       <i> void Scene::draw(); -</i> Draw a background.<br>
       <i><br>
         void Scene::destroy_image(); -</i> Destroy a background image.<br>
       <br>
-      <i> void Scene::destroy(); -</i> Destroy a background image and destroy
-      the texture.<br>
+      <i> void Scene::destroy(); -</i> Destroy a background image and destroy the texture.<br>
       <br>
       <i> bool Scene::is_load() const; -</i> Return true if a static background
       has already been loaded.<br>
       <i><br>
-        unsigned int Scene::get_width() const; -</i> Return the width of the
-      background.<br>
+        unsigned int Scene::get_width() const; -</i> Return the width of the background.<br>
       <i><br>
-        unsigned int Scene::get_height() const; -</i> Return the height of the
-      background.<br>
+        unsigned int Scene::get_height() const; -</i> Return the height of the background.<br>
       <i><br>
       </i><u>A background texture.</u><br>
       <br>
@@ -596,9 +563,7 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId462914" class="mozTocH2"></a><big> Chapter 9. The
-        parallax background<br>
-      </big></h2>
+    <h2><a id="mozTocId462914" class="mozTocH2"></a><big> Chapter 9. The parallax background<br></big></h2>
     <big> <u> A few words about the parallax.</u><br>
       <br>
       The parallax background is a background with scrolling support.<br>
@@ -623,8 +588,7 @@
       <i> void Parallax::prepare(const unsigned int width, const unsigned int
         height); -</i> Prepare for drawing.<br>
       <br>
-      <i> void Parallax::disable_mirror(); -</i> Disable the background
-      mirroring mode.<br>
+      <i> void Parallax::disable_mirror(); -</i> Disable the background mirroring mode.<br>
       <br>
       <i> void Parallax::horizontal_mirror(); -</i> Set horizontal the
       background mirroring mode.<br>
@@ -635,14 +599,11 @@
         void Parallax::complex_mirror(); -</i> Set both the horizontal
       background mirroring mode and the vertical background mirroring mode.<br>
       <br>
-      <i> void Parallax::load(Image *background); -</i> Load a background from
-      the buffer.<br>
+      <i> void Parallax::load(Image *background); -</i> Load a background from the buffer.<br>
       <br>
-      <i> void Parallax::load(Image &amp; background); -</i> Load a background
-      from the buffer.<br>
+      <i> void Parallax::load(Image &amp; background); -</i> Load a background from the buffer.<br>
       <br>
-      <i> void Parallax::load(const char *name); -</i> Load a background from
-      the target file.<br>
+      <i> void Parallax::load(const char *name); -</i> Load a background from the target file.<br>
       <br>
       <i>void Parallax::set_horizontal_speed(const float speed); -</i> Set the
       horizontal scrolling speed.<br>
@@ -653,27 +614,22 @@
       <i> void Parallax::set_speed(const float horizontal,const float vertical);
         -</i> Set the scrolling speed.<br>
       <br>
-      <i> float Parallax::get_horizontal_speed() const; -</i> Return the
-      horizontal speed.<br>
+      <i> float Parallax::get_horizontal_speed() const; -</i> Return the horizontal speed.<br>
       <br>
-      <i> float Parallax::get_vertical_speed() const; -</i> Return the vertical
-      speed.<br>
+      <i> float Parallax::get_vertical_speed() const; -</i> Return the vertical speed.<br>
       <i><br>
         void Parallax::draw(); -</i> Draw a background.<br>
       <i><br>
         void Parallax::destroy_image(); -</i> Destroy a background image.<br>
       <i><br>
-        void Parallax::destroy(); -</i> Destroy a background image and destroy
-      the texture.<br>
+        void Parallax::destroy(); -</i> Destroy a background image and destroy the texture.<br>
       <i><br>
         bool Parallax::is_load() const; -</i> Return true if a parallax
       background has already been loaded.<br>
       <br>
-      <i> unsigned int Parallax::get_width() const; -</i> Return the width of
-      the background.<br>
+      <i> unsigned int Parallax::get_width() const; -</i> Return the width of the background.<br>
       <i><br>
-        unsigned int Parallax::get_height() const; -</i> Return the height of
-      the background.<br>
+        unsigned int Parallax::get_height() const; -</i> Return the height of the background.<br>
       <br>
       <u> A background texture.</u><br>
       <br>
@@ -684,12 +640,10 @@
       <br>
       Always call the prepare after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId303369" class="mozTocH2"></a><big> Chapter 10. The base
-        sprite subsystem</big></h2>
+    <h2><a id="mozTocId303369" class="mozTocH2"></a><big> Chapter 10. The base sprite subsystem</big></h2>
     <big> <u> A small, important thing.</u><br>
       <br>
-      A sprite is a transparent image. It is useful for many things: enemies,
-      bonuses, etc.<br>
+      A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc.<br>
       <br>
       <u> Work with the base sprite subsystem.</u><br>
       <br>
@@ -763,20 +717,16 @@
       <i> unsigned int Billboard::get_y() const; -</i> Return the y-coordinate
       of the sprite position.<br>
       <br>
-      <i> unsigned int Billboard::get_width() const; -</i> Return the width of
-      the sprite.<br>
+      <i> unsigned int Billboard::get_width() const; -</i> Return the width of the sprite.<br>
       <br>
-      <i> unsigned int Billboard::get_height() const; -</i> Return the height of
-      the sprite.<br>
+      <i> unsigned int Billboard::get_height() const; -</i> Return the height of the sprite.<br>
       <br>
-      <i> bool Billboard::is_load() const; -</i> Return true if the sprite has
-      already been loaded.<br>
+      <i> bool Billboard::is_load() const; -</i> Return true if the sprite has already been loaded.<br>
       <br>
       <i> BIRD2D::BOX Billboard::get_box() const; -</i> Return the
       collision-related information.<br>
       <br>
-      <i> void Billboard::disable_mirror(); -</i> Disable the sprite mirroring
-      mode.<br>
+      <i> void Billboard::disable_mirror(); -</i> Disable the sprite mirroring mode.<br>
       <i><br>
         void Billboard::horizontal_mirror(); -</i> Set the horizontal sprite
       mirroring mode.<br>
@@ -808,8 +758,7 @@
         const unsigned int y); -</i> Set the transparent mode and draw a sprite
       at the target position.<br>
     </big>
-    <h2><a id="mozTocId435092" class="mozTocH2"></a><big> Chapter 11. The
-        ordinary sprites</big></h2>
+    <h2><a id="mozTocId435092" class="mozTocH2"></a><big> Chapter 11. The ordinary sprites</big></h2>
     <big> <u> The sprite types.</u><br>
       <br>
       There are two kinds of ordinary sprites: the horizontal strips and the
@@ -841,11 +790,9 @@
       <i> void Sprite::step(); -</i> Increase the target frame. Set it to 1 if
       the target is more than the number of frames.<br>
       <br>
-      <i> BIRD2D::IMAGE_KIND Sprite::get_kind() const; -</i> Get the sprite
-      kind.<br>
+      <i> BIRD2D::IMAGE_KIND Sprite::get_kind() const; -</i> Get the sprite kind.<br>
       <i><br>
-        Sprite *Sprite::get_handle(); -</i> Return the handle to the sprite
-      object.<br>
+        Sprite *Sprite::get_handle(); -</i> Return the handle to the sprite object.<br>
       <br>
       <i> void Sprite::clone(Sprite *target); -</i> Create a copy of the sprite
       if the storage of the target sprite is not empty.<br>
@@ -853,16 +800,14 @@
       <i> void Sprite::clone(Sprite &amp;target); -</i> Create a copy of the
       sprite if the storage of the target sprite is not empty.<br>
       <i><br>
-        void Sprite::destroy(); -</i> Destroy a sprite image and destroy the
-      texture.<br>
+        void Sprite::destroy(); -</i> Destroy a sprite image and destroy the texture.<br>
       <br>
       <u> A sprite texture.</u><br>
       <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will
       automatically be created when you load or clone a sprite.<br>
     </big>
-    <h2><a id="mozTocId396888" class="mozTocH2"></a><big> Chapter 12. The static
-        sprites</big></h2>
+    <h2><a id="mozTocId396888" class="mozTocH2"></a><big> Chapter 12. The static sprites</big></h2>
     <big> <u> A few words about the static sprites.</u><br>
       <br>
       The static sprite is a simple kind of sprite. It contains one frame only.<br>
@@ -873,17 +818,13 @@
       derived from two classes: <i>Billboard</i> and <i>Picture</i>. Let's
       look at the publicly available methods.<br>
       <br>
-      <i> void Cartoon::load(Image *buffer); -</i> Load a sprite from the
-      buffer.<br>
+      <i> void Cartoon::load(Image *buffer); -</i> Load a sprite from the buffer.<br>
       <br>
-      <i> void Cartoon::load(Image &amp;buffer); -</i> Load a sprite from the
-      buffer.<br>
+      <i> void Cartoon::load(Image &amp;buffer); -</i> Load a sprite from the buffer.<br>
       <br>
-      <i> void Cartoon::load(const char *name); -</i> Load a sprite from the
-      target file.<br>
+      <i> void Cartoon::load(const char *name); -</i> Load a sprite from the target file.<br>
       <br>
-      <i> Cartoon *Cartoon::get_handle(); -</i> Return the handle to the sprite
-      object.<br>
+      <i> Cartoon *Cartoon::get_handle(); -</i> Return the handle to the sprite object.<br>
       <br>
       <i> void Cartoon::clone(Cartoon *target); -</i> Create a copy of the
       sprite if the storage of the target sprite is not empty.<br>
@@ -898,8 +839,7 @@
       A sprite doesn't draw if the sprite texture doesn't exist. It will
       automatically be created when you load or clone a sprite.<br>
     </big>
-    <h2><a id="mozTocId745477" class="mozTocH2"></a><big> Chapter 13. The sprite
-        sheet</big></h2>
+    <h2><a id="mozTocId745477" class="mozTocH2"></a><big> Chapter 13. The sprite sheet</big></h2>
     <big> <u> Some words about the sprite sheet</u><br>
       <br>
       A sprite sheet is a special kind of animated sprite. Each frame has a
@@ -1079,8 +1019,7 @@
       <i><br>
         void Text::destroy_font(); -</i> Destroy a font image and the texture.<br>
     </big>
-    <h2><a id="mozTocId124177" class="mozTocH2"></a><big> Chapter 15. Loading an
-        image</big></h2>
+    <h2><a id="mozTocId124177" class="mozTocH2"></a><big> Chapter 15. Loading an image</big></h2>
     <big> <u> Load an image from a file.</u><br>
       <br>
       Use the image loader to load an image from a file. The <i>Image</i> class
@@ -1244,15 +1183,12 @@
       Always set the viewport size after initializing the camera. Always update
       the camera before drawing.<br>
     </big>
-    <h1><a id="mozTocId47390" class="mozTocH1"></a><big> Part 4. The
-        transformation</big></h1>
-    <h2><a id="mozTocId771051" class="mozTocH2"></a><big> Chapter 1. The
-        sub-namespace</big></h2>
+    <h1><a id="mozTocId47390" class="mozTocH1"></a><big> Part 4. The transformation</big></h1>
+    <h2><a id="mozTocId771051" class="mozTocH2"></a><big> Chapter 1. The sub-namespace</big></h2>
     <big> All classes in this section are declared in the <i>Transformation</i>
       sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId151671" class="mozTocH2"></a><big> Chapter 2. The
-        Cartesian coordinates and screen coordinates</big></h2>
+    <h2><a id="mozTocId151671" class="mozTocH2"></a><big> Chapter 2. The Cartesian coordinates and the screen coordinates</big></h2>
     <big> <u>The Cartesian coordinates.</u><br>
       <br>
       The Cartesian coordinates start at the center of the screen. Look at this
@@ -1310,12 +1246,11 @@
       <i> int Coordinates::get_cartesian_y(const int y) const; -</i> Convert the
       screen y-coordinate to the Cartesian y-coordinate.<br>
     </big>
-    <h2><a id="mozTocId148985" class="mozTocH2"></a><big> Chapter 3. The
-        Cartesian coordinates and the isometric coordinates</big></h2>
+    <h2><a id="mozTocId148985" class="mozTocH2"></a><big> Chapter 3. The Cartesian coordinates and the isometric coordinates</big></h2>
     <big> <u> A few words about the isometric games.</u><br>
       <br>
       <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric
-        projection</a> is a very popular way for pseudo-3D games. The many
+        projection</a> is a very popular way for pseudo-3D games. Many
       old-school games are isometric games.<br>
       <br>
       <u>The coordinates conversion.</u><br>
@@ -1366,15 +1301,12 @@
         int Level::get_y(const int row, const int column) const; -</i> Return
       the target y-coordinate.<br>
     </big>
-    <h1><a id="mozTocId456967" class="mozTocH1"></a><big> Part 5. The common
-        things</big></h1>
-    <h2><a id="mozTocId370034" class="mozTocH2"></a><big> Chapter 1. The
-        sub-namespace</big></h2>
+    <h1><a id="mozTocId456967" class="mozTocH1"></a><big> Part 5. The common things</big></h1>
+    <h2><a id="mozTocId370034" class="mozTocH2"></a><big> Chapter 1. The sub-namespace</big></h2>
     <big> All classes in this section are declared in the <i>Common</i>
       sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId389651" class="mozTocH2"></a><big> Chapter 2. The
-        abnormal program termination</big></h2>
+    <h2><a id="mozTocId389651" class="mozTocH2"></a><big> Chapter 2. The abnormal program termination</big></h2>
     <big> You can use the <i>Halt</i> function to terminate a program. This
       function is declared in the <i>BIRD2D</i> namespace.<br>
       <br>
@@ -1397,9 +1329,7 @@
       point if the interval between the stop and start points is larger than or
       equal to a specific number of seconds.<br>
     </big>
-    <h2><a id="mozTocId241190" class="mozTocH2"></a><big> Chapter 4. The
-        collision detector<br>
-      </big></h2>
+    <h2><a id="mozTocId241190" class="mozTocH2"></a><big> Chapter 4. The collision detector<br></big></h2>
     <big> <u> An important thing for any game.</u><br>
       <br>
       What is an important thing for a video game? A collision.<br>
@@ -1497,10 +1427,8 @@
       <i> BIRD2D::BOX Tilemap::get_box(const unsigned int row,const unsigned int
         column) const; -</i> Return the collision-related information.<br>
     </big>
-    <h1><a id="mozTocId373029" class="mozTocH1"></a><big> Part 6. The other
-        important things</big></h1>
-    <h2><a id="mozTocId53728" class="mozTocH2"></a><big> Chapter 1. The
-        sub-namespace</big></h2>
+    <h1><a id="mozTocId373029" class="mozTocH1"></a><big> Part 6. The other important things</big></h1>
+    <h2><a id="mozTocId53728" class="mozTocH2"></a><big> Chapter 1. The sub-namespace</big></h2>
     <big> All classes in this section are declared in the <i>Misc</i>
       sub-namespace.<br>
     </big>
@@ -1558,8 +1486,7 @@
       playing.<br>
     </big>
     <h1><a id="mozTocId15273" class="mozTocH1"></a><big> Part 7. Misc</big></h1>
-    <h2><a id="mozTocId422364" class="mozTocH2"></a><big> Chapter 1. The
-        Filesystem</big></h2>
+    <h2><a id="mozTocId422364" class="mozTocH2"></a><big> Chapter 1. The Filesystem</big></h2>
     <big> This module is implemented as two simple functions. All these
       functions are declared in the <i>Filesystem</i> sub-namespace.<br>
       <br>
@@ -1592,8 +1519,7 @@
         y,const unsigned int width,const unsigned int height); -</i> Generate
       the collision-related information.<br>
     </big>
-    <h2><a id="mozTocId301368" class="mozTocH2"></a><big> Chapter 3. The
-        resource manager</big></h2>
+    <h2><a id="mozTocId301368" class="mozTocH2"></a><big> Chapter 3. The resource manager</big></h2>
     <big> A resource is an instance of a user-defined class or structure. The
       resource manager is implemented as a few template functions. All these
       functions are declared in the <i>Resource</i> sub-namespace.<br>
@@ -1606,18 +1532,15 @@
       <i> destroy</i>: Delete a resource if it already exists. This function
       takes a resource handle as an argument.<br>
       <br>
-      destroy_array deletes the resource array if it already exists. This
+      <i>destroy_array</i>: Deletes the resource array if it already exists. This
       function takes a resource array handle as an argument.<br>
     </big>
-    <h1><a id="mozTocId443113" class="mozTocH1"></a><big> Part 8. The binary
-        files</big></h1>
-    <h2><a id="mozTocId843024" class="mozTocH2"></a><big> Chapter 1. The
-        sub-namespace</big></h2>
+    <h1><a id="mozTocId443113" class="mozTocH1"></a><big> Part 8. The binary files</big></h1>
+    <h2><a id="mozTocId843024" class="mozTocH2"></a><big> Chapter 1. The sub-namespace</big></h2>
     <big> All classes in this section are declared in the <i>File</i>
       sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId294133" class="mozTocH2"></a><big> Chapter 2. The base
-        binary file subsystem</big></h2>
+    <h2><a id="mozTocId294133" class="mozTocH2"></a><big> Chapter 2. The base binary file subsystem</big></h2>
     <big> <u> Work with the binary files.</u><br>
       <br>
       The <i>Binary_File</i> class provides simple access to the base binary
@@ -1645,8 +1568,7 @@
       <br>
       The target file size limit is 2 gigabytes.<br>
     </big>
-    <h2><a id="mozTocId308140" class="mozTocH2"></a><big> Chapter 3. The file
-        reader</big></h2>
+    <h2><a id="mozTocId308140" class="mozTocH2"></a><big> Chapter 3. The file reader</big></h2>
     <big> The file reader is intended to read data from the binary files. The <i>Input_File</i>
       class provides access to a file reader. It is derived from the <i>Binary_File</i>
       class. Let's look at the publicly available methods.<br>
@@ -1659,8 +1581,7 @@
       <i> void Input_File::read(void *buffer,const size_t length); -</i> Read
       data from the file.<br>
     </big>
-    <h2><a id="mozTocId270683" class="mozTocH2"></a><big> Chapter 4. The file
-        writer</big></h2>
+    <h2><a id="mozTocId270683" class="mozTocH2"></a><big> Chapter 4. The file writer</big></h2>
     <big> The file writer is intended to write data to the binary files. The <i>Output_File</i>
       class provides access to a file writer. It is derived from the <i>Binary_File</i>
       class. Let's look at the publicly available methods.<br>
@@ -1685,8 +1606,7 @@
     <big> All classes in this section are declared in the <i>Input</i>
       sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId515445" class="mozTocH2"></a><big> Chapter 2. The
-        keyboard</big></h2>
+    <h2><a id="mozTocId515445" class="mozTocH2"></a><big> Chapter 2. The keyboard</big></h2>
     <big> <u> The low-level input.</u><br>
       <br>
       Any keyboard has a built-in chip. It generates a special code when the
@@ -2053,17 +1973,14 @@
         size_t Joystick::get_axes() const; -</i> Return the number of the
       joystick axes.<br>
     </big>
-    <h1><a id="mozTocId104989" class="mozTocH1"></a><big> Part 10. The internal
-        details of the engine subsystems</big></h1>
-    <h2><a id="mozTocId841757" class="mozTocH2"></a><big> Chapter 1. A few words
-        for a curious programmer</big></h2>
+    <h1><a id="mozTocId104989" class="mozTocH1"></a><big> Part 10. The internal details of the engine subsystems</big></h1>
+    <h2><a id="mozTocId841757" class="mozTocH2"></a><big> Chapter 1. A few words for a curious programmer</big></h2>
     <big> <br>
       The engine subsystems have a different internal structure. It has been
       hidden from you, and you don't have access to it. Do you want to know
       about the hidden things? Just read the next chapter.<br>
     </big>
-    <h2><a id="mozTocId136763" class="mozTocH2"></a><big> Chapter 2. The
-        internal classes</big></h2>
+    <h2><a id="mozTocId136763" class="mozTocH2"></a><big> Chapter 2. The internal classes</big></h2>
     <big> <u> The internal classes.</u><br>
       <br>
       Some classes are designed for internal use only. Don't touch them. What
@@ -2087,8 +2004,7 @@
       <i> Rectangle</i> is intended to draw a textured rectangle.<br>
       <i> Shape</i> is the base class of the Rectangle class.<br>
     </big>
-    <h2><a id="mozTocId388620" class="mozTocH2"></a><big> Chapter 3. The base
-        graphics subsystem</big></h2>
+    <h2><a id="mozTocId388620" class="mozTocH2"></a><big> Chapter 3. The base graphics subsystem</big></h2>
     <big> <u> The visible object.</u><br>
       <br>
       Any visible object is a textured rectangle.<br>
@@ -2105,24 +2021,22 @@
       <br>
       <i> typedef struct Vertex<br>
         {<br>
-        int x;<br>
-        int y;<br>
+         int x;<br>
+         int y;<br>
         };</i><br>
       <br>
       A single texture coordinate represents the following custom data type:<br>
       <br>
       <i> typedef struct<br>
         {<br>
-        float u;<br>
-        float v;<br>
+         float u;<br>
+         float v;<br>
         } Point;</i><br>
       <br>
       All these custom types are declared in the <i>Core</i> sub-namespace.<br>
     </big>
-    <h2><a id="mozTocId762700" class="mozTocH2"></a><big> Chapter 4. A
-        joystick</big></h2>
-    <big> The joystick subsystem is working over the <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux
-        Joystick API</a>.<br>
+    <h2><a id="mozTocId762700" class="mozTocH2"></a><big> Chapter 4. A joystick</big></h2>
+    <big> The joystick subsystem is working over the <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux Joystick API</a>.<br>
     </big>
     <h2><a id="mozTocId341329" class="mozTocH2"></a><big> Chapter 5. The input</big></h2>
     <big> <u>The input backend.</u><br>
@@ -2182,7 +2096,7 @@
       0.7.7: The sound support has been added.<br>
       0.7.8-0.9.5: The sound support has improved.<br>
       0.9.6-1.0: The small changes.<br>
-      1.0.1-1.0.2: A small bug has been.<br>
+      1.0.1-1.0.2: A small bug has been fixed.<br>
       1.0.3: The memory usage has reduced.<br>
       1.0.3-1.0.8: The audio loader has improved.<br>
       1.0.9-1.1.1: The small changes.<br>
@@ -2352,7 +2266,7 @@
       2.8.1: The small changes.<br>
       2.8.1.1-2.8.1.2: The documentation has been updated.<br>
       2.8.2: The source code synced with the Eugene Game Development Kit 9.7.<br>
-      2.8.2.1: The documentation has been updated.<br>
+      2.8.2.1-2.8.2.2: The documentation has been updated.<br>
     </big>
   </body>
 </html>

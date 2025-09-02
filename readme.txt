@@ -1,29 +1,24 @@
-Project Description
+The project description.
 
 Bird 2D is an ultra-fast 2D game engine for Linux. It uses OPENGL for rendering.
 
-License
+The license.
 
 Bird 2D is distributed under a zlib license.
 
-Features
+Features.
 
- Minimum external dependencies: Xlib, Mesa 3D and libVLC.
- Easy-to-use object-oriented API.
- Animated and static sprites.
- Animated backgrounds.
- Parallax and static backgrounds.
- Sprite sheets.
- Tilemaps.
- Image transformation: resizing and mirroring.
- Image loader with TGA support.
- Text drawing subsystem.
- Custom fonts.
- Coordinates transformation.
- Isometric.
- Timers.
- Collision detector.
- 2D camera.
- Integrated FPS counter.
- Powerful input subsystem: keyboard, mouse, gamepad.
- Simple audio subsystem for playing music and sounds.
+The minimum number of external dependencies: Xlib, Mesa 3D, and libVLC.
+The easy-to-use object-oriented API.
+The sprites.
+The backgrounds.
+The tilemaps.
+The image loader with TGA support.
+The text drawing subsystem with custom font support.
+The coordinate transformation.
+The timers.
+The collision detector.
+The 2D camera.
+The integrated FPS counter.
+The powerful input subsystem.
+The simple audio subsystem.

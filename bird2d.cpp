@@ -1,7 +1,7 @@
 /*
 Bird 2D was made by Popov Evgeniy Alekseyevich
 
-Bird 2D license
+The Bird 2D license
 
 Copyright (C) 2023 - 2025 Popov Evgeniy Alekseyevich
 
