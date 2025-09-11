@@ -636,6 +636,7 @@ namespace BIRD2D
    bool check_horizontal_border(const BIRD2D::BOX target) const;
    bool check_vertical_border(const BIRD2D::BOX target) const;
    void update();
+   void update(const unsigned int x,const unsigned int y);
    void reset();
   };
 
