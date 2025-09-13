@@ -3240,16 +3240,17 @@ namespace BIRD2D
    this->set_y(start_y);
   }
 
-  void Billboard::draw()
+  bool Billboard::draw()
   {
    this->check_transparent();
    this->draw_sprite_image();
+   return this->get_transparent();
   }
 
-  void Billboard::draw(const unsigned int x,const unsigned int y)
+  bool Billboard::draw(const unsigned int x,const unsigned int y)
   {
    this->set_position(x,y);
-   this->draw();
+   return this->draw();
   }
 
   void Billboard::draw(const bool transparency)
