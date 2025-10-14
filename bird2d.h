@@ -783,9 +783,9 @@ namespace BIRD2D
    Sprite* get_handle();
    BIRD2D::IMAGE_KIND get_kind() const;
    void set_settings(const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
-   void load(Image *buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
-   void load(Image &buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
-   void load(const char *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
+   bool load(Image *buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
+   bool load(Image &buffer,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
+   bool load(const char *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames);
    void set_target(const unsigned int target);
    void step();
    void destroy();
@@ -799,9 +799,9 @@ namespace BIRD2D
    Cartoon();
    ~Cartoon();
    Cartoon* get_handle();
-   void load(Image *buffer);
-   void load(Image &buffer);
-   void load(const char *name);
+   bool load(Image *buffer);
+   bool load(Image &buffer);
+   bool load(const char *name);
    void destroy();
    void clone(Cartoon *target);
    void clone(Cartoon &target);
@@ -831,9 +831,9 @@ namespace BIRD2D
    void select(const unsigned int row,const unsigned int column);
    void set_target(const unsigned int target);
    void step();
-   void load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);
-   void load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount);
-   void load(const char *name,const unsigned int row_amount,const unsigned int column_amount);
+   bool load(Image *sheet,const unsigned int row_amount,const unsigned int column_amount);
+   bool load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount);
+   bool load(const char *name,const unsigned int row_amount,const unsigned int column_amount);
   };
 
   class Background

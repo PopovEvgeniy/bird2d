@@ -1,6 +1,6 @@
 The project description.
 
-Bird 2D is an ultra-fast 2D game engine for Linux. It uses OPENGL for rendering.
+Bird 2D is an ultra-fast 2D game engine for Linux. It uses OpenGL for rendering.
 
 The license.
 
