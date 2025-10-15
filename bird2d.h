@@ -309,7 +309,7 @@ namespace BIRD2D
    unsigned int get_next_x(const unsigned int x) const;
    unsigned int get_next_y(const unsigned int y) const;
    void scale_image(const unsigned int *target);
-   void set_setting(const unsigned int width,const unsigned int height);
+   void set_settings(const unsigned int width,const unsigned int height);
    void correct_size(const unsigned int limit);
    void calculate_ratio();
    void calculate_size();
@@ -388,12 +388,12 @@ namespace BIRD2D
   {
    private:
    unsigned int get_maximum_texture_size() const;
-   void set_image_setting();
-   void set_perfomance_setting();
+   void set_image_settings();
+   void set_perfomance_settings();
    void set_render_hints();
-   void set_common_setting();
+   void set_common_settings();
    void disable_depth_buffer();
-   void set_matrix_setting();
+   void set_matrix_settings();
    void set_perspective(const unsigned int width,const unsigned int height);
    void create_render(const unsigned int width,const unsigned int height);
    protected:
@@ -696,7 +696,7 @@ namespace BIRD2D
    unsigned int frames;
    unsigned int frame;
    protected:
-   void reset_animation_setting();
+   void reset_animation_settings();
    void increase_frame();
    void set_frame(const unsigned int target);
    void set_frames(const unsigned int amount);
@@ -724,7 +724,7 @@ namespace BIRD2D
    void draw_sprite_image();
    protected:
    Core::Rectangle billboard;
-   void reset_billboard_setting();
+   void reset_billboard_settings();
    void prepare(const unsigned int width,const unsigned int height,const unsigned int *picture);
    public:
    Billboard();
@@ -772,8 +772,8 @@ namespace BIRD2D
   {
    private:
    BIRD2D::IMAGE_KIND current_kind;
-   void reset_sprite_setting();
-   void set_sprite_setting();
+   void reset_sprite_settings();
+   void set_sprite_settings();
    void configure_sprite();
    void set_sprite_frame();
    void set_kind(const BIRD2D::IMAGE_KIND kind);
@@ -812,7 +812,7 @@ namespace BIRD2D
    private:
    unsigned int rows;
    unsigned int columns;
-   void reset_sheet_setting();
+   void reset_sheet_settings();
    void prepare_sheet();
    public:
    Sheet();
