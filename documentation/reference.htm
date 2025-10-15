@@ -403,22 +403,21 @@
    <i> void Background::complex_mirror(); -</i> Set both the horizontal
    background mirroring mode and vertical background mirroring mode.<br>
    <br>
-   <i> void Background::set_target(const unsigned int target); -</i> Set the
-   target frame.<br>
+   <i> void Background::set_target(const unsigned int target); -</i> Set the target frame.<br>
    <i><br>
     void Background::step(); -</i> Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
    <i><br>
     void Background::set_settings(const BIRD2D::IMAGE_KIND kind, const
     unsigned int frames); -</i> Set the background settings.<br>
    <br>
-   <i> void Background::load(Image *background, const BIRD2D::IMAGE_KIND kind,
-    const unsigned int frames); -</i> Load a background from the buffer.<br>
+   <i> bool Background::load(Image *background, const BIRD2D::IMAGE_KIND kind,
+    const unsigned int frames); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i> void Background::load(Image &amp;background, const BIRD2D::IMAGE_KIND
-    kind, const unsigned int frames); -</i> Load a background from the buffer.<br>
+   <i> bool Background::load(Image &amp;background, const BIRD2D::IMAGE_KIND
+    kind, const unsigned int frames); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <i><br>
-    void Background::load(const char *name, const BIRD2D::IMAGE_KIND kind,
-    const unsigned int frames); -</i> Load a background from the target file.<br>
+    bool Background::load(const char *name, const BIRD2D::IMAGE_KIND kind,
+    const unsigned int frames); -</i> Load a background from the target file and return true if it is loaded.<br>
    <br>
    <i> void Background::draw(); -</i> Draw a background.<br>
    <i><br>
@@ -479,11 +478,11 @@
    <i> void Scene::complex_mirror(); -</i> Set both the horizontal background
    mirroring mode and the vertical background mirroring mode.<br>
    <br>
-   <i> void Scene::load(Image *background); -</i> Load a background from the buffer.<br>
+   <i> bool Scene::load(Image *background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <i><br>
-    void Scene::load(Image &amp; background); -</i> Load a background from the buffer.<br>
+    bool Scene::load(Image &amp; background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i> void Scene::load(const char *name); -</i> Load a background from the target file.<br>
+   <i> bool Scene::load(const char *name); -</i> Load a background from the target file and return true if it is loaded.<br>
    <br>
    <i> void Scene::draw(); -</i> Draw a background.<br>
    <i><br>
@@ -537,11 +536,11 @@
     void Parallax::complex_mirror(); -</i> Set both the horizontal
    background mirroring mode and the vertical background mirroring mode.<br>
    <br>
-   <i> void Parallax::load(Image *background); -</i> Load a background from the buffer.<br>
+   <i> bool Parallax::load(Image *background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i> void Parallax::load(Image &amp; background); -</i> Load a background from the buffer.<br>
+   <i> bool Parallax::load(Image &amp; background); -</i> Load a background from the buffer and return true if it is loaded.<br>
    <br>
-   <i> void Parallax::load(const char *name); -</i> Load a background from the target file.<br>
+   <i> bool Parallax::load(const char *name); -</i> Load a background from the target file and return true if it is loaded.<br>
    <br>
    <i>void Parallax::set_horizontal_speed(const float speed); -</i> Set the horizontal scrolling speed.<br>
    <br>
@@ -687,7 +686,7 @@
     unsigned int frames); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
    <i><br>
     bool Sprite::load(Image &amp;buffer, const BIRD2D::IMAGE_KIND kind, const
-    unsigned int frames); -</i> Load a sprite from the bufferand return true if it is loaded.<br>
+    unsigned int frames); -</i> Load a sprite from the buffer and return true if it is loaded.<br>
    <br>
    <i> bool Sprite::load(const char *name, const BIRD2D::IMAGE_KIND kind,
     const unsigned int frames); -</i> Load a sprite from the target file and return true if it is loaded.<br>
@@ -2003,6 +2002,7 @@
    2.8.3: The source code synced with the Eugene Game Development Kit 9.7.1.<br>
    2.8.4: The source code synced with the Eugene Game Development Kit 9.7.2.<br>
    2.8.5: The source code synced with the Eugene Game Development Kit 9.7.3.<br>
+   2.8.6: The source code synced with the Eugene Game Development Kit 9.7.4.<br>
   </big>
  </body>
 </html>

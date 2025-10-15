@@ -3703,19 +3703,19 @@ namespace BIRD2D
    stage.set_settings(kind,frames);
   }
 
-  void Background::load(Image *background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames)
+  bool Background::load(Image *background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames)
   {
-   stage.load(background,kind,frames);
+   return stage.load(background,kind,frames);
   }
 
-  void Background::load(Image &background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames)
+  bool Background::load(Image &background,const BIRD2D::IMAGE_KIND kind,const unsigned int frames)
   {
-   stage.load(background,kind,frames);
+   return stage.load(background,kind,frames);
   }
 
-  void Background::load(const char *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames)
+  bool Background::load(const char *name,const BIRD2D::IMAGE_KIND kind,const unsigned int frames)
   {
-   stage.load(name,kind,frames);
+   return stage.load(name,kind,frames);
   }
 
   void Background::disable_mirror()
@@ -3843,19 +3843,19 @@ namespace BIRD2D
    this->prepare(screen.get_handle());
   }
 
-  void Scene::load(Image *background)
+  bool Scene::load(Image *background)
   {
-   stage.load(background);
+   return stage.load(background);
   }
 
-  void Scene::load(Image &background)
+  bool Scene::load(Image &background)
   {
-   stage.load(background);
+   return stage.load(background);
   }
 
-  void Scene::load(const char *name)
+  bool Scene::load(const char *name)
   {
-   stage.load(name);
+   return stage.load(name);
   }
 
   void Scene::disable_mirror()
@@ -3973,19 +3973,19 @@ namespace BIRD2D
    this->prepare(screen.get_handle());
   }
 
-  void Parallax::load(Image *background)
+  bool Parallax::load(Image *background)
   {
-   stage.load(background);
+   return stage.load(background);
   }
 
-  void Parallax::load(Image &background)
+  bool Parallax::load(Image &background)
   {
-   stage.load(background);
+   return stage.load(background);
   }
 
-  void Parallax::load(const char *name)
+  bool Parallax::load(const char *name)
   {
-   stage.load(name);
+   return stage.load(name);
   }
 
   void Parallax::disable_mirror()
