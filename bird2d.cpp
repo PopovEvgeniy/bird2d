@@ -3733,9 +3733,9 @@ namespace BIRD2D
    stage.complex_mirror();
   }
 
-  void Background::set_target(const unsigned int target)
+  unsigned int Background::set_target(const unsigned int target)
   {
-   stage.set_target(target);
+   return stage.set_target(target);
   }
 
   void Background::step()
