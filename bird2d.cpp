@@ -3751,6 +3751,21 @@ namespace BIRD2D
    stage.complex_mirror();
   }
 
+  bool Background::is_horizontally_mirrored() const
+  {
+   return stage.is_horizontally_mirrored();
+  }
+
+  bool Background::is_vertically_mirrored() const
+  {
+   return stage.is_vertically_mirrored();
+  }
+
+  bool Background::is_complex_mirrored() const
+  {
+   return stage.is_complex_mirrored();
+  }
+
   unsigned int Background::set_target(const unsigned int target)
   {
    return stage.set_target(target);
