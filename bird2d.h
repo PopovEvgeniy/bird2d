@@ -573,9 +573,9 @@ namespace BIRD2D
    ~Screen();
    void clear_screen();
    void initialize();
-   bool update();
-   bool sync();
    bool sync(const bool limit);
+   bool sync();
+   bool update();
    bool is_ready();
    unsigned int get_color() const;
    unsigned int get_fps() const;

@@ -2258,33 +2258,29 @@ namespace BIRD2D
 
   }
 
-  bool Screen::update()
+  bool Screen::sync(const bool limit)
   {
-   bool run;
-   run=false;
    if (this->get_context()!=NULL)
    {
     this->Swap();
     this->update_counter();
     this->clear_stage();
-    run=this->process_message();
    }
-   return run;
-  }
-
-  bool Screen::sync()
-  {
-   this->wait_timer();
-   return this->update();
-  }
-
-  bool Screen::sync(const bool limit)
-  {
    if (limit==true)
    {
     this->wait_timer();
    }
-   return this->update();
+   return this->process_message();
+  }
+
+  bool Screen::sync()
+  {
+   return this->sync(true);
+  }
+
+  bool Screen::update()
+  {
+   return this->sync(false);
   }
 
   bool Screen::is_ready()
