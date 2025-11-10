@@ -3767,6 +3767,11 @@ namespace BIRD2D
    return stage.is_complex_mirrored();
   }
 
+  bool Background::is_mirrored() const
+  {
+   return stage.is_mirrored();
+  }
+
   unsigned int Background::set_target(const unsigned int target)
   {
    return stage.set_target(target);

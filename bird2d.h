@@ -862,6 +862,7 @@ namespace BIRD2D
    bool is_horizontally_mirrored() const;
    bool is_vertically_mirrored() const;
    bool is_complex_mirrored() const;
+   bool is_mirrored() const;
    unsigned int set_target(const unsigned int target);
    void step();
    void draw();
