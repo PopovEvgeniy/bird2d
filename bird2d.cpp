@@ -770,7 +770,7 @@ namespace BIRD2D
      XEvent event;
      run=true;
      XSetInputFocus(display,window,RevertToParent,CurrentTime);
-     while (XCheckWindowEvent(display,window,KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|ButtonMotionMask|StructureNotifyMask,&event)==True)
+     while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask,&event)==True)
      {
        switch (event.type)
        {
