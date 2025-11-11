@@ -701,13 +701,20 @@ namespace BIRD2D
    void Engine::create_window()
    {
      XSetWindowAttributes attributes;
-     memset(&attributes,0,sizeof(XSetWindowAttributes));
-     attributes.border_pixel=BlackPixel(display,visual_information->screen);
+     attributes.background_pixmap=None;
      attributes.background_pixel=WhitePixel(display,visual_information->screen);
-     attributes.override_redirect=True;
-     attributes.save_under=False;
+     attributes.border_pixmap=CopyFromParent;
+     attributes.border_pixel=BlackPixel(display,visual_information->screen);
+     attributes.bit_gravity=ForgetGravity;
+     attributes.win_gravity=NorthWestGravity;
      attributes.backing_store=NotUseful;
-     attributes.event_mask=KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|ButtonMotionMask|StructureNotifyMask;
+     attributes.backing_planes=1;
+     attributes.backing_pixel=0;
+     attributes.save_under=False;
+     attributes.do_not_propagate_mask=NoEventMask;
+     attributes.event_mask=NoEventMask;
+     attributes.override_redirect=True;
+     attributes.cursor=None;
      attributes.colormap=XCreateColormap(display,root,visual_information->visual,AllocNone);
      window=XCreateWindow(display,root,0,0,display_width,display_height,0,visual_information->depth,InputOutput,visual_information->visual,CWSaveUnder|CWBackingStore|CWOverrideRedirect|CWBackPixel|CWColormap|CWBorderPixel|CWEventMask,&attributes);
      if  (window==None)
