@@ -663,8 +663,8 @@ namespace BIRD2D
 
    void Engine::get_visual()
   {
-    int setting[]={GLX_RGBA,GLX_DEPTH_SIZE,16,GLX_DOUBLEBUFFER,None};
-    visual_information=glXChooseVisual(display,DefaultScreen(display),setting);
+    int settings[]={GLX_RGBA,GLX_DEPTH_SIZE,16,GLX_DOUBLEBUFFER,None};
+    visual_information=glXChooseVisual(display,DefaultScreen(display),settings);
     if  (visual_information==NULL)
     {
       BIRD2D::Halt("Can't get the visual information");
@@ -690,7 +690,7 @@ namespace BIRD2D
 
    void Engine::create_context()
    {
-     context=glXCreateContext(display,visual_information,NULL,GL_TRUE);
+     context=glXCreateContext(display,visual_information,NULL,True);
      if  (context==NULL)
      {
        BIRD2D::Halt("Can't create the OPENGL context");
@@ -702,9 +702,9 @@ namespace BIRD2D
    {
      XSetWindowAttributes attributes;
      attributes.background_pixmap=None;
-     attributes.background_pixel=WhitePixel(display,visual_information->screen);
+     attributes.background_pixel=BlackPixel(display,visual_information->screen);
      attributes.border_pixmap=CopyFromParent;
-     attributes.border_pixel=BlackPixel(display,visual_information->screen);
+     attributes.border_pixel=attributes.background_pixel;
      attributes.bit_gravity=ForgetGravity;
      attributes.win_gravity=NorthWestGravity;
      attributes.backing_store=NotUseful;
@@ -745,7 +745,7 @@ namespace BIRD2D
 
    void Engine::event_setup()
    {
-     if (XSelectInput(display,window,KeyPressMask|KeyRelease|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|ButtonMotionMask|StructureNotifyMask)==0)
+     if (XSelectInput(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask)==0)
      {
        BIRD2D::Halt("Can't set the event configuration");
      }
