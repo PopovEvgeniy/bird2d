@@ -125,7 +125,6 @@ namespace BIRD2D
    void set_context();
    void disable_vsync();
    void event_setup();
-   void show_window();
    protected:
    void prepare_engine();
    bool process_message();

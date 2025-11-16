@@ -100,477 +100,477 @@ namespace BIRD2D
 
    unsigned char get_scan_code(const KeySym key)
    {
-     unsigned char code;
+    unsigned char code;
+    code=0;
+    switch (key)
+    {
+     case XK_Escape:
+     code=1;
+     break;
+     case XK_1:
+     code=2;
+     break;
+     case XK_exclam:
+     code=2;
+     break;
+     case XK_2:
+     code=3;
+     break;
+     case XK_at:
+     code=3;
+     break;
+     case XK_3:
+     code=4;
+     break;
+     case XK_numbersign:
+     code=4;
+     break;
+     case XK_4:
+     code=5;
+     break;
+     case XK_dollar:
+     code=5;
+     break;
+     case XK_5:
+     code=6;
+     break;
+     case XK_percent:
+     code=6;
+     break;
+     case XK_6:
+     code=7;
+     break;
+     case XK_asciicircum:
+     code=7;
+     break;
+     case XK_7:
+     code=8;
+     break;
+     case XK_ampersand:
+     code=8;
+     break;
+     case XK_8:
+     code=9;
+     break;
+     case XK_asterisk:
+     code=9;
+     break;
+     case XK_9:
+     code=10;
+     break;
+     case XK_parenleft:
+     code=10;
+     break;
+     case XK_0:
+     code=11;
+     break;
+     case XK_parenright:
+     code=11;
+     break;
+     case XK_minus:
+     code=12;
+     break;
+     case XK_underscore:
+     code=12;
+     break;
+     case XK_equal:
+     code=13;
+     break;
+     case XK_plus:
+     code=13;
+     break;
+     case XK_BackSpace:
+     code=14;
+     break;
+     case XK_Tab:
+     code=15;
+     break;
+     case XK_Q:
+     code=16;
+     break;
+     case XK_q:
+     code=16;
+     break;
+     case XK_W:
+     code=17;
+     break;
+     case XK_w:
+     code=17;
+     break;
+     case XK_E:
+     code=18;
+     break;
+     case XK_e:
+     code=18;
+     break;
+     case XK_R:
+     code=19;
+     break;
+     case XK_r:
+     code=19;
+     break;
+     case XK_T:
+     code=20;
+     break;
+     case XK_t:
+     code=20;
+     break;
+     case XK_Y:
+     code=21;
+     break;
+     case XK_y:
+     code=21;
+     break;
+     case XK_U:
+     code=22;
+     break;
+     case XK_u:
+     code=22;
+     break;
+     case XK_I:
+     code=23;
+     break;
+     case XK_i:
+     code=23;
+     break;
+     case XK_O:
+     code=24;
+     break;
+     case XK_o:
+     code=24;
+     break;
+     case XK_P:
+     code=25;
+     break;
+     case XK_p:
+     code=25;
+     break;
+     case XK_braceright:
+     code=26;
+     break;
+     case XK_bracketleft:
+     code=27;
+     break;
+     case XK_Return:
+     code=28;
+     break;
+     case XK_KP_Enter:
+     code=28;
+     break;
+     case XK_Control_L:
+     code=29;
+     break;
+     case XK_Control_R:
+     code=29;
+     break;
+     case XK_A:
+     code=30;
+     break;
+     case XK_a:
+     code=30;
+     break;
+     case XK_S:
+     code=31;
+     break;
+     case XK_s:
+     code=31;
+     break;
+     case XK_D:
+     code=32;
+     break;
+     case XK_d:
+     code=32;
+     break;
+     case XK_F:
+     code=33;
+     break;
+     case XK_f:
+     code=33;
+     break;
+     case XK_G:
+     code=34;
+     break;
+     case XK_g:
+     code=34;
+     break;
+     case XK_H:
+     code=35;
+     break;
+     case XK_h:
+     code=35;
+     break;
+     case XK_J:
+     code=36;
+     break;
+     case XK_j:
+     code=36;
+     break;
+     case XK_K:
+     code=37;
+     break;
+     case XK_k:
+     code=37;
+     break;
+     case XK_L:
+     code=38;
+     break;
+     case XK_l:
+     code=38;
+     break;
+     case XK_colon:
+     code=39;
+     break;
+     case XK_semicolon:
+     code=39;
+     break;
+     case XK_quotedbl:
+     code=40;
+     break;
+     case XK_quoteright:
+     code=40;
+     break;
+     case XK_asciitilde:
+     code=41;
+     break;
+     case XK_Shift_L:
+     code=42;
+     break;
+     case XK_backslash:
+     code=43;
+     break;
+     case XK_bar:
+     code=43;
+     break;
+     case XK_Z:
+     code=44;
+     break;
+     case XK_z:
+     code=44;
+     break;
+     case XK_X:
+     code=45;
+     break;
+     case XK_x:
+     code=45;
+     break;
+     case XK_C:
+     code=46;
+     break;
+     case XK_c:
+     code=46;
+     break;
+     case XK_V:
+     code=47;
+     break;
+     case XK_v:
+     code=47;
+     break;
+     case XK_B:
+     code=48;
+     break;
+     case XK_b:
+     code=48;
+     break;
+     case XK_N:
+     code=49;
+     break;
+     case XK_n:
+     code=49;
+     break;
+     case XK_M:
+     code=50;
+     break;
+     case XK_m:
+     code=50;
+     break;
+     case XK_comma:
+     code=51;
+     break;
+     case XK_less:
+     code=51;
+     break;
+     case XK_period:
+     code=52;
+     break;
+     case XK_greater:
+     code=52;
+     break;
+     case XK_slash:
+     code=53;
+     break;
+     case XK_question:
+     code=53;
+     break;
+     case XK_Shift_R:
+     code=54;
+     break;
+     case XK_Print:
+     code=55;
+     break;
+     case XK_Alt_L:
+     code=56;
+     break;
+     case XK_Alt_R:
+     code=56;
+     break;
+     case XK_space:
+     code=57;
+     break;
+     case XK_Caps_Lock:
+     code=58;
+     break;
+     case XK_F1:
+     code=59;
+     break;
+     case XK_F2:
+     code=60;
+     break;
+     case XK_F3:
+     code=61;
+     break;
+     case XK_F4:
+     code=62;
+     break;
+     case XK_F5:
+     code=63;
+     break;
+     case XK_F6:
+     code=64;
+     break;
+     case XK_F7:
+     code=65;
+     break;
+     case XK_F8:
+     code=66;
+     break;
+     case XK_F9:
+     code=67;
+     break;
+     case XK_F10:
+     code=68;
+     break;
+     case XK_Num_Lock:
+     code=69;
+     break;
+     case XK_Scroll_Lock:
+     code=70;
+     break;
+     case XK_Home:
+     code=71;
+     break;
+     case XK_KP_7:
+     code=71;
+     break;
+     case XK_KP_Home:
+     code=71;
+     break;
+     case XK_Up:
+     code=72;
+     break;
+     case XK_KP_8:
+     code=72;
+     break;
+     case XK_KP_Up:
+     code=72;
+     break;
+     case XK_Page_Up:
+     code=73;
+     break;
+     case XK_KP_9:
+     code=73;
+     break;
+     case XK_KP_Page_Up:
+     code=73;
+     break;
+     case XK_KP_Subtract:
+     code=74;
+     break;
+     case XK_Left:
+     code=75;
+     break;
+     case XK_KP_4:
+     code=75;
+     break;
+     case XK_KP_Left:
+     code=75;
+     break;
+     case XK_KP_5:
+     code=76;
+     break;
+     case XK_Right:
+     code=77;
+     break;
+     case XK_KP_6:
+     code=77;
+     break;
+     case XK_KP_Right:
+     code=77;
+     break;
+     case XK_KP_Add:
+     code=78;
+     break;
+     case XK_End:
+     code=79;
+     break;
+     case XK_KP_1:
+     code=79;
+     break;
+     case XK_KP_End:
+     code=79;
+     break;
+     case XK_Down:
+     code=80;
+     break;
+     case XK_KP_2:
+     code=80;
+     break;
+     case XK_KP_Down:
+     code=80;
+     break;
+     case XK_Page_Down:
+     code=81;
+     break;
+     case XK_KP_3:
+     code=81;
+     break;
+     case XK_KP_Page_Down:
+     code=81;
+     break;
+     case XK_Insert:
+     code=82;
+     break;
+     case XK_KP_0:
+     code=82;
+     break;
+     case XK_KP_Insert:
+     code=82;
+     break;
+     case XK_Delete:
+     code=83;
+     break;
+     case XK_KP_Decimal:
+     code=83;
+     break;
+     case XK_KP_Delete:
+     code=83;
+     break;
+     case XK_F11:
+     code=133;
+     break;
+     case XK_F12:
+     code=134;
+     break;
+     default:
      code=0;
-     switch  (key)
-     {
-       case XK_Escape:
-       code=1;
-       break;
-       case XK_1:
-       code=2;
-       break;
-       case XK_exclam:
-       code=2;
-       break;
-       case XK_2:
-       code=3;
-       break;
-       case XK_at:
-       code=3;
-       break;
-       case XK_3:
-       code=4;
-       break;
-       case XK_numbersign:
-       code=4;
-       break;
-       case XK_4:
-       code=5;
-       break;
-       case XK_dollar:
-       code=5;
-       break;
-       case XK_5:
-       code=6;
-       break;
-       case XK_percent:
-       code=6;
-       break;
-       case XK_6:
-       code=7;
-       break;
-       case XK_asciicircum:
-       code=7;
-       break;
-       case XK_7:
-       code=8;
-       break;
-       case XK_ampersand:
-       code=8;
-       break;
-       case XK_8:
-       code=9;
-       break;
-       case XK_asterisk:
-       code=9;
-       break;
-       case XK_9:
-       code=10;
-       break;
-       case XK_parenleft:
-       code=10;
-       break;
-       case XK_0:
-       code=11;
-       break;
-       case XK_parenright:
-       code=11;
-       break;
-       case XK_minus:
-       code=12;
-       break;
-       case XK_underscore:
-       code=12;
-       break;
-       case XK_equal:
-       code=13;
-       break;
-       case XK_plus:
-       code=13;
-       break;
-       case XK_BackSpace:
-       code=14;
-       break;
-       case XK_Tab:
-       code=15;
-       break;
-       case XK_Q:
-       code=16;
-       break;
-       case XK_q:
-       code=16;
-       break;
-       case XK_W:
-       code=17;
-       break;
-       case XK_w:
-       code=17;
-       break;
-       case XK_E:
-       code=18;
-       break;
-       case XK_e:
-       code=18;
-       break;
-       case XK_R:
-       code=19;
-       break;
-       case XK_r:
-       code=19;
-       break;
-       case XK_T:
-       code=20;
-       break;
-       case XK_t:
-       code=20;
-       break;
-       case XK_Y:
-       code=21;
-       break;
-       case XK_y:
-       code=21;
-       break;
-       case XK_U:
-       code=22;
-       break;
-       case XK_u:
-       code=22;
-       break;
-       case XK_I:
-       code=23;
-       break;
-       case XK_i:
-       code=23;
-       break;
-       case XK_O:
-       code=24;
-       break;
-       case XK_o:
-       code=24;
-       break;
-       case XK_P:
-       code=25;
-       break;
-       case XK_p:
-       code=25;
-       break;
-       case XK_braceright:
-       code=26;
-       break;
-       case XK_bracketleft:
-       code=27;
-       break;
-       case XK_Return:
-       code=28;
-       break;
-       case XK_KP_Enter:
-       code=28;
-       break;
-       case XK_Control_L:
-       code=29;
-       break;
-       case XK_Control_R:
-       code=29;
-       break;
-       case XK_A:
-       code=30;
-       break;
-       case XK_a:
-       code=30;
-       break;
-       case XK_S:
-       code=31;
-       break;
-       case XK_s:
-       code=31;
-       break;
-       case XK_D:
-       code=32;
-       break;
-       case XK_d:
-       code=32;
-       break;
-       case XK_F:
-       code=33;
-       break;
-       case XK_f:
-       code=33;
-       break;
-       case XK_G:
-       code=34;
-       break;
-       case XK_g:
-       code=34;
-       break;
-       case XK_H:
-       code=35;
-       break;
-       case XK_h:
-       code=35;
-       break;
-       case XK_J:
-       code=36;
-       break;
-       case XK_j:
-       code=36;
-       break;
-       case XK_K:
-       code=37;
-       break;
-       case XK_k:
-       code=37;
-       break;
-       case XK_L:
-       code=38;
-       break;
-       case XK_l:
-       code=38;
-       break;
-       case XK_colon:
-       code=39;
-       break;
-       case XK_semicolon:
-       code=39;
-       break;
-       case XK_quotedbl:
-       code=40;
-       break;
-       case XK_quoteright:
-       code=40;
-       break;
-       case XK_asciitilde:
-       code=41;
-       break;
-       case XK_Shift_L:
-       code=42;
-       break;
-       case XK_backslash:
-       code=43;
-       break;
-       case XK_bar:
-       code=43;
-       break;
-       case XK_Z:
-       code=44;
-       break;
-       case XK_z:
-       code=44;
-       break;
-       case XK_X:
-       code=45;
-       break;
-       case XK_x:
-       code=45;
-       break;
-       case XK_C:
-       code=46;
-       break;
-       case XK_c:
-       code=46;
-       break;
-       case XK_V:
-       code=47;
-       break;
-       case XK_v:
-       code=47;
-       break;
-       case XK_B:
-       code=48;
-       break;
-       case XK_b:
-       code=48;
-       break;
-       case XK_N:
-       code=49;
-       break;
-       case XK_n:
-       code=49;
-       break;
-       case XK_M:
-       code=50;
-       break;
-       case XK_m:
-       code=50;
-       break;
-       case XK_comma:
-       code=51;
-       break;
-       case XK_less:
-       code=51;
-       break;
-       case XK_period:
-       code=52;
-       break;
-       case XK_greater:
-       code=52;
-       break;
-       case XK_slash:
-       code=53;
-       break;
-       case XK_question:
-       code=53;
-       break;
-       case XK_Shift_R:
-       code=54;
-       break;
-       case XK_Print:
-       code=55;
-       break;
-       case XK_Alt_L:
-       code=56;
-       break;
-       case XK_Alt_R:
-       code=56;
-       break;
-       case XK_space:
-       code=57;
-       break;
-       case XK_Caps_Lock:
-       code=58;
-       break;
-       case XK_F1:
-       code=59;
-       break;
-       case XK_F2:
-       code=60;
-       break;
-       case XK_F3:
-       code=61;
-       break;
-       case XK_F4:
-       code=62;
-       break;
-       case XK_F5:
-       code=63;
-       break;
-       case XK_F6:
-       code=64;
-       break;
-       case XK_F7:
-       code=65;
-       break;
-       case XK_F8:
-       code=66;
-       break;
-       case XK_F9:
-       code=67;
-       break;
-       case XK_F10:
-       code=68;
-       break;
-       case XK_Num_Lock:
-       code=69;
-       break;
-       case XK_Scroll_Lock:
-       code=70;
-       break;
-       case XK_Home:
-       code=71;
-       break;
-       case XK_KP_7:
-       code=71;
-       break;
-       case XK_KP_Home:
-       code=71;
-       break;
-       case XK_Up:
-       code=72;
-       break;
-       case XK_KP_8:
-       code=72;
-       break;
-       case XK_KP_Up:
-       code=72;
-       break;
-       case XK_Page_Up:
-       code=73;
-       break;
-       case XK_KP_9:
-       code=73;
-       break;
-       case XK_KP_Page_Up:
-       code=73;
-       break;
-       case XK_KP_Subtract:
-       code=74;
-       break;
-       case XK_Left:
-       code=75;
-       break;
-       case XK_KP_4:
-       code=75;
-       break;
-       case XK_KP_Left:
-       code=75;
-       break;
-       case XK_KP_5:
-       code=76;
-       break;
-       case XK_Right:
-       code=77;
-       break;
-       case XK_KP_6:
-       code=77;
-       break;
-       case XK_KP_Right:
-       code=77;
-       break;
-       case XK_KP_Add:
-       code=78;
-       break;
-       case XK_End:
-       code=79;
-       break;
-       case XK_KP_1:
-       code=79;
-       break;
-       case XK_KP_End:
-       code=79;
-       break;
-       case XK_Down:
-       code=80;
-       break;
-       case XK_KP_2:
-       code=80;
-       break;
-       case XK_KP_Down:
-       code=80;
-       break;
-       case XK_Page_Down:
-       code=81;
-       break;
-       case XK_KP_3:
-       code=81;
-       break;
-       case XK_KP_Page_Down:
-       code=81;
-       break;
-       case XK_Insert:
-       code=82;
-       break;
-       case XK_KP_0:
-       code=82;
-       break;
-       case XK_KP_Insert:
-       code=82;
-       break;
-       case XK_Delete:
-       code=83;
-       break;
-       case XK_KP_Decimal:
-       code=83;
-       break;
-       case XK_KP_Delete:
-       code=83;
-       break;
-       case XK_F11:
-       code=133;
-       break;
-       case XK_F12:
-       code=134;
-       break;
-       default:
-       code=0;
-       break;
-     }
-     return code;
+     break;
+    }
+    return code;
    }
 
    Synchronization::Synchronization()
    {
-     start=0;
-     delay=0;
+    start=0;
+    delay=0;
    }
 
    Synchronization::~Synchronization()
@@ -580,13 +580,13 @@ namespace BIRD2D
 
    unsigned long int Synchronization::get_time() const
    {
-     timeval current;
-     if (gettimeofday(&current,NULL)!=0)
-     {
-      current.tv_sec=0;
-      current.tv_usec=0;
-     }
-     return (current.tv_sec*1000)+(current.tv_usec/1000);
+    timeval current;
+    if (gettimeofday(&current,NULL)!=0)
+    {
+     current.tv_sec=0;
+     current.tv_usec=0;
+    }
+    return (current.tv_sec*1000)+(current.tv_usec/1000);
    }
 
    void Synchronization::do_pause(const unsigned long int interval)
@@ -599,215 +599,209 @@ namespace BIRD2D
 
    void Synchronization::set_timer(const unsigned long int interval)
    {
-     start=this->get_time();
-     delay=interval;
+    start=this->get_time();
+    delay=interval;
    }
 
    void Synchronization::wait_timer()
    {
-     unsigned long int interval;
-     interval=this->get_time()-start;
-     if  (interval<delay)
-     {
-       this->do_pause(delay-interval);
-     }
-     start=this->get_time();
+    unsigned long int interval;
+    interval=this->get_time()-start;
+    if (interval<delay)
+    {
+     this->do_pause(delay-interval);
+    }
+    start=this->get_time();
    }
 
    Engine::Engine()
    {
-     display_width=0;
-     display_height=0;
-     display_depth=0;
-     root=None;
-     visual_information=NULL;
-     context=NULL;
-     glXSwapIntervalEXT=NULL;
+    display_width=0;
+    display_height=0;
+    display_depth=0;
+    root=None;
+    visual_information=NULL;
+    context=NULL;
+    glXSwapIntervalEXT=NULL;
    }
 
    Engine::~Engine()
    {
-     if  (context!=NULL)
-     {
-       glXMakeCurrent(display,None,NULL);
-       glXDestroyContext(display,context);
-       context=NULL;
-     }
-     if  (visual_information!=NULL)
-     {
-       XFree(visual_information);
-       visual_information=NULL;
-     }
-     if  (window!=None)
-     {
-       XDestroyWindow(display,window);
-       window=None;
-     }
-     if  (display!=NULL)
-     {
-       XCloseDisplay(display);
-       display=NULL;
-     }
+    if (context!=NULL)
+    {
+     glXMakeCurrent(display,None,NULL);
+     glXDestroyContext(display,context);
+     context=NULL;
+    }
+    if (visual_information!=NULL)
+    {
+     XFree(visual_information);
+     visual_information=NULL;
+    }
+    if (window!=None)
+    {
+     XDestroyWindow(display,window);
+     window=None;
+    }
+    if (display!=NULL)
+    {
+     XCloseDisplay(display);
+     display=NULL;
+    }
 
    }
 
-    void Engine::open_display()
+   void Engine::open_display()
    {
-     display=XOpenDisplay(NULL);
-     if (display==NULL)
-     {
-       BIRD2D::Halt("Can't open the display");
-     }
+    display=XOpenDisplay(NULL);
+    if (display==NULL)
+    {
+     BIRD2D::Halt("Can't open the display");
+    }
 
    }
 
-   void Engine::get_visual()
+  void Engine::get_visual()
   {
-    int settings[]={GLX_RGBA,GLX_DEPTH_SIZE,16,GLX_DOUBLEBUFFER,None};
-    visual_information=glXChooseVisual(display,DefaultScreen(display),settings);
-    if  (visual_information==NULL)
-    {
-      BIRD2D::Halt("Can't get the visual information");
-    }
-    else
-    {
-      display_width=DisplayWidth(display,visual_information->screen);
-      display_height=DisplayHeight(display,visual_information->screen);
-      display_depth=visual_information->depth;
-    }
+   int settings[]={GLX_RGBA,GLX_DEPTH_SIZE,16,GLX_DOUBLEBUFFER,None};
+   visual_information=glXChooseVisual(display,DefaultScreen(display),settings);
+   if (visual_information==NULL)
+   {
+    BIRD2D::Halt("Can't get the visual information");
+   }
+   else
+   {
+    display_width=DisplayWidth(display,visual_information->screen);
+    display_height=DisplayHeight(display,visual_information->screen);
+    display_depth=visual_information->depth;
+   }
 
    }
 
    void Engine::get_root_window()
    {
-     root=RootWindow(display,visual_information->screen);
-     if  (root==None)
+    root=RootWindow(display,visual_information->screen);
+    if (root==None)
     {
-      BIRD2D::Halt("Can't get the root window");
+     BIRD2D::Halt("Can't get the root window");
     }
 
    }
 
    void Engine::create_context()
    {
-     context=glXCreateContext(display,visual_information,NULL,True);
-     if  (context==NULL)
-     {
-       BIRD2D::Halt("Can't create the OPENGL context");
-     }
+    context=glXCreateContext(display,visual_information,NULL,True);
+    if (context==NULL)
+    {
+     BIRD2D::Halt("Can't create the OPENGL context");
+    }
 
    }
 
    void Engine::create_window()
    {
-     XSetWindowAttributes attributes;
-     attributes.background_pixmap=None;
-     attributes.background_pixel=BlackPixel(display,visual_information->screen);
-     attributes.border_pixmap=CopyFromParent;
-     attributes.border_pixel=attributes.background_pixel;
-     attributes.bit_gravity=ForgetGravity;
-     attributes.win_gravity=NorthWestGravity;
-     attributes.backing_store=NotUseful;
-     attributes.backing_planes=1;
-     attributes.backing_pixel=0;
-     attributes.save_under=False;
-     attributes.do_not_propagate_mask=NoEventMask;
-     attributes.event_mask=NoEventMask;
-     attributes.override_redirect=True;
-     attributes.cursor=None;
-     attributes.colormap=XCreateColormap(display,root,visual_information->visual,AllocNone);
-     window=XCreateWindow(display,root,0,0,display_width,display_height,0,visual_information->depth,InputOutput,visual_information->visual,CWSaveUnder|CWBackingStore|CWOverrideRedirect|CWBackPixel|CWColormap|CWBorderPixel|CWEventMask,&attributes);
-     if  (window==None)
-     {
-       BIRD2D::Halt("Can't create the window");
-     }
-
+    XSetWindowAttributes attributes;
+    attributes.background_pixmap=None;
+    attributes.background_pixel=BlackPixel(display,visual_information->screen);
+    attributes.border_pixmap=CopyFromParent;
+    attributes.border_pixel=attributes.background_pixel;
+    attributes.bit_gravity=ForgetGravity;
+    attributes.win_gravity=NorthWestGravity;
+    attributes.backing_store=NotUseful;
+    attributes.backing_planes=1;
+    attributes.backing_pixel=0;
+    attributes.save_under=False;
+    attributes.do_not_propagate_mask=NoEventMask;
+    attributes.event_mask=NoEventMask;
+    attributes.override_redirect=True;
+    attributes.cursor=None;
+    attributes.colormap=XCreateColormap(display,root,visual_information->visual,AllocNone);
+    window=XCreateWindow(display,root,0,0,display_width,display_height,0,visual_information->depth,InputOutput,visual_information->visual,CWSaveUnder|CWBackingStore|CWOverrideRedirect|CWBackPixel|CWColormap|CWBorderPixel|CWEventMask,&attributes);
+    if (window==None)
+    {
+     BIRD2D::Halt("Can't create the window");
+    }
+    XMapWindow(display,window);
+    XFlush(display);
    }
 
    void Engine::set_context()
    {
-     if  (glXMakeCurrent(display,window,context)==False)
-     {
-       BIRD2D::Halt("Can't set the render context");
-     }
+    if (glXMakeCurrent(display,window,context)==False)
+    {
+     BIRD2D::Halt("Can't set the render context");
+    }
 
    }
 
    void Engine::disable_vsync()
    {
-     glXSwapIntervalEXT=reinterpret_cast<PFNGLXSWAPINTERVALEXTPROC>(glXGetProcAddress(reinterpret_cast<const GLubyte*>("glXSwapIntervalEXT")));
-     if  (glXSwapIntervalEXT!=NULL)
-     {
-       glXSwapIntervalEXT(display,window,0);
-     }
+    glXSwapIntervalEXT=reinterpret_cast<PFNGLXSWAPINTERVALEXTPROC>(glXGetProcAddress(reinterpret_cast<const GLubyte*>("glXSwapIntervalEXT")));
+    if (glXSwapIntervalEXT!=NULL)
+    {
+     glXSwapIntervalEXT(display,window,0);
+    }
 
    }
 
    void Engine::event_setup()
    {
-     if (XSelectInput(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask)==0)
-     {
-       BIRD2D::Halt("Can't set the event configuration");
-     }
+    if (XSelectInput(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask)==0)
+    {
+     BIRD2D::Halt("Can't set the event configuration");
+    }
 
-   }
-
-   void Engine::show_window()
-   {
-     XMapWindow(display,window);
-     XFlush(display);
    }
 
    void Engine::prepare_engine()
    {
-     this->open_display();
-     this->get_visual();
-     this->get_root_window();
-     this->create_context();
-     this->create_window();
-     this->set_context();
-     this->disable_vsync();
-     this->event_setup();
-     this->show_window();
+    this->open_display();
+    this->get_visual();
+    this->get_root_window();
+    this->create_window();
+    this->event_setup();
+    this->create_context();
+    this->set_context();
+    this->disable_vsync();
    }
 
    bool Engine::process_message()
    {
-     bool run;
-     XEvent event;
-     run=true;
-     XSetInputFocus(display,window,RevertToParent,CurrentTime);
-     while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask,&event)==True)
+    bool run;
+    XEvent event;
+    run=true;
+    XSetInputFocus(display,window,RevertToParent,CurrentTime);
+    while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask,&event)==True)
+    {
+     switch (event.type)
      {
-       switch (event.type)
-       {
-         case DestroyNotify:
-         run=false;
-         break;
-         case KeyPress:
-         Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_PRESS;
-         break;
-         case KeyRelease:
-         Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_RELEASE;
-         break;
-         case MotionNotify:
-         mouse_x=event.xbutton.x;
-         mouse_y=event.xbutton.y;
-         break;
-         case ButtonPress:
-         if  (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_PRESS;
-         if  (event.xbutton.button==Button2) Buttons[BIRD2D::MOUSE_RIGHT]=KEY_PRESS;
-         if  (event.xbutton.button==Button3) Buttons[BIRD2D::MOUSE_MIDDLE]=KEY_PRESS;
-         break;
-         case ButtonRelease:
-         if  (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
-         if  (event.xbutton.button==Button2) Buttons[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
-         if  (event.xbutton.button==Button3) Buttons[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
-         break;
-         default:
-         ;
-         break;
-       }
+      case DestroyNotify:
+      run=false;
+      break;
+      case KeyPress:
+      Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_PRESS;
+      break;
+      case KeyRelease:
+      Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_RELEASE;
+      break;
+      case MotionNotify:
+      mouse_x=event.xbutton.x;
+      mouse_y=event.xbutton.y;
+      break;
+      case ButtonPress:
+      if (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_PRESS;
+      if (event.xbutton.button==Button2) Buttons[BIRD2D::MOUSE_RIGHT]=KEY_PRESS;
+      if (event.xbutton.button==Button3) Buttons[BIRD2D::MOUSE_MIDDLE]=KEY_PRESS;
+      break;
+      case ButtonRelease:
+      if (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
+      if (event.xbutton.button==Button2) Buttons[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
+      if (event.xbutton.button==Button3) Buttons[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
+      break;
+      default:
+      ;
+      break;
+     }
 
      }
      return run;
@@ -815,31 +809,31 @@ namespace BIRD2D
 
    void Engine::Swap()
    {
-     if  (context!=NULL)
-     {
-       glXSwapBuffers(display,window);
-     }
+    if (context!=NULL)
+    {
+     glXSwapBuffers(display,window);
+    }
 
    }
 
    GLXContext Engine::get_context()
    {
-     return context;
+    return context;
    }
 
    unsigned int Engine::get_display_width() const
    {
-     return display_width;
+    return display_width;
    }
 
    unsigned int Engine::get_display_height() const
    {
-     return display_height;
+    return display_height;
    }
 
    unsigned int Engine::get_depth() const
    {
-     return display_depth;
+    return display_depth;
    }
 
  }
@@ -1564,9 +1558,9 @@ namespace BIRD2D
 
   Mouse::~Mouse()
   {
-    if  (window!=None)
+    if (window!=None)
     {
-      if  (hidden!=None)
+      if (hidden!=None)
       {
         XUndefineCursor(display,window);
         XFlush(display);
@@ -1595,13 +1589,13 @@ namespace BIRD2D
     color.blue=0;
     color.pad=0;
     color.pixel=0;
-    if  (hidden==None)
+    if (hidden==None)
     {
-      if  (window!=None)
+      if (window!=None)
       {
         image=XCreateBitmapFromData(display,window,&color.pad,1,1);
       }
-      if  (image!=None)
+      if (image!=None)
       {
         hidden=XCreatePixmapCursor(display,image,image,&color,&color,0,0);
         XFreePixmap(display,image);
@@ -1613,9 +1607,9 @@ namespace BIRD2D
 
   void Mouse::show()
   {
-    if  (window!=None)
+    if (window!=None)
     {
-      if  (hidden!=None)
+      if (hidden!=None)
       {
         XUndefineCursor(display,window);
         XFlush(display);
@@ -1627,9 +1621,9 @@ namespace BIRD2D
 
   void Mouse::hide()
   {
-    if  (window!=None)
+    if (window!=None)
     {
-      if  (hidden!=None)
+      if (hidden!=None)
       {
         XDefineCursor(display,window,hidden);
         XFlush(display);
@@ -1641,7 +1635,7 @@ namespace BIRD2D
 
   void Mouse::set_position(const unsigned int x,const unsigned int y)
   {
-    if  (window!=None)
+    if (window!=None)
     {
       XWarpPointer(display,None,window,0,0,0,0,x,y);
       XFlush(display);
@@ -1677,53 +1671,53 @@ namespace BIRD2D
 
   Joystick::Joystick()
   {
-    current.set_length(0);
-    preversion.set_length(0);
-    axis.set_length(0);
-    device=-1;
+   current.set_length(0);
+   preversion.set_length(0);
+   axis.set_length(0);
+   device=-1;
   }
 
   Joystick::~Joystick()
   {
-    if  (device!=-1)
-    {
-      close(device);
-    }
-    current.destroy_buffer();
-    preversion.destroy_buffer();
-    axis.destroy_buffer();
+   if (device!=-1)
+   {
+    close(device);
+   }
+   current.destroy_buffer();
+   preversion.destroy_buffer();
+   axis.destroy_buffer();
   }
 
   void Joystick::open_device(const char *joystick)
   {
-    if  (device==-1)
-    {
-      device=open(joystick,O_RDONLY|O_NONBLOCK);
-    }
+   if (device==-1)
+   {
+    device=open(joystick,O_RDONLY|O_NONBLOCK);
+   }
 
   }
 
   void Joystick::read_configuration()
   {
-    char amount;
-    amount=0;
-    if  (device!=-1)
+   char amount;
+   amount=0;
+   if (device!=-1)
+   {
+    if (ioctl(device,JSIOCGAXES,&amount)==0)
     {
-      if  (ioctl(device,JSIOCGAXES,&amount)==0)
-      {
-        axis.set_length(static_cast<size_t>(amount));
-        axis.create_buffer();
-        axis.fill_buffer(0);
-      }
-      if  (ioctl(device,JSIOCGBUTTONS,&amount)==0)
-      {
-        current.set_length(static_cast<size_t>(amount));
-        current.create_buffer();
-        current.fill_buffer(KEY_RELEASE);
-        preversion.set_length(static_cast<size_t>(amount));
-        preversion.create_buffer();
-        preversion.fill_buffer(KEY_RELEASE);
-      }
+     axis.set_length(static_cast<size_t>(amount));
+     axis.create_buffer();
+     axis.fill_buffer(0);
+    }
+    if (ioctl(device,JSIOCGBUTTONS,&amount)==0)
+    {
+     current.set_length(static_cast<size_t>(amount));
+     current.create_buffer();
+     current.fill_buffer(KEY_RELEASE);
+     preversion.set_length(static_cast<size_t>(amount));
+     preversion.create_buffer();
+     preversion.fill_buffer(KEY_RELEASE);
+    }
 
     }
 
@@ -1731,55 +1725,54 @@ namespace BIRD2D
 
    bool Joystick::check_current_button(const size_t button)
    {
-     bool state;
-     state=false;
-     if  (current.get_length()>0)
+    bool state;
+    state=false;
+    if (current.get_length()>0)
+    {
+     if (button<current.get_length())
      {
-       if (button<current.get_length())
-       {
-         state=current[button]==KEY_PRESS;
-         preversion[button]=current[button];
-       }
-
+      state=current[button]==KEY_PRESS;
+      preversion[button]=current[button];
      }
-     return state;
+
+    }
+    return state;
    }
 
    bool Joystick::check_preversion_button(const size_t button)
    {
-     bool state;
-     state=false;
-     if  (preversion.get_length()>0)
+    bool state;
+    state=false;
+    if (preversion.get_length()>0)
+    {
+     if (button<preversion.get_length())
      {
-       if (button<preversion.get_length())
-       {
-         state=preversion[button]==KEY_PRESS;
-       }
-
+      state=preversion[button]==KEY_PRESS;
      }
-     return state;
+
+    }
+    return state;
    }
 
   void Joystick::update()
   {
-    js_event event;
-    if  (device!=-1)
+   js_event event;
+   if (device!=-1)
+   {
+    while (read(device,&event,sizeof(js_event))>0)
     {
-      while (read(device,&event,sizeof(js_event))>0)
-      {
-        switch (event.type)
-        {
-          case JS_EVENT_AXIS:
-          if  (axis.get_length()>0) axis[event.number]=event.value;
-          break;
-          case JS_EVENT_BUTTON:
-          if  (current.get_length()>0) current[event.number]=event.value;
-          break;
-          default:
-          ;
-          break;
-        }
-
+     switch (event.type)
+     {
+      case JS_EVENT_AXIS:
+      if (axis.get_length()>0) axis[event.number]=event.value;
+      break;
+      case JS_EVENT_BUTTON:
+      if (current.get_length()>0) current[event.number]=event.value;
+      break;
+      default:
+      ;
+      break;
+     }
 
       }
 
@@ -1789,13 +1782,13 @@ namespace BIRD2D
 
   void Joystick::initialize(const char *joystick)
   {
-    this->open_device(joystick);
-    this->read_configuration();
+   this->open_device(joystick);
+   this->read_configuration();
   }
 
   bool Joystick::is_ready() const
   {
-    return device!=-1;
+   return device!=-1;
   }
 
   bool Joystick::check_button_hold(const size_t button)
@@ -1815,27 +1808,27 @@ namespace BIRD2D
 
   short int Joystick::get_axis(const size_t target)
   {
-    short int value;
-    value=0;
-    if  (axis.get_length()>0)
+   short int value;
+   value=0;
+   if (axis.get_length()>0)
+   {
+    if (target<axis.get_length())
     {
-      if  (target<axis.get_length())
-      {
-        value=axis[target];
-      }
-
+     value=axis[target];
     }
-    return value;
+
+   }
+   return value;
   }
 
   size_t Joystick::get_button_amount() const
   {
-    return current.get_length();
+   return current.get_length();
   }
 
   size_t Joystick::get_axes() const
   {
-    return axis.get_length();
+   return axis.get_length();
   }
 
  }
@@ -2007,7 +2000,7 @@ namespace BIRD2D
    {
     if (sysinfo(&information)==-1)
     {
-      memset(&information,0,sizeof(struct sysinfo));
+     memset(&information,0,sizeof(struct sysinfo));
     }
 
    }
@@ -2050,49 +2043,49 @@ namespace BIRD2D
 
    Audio::Audio()
    {
-     engine=NULL;
-     player=NULL;
-     media=NULL;
+    engine=NULL;
+    player=NULL;
+    media=NULL;
    }
 
    Audio::~Audio()
    {
-     if (player!=NULL)
-     {
-       libvlc_media_player_stop(player);
-       libvlc_media_player_release(player);
-       player=NULL;
-     }
-     if (media!=NULL)
-     {
-       libvlc_media_release(media);
-       media=NULL;
-     }
-     if (engine!=NULL)
-     {
-       libvlc_release(engine);
-       engine=NULL;
-     }
+    if (player!=NULL)
+    {
+     libvlc_media_player_stop(player);
+     libvlc_media_player_release(player);
+     player=NULL;
+    }
+    if (media!=NULL)
+    {
+     libvlc_media_release(media);
+     media=NULL;
+    }
+    if (engine!=NULL)
+    {
+     libvlc_release(engine);
+     engine=NULL;
+    }
 
    }
 
    void Audio::create_engine()
    {
-     if (engine==NULL)
-     {
-       engine=libvlc_new(0,NULL);
-     }
+    if (engine==NULL)
+    {
+     engine=libvlc_new(0,NULL);
+    }
 
    }
 
    void Audio::create_player()
    {
-     if (player==NULL)
+    if (player==NULL)
+    {
+     if (engine!=NULL)
      {
-       if (engine!=NULL)
-       {
-         player=libvlc_media_player_new(engine);
-       }
+      player=libvlc_media_player_new(engine);
+     }
 
      }
 
@@ -2100,126 +2093,126 @@ namespace BIRD2D
 
    void Audio::destoy_media()
    {
-     if (media!=NULL)
-     {
-       libvlc_media_release(media);
-       media=NULL;
-     }
+    if (media!=NULL)
+    {
+     libvlc_media_release(media);
+     media=NULL;
+    }
 
    }
 
    void Audio::load_media(const char *name)
    {
-     if (media==NULL)
+    if (media==NULL)
+    {
+     if (engine!=NULL)
      {
-       if (engine!=NULL)
-       {
-         media=libvlc_media_new_path(engine,name);
-       }
-
+      media=libvlc_media_new_path(engine,name);
      }
+
+    }
 
    }
 
    void Audio::set_media()
    {
-     if (player!=NULL)
+    if (player!=NULL)
+    {
+     if (media!=NULL)
      {
-       if (media!=NULL)
-       {
-         libvlc_media_player_set_media(player,media);
-         libvlc_media_add_option(media,"--no-video");
-       }
-
+      libvlc_media_player_set_media(player,media);
+      libvlc_media_add_option(media,"--no-video");
      }
+
+    }
 
    }
 
    void Audio::set_volume()
    {
-     if (player!=NULL)
-     {
-       libvlc_audio_set_volume(player,100);
-     }
+    if (player!=NULL)
+    {
+     libvlc_audio_set_volume(player,100);
+    }
 
    }
 
    void Audio::play_media()
    {
-     if (player!=NULL)
-     {
-       libvlc_media_player_play(player);
-     }
+    if (player!=NULL)
+    {
+     libvlc_media_player_play(player);
+    }
 
    }
 
    void Audio::initialize()
    {
-     this->create_engine();
-     this->create_player();
+    this->create_engine();
+    this->create_player();
    }
 
    void Audio::stop()
    {
-     if (player!=NULL)
-     {
-       libvlc_media_player_stop(player);
-     }
+    if (player!=NULL)
+    {
+     libvlc_media_player_stop(player);
+    }
 
    }
 
     void Audio::play()
     {
-      this->stop();
-      this->play_media();
+     this->stop();
+     this->play_media();
     }
 
     void Audio::load(const char *name)
     {
-      this->stop();
-      this->destoy_media();
-      this->load_media(name);
-      this->set_media();
-      this->set_volume();
+     this->stop();
+     this->destoy_media();
+     this->load_media(name);
+     this->set_media();
+     this->set_volume();
     }
 
     bool Audio::check_playing()
     {
-      bool playing;
-      playing=false;
-      if (player!=NULL)
-      {
-       playing=libvlc_media_player_is_playing(player);
-      }
-      return playing;
+     bool playing;
+     playing=false;
+     if (player!=NULL)
+     {
+      playing=libvlc_media_player_is_playing(player);
+     }
+     return playing;
     }
 
     void Audio::play_loop()
     {
-      if (this->check_playing()==false)
-      {
-       this->play();
-      }
+     if (this->check_playing()==false)
+     {
+      this->play();
+     }
 
     }
 
     void Audio::play(const bool loop)
     {
-      if (loop==true)
-      {
-       this->play_loop();
-      }
-      else
-      {
-       this->play();
-      }
+     if (loop==true)
+     {
+      this->play_loop();
+     }
+     else
+     {
+      this->play();
+     }
 
     }
 
    void Audio::initialize(const char *name)
    {
-     this->initialize();
-     this->load(name);
+    this->initialize();
+    this->load(name);
    }
 
  }
