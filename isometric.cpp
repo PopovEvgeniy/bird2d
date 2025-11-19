@@ -19,7 +19,7 @@ int main()
  text.set_position(text.get_font_width(),text.get_font_height());
  cartesian.initialize(screen.get_width(),screen.get_height());
  level.initialize(ground.get_width(),ground.get_height());
- while (screen.sync())
+ while (true)
  {
   if (keyboard.check_hold(1)==true)
   {
@@ -35,6 +35,7 @@ int main()
 
   }
   text.print("Press Esc to exit");
+  screen.sync();
  }
  return 0;
 }

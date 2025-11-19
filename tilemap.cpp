@@ -17,7 +17,7 @@ int main()
  row_amount=tilemap.get_row_amount(screen.get_width());
  column_amount=tilemap.get_column_amount(screen.get_height());
  tile.set_transparent(false);
- while (screen.sync())
+ while (true)
  {
   if (keyboard.check_hold(1)==true)
   {
@@ -33,6 +33,7 @@ int main()
 
  }
   text.print("Press Esc to exit");
+  screen.sync();
  }
  return 0;
 }

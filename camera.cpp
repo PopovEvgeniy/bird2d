@@ -20,7 +20,7 @@ int main()
  camera.update();
  punk.set_size(96,300);
  punk.set_position(0,camera.get_viewport_height()-punk.get_height());
- while (screen.sync())
+ while (true)
  {
   if (keyboard.check_hold(1)==true)
   {
@@ -53,6 +53,7 @@ int main()
   camera.update();
   city.draw();
   punk.draw();
+  screen.sync();
  }
  return 0;
 }

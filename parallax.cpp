@@ -31,7 +31,7 @@ int main()
  audio.load("./space.mp3");
  memset(perfomance,0,8);
  limit=true;
- while(true)
+ while (true)
  {
   joystick.update();
   audio.play_loop();

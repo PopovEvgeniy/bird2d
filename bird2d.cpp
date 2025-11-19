@@ -746,7 +746,7 @@ namespace BIRD2D
 
    void Engine::event_setup()
    {
-    if (XSelectInput(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask)==0)
+    if (XSelectInput(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask)==0)
     {
      BIRD2D::Halt("Can't set the event configuration");
     }
@@ -769,7 +769,7 @@ namespace BIRD2D
    {
     XEvent event;
     XSetInputFocus(display,window,RevertToParent,CurrentTime);
-    while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask,&event)==True)
+    while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask,&event)==True)
     {
      switch (event.type)
      {
