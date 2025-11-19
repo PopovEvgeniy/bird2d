@@ -234,18 +234,15 @@
    <i><br>
     void Screen::initialize(); -</i> Initialize the base graphic subsystem.<br>
    <i><br>
-    bool Screen::sync(); -</i> Show the current content of the back buffer
-   on the screen. Return false if a game is terminated. This method uses the FPS limits and waits between frames.<br>
+    void Screen::sync(); -</i> Show the current content of the back buffer on the screen. This method uses the FPS limits and waits between frames.<br>
    <br>
-   <i>bool Screen::update(); -</i> Show the current content of the back
-   buffer on the screen. Return false if a game is terminated. This method ignores the FPS limit and needs high processor usage.<br>
+   <i>void Screen::update(); -</i> Show the current content of the back buffer on the screen. This method ignores the FPS limit and needs high processor usage.<br>
    <i><br>
-    bool Screen::sync(const bool limit); -</i> Show the current content of
-   the back buffer on the screen. Return false if a game is terminated.<br>
+    void Screen::sync(const bool limit); -</i> Show the current content of the back buffer on the screen.<br>
    <i><br>
     bool Screen::is_ready(); -</i> Return true if the subsystem has already been initialized.<br>
    <br>
-   <i> unsigned int Screen::get_fps() const; -</i> Return the current FPS value.<br>
+   <i>unsigned int Screen::get_fps() const; -</i> Return the current FPS value.<br>
    <i><br>
     unsigned int Screen::get_color() const; -</i> Return the current color depth in bits per pixel.<br>
    <br>
@@ -1990,6 +1987,7 @@
    3.0.5: The small changes.<br>
    3.0.6: The source code synced with the Eugene Game Development Kit 9.9.2.<br>
    3.0.7: The small changes.<br>
+   3.0.8: The base graphics subsystem has improved.<br>
   </big>
  </body>
 </html>

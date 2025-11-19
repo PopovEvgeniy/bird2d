@@ -765,19 +765,14 @@ namespace BIRD2D
     this->disable_vsync();
    }
 
-   bool Engine::process_message()
+   void Engine::process_message()
    {
-    bool run;
     XEvent event;
-    run=true;
     XSetInputFocus(display,window,RevertToParent,CurrentTime);
     while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|StructureNotifyMask,&event)==True)
     {
      switch (event.type)
      {
-      case DestroyNotify:
-      run=false;
-      break;
       case KeyPress:
       Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_PRESS;
       break;
@@ -803,8 +798,9 @@ namespace BIRD2D
       break;
      }
 
-     }
-     return run;
+
+    }
+
    }
 
    void Engine::Swap()
@@ -1558,16 +1554,16 @@ namespace BIRD2D
 
   Mouse::~Mouse()
   {
-    if (window!=None)
+   if (window!=None)
+   {
+    if (hidden!=None)
     {
-      if (hidden!=None)
-      {
-        XUndefineCursor(display,window);
-        XFlush(display);
-        XFreeCursor(display,hidden);
-      }
-
+     XUndefineCursor(display,window);
+     XFlush(display);
+     XFreeCursor(display,hidden);
     }
+
+   }
 
   }
 
@@ -1581,65 +1577,65 @@ namespace BIRD2D
 
   void Mouse::initialize()
   {
-    XColor color;
-    Pixmap image;
-    color.flags=DoRed|DoGreen|DoBlue;
-    color.red=0;
-    color.green=0;
-    color.blue=0;
-    color.pad=0;
-    color.pixel=0;
-    if (hidden==None)
+   XColor color;
+   Pixmap image;
+   color.flags=DoRed|DoGreen|DoBlue;
+   color.red=0;
+   color.green=0;
+   color.blue=0;
+   color.pad=0;
+   color.pixel=0;
+   if (hidden==None)
+   {
+    if (window!=None)
     {
-      if (window!=None)
-      {
-        image=XCreateBitmapFromData(display,window,&color.pad,1,1);
-      }
-      if (image!=None)
-      {
-        hidden=XCreatePixmapCursor(display,image,image,&color,&color,0,0);
-        XFreePixmap(display,image);
-      }
-
+     image=XCreateBitmapFromData(display,window,&color.pad,1,1);
     }
+    if (image!=None)
+    {
+     hidden=XCreatePixmapCursor(display,image,image,&color,&color,0,0);
+     XFreePixmap(display,image);
+    }
+
+   }
 
   }
 
   void Mouse::show()
   {
-    if (window!=None)
+   if (window!=None)
+   {
+    if (hidden!=None)
     {
-      if (hidden!=None)
-      {
-        XUndefineCursor(display,window);
-        XFlush(display);
-      }
-
+     XUndefineCursor(display,window);
+     XFlush(display);
     }
+
+   }
 
   }
 
   void Mouse::hide()
   {
-    if (window!=None)
+   if (window!=None)
+   {
+    if (hidden!=None)
     {
-      if (hidden!=None)
-      {
-        XDefineCursor(display,window,hidden);
-        XFlush(display);
-      }
-
+     XDefineCursor(display,window,hidden);
+     XFlush(display);
     }
+
+   }
 
   }
 
   void Mouse::set_position(const unsigned int x,const unsigned int y)
   {
-    if (window!=None)
-    {
-      XWarpPointer(display,None,window,0,0,0,0,x,y);
-      XFlush(display);
-    }
+   if (window!=None)
+   {
+    XWarpPointer(display,None,window,0,0,0,0,x,y);
+    XFlush(display);
+   }
 
   }
 
@@ -2255,10 +2251,11 @@ namespace BIRD2D
 
   }
 
-  bool Screen::sync(const bool limit)
+  void Screen::sync(const bool limit)
   {
    if (this->get_context()!=NULL)
    {
+    this->process_message();
     this->Swap();
     this->clear_stage();
     this->update_counter();
@@ -2267,17 +2264,17 @@ namespace BIRD2D
    {
     this->wait_timer();
    }
-   return this->process_message();
+
   }
 
-  bool Screen::sync()
+  void Screen::sync()
   {
-   return this->sync(true);
+   this->sync(true);
   }
 
-  bool Screen::update()
+  void Screen::update()
   {
-   return this->sync(false);
+   this->sync(false);
   }
 
   bool Screen::is_ready()

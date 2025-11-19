@@ -30,14 +30,10 @@ int main()
  audio.load("./space.mp3");
  memset(perfomance,0,8);
  limit=true;
- while(screen.sync(limit))
+ while(true)
  {
   joystick.update();
   audio.play_loop();
-  if (mouse.check_press(BIRD2D::MOUSE_LEFT)==true)
-  {
-    break;
-  }
   if (keyboard.check_hold(59)==true)
   {
    space.disable_mirror();
@@ -62,7 +58,7 @@ int main()
   {
    limit=false;
   }
-  if (keyboard.check_hold(57)==true)
+  if (keyboard.check_hold(1)==true)
   {
    break;
   }
@@ -118,7 +114,7 @@ int main()
   {
    ship.step();
   }
-
+  screen.sync(limit);
  }
  return 0;
 }

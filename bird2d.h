@@ -127,7 +127,7 @@ namespace BIRD2D
    void event_setup();
    protected:
    void prepare_engine();
-   bool process_message();
+   void process_message();
    void Swap();
    GLXContext get_context();
    unsigned int get_display_width() const;
@@ -572,9 +572,9 @@ namespace BIRD2D
    ~Screen();
    void clear_screen();
    void initialize();
-   bool sync(const bool limit);
-   bool sync();
-   bool update();
+   void sync(const bool limit);
+   void sync();
+   void update();
    bool is_ready();
    unsigned int get_color() const;
    unsigned int get_fps() const;
