@@ -116,15 +116,13 @@ namespace BIRD2D
    Window root;
    XVisualInfo *visual_information;
    GLXContext context;
-   PFNGLXSWAPINTERVALEXTPROC  glXSwapIntervalEXT;
-   void open_display();
+   PFNGLXSWAPINTERVALEXTPROC glXSwapIntervalEXT;
    void get_visual();
    void get_root_window();
    void create_context();
    void create_window();
    void set_context();
    void disable_vsync();
-   void event_setup();
    protected:
    void prepare_engine();
    void process_message();

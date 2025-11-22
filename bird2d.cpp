@@ -642,6 +642,7 @@ namespace BIRD2D
     {
      XDestroyWindow(display,window);
      window=None;
+     root=None;
     }
     if (display!=NULL)
     {
@@ -651,31 +652,22 @@ namespace BIRD2D
 
    }
 
-   void Engine::open_display()
-   {
+  void Engine::get_visual()
+  {
+    int settings[]={GLX_RGBA,GLX_DEPTH_SIZE,16,GLX_DOUBLEBUFFER,None};
     display=XOpenDisplay(NULL);
     if (display==NULL)
     {
      BIRD2D::Halt("Can't open the display");
     }
-
-   }
-
-  void Engine::get_visual()
-  {
-   int settings[]={GLX_RGBA,GLX_DEPTH_SIZE,16,GLX_DOUBLEBUFFER,None};
-   visual_information=glXChooseVisual(display,DefaultScreen(display),settings);
-   if (visual_information==NULL)
-   {
-    BIRD2D::Halt("Can't get the visual information");
-   }
-   else
-   {
+    visual_information=glXChooseVisual(display,DefaultScreen(display),settings);
+    if (visual_information==NULL)
+    {
+     BIRD2D::Halt("Can't get the visual information");
+    }
     display_width=DisplayWidth(display,visual_information->screen);
     display_height=DisplayHeight(display,visual_information->screen);
     display_depth=visual_information->depth;
-   }
-
    }
 
    void Engine::get_root_window()
@@ -712,7 +704,7 @@ namespace BIRD2D
     attributes.backing_pixel=0;
     attributes.save_under=False;
     attributes.do_not_propagate_mask=NoEventMask;
-    attributes.event_mask=NoEventMask;
+    attributes.event_mask=KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask;
     attributes.override_redirect=True;
     attributes.cursor=None;
     attributes.colormap=XCreateColormap(display,root,visual_information->visual,AllocNone);
@@ -744,22 +736,11 @@ namespace BIRD2D
 
    }
 
-   void Engine::event_setup()
-   {
-    if (XSelectInput(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask)==0)
-    {
-     BIRD2D::Halt("Can't set the event configuration");
-    }
-
-   }
-
    void Engine::prepare_engine()
    {
-    this->open_display();
     this->get_visual();
     this->get_root_window();
     this->create_window();
-    this->event_setup();
     this->create_context();
     this->set_context();
     this->disable_vsync();
