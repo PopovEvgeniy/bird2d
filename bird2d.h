@@ -91,6 +91,7 @@ namespace BIRD2D
  {
 
   unsigned char get_scan_code(const KeySym key);
+  void process_message();
 
   class Synchronization
   {
@@ -125,7 +126,6 @@ namespace BIRD2D
    void disable_vsync();
    protected:
    void prepare_engine();
-   void process_message();
    void Swap();
    GLXContext get_context();
    unsigned int get_display_width() const;

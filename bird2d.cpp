@@ -567,6 +567,43 @@ namespace BIRD2D
     return code;
    }
 
+   void process_message()
+   {
+    XEvent event;
+    XSetInputFocus(display,window,RevertToParent,CurrentTime);
+    while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask,&event)==True)
+    {
+     switch (event.type)
+     {
+      case KeyPress:
+      Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_PRESS;
+      break;
+      case KeyRelease:
+      Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_RELEASE;
+      break;
+      case MotionNotify:
+      mouse_x=event.xbutton.x;
+      mouse_y=event.xbutton.y;
+      break;
+      case ButtonPress:
+      if (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_PRESS;
+      if (event.xbutton.button==Button2) Buttons[BIRD2D::MOUSE_RIGHT]=KEY_PRESS;
+      if (event.xbutton.button==Button3) Buttons[BIRD2D::MOUSE_MIDDLE]=KEY_PRESS;
+      break;
+      case ButtonRelease:
+      if (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
+      if (event.xbutton.button==Button2) Buttons[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
+      if (event.xbutton.button==Button3) Buttons[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
+      break;
+      default:
+      ;
+      break;
+     }
+
+    }
+
+   }
+
    Synchronization::Synchronization()
    {
     start=0;
@@ -744,44 +781,6 @@ namespace BIRD2D
     this->create_context();
     this->set_context();
     this->disable_vsync();
-   }
-
-   void Engine::process_message()
-   {
-    XEvent event;
-    XSetInputFocus(display,window,RevertToParent,CurrentTime);
-    while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask,&event)==True)
-    {
-     switch (event.type)
-     {
-      case KeyPress:
-      Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_PRESS;
-      break;
-      case KeyRelease:
-      Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_RELEASE;
-      break;
-      case MotionNotify:
-      mouse_x=event.xbutton.x;
-      mouse_y=event.xbutton.y;
-      break;
-      case ButtonPress:
-      if (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_PRESS;
-      if (event.xbutton.button==Button2) Buttons[BIRD2D::MOUSE_RIGHT]=KEY_PRESS;
-      if (event.xbutton.button==Button3) Buttons[BIRD2D::MOUSE_MIDDLE]=KEY_PRESS;
-      break;
-      case ButtonRelease:
-      if (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
-      if (event.xbutton.button==Button2) Buttons[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
-      if (event.xbutton.button==Button3) Buttons[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
-      break;
-      default:
-      ;
-      break;
-     }
-
-
-    }
-
    }
 
    void Engine::Swap()
@@ -2236,7 +2235,7 @@ namespace BIRD2D
   {
    if (this->get_context()!=NULL)
    {
-    this->process_message();
+    Internal::process_message();
     this->Swap();
     this->clear_stage();
     this->update_counter();
