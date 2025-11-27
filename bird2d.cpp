@@ -604,6 +604,11 @@ namespace BIRD2D
 
    }
 
+   void Swap()
+   {
+    glXSwapBuffers(display,window);
+   }
+
    Synchronization::Synchronization()
    {
     start=0;
@@ -781,15 +786,6 @@ namespace BIRD2D
     this->create_context();
     this->set_context();
     this->disable_vsync();
-   }
-
-   void Engine::Swap()
-   {
-    if (context!=NULL)
-    {
-     glXSwapBuffers(display,window);
-    }
-
    }
 
    GLXContext Engine::get_context()
@@ -2236,7 +2232,7 @@ namespace BIRD2D
    if (this->get_context()!=NULL)
    {
     Internal::process_message();
-    this->Swap();
+    Internal::Swap();
     this->clear_stage();
     this->update_counter();
    }

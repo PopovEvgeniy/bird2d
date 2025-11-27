@@ -19,6 +19,7 @@ int main()
  tile.set_transparent(false);
  while (true)
  {
+  screen.sync();
   if (keyboard.check_hold(1)==true)
   {
    break;
@@ -33,7 +34,6 @@ int main()
 
  }
   text.print("Press Esc to exit");
-  screen.sync();
  }
  return 0;
 }

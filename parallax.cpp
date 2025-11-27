@@ -33,6 +33,7 @@ int main()
  limit=true;
  while (true)
  {
+  screen.sync(limit);
   joystick.update();
   audio.play_loop();
   if (keyboard.check_hold(59)==true)
@@ -115,7 +116,7 @@ int main()
   {
    ship.step();
   }
-  screen.sync(limit);
+
  }
  return 0;
 }
