@@ -52,8 +52,6 @@ namespace
   unsigned char descriptor:8;
  } TGA_image;
 
- unsigned int mouse_x=0;
- unsigned int mouse_y=0;
  unsigned int MAXIMUM_TEXTURE_SIZE=0;
  const size_t KEYBOARD=256;
  const size_t MOUSE=3;
@@ -580,10 +578,6 @@ namespace BIRD2D
       break;
       case KeyRelease:
       Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_RELEASE;
-      break;
-      case MotionNotify:
-      mouse_x=event.xbutton.x;
-      mouse_y=event.xbutton.y;
       break;
       case ButtonPress:
       if (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_PRESS;
@@ -1522,6 +1516,8 @@ namespace BIRD2D
 
   Mouse::Mouse()
   {
+   x=0;
+   y=0;
    preversion[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
    preversion[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
    preversion[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
@@ -1549,6 +1545,25 @@ namespace BIRD2D
    accept=(Buttons[button]==state) && (preversion[button]!=state);
    preversion[button]=Buttons[button];
    return accept;
+  }
+
+  void Mouse::get_position()
+  {
+   XTimeCoord *position;
+   int amount;
+   position=NULL;
+   amount=1;
+   if (window!=None)
+   {
+    position=XGetMotionEvents(display,window,CurrentTime,CurrentTime,&amount);
+   }
+   if (position!=NULL)
+   {
+    x=position.x;
+    y=position.y;
+    XFree(position);
+   }
+
   }
 
   void Mouse::initialize()
@@ -1617,12 +1632,14 @@ namespace BIRD2D
 
   unsigned int Mouse::get_x()
   {
-   return mouse_x;
+   this->get_position();
+   return x;
   }
 
   unsigned int Mouse::get_y()
   {
-   return mouse_y;
+   this->get_position();
+   return y;
   }
 
   bool Mouse::check_hold(const BIRD2D::MOUSE_BUTTON button)
