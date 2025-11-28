@@ -1559,8 +1559,8 @@ namespace BIRD2D
    }
    if (position!=NULL)
    {
-    x=position.x;
-    y=position.y;
+    x=position->x;
+    y=position->y;
     XFree(position);
    }
 
