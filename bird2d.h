@@ -425,11 +425,8 @@ namespace BIRD2D
   class Mouse
   {
    private:
-   unsigned int x;
-   unsigned int y;
    unsigned char preversion[3];
    Cursor hidden;
-   void get_position();
    bool check_state(const BIRD2D::MOUSE_BUTTON button,const unsigned char state);
    public:
    Mouse();

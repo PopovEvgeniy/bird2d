@@ -52,6 +52,8 @@ namespace
   unsigned char descriptor:8;
  } TGA_image;
 
+ unsigned int mouse_x=0;
+ unsigned int mouse_y=0;
  unsigned int MAXIMUM_TEXTURE_SIZE=0;
  const size_t KEYBOARD=256;
  const size_t MOUSE=3;
@@ -568,16 +570,22 @@ namespace BIRD2D
    void process_message()
    {
     XEvent event;
-    XSetInputFocus(display,window,RevertToParent,CurrentTime);
-    while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask,&event)==True)
+    while (XCheckWindowEvent(display,window,KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|FocusChangeMask,&event)==True)
     {
      switch (event.type)
      {
+      case FocusIn:
+      XSetInputFocus(display,window,RevertToParent,CurrentTime);
+      break;
       case KeyPress:
       Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_PRESS;
       break;
       case KeyRelease:
       Keys[Internal::get_scan_code(XLookupKeysym(&event.xkey,0))]=KEY_RELEASE;
+      break;
+      case MotionNotify:
+      mouse_x=event.xbutton.x;
+      mouse_y=event.xbutton.y;
       break;
       case ButtonPress:
       if (event.xbutton.button==Button1) Buttons[BIRD2D::MOUSE_LEFT]=KEY_PRESS;
@@ -740,7 +748,7 @@ namespace BIRD2D
     attributes.backing_pixel=0;
     attributes.save_under=False;
     attributes.do_not_propagate_mask=NoEventMask;
-    attributes.event_mask=KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask;
+    attributes.event_mask=KeyPressMask|KeyReleaseMask|ButtonPressMask|ButtonReleaseMask|PointerMotionMask|FocusChangeMask;
     attributes.override_redirect=True;
     attributes.cursor=None;
     attributes.colormap=XCreateColormap(display,root,visual_information->visual,AllocNone);
@@ -751,6 +759,7 @@ namespace BIRD2D
     }
     XMapWindow(display,window);
     XFlush(display);
+    XSetInputFocus(display,window,RevertToParent,CurrentTime);
    }
 
    void Engine::set_context()
@@ -1516,8 +1525,6 @@ namespace BIRD2D
 
   Mouse::Mouse()
   {
-   x=0;
-   y=0;
    preversion[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
    preversion[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
    preversion[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
@@ -1545,25 +1552,6 @@ namespace BIRD2D
    accept=(Buttons[button]==state) && (preversion[button]!=state);
    preversion[button]=Buttons[button];
    return accept;
-  }
-
-  void Mouse::get_position()
-  {
-   XTimeCoord *position;
-   int amount;
-   position=NULL;
-   amount=1;
-   if (window!=None)
-   {
-    position=XGetMotionEvents(display,window,CurrentTime,CurrentTime,&amount);
-   }
-   if (position!=NULL)
-   {
-    x=position->x;
-    y=position->y;
-    XFree(position);
-   }
-
   }
 
   void Mouse::initialize()
@@ -1632,14 +1620,12 @@ namespace BIRD2D
 
   unsigned int Mouse::get_x()
   {
-   this->get_position();
-   return x;
+   return mouse_x;
   }
 
   unsigned int Mouse::get_y()
   {
-   this->get_position();
-   return y;
+   return mouse_y;
   }
 
   bool Mouse::check_hold(const BIRD2D::MOUSE_BUTTON button)
