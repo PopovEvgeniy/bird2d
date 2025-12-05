@@ -574,7 +574,7 @@ namespace BIRD2D
     {
      switch (event.type)
      {
-      case FocusIn:
+      case FocusOut:
       XSetInputFocus(display,window,RevertToParent,CurrentTime);
       break;
       case KeyPress:
