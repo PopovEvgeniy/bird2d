@@ -1,5 +1,7 @@
 flags=-g0 -O0 -lX11 -lGL -lvlc
 game_engine=./demo/bird2d.a
+game_engine_shared=./bird2d.so
+game_engine_object=./bird2d.o
 main_demo=./demo/demo
 tilemap_demo=./demo/tilemap
 isometric_demo=./demo/isometric
@@ -7,9 +9,14 @@ parallax_demo=./demo/parallax
 camera_demo=./demo/camera
 
 all: engine examples
+engine-shared:
+	@$(CXX) -c -fPIC bird2d.cpp $(flags) -o $(game_engine_object)
+	@$(CXX) -shared -o $(game_engine_shared) $(game_engine_object)
+	@rm *.o
+	@echo "The game engine was successfully compiled"
 engine:
-	@$(CXX) -c bird2d.cpp $(flags) -o bird2d.o
-	@$(AR) -r $(game_engine) bird2d.o
+	@$(CXX) -c bird2d.cpp $(flags) -o $(game_engine_object)
+	@$(AR) -r $(game_engine) $(game_engine_object)
 	@rm *.o
 	@echo "The game engine was successfully compiled"
 examples:
