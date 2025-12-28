@@ -11,7 +11,7 @@ int main()
  BIRD2D::Input::Mouse mouse;
  BIRD2D::Graphics::Screen screen;
  BIRD2D::Graphics::Scene space;
- BIRD2D::Graphics::Sprite ship;
+ BIRD2D::Graphics::Ribbon ship;
  BIRD2D::Graphics::Text text;
  BIRD2D::Tools::enable_logging("./log.txt");
  keyboard.initialize();
@@ -19,7 +19,7 @@ int main()
  joystick.initialize("/dev/input/js0");
  space.load("./space.tga");
  space.prepare(screen);
- ship.load("./ship.tga",BIRD2D::HORIZONTAL_ANIMATED,2);
+ ship.load("./ship.tga",2);
  ship.set_position(screen.get_width()/2,screen.get_height()/2);
  text.load_font("./font.tga");
  text.set_position(text.get_font_width(),text.get_font_height());
