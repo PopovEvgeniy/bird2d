@@ -3,7 +3,7 @@ Bird 2D was made by Popov Evgeniy Alekseyevich
 
 The Bird 2D license
 
-Copyright (C) 2023 - 2025 Popov Evgeniy Alekseyevich
+Copyright (C) 2023 - 2026 Popov Evgeniy Alekseyevich
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages
@@ -810,6 +810,24 @@ namespace BIRD2D
    void destroy();
    void clone(Ribbon *target);
    void clone(Ribbon &target);
+  };
+
+  class Tier:public Billboard,public Animation,public Picture
+  {
+   private:
+   void set_sprite_frame();
+   public:
+   Tier();
+   ~Tier();
+   Tier* get_handle();
+   bool load(Image *buffer,const unsigned int frames);
+   bool load(Image &buffer,const unsigned int frames);
+   bool load(const char *name,const unsigned int frames);
+   unsigned int set_target(const unsigned int target);
+   void step();
+   void destroy();
+   void clone(Tier *target);
+   void clone(Tier &target);
   };
 
   class Cartoon:public Billboard,public Picture
