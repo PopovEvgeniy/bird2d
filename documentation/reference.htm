@@ -35,18 +35,19 @@
           <li><a href="#mozTocId943391">Chapter 5. The vertex index</a></li>
           <li><a href="#mozTocId389323">Chapter 6. The image kind</a></li>
           <li><a href="#mozTocId512412">Chapter 7. The ordinary background</a></li>
-          <li><a href="#mozTocId461777">Chapter 8. The section.</a></li>
-          <li><a href="#mozTocId541338">Chapter 9. The static background</a></li>
-          <li><a href="#mozTocId462914">Chapter 10. The parallax background</a></li>
-          <li><a href="#mozTocId303369">Chapter 11. The base sprite subsystem</a></li>
-          <li><a href="#mozTocId435092">Chapter 12. The ordinary sprites</a></li>
-          <li><a href="#mozTocId412464">Chapter 13. The ribbons</a></li>
-          <li><a href="#mozTocId839836">Chapter 14. The tier</a></li>
-          <li><a href="#mozTocId396888">Chapter 15. The static sprites</a></li>
-          <li><a href="#mozTocId745477">Chapter 16. The sprite sheet</a></li>
-          <li><a href="#mozTocId623302">Chapter 17. The text</a></li>
-          <li><a href="#mozTocId124177">Chapter 18. Loading an image</a></li>
-          <li><a href="#mozTocId845590">Chapter 19. Camera</a></li>
+          <li><a href="#mozTocId461777">Chapter 8. The segment.</a></li>
+          <li><a href="#mozTocId461777">Chapter 9. The section.</a></li>
+          <li><a href="#mozTocId541338">Chapter 10. The static background</a></li>
+          <li><a href="#mozTocId462914">Chapter 11. The parallax background</a></li>
+          <li><a href="#mozTocId303369">Chapter 12. The base sprite subsystem</a></li>
+          <li><a href="#mozTocId435092">Chapter 13. The ordinary sprites</a></li>
+          <li><a href="#mozTocId412464">Chapter 14. The ribbons</a></li>
+          <li><a href="#mozTocId839836">Chapter 15. The tier</a></li>
+          <li><a href="#mozTocId396888">Chapter 16. The static sprites</a></li>
+          <li><a href="#mozTocId745477">Chapter 17. The sprite sheet</a></li>
+          <li><a href="#mozTocId623302">Chapter 18. The text</a></li>
+          <li><a href="#mozTocId124177">Chapter 19. Loading an image</a></li>
+          <li><a href="#mozTocId845590">Chapter 20. Camera</a></li>
         </ol>
       </li>
       <li><a href="#mozTocId47390">Part 4. The transformation</a>
@@ -441,17 +442,91 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId461777" class="mozTocH2"></a><big>Chapter 8. The section.</big></h2>
+    <h2><a id="mozTocId461777" class="mozTocH2"></a><big>Chapter 8. The segment.</big></h2>
     <big><br>
-      <u>A few words about the section.</u><br>
+      <u>A few words about the segment.</u><br>
       <br>
-      The section is a horizontal animated background.<br>
+      The segment is a horizontal animated background.<br>
+      <br>
+      <u>Work with the segment.</u><br>
+      <br>
+      Just use the <i>Segment</i> class to work with the segment. Let's look at the publicly available methods.<br>
+      <i> <br>
+        Segment *Segment::get_handle();</i> - Return the handle to the segment object.<br>
+      <i> <br>
+        void Segment::prepare(const Screen *screen);</i> - Prepare for drawing.<br>
+      <br>
+      <i>void Segment::prepare(Screen &amp;screen);</i> - Prepare for drawing.<br>
+      <br>
+      <i>void Segment::prepare(const unsigned int width, const unsigned int height);</i> - Prepare for drawing.<br>
+      <br>
+      <i>void Segment::disable_mirror();</i> - Disable the background mirroring mode.<br>
+      <br>
+      <i>void Segment::horizontal_mirror();</i> - Set the horizontal background mirroring mode.<br>
+      <br>
+      <i>void Segment::vertical_mirror();</i> - Set the vertical background mirroring mode.<br>
+      <i> <br>
+        void Segment::complex_mirror();</i> - Set both the horizontal background mirroring mode and the vertical background mirroring mode.<br>
+      <i> <br>
+        bool Segment::is_horizontally_mirrored const();</i> - Return true if the background is horizontally mirrored.<br>
+      <i> <br>
+        bool Segment::is_vertically_mirrored const();</i> - Return true if the background is vertically mirrored.<br>
+      <br>
+      <i>bool Segment::is_complex_mirrored const();</i> - Return true if the background is both horizontally and vertically mirrored.<br>
+      <i> <br>
+        bool Segment::is_mirrored const();</i> - Return true if the background is mirrored in any way.<br>
+      <i> <br>
+        unsigned int Segment::set_target(const unsigned int target);</i> - Set the target frame and return it.<br>
+      <i> <br>
+        void Segment::step();</i> - Increase the target frame. Set it to 1 if the target is more than the number of frames.<br>
+      <i> <br>
+        bool Segment::load(Image *background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
+      <i> <br>
+        bool Segment::load(Image &amp;background, const unsigned int frames);</i> - Load a background from the buffer and return true if it is loaded.<br>
+      <i> <br>
+        bool Segment::load(const char *name, const unsigned int frames);</i> - Load a background from the target file and return true if it is loaded.<br>
+      <br>
+      <i>void Segment::draw();</i> - Draw a background.<br>
+      <br>
+      <i>void Segment::draw(const unsigned int target);</i> - Draw the target frame.<br>
+      <br>
+      <i>void Segment::destroy_image();</i> - Destroy a background image.<br>
+      <br>
+      <i>void Segment::destroy();</i> - Destroy a background image and the texture.<br>
+      <br>
+      <i>bool Segment::is_load() const;</i> - Return true if a background has already been loaded.<br>
+      <br>
+      <i>bool Segment::is_last_frame() const;</i> - Return true if the current frame is the last frame.<br>
+      <i> <br>
+        bool Segment::check_frame(const unsigned int target) const;</i> - Return true if the target frame is valid.<br>
+      <i> <br>
+        unsigned int Segment::get_frame() const;</i> - Return the current frame.<br>
+      <i> <br>
+        unsigned int Segment::get_frames() const;</i> - Return the number of the frames.<br>
+      <i> <br>
+        unsigned int Segment::get_width() const;</i> - Return the width of the background.<br>
+      <br>
+      <i>unsigned int Segment::get_height() const;</i> - Return the height of the background.<br>
+      <br>
+      <u>A background texture.</u><br>
+      <br>
+      The background doesn't draw if the background texture doesn't exist. It will be automatically created when you load an image.<br>
+      <u><br>
+        An important notice.</u><br>
+      <br>
+      Always call the <i>prepare</i> after the background has been loaded.<br>
+    </big>
+    <h2><a id="mozTocId461777" class="mozTocH2"></a><big>Chapter 9. The section.</big></h2>
+    <big><br>
+      <u>A few words about the segmenr.</u><br>
+      <br>
+      The section is a vertical animated background.<br>
       <br>
       <u>Work with the section.</u><br>
       <br>
       Just use the <i>Section</i> class to work with the section. Let's look at the publicly available methods.<br>
       <i> <br>
-        Section *Section::get_handle();</i> - Return the handle to the section object.<br>
+        Section *Section::get_handle();</i> - Return the handle to the segment object.<br>
       <i> <br>
         void Section::prepare(const Screen *screen);</i> - Prepare for drawing.<br>
       <br>
@@ -515,7 +590,7 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId541338" class="mozTocH2"></a><big> Chapter 9. The static background</big></h2>
+    <h2><a id="mozTocId541338" class="mozTocH2"></a><big> Chapter 10. The static background</big></h2>
     <big> <u> A few words about the static background.</u><br>
       <br>
       The static background is a simple kind of background. It contains only one frame.<br>
@@ -574,7 +649,7 @@
       <br>
       Always call the <i>prepare</i> after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId462914" class="mozTocH2"></a><big> Chapter 10. The parallax background<br>
+    <h2><a id="mozTocId462914" class="mozTocH2"></a><big> Chapter 11. The parallax background<br>
       </big></h2>
     <big> <u> A few words about the parallax background.</u><br>
       <br>
@@ -648,7 +723,7 @@
       <br>
       Always call the prepare after the background has been loaded.<br>
     </big>
-    <h2><a id="mozTocId303369" class="mozTocH2"></a><big> Chapter 11. The base sprite subsystem</big></h2>
+    <h2><a id="mozTocId303369" class="mozTocH2"></a><big> Chapter 12. The base sprite subsystem</big></h2>
     <big> <u>A small, important thing.</u><br>
       <br>
       A sprite is a transparent image. It is useful for many things: enemies, bonuses, etc.<br>
@@ -739,7 +814,7 @@
       <br>
       <i>void Billboard::draw(const bool transparency, const unsigned int x, const unsigned int y); -</i> Set the transparent mode and draw a sprite at the target position.<br>
     </big>
-    <h2><a id="mozTocId435092" class="mozTocH2"></a><big> Chapter 12. The ordinary sprites</big></h2>
+    <h2><a id="mozTocId435092" class="mozTocH2"></a><big> Chapter 13. The ordinary sprites</big></h2>
     <big> <u>The sprite types.</u><br>
       <br>
       There are two kinds of ordinary sprites: the horizontal strips and the vertical strips. It is a small image with a few frames.<br>
@@ -775,7 +850,7 @@
       <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br>
     </big> <br>
-    <h2><a id="mozTocId412464" class="mozTocH2"></a><big>Chapter 13. The ribbons<br>
+    <h2><a id="mozTocId412464" class="mozTocH2"></a><big>Chapter 14. The ribbons<br>
       </big></h2>
     <big> <u>A few words about the ribbons.</u><br>
       <br>
@@ -807,7 +882,7 @@
       <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br>
     </big>
-    <h2><a id="mozTocId839836" class="mozTocH2"></a><big>Chapter 14. The tier</big></h2>
+    <h2><a id="mozTocId839836" class="mozTocH2"></a><big>Chapter 15. The tier</big></h2>
     <big><u>A few words about the tier.</u><br>
       <br>
       The tier is a vertical strip.<br>
@@ -838,7 +913,7 @@
       <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br>
     </big>
-    <h2><a id="mozTocId396888" class="mozTocH2"></a><big> Chapter 15. The static sprites</big></h2>
+    <h2><a id="mozTocId396888" class="mozTocH2"></a><big> Chapter 16. The static sprites</big></h2>
     <big> <u> A few words about the static sprites.</u><br>
       <br>
       The static sprite is a simple kind of sprite. It contains only one frame.<br>
@@ -865,7 +940,7 @@
       </u> <br>
       A sprite doesn't draw if the sprite texture doesn't exist. It will automatically be created when you load or clone a sprite.<br>
     </big>
-    <h2><a id="mozTocId745477" class="mozTocH2"></a><big> Chapter 16. The sprite sheet</big></h2>
+    <h2><a id="mozTocId745477" class="mozTocH2"></a><big> Chapter 17. The sprite sheet</big></h2>
     <big> <u> Some words about the sprite sheet</u><br>
       <br>
       A sprite sheet is a special kind of animated sprite. Each frame has a fixed size. The sheet is a matrix of frames. Look at this picture to understand it.<br>
@@ -920,7 +995,7 @@
       <br>
       A sprite sheet doesn't draw if the sprite sheet texture doesn't exist. It will be automatically created when you load a sheet.<br>
     </big>
-    <h2><a id="mozTocId623302" class="mozTocH2"></a><big> Chapter 17. The text</big></h2>
+    <h2><a id="mozTocId623302" class="mozTocH2"></a><big> Chapter 18. The text</big></h2>
     <big> <u>How to print a text?</u><br>
       <br>
       Just use the text subsystem to print the text. This subsystem needs a font for text printing. You must load a font before starting to print the text. The font is just a sprite sheet with 16 rows and 16 columns.<br>
@@ -1001,7 +1076,7 @@
       <i><br>
         void Text::destroy_font(); -</i> Destroy a font image and the texture.<br>
     </big>
-    <h2><a id="mozTocId124177" class="mozTocH2"></a><big> Chapter 18. Loading an image</big></h2>
+    <h2><a id="mozTocId124177" class="mozTocH2"></a><big> Chapter 19. Loading an image</big></h2>
     <big> <u>Load an image from a file.</u><br>
       <br>
       Use the image loader to load an image from a file. The <i>Image</i> class provides simple access to the image loader. It is a simple class with a few methods.<br>
@@ -1037,7 +1112,7 @@
 
         href="https://www.gimp.org">GIMP</a> to do it. It is a powerful image editor.<br>
     </big>
-    <h2><a id="mozTocId845590" class="mozTocH2"></a><big> Chapter 19. Camera</big></h2>
+    <h2><a id="mozTocId845590" class="mozTocH2"></a><big> Chapter 20. Camera</big></h2>
     <big><u> A few words about the camera.</u><br>
       <br>
       The 2D camera defines the size of the visible area. It will be stretched to the screen resolution before rendering the game scene.<br>
@@ -2088,6 +2163,7 @@
       3.2.5: The source code synced with the Black Game Development Kit 7.9.1.<br>
       3.2.6: The source code synced with the Black Game Development Kit 7.9.2.<br>
       3.2.7: The source code synced with the Black Game Development Kit 7.9.3.<br>
+      3.2.8: The source code synced with the Black Game Development Kit 7.9.4.<br>
     </big>
   </body>
 </html>
