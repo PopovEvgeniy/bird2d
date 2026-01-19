@@ -2291,6 +2291,16 @@ namespace BIRD2D
    return y<this->get_height();
   }
 
+  bool Screen::check_horizontal_border(const unsigned int x,const unsigned int width) const
+  {
+   return (x+width)>=this->get_width();
+  }
+
+  bool Screen::check_vertical_border(const unsigned int y,const unsigned int height) const
+  {
+   return (y+height)>=this->get_height();
+  }
+
   bool Screen::check_horizontal_border(const BIRD2D::BOX target) const
   {
    return (target.x+target.width)>=this->get_width();

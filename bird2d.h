@@ -580,6 +580,8 @@ namespace BIRD2D
    unsigned int get_height() const;
    bool check_x(const unsigned int x) const;
    bool check_y(const unsigned int y) const;
+   bool check_horizontal_border(const unsigned int x,const unsigned int width) const;
+   bool check_vertical_border(const unsigned int y,const unsigned int height) const;
    bool check_horizontal_border(const BIRD2D::BOX target) const;
    bool check_vertical_border(const BIRD2D::BOX target) const;
    Screen* get_handle();
