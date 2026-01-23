@@ -2410,12 +2410,12 @@ namespace BIRD2D
    return y_offset+viewport_height;
   }
 
-  unsigned int Camera::get_world_x(const unsigned int screen_x)
+  unsigned int Camera::get_world_x(const unsigned int screen_x) const
   {
    return (screen_x*viewport_width)/screen_width+x_offset;
   }
 
-  unsigned int Camera::get_world_y(const unsigned int screen_y)
+  unsigned int Camera::get_world_y(const unsigned int screen_y) const
   {
    return (screen_y*viewport_height)/screen_height+y_offset;
   }
