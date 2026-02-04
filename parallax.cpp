@@ -4,7 +4,7 @@ int main()
 {
  char perfomance[8];
  bool limit;
- BIRD2D::Common::Timer timer;
+ BIRD2D::Common::Timer timer(1.0);
  BIRD2D::Input::Keyboard keyboard;
  BIRD2D::Input::Joystick joystick;
  BIRD2D::Misc::Audio audio;
@@ -26,7 +26,6 @@ int main()
  text.set_position(text.get_font_width(),text.get_font_height());
  mouse.initialize();
  mouse.hide();
- timer.set_timer(1);
  audio.initialize();
  audio.load("./space.mp3");
  memset(perfomance,0,8);
