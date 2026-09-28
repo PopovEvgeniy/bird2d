@@ -470,6 +470,7 @@ namespace BIRD2D
   {
    protected:
    FILE *target;
+   void open_file(const char *name,const char *mode);
    public:
    Binary_File();
    ~Binary_File();
@@ -488,7 +489,7 @@ namespace BIRD2D
    ~Input_File();
    Input_File* get_handle();
    void open(const char *name);
-   void read(void *buffer,const size_t length);
+   size_t read(void *buffer,const size_t length);
   };
 
   class Output_File:public Binary_File
@@ -499,8 +500,8 @@ namespace BIRD2D
    Output_File* get_handle();
    void open(const char *name);
    void create_temp();
-   void write(const void *buffer,const size_t length);
    void flush();
+   size_t write(const void *buffer,const size_t length);
   };
 
  }

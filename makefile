@@ -17,7 +17,6 @@ engine-shared:
 engine:
 	@$(CXX) -c bird2d.cpp $(flags) -o $(game_engine_object)
 	@$(AR) -r $(game_engine) $(game_engine_object)
-	@rm *.o
 	@echo "The game engine was successfully compiled"
 examples:
 	@$(CXX) tilemap.cpp $(game_engine) $(flags) -o $(tilemap_demo)
@@ -25,6 +24,7 @@ examples:
 	@$(CXX) isometric.cpp $(game_engine) $(flags) -o $(isometric_demo)
 	@$(CXX) parallax.cpp $(game_engine) $(flags) -o $(parallax_demo)
 	@$(CXX) camera.cpp $(game_engine) $(flags) -o $(camera_demo)
+	@rm *.o
 	@chmod ugo+rx $(main_demo)
 	@chmod ugo+rx $(tilemap_demo)
 	@chmod ugo+rx $(isometric_demo)

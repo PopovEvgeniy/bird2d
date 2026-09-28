@@ -1291,7 +1291,7 @@
    <br>
    <i>void Input_File::open(const char *name);</i> - Open a file to read.<br>
    <br>
-   <i>void Input_File::read(void *buffer, const size_t length);</i> - Read data from the file.<br>
+   <i>size_t Input_File::read(void *buffer, const size_t length);</i> - Read data from the file and return the number of read bytes.<br>
   </big>
   <h2><a id="mozTocId387909" class="mozTocH2"></a><big> Chapter 4. The file writer</big></h2>
   <big>The file writer is intended to write data to the binary files. The <i>Output_File</i> class provides access to a file writer. It is derived from the <i>Binary_File</i> class. Let's look at the publicly available methods.<br>
@@ -1302,7 +1302,7 @@
    <br>
    <i>void Output_File::create_temp();</i> - Create a temporary file. This file will be deleted when it is closed.<br>
    <br>
-   <i>void Output_File::write(const void *buffer, const size_t length);</i> - Write data to the file.<br>
+   <i>size_t Output_File::write(const void *buffer, const size_t length);</i> - Write data to the file and return the number of written bytes.<br>
    <br>
    <i>void Output_File::flush();</i> - Force writing the internal buffer data to the file.<br>
   </big>
@@ -2001,6 +2001,9 @@
    3.4.1: The source code synced with the Eugene Game Development Kit 10.2.9.<br>
    3.4.1.1: The documentation has been updated.<br>
    3.4.2: The source code synced with the Eugene Game Development Kit 10.3.3.<br>
+   3.4.3: The source code synced with the Eugene Game Development Kit 10.5.2.<br>
+   3.4.4-3.4.5: The small changes.<br>
+   3.4.6: The makefile has been updated.<br>
  </big>
 </body>
 </html>
