@@ -2,7 +2,8 @@
 
 int main()
 {
- int row,column;
+ int row=0;
+ int column=0;
  BIRD2D::Graphics::Screen screen;
  BIRD2D::Graphics::Scene sky;
  BIRD2D::Graphics::Cartoon ground;
