@@ -381,7 +381,7 @@ namespace BIRD2D
    private:
    unsigned int get_maximum_texture_size() const;
    void set_image_settings();
-   void set_perfomance_settings();
+   void set_performance_settings();
    void set_render_hints();
    void set_common_settings();
    void disable_depth_buffer();
@@ -404,7 +404,7 @@ namespace BIRD2D
   class Keyboard
   {
    private:
-   unsigned char *preversion;
+   unsigned char *previous;
    void prepare();
    bool check_state(const unsigned char code,const unsigned char state);
    public:
@@ -420,7 +420,7 @@ namespace BIRD2D
   class Mouse
   {
    private:
-   unsigned char preversion[3];
+   unsigned char previous[3];
    Cursor hidden;
    bool check_state(const BIRD2D::MOUSE_BUTTON button,const unsigned char state);
    public:
@@ -441,13 +441,13 @@ namespace BIRD2D
   {
     private:
     Core::Buffer<short int> current;
-    Core::Buffer<short int> preversion;
+    Core::Buffer<short int> previous;
     Core::Buffer<short int> axis;
     int device;
     void open_device(const char *joystick);
     void read_configuration();
     bool check_current_button(const size_t button);
-    bool check_preversion_button(const size_t button);
+    bool check_previous_button(const size_t button);
     public:
     Joystick();
     ~Joystick();
@@ -596,7 +596,7 @@ namespace BIRD2D
    unsigned int highest_y_offset;
    void calculate_limits();
    void set_viewport_width(const unsigned int width);
-   void set_viewport_heigth(const unsigned int height);
+   void set_viewport_height(const unsigned int height);
    public:
    Camera();
    ~Camera();

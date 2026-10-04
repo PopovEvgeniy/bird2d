@@ -1360,7 +1360,7 @@ namespace BIRD2D
    glPixelStorei(GL_PACK_SKIP_ROWS,0);
   }
 
-  void Render::set_perfomance_settings()
+  void Render::set_performance_settings()
   {
    glDisable(GL_TEXTURE_1D);
    glDisable(GL_BLEND);
@@ -1464,7 +1464,7 @@ namespace BIRD2D
    this->set_image_settings();
    this->set_perspective(width,height);
    this->set_render_hints();
-   this->set_perfomance_settings();
+   this->set_performance_settings();
    this->set_common_settings();
    this->set_matrix_settings();
    this->disable_depth_buffer();
@@ -1489,13 +1489,13 @@ namespace BIRD2D
 
   Keyboard::Keyboard()
   {
-   preversion=NULL;
+   previous=NULL;
   }
 
   Keyboard::~Keyboard()
   {
-   Resource::destroy_array(preversion);
-   preversion=NULL;
+   Resource::destroy_array(previous);
+   previous=NULL;
   }
 
   void Keyboard::prepare()
@@ -1503,7 +1503,7 @@ namespace BIRD2D
    size_t index=0;
    for (index=0;index<KEYBOARD;++index)
    {
-    preversion[index]=KEY_RELEASE;
+    previous[index]=KEY_RELEASE;
    }
 
   }
@@ -1511,19 +1511,19 @@ namespace BIRD2D
   bool Keyboard::check_state(const unsigned char code,const unsigned char state)
   {
    bool accept=false;
-   if (preversion!=NULL)
+   if (previous!=NULL)
    {
-    accept=(Keys[code]==state) && (preversion[code]!=state);
-    preversion[code]=Keys[code];
+    accept=(Keys[code]==state) && (previous[code]!=state);
+    previous[code]=Keys[code];
    }
    return accept;
   }
 
   void Keyboard::initialize()
   {
-   if (preversion==NULL)
+   if (previous==NULL)
    {
-    Resource::create(&preversion,KEYBOARD);
+    Resource::create(&previous,KEYBOARD);
     this->prepare();
    }
 
@@ -1531,9 +1531,9 @@ namespace BIRD2D
 
   bool Keyboard::check_hold(const unsigned char code)
   {
-   if (preversion!=NULL)
+   if (previous!=NULL)
    {
-    preversion[code]=Keys[code];
+    previous[code]=Keys[code];
    }
    return Keys[code]==KEY_PRESS;
   }
@@ -1550,14 +1550,14 @@ namespace BIRD2D
 
   bool Keyboard::is_ready() const
   {
-   return preversion!=NULL;
+   return previous!=NULL;
   }
 
   Mouse::Mouse()
   {
-   preversion[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
-   preversion[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
-   preversion[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
+   previous[BIRD2D::MOUSE_LEFT]=KEY_RELEASE;
+   previous[BIRD2D::MOUSE_RIGHT]=KEY_RELEASE;
+   previous[BIRD2D::MOUSE_MIDDLE]=KEY_RELEASE;
    hidden=None;
   }
 
@@ -1579,8 +1579,8 @@ namespace BIRD2D
   bool Mouse::check_state(const BIRD2D::MOUSE_BUTTON button,const unsigned char state)
   {
    bool accept=false;
-   accept=(Buttons[button]==state) && (preversion[button]!=state);
-   preversion[button]=Buttons[button];
+   accept=(Buttons[button]==state) && (previous[button]!=state);
+   previous[button]=Buttons[button];
    return accept;
   }
 
@@ -1660,7 +1660,7 @@ namespace BIRD2D
 
   bool Mouse::check_hold(const BIRD2D::MOUSE_BUTTON button)
   {
-   preversion[button]=Buttons[button];
+   previous[button]=Buttons[button];
    return Buttons[button]==KEY_PRESS;
   }
 
@@ -1677,7 +1677,7 @@ namespace BIRD2D
   Joystick::Joystick()
   {
    current.set_length(0);
-   preversion.set_length(0);
+   previous.set_length(0);
    axis.set_length(0);
    device=-1;
   }
@@ -1689,7 +1689,7 @@ namespace BIRD2D
     close(device);
    }
    current.destroy_buffer();
-   preversion.destroy_buffer();
+   previous.destroy_buffer();
    axis.destroy_buffer();
   }
 
@@ -1718,9 +1718,9 @@ namespace BIRD2D
      current.set_length(static_cast<size_t>(amount));
      current.create_buffer();
      current.fill_buffer(KEY_RELEASE);
-     preversion.set_length(static_cast<size_t>(amount));
-     preversion.create_buffer();
-     preversion.fill_buffer(KEY_RELEASE);
+     previous.set_length(static_cast<size_t>(amount));
+     previous.create_buffer();
+     previous.fill_buffer(KEY_RELEASE);
     }
 
     }
@@ -1735,21 +1735,21 @@ namespace BIRD2D
      if (button<current.get_length())
      {
       state=current[button]==KEY_PRESS;
-      preversion[button]=current[button];
+      previous[button]=current[button];
      }
 
     }
     return state;
    }
 
-   bool Joystick::check_preversion_button(const size_t button)
+   bool Joystick::check_previous_button(const size_t button)
    {
     bool state=false;
-    if (preversion.get_length()>0)
+    if (previous.get_length()>0)
     {
-     if (button<preversion.get_length())
+     if (button<previous.get_length())
      {
-      state=preversion[button]==KEY_PRESS;
+      state=previous[button]==KEY_PRESS;
      }
 
     }
@@ -1800,12 +1800,12 @@ namespace BIRD2D
 
   bool Joystick::check_button_press(const size_t button)
   {
-   return (this->check_current_button(button)==true) && (this->check_preversion_button(button)==false);
+   return (this->check_current_button(button)==true) && (this->check_previous_button(button)==false);
   }
 
   bool Joystick::check_button_release(const size_t button)
   {
-   return (this->check_current_button(button)==false) && (this->check_preversion_button(button)==true);
+   return (this->check_current_button(button)==false) && (this->check_previous_button(button)==true);
   }
 
   short int Joystick::get_axis(const size_t target)
@@ -2391,7 +2391,7 @@ namespace BIRD2D
 
   }
 
-  void Camera::set_viewport_heigth(const unsigned int height)
+  void Camera::set_viewport_height(const unsigned int height)
   {
    if ((height>0) && (height<=screen_height))
    {
@@ -2519,7 +2519,7 @@ namespace BIRD2D
   void Camera::set_viewport(const unsigned int width,const unsigned int height)
   {
    this->set_viewport_width(width);
-   this->set_viewport_heigth(height);
+   this->set_viewport_height(height);
    this->calculate_limits();
   }
 
