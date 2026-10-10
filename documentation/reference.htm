@@ -11,8 +11,8 @@
 <li><a href="#mozTocId168425">Part 1. Welcome</a>
 <ol>
 <li><a href="#mozTocId515651">Chapter 1. The introduction</a></li>
-<li><a href="#mozTocId712481">Chapter 2. A special thanks</a></li>
-<li><a href="#mozTocId714927">Chapter 3. The license</a></li>
+<li><a href="#mozTocId712481">Chapter 2. Special thanks</a></li>
+<li><a href="#mozTocId714927">Chapter 3. License.</a></li>
 <li><a href="#mozTocId607623">Chapter 4. The dependencies</a></li>
 <li><a href="#mozTocId87585">Chapter 5. The engine namespace</a></li>
 <li><a href="#mozTocId979940">Chapter 6. The custom data types</a></li></ol></li>
@@ -50,7 +50,7 @@
 <li><a href="#mozTocId441811">Part 5. The common things</a>
 <ol>
 <li><a href="#mozTocId328875">Chapter 1. The sub-namespace</a></li>
-<li><a href="#mozTocId688646">Chapter 2. The abnormal program termination</a></li>
+<li><a href="#mozTocId688646">Chapter 2. Terminating the application</a></li>
 <li><a href="#mozTocId907974">Chapter 3. The timers</a></li>
 <li><a href="#mozTocId746445">Chapter 4. The collision detector</a></li>
 <li><a href="#mozTocId881348">Chapter 5. Tilemaps</a></li></ol></li>
@@ -70,7 +70,7 @@
 <li><a href="#mozTocId593228">Chapter 2. The base binary file subsystem</a></li>
 <li><a href="#mozTocId132939">Chapter 3. The file reader</a></li>
 <li><a href="#mozTocId387909">Chapter 4. The file writer</a></li></ol></li>
-<li><a href="#mozTocId2729">Part 9. The user input</a>
+<li><a href="#mozTocId2729">Part 9. User input.</a>
 <ol>
 <li><a href="#mozTocId133204">Chapter 1. The sub-namespace</a></li>
 <li><a href="#mozTocId171750">Chapter 2. Keyboard</a></li>
@@ -82,14 +82,14 @@
 <li><a href="#mozTocId718924">Chapter 2. The internal classes</a></li>
 <li><a href="#mozTocId86456">Chapter 3. The base graphics subsystem</a></li>
 <li><a href="#mozTocId260113">Chapter 4. Joystick</a></li>
-<li><a href="#mozTocId836372">Chapter 5. The user input</a></li>
+<li><a href="#mozTocId836372">Chapter 5. User input.</a></li>
 <li><a href="#mozTocId314168">Chapter 6. The audio</a></li></ol></li>
 <li><a href="#mozTocId600503">Version history</a></li></ol>
   <h1><a id="mozTocId168425" class="mozTocH1"></a><big> Part 1. Welcome</big></h1>
   <h2><a id="mozTocId515651" class="mozTocH2"></a><big> Chapter 1. The introduction</big></h2>
-  <big><u>The introduction.</u><br>
+  <big><u>About the engine.</u><br>
    <br>
-   Hello! My name is Popov Evgeniy Alekseyevich. I am an individual programmer. I enjoy creating software. I also like old-school video games. Do you want to develop video games for <a href="https://en.wikipedia.org/wiki/Linux">Linux</a>? You need a good game engine to do it. I made my own engine. I hope that my C++ game engine will be useful for many programmers.
+   Hello! My name is Popov Evgeniy Alekseyevich. I am an individual programmer. I enjoy creating software. I also like old-school video games. Do you want to develop video games for <a href="https://en.wikipedia.org/wiki/Linux">Linux</a>? You need a good game engine to do so. I made my own engine. I hope that my C++ game engine will be useful for many programmers.
    <br>
    <br><u>Features.</u><br>
    <br>
@@ -98,7 +98,7 @@
   <ul>
    <li><big> Open source code.</big></li>
    <li><big> Very fast.</big></li>
-   <li><big> The easy-to-use object-oriented design.</big></li>
+   <li><big> An easy-to-use object-oriented design.</big></li>
    <li><big> The minimum number of external dependencies: <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>, <a href="https://mesa3d.org">Mesa 3D</a>, and <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a> libraries.</big></li>
   </ul>
   <big><u><br>Installation.</u><br>
@@ -116,7 +116,7 @@
    <br>
    Yes. This is really all you need to do.<br>
   </big>
-  <h2><a id="mozTocId712481" class="mozTocH2"></a><big> Chapter 2. A special thanks</big></h2>
+  <h2><a id="mozTocId712481" class="mozTocH2"></a><big> Chapter 2. Special thanks</big></h2>
   <big> I want to say «Big thanks for the technical consultation» to these people:<br>
   </big>
   <ul>
@@ -132,7 +132,7 @@
   <big><br>
    Thanks to the PVS-Studio team for the <a href="https://www.viva64.com/en/b/0614/">free license</a>.<br>
   </big>
-  <h2><a id="mozTocId714927" class="mozTocH2"></a><big> Chapter 3. The license</big></h2>
+  <h2><a id="mozTocId714927" class="mozTocH2"></a><big> Chapter 3. License.</big></h2>
   <big> Copyright (C) 2023 - 2026 Popov Evgeniy Alekseyevich<br>
    <br>
    This software is provided 'as-is', without any express or implied<br>
@@ -178,9 +178,9 @@
    All classes in this section are declared in the Graphics sub-namespace.<br>
   </big>
   <h2><a id="mozTocId65720" class="mozTocH2"></a><big> Chapter 2. The base graphics subsystem</big></h2>
-  <big><u>The introduction.</u><br>
+  <big><u>About the engine.</u><br>
    <br>
-   The base graphics subsystem does render a game scene. This subsystem uses <a href="http://OpenGL.org">OpenGL</a> for rendering. All modern video cards support hardware acceleration. The software implementation will be activated if the acceleration is not available.<br>
+   The base graphics subsystem renders a game scene. This subsystem uses <a href="http://OpenGL.org">OpenGL</a> for rendering. All modern video cards support hardware acceleration. The software implementation will be activated if the acceleration is not available.<br>
    <u><br>The rendering performance.</u><br>
    <br>
    Always use the latest video card drivers. It may increase the rendering performance. You can also try to change the screen resolution if you have low rendering performance.
@@ -203,7 +203,7 @@
    <br>
    <i>void Screen::sync(const bool limit); -</i> Show the current content of the back buffer on the screen.<br>
    <br>
-   <i>bool Screen::is_ready(); -</i> Return true if the subsystem has already been initialized.<br>
+   <i>bool Screen::is_ready(); -</i> Return true if the subsystem is already initialized.<br>
    <br>
    <i>unsigned int Screen::get_fps() const; -</i> Return the current FPS value.<br>
    <br>
@@ -813,11 +813,11 @@
    A sprite sheet doesn't draw if the sprite sheet texture doesn't exist. It will be automatically created when you load a sheet.<br>
   </big>
   <h2><a id="mozTocId996567" class="mozTocH2"></a><big> Chapter 17. The text</big></h2>
-  <big><u>How to print a text?</u><br>
+  <big><u>How to print text?</u><br>
    <br>
    Just use the text subsystem to print the text. This subsystem needs a font for text printing. You must load a font before starting to print the text. The font is just a sprite sheet with 16 rows and 16 columns.
    <br>
-   <br><u>The valid characters.</u><br>
+   <br><u>The supported characters.</u><br>
    <br>
    Only 8-bit characters are supported.
    <br>
@@ -914,7 +914,7 @@
    <br>
    <i>void Image::destroy_image();</i> - Destroy the current image and free the image buffer.
    <br>
-   <u><br>An important remark.</u><br>
+   <u><br>An important note.</u><br>
    <br>
    A new image will replace the current image if the current image already exists. An incorrect image will be ignored and won't load.<br>
    The source image will be converted to <a href="https://en.wikipedia.org/wiki/RGBA">RGBA</a> format. The pixels equal to the top-left pixel will be marked as transparent.
@@ -1006,7 +1006,7 @@
    <br>
    <i>void Camera::reset();</i> - Reset the camera settings.
    <br>
-   <br><u>An important remark.</u><br>
+   <br><u>An important note.</u><br>
    <br>
    Always set the viewport size after initializing the camera. Always update the camera before drawing.<br>
   </big>
@@ -1021,7 +1021,7 @@
    <br>
    <img alt="" src="cartesian_system.png" height="111" width="107"><br>
    <br>
-   <u>The coordinates conversion.</u><br>
+   <u>Coordinate conversion.</u><br>
    <br>
    You can convert the <i>Cartesian</i> coordinates to the screen coordinates. You can also convert the screen coordinates to the Cartesian coordinates.<br>
    <br>
@@ -1060,7 +1060,7 @@
    <br>
    <a href="https://en.wikipedia.org/wiki/Isometric_projection">Isometric projection</a> is a very popular way for pseudo-3D games. Many old-school games are isometric games.
    <br>
-   <br><u>The coordinates conversion.</u><br>
+   <br><u>Coordinate conversion.</u><br>
    <br>
    You can convert the Cartesian coordinates to the isometric coordinates. You can also convert the isometric coordinates to the Cartesian coordinates. Just use the <i>Isometric</i> class to do it. Let's look at the publicly available methods.<br>
    <br>
@@ -1093,7 +1093,7 @@
   <h2><a id="mozTocId328875" class="mozTocH2"></a><big> Chapter 1. The sub-namespace</big></h2>
   <big> All classes in this section are declared in the <i>Common</i> sub-namespace.<br>
   </big>
-  <h2><a id="mozTocId688646" class="mozTocH2"></a><big> Chapter 2. The abnormal program termination</big></h2>
+  <h2><a id="mozTocId688646" class="mozTocH2"></a><big> Chapter 2. Terminating the application</big></h2>
   <big> You can use the Halt function to terminate a program. This function is declared in the <i>BIRD2D</i> namespace.<br>
    <br>
    <i>void BIRD2D::Halt(const char *message);</i> - Terminate the program. Write an error message to the log file if logging is enabled.<br>
@@ -1306,14 +1306,15 @@
    <br>
    <i>void Output_File::flush();</i> - Force writing the internal buffer data to the file.<br>
   </big>
-  <h1><a id="mozTocId2729" class="mozTocH1"></a><big> Part 9. The user input</big></h1>
+  <h1><a id="mozTocId2729" class="mozTocH1"></a><big> Part 9. User input.</big></h1>
   <h2><a id="mozTocId133204" class="mozTocH2"></a><big> Chapter 1. The sub-namespace</big></h2>
   <big> All classes in this section are declared in the Input sub-namespace.<br>
   </big>
   <h2><a id="mozTocId171750" class="mozTocH2"></a><big> Chapter 2. Keyboard</big></h2>
-  <big><u>The low-level input.</u><br>
+  <big><u>Low-level input.</u>Any keyboard has a
+built-in chip.<br>
    <br>
-   Any keyboard has a built-in chip. It generates a special code when the user presses or releases the key. This code is called a «scan code».
+   Any keyboard contains a built-in controller. It generates a special code when the user presses or releases the key. This code is called a «scan code».
    <br>
    <br><u>Working with the keyboard.</u><br>
    <br>
@@ -1327,7 +1328,7 @@
    <br>
    <i>bool Keyboard::check_release(const unsigned char code);</i> - Return true if a key with a specific scan code was released.<br>
    <br>
-   <i>bool Keyboard::is_ready() const;</i> - Return true if the subsystem has already been initialized.
+   <i>bool Keyboard::is_ready() const;</i> - Return true if the subsystem is already initialized.
    <br>
    <br><u>The list of the supported scan codes.</u><br>
    <br>
@@ -1641,7 +1642,7 @@
    <br>
    <i>void Joystick::initialize(const char *joystick);</i> - Initialize the subsystem.<br>
    <br>
-   <i>bool Joystick::is_ready() const;</i> - Return true if the subsystem has already been initialized.<br>
+   <i>bool Joystick::is_ready() const;</i> - Return true if the subsystem is already initialized.<br>
    <br>
    <i>bool Joystick::check_hold(const size_t button) const;</i> - Return true if the button is pressed or held.<br>
    <br>
@@ -1663,7 +1664,7 @@
   <h2><a id="mozTocId718924" class="mozTocH2"></a><big> Chapter 2. The internal classes</big></h2>
   <big><u>The internal classes.</u><br>
    <br>
-   Some classes are designed for internal use only. Don't touch them. What are these strange classes doing?
+   Some classes are designed for internal use only. Don't touch them. What do these strange classes do?
    <br>
    <u><br>The Unix-specific classes.</u><br>
    <br>
@@ -1687,7 +1688,7 @@
    <br>
    Any visible object is a textured rectangle.
    <br>
-   <br><u>The textures.</u><br>
+   <br><u>Textures.</u><br>
    <br>
    A texture width must be a power of two. A texture height also must be a power of two. Any image will be automatically resized before uploading.
    <br>
@@ -1715,7 +1716,7 @@
   <h2><a id="mozTocId260113" class="mozTocH2"></a><big> Chapter 4. Joystick</big></h2>
   <big> The joystick subsystem is working over the <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux Joystick API</a>.<br>
   </big>
-  <h2><a id="mozTocId836372" class="mozTocH2"></a><big> Chapter 5. The user input</big></h2>
+  <h2><a id="mozTocId836372" class="mozTocH2"></a><big> Chapter 5. User input.</big></h2>
   <big><u>The input backend.</u><br>
    <br>
    The input subsystem is the simple thing. It works over <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>.
@@ -2010,6 +2011,7 @@
    3.5: The source code synced with the Eugene Game Development Kit 10.5.6.<br>
    3.5.1: The source code synced with the Neon Game Development Kit 9.1.8.<br>
    3.5.2: The source code synced with the Eugene Game Development Kit 10.6.<br>
+   3.5.3: The source code synced with the Eugene Game Development Kit 10.6.1.<br>
  </big>
 </body>
 </html>

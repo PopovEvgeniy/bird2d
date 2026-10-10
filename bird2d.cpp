@@ -4742,7 +4742,12 @@ namespace BIRD2D
 
   bool delete_file(const char *name)
   {
-   return remove(name)==0;
+   bool success=false;
+   if (name!=NULL)
+   {
+    success=remove(name)==0;
+   }
+   return success;
   }
 
   bool file_exists(const char *name)
@@ -4783,7 +4788,12 @@ namespace BIRD2D
 
   bool enable_logging(const char *name)
   {
-   return freopen(name,"wt",stderr)!=NULL;
+   bool success=false;
+   if (name!=NULL)
+   {
+    success=freopen(name,"wt",stderr)!=NULL;
+   }
+   return success;
   }
 
   void randomize()
