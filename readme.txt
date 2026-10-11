@@ -9,7 +9,7 @@ Bird 2D is distributed under a zlib license.
 Features.
 
 The minimum number of external dependencies: Xlib, Mesa 3D, and libVLC.
-The easy-to-use object-oriented API.
+An easy-to-use object-oriented API.
 The sprites.
 The backgrounds.
 The tilemaps.
