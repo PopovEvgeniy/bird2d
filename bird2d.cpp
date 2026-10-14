@@ -825,12 +825,12 @@ namespace BIRD2D
 
   float get_start_offset(const float current,const float total)
   {
-   return (current-1.0f)/total;
+   return current/total;
   }
 
   float get_end_offset(const float current,const float total)
   {
-   return current/total;
+   return (current+1.0f)/total;
   }
 
   unsigned int get_pixel_component(const unsigned int pixel,const Core::PIXEL_COMPONENT component)
@@ -2908,7 +2908,7 @@ namespace BIRD2D
 
   Animation::Animation()
   {
-   frame=1;
+   frame=0;
    frames=1;
   }
 
@@ -2919,23 +2919,26 @@ namespace BIRD2D
 
   void Animation::reset_animation_settings()
   {
-   frame=1;
+   frame=0;
    frames=1;
   }
 
   void Animation::increase_frame()
   {
-   ++frame;
-   if (frame>frames)
+   if (frame<frames)
    {
-    frame=1;
+    ++frame;
+   }
+   else
+   {
+    frame=0;
    }
 
   }
 
   void Animation::set_frame(const unsigned int target)
   {
-   if (this->check_frame(target)==true)
+   if (target<frames)
    {
     frame=target;
    }
@@ -2963,12 +2966,12 @@ namespace BIRD2D
 
   bool Animation::is_last_frame() const
   {
-   return frame==frames;
+   return frame==(frames-1);
   }
 
   bool Animation::check_frame(const unsigned int target) const
   {
-   return (target>0) && (target<=frames);
+   return target<frames;
   }
 
   Billboard::Billboard()
@@ -3460,12 +3463,12 @@ namespace BIRD2D
 
   bool Sheet::check_row(const unsigned int target) const
   {
-   return (target>0) && (target<=rows);
+   return target<rows;
   }
 
   bool Sheet::check_column(const unsigned int target) const
   {
-   return (target>0) && (target<=columns);
+   return target<columns;
   }
 
   bool Sheet::check_cell(const unsigned int row,const unsigned int column) const
@@ -3487,30 +3490,30 @@ namespace BIRD2D
 
   unsigned int Sheet::get_row(const unsigned int target) const
   {
-   unsigned int row=1;
+   unsigned int row=0;
    if (this->check_frame(target)==true)
    {
-    row+=(target-1)%rows;
+    row=target%rows;
    }
    return row;
   }
 
   unsigned int Sheet::get_column(const unsigned int target) const
   {
-   unsigned int column=1;
+   unsigned int column=0;
    if (this->check_frame(target)==true)
    {
-    column+=(target-1)/rows;
+    column=target/rows;
    }
    return column;
   }
 
   unsigned int Sheet::calculate(const unsigned int row,const unsigned int column) const
   {
-   unsigned int target=1;
+   unsigned int target=0;
    if (this->check_cell(row,column)==true)
    {
-    target+=(row-1)+(column-1)*rows;
+    target=row+(column*rows);
    }
    return target;
   }
@@ -3569,7 +3572,7 @@ namespace BIRD2D
       columns=column_amount;
       this->reset_animation_settings();
       this->set_frames(rows*columns);
-      this->select(1,1);
+      this->select(0,0);
       this->prepare_sheet();
      }
 
@@ -4320,7 +4323,7 @@ namespace BIRD2D
 
   void Text::print(const char target)
   {
-   text.set_target(static_cast<unsigned char>(target)+1);
+   text.set_target(static_cast<unsigned char>(target));
    text.draw(true);
   }
 
