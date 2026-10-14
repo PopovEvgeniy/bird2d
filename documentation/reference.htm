@@ -197,11 +197,11 @@
    <br>
    <i>void Screen::initialize(); -</i> Initialize the base graphics subsystem.<br>
    <br>
-   <i>void Screen::sync(); -</i> Show the current content of the back buffer on the screen. This method uses the FPS limits and waits between frames.<br>
+   <i>void Screen::sync(); -</i> Show the game scene. This method uses the FPS limits and waits between frames.<br>
    <br>
-   <i>void Screen::update(); -</i> Show the current content of the back buffer on the screen. This method ignores the FPS limit and needs high processor usage.<br>
+   <i>void Screen::update(); -</i> Show the game scene. This method ignores the FPS limit and needs high processor usage.<br>
    <br>
-   <i>void Screen::sync(const bool limit); -</i> Show the current content of the back buffer on the screen.<br>
+   <i>void Screen::sync(const bool limit); -</i> Show the game scene.<br>
    <br>
    <i>bool Screen::is_ready(); -</i> Return true if the subsystem is already initialized.<br>
    <br>
@@ -881,9 +881,9 @@
    <br>
    <i>bool Text::load_font(const char *name);</i> - Load a font from the target file and return true if it is loaded.<br>
    <br>
-   <i>void Text::print(const char target);</i> - Print a single character at the current position.<br>
+   <i>void Text::print(const char target);</i> - Print a single glyph at the current position.<br>
    <br>
-   <i>void Text::print(const unsigned int x, const unsigned int y, const char target);</i> - Print a single character at the specific position.<br>
+   <i>void Text::print(const unsigned int x, const unsigned int y, const char target);</i> - Print a single glyph at the specific position.<br>
    <br>
    <i>size_t Text::print(const char *target);</i> - Print text at the current position and return the text length.<br>
    <br>
@@ -1713,12 +1713,12 @@
    All these custom types are declared in the <i>Core</i> sub-namespace.<br>
   </big>
   <h2><a id="mozTocId260113" class="mozTocH2"></a><big> Chapter 4. Joystick</big></h2>
-  <big> The joystick subsystem is working over the <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux Joystick API</a>.<br>
+  <big> The joystick subsystem works on the <a href="https://www.kernel.org/doc/Documentation/input/joystick-api.txt">Linux Joystick API</a>.<br>
   </big>
   <h2><a id="mozTocId836372" class="mozTocH2"></a><big> Chapter 5. User input</big></h2>
   <big><u>The input backend.</u><br>
    <br>
-   The input subsystem is a simple thing. It works over <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>.
+   The input subsystem is a simple thing. It works on the <a href="https://gitlab.freedesktop.org/xorg/lib/libx11">Xlib</a>.
    <br>
    <br><u>The internal key state.</u><br>
    <br>
@@ -1744,7 +1744,7 @@
   <big><br>
   </big>
   <h2><a id="mozTocId314168" class="mozTocH2"></a><big> Chapter 6. Audio</big></h2>
-  <big> The audio subsystem is working over <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a>.<br>
+  <big> The audio subsystem is working on the <a href="https://www.videolan.org/vlc/libvlc.html">libVLC</a>.<br>
   </big>
   <h1><a id="mozTocId600503" class="mozTocH1"></a><big>Version history</big></h1>
   <big>0.1: Initial version.<br>
@@ -2015,6 +2015,7 @@
    3.5.5: The source code synced with the Eugene Game Development Kit 10.6.3.<br>
    3.5.5.1: The documentation has been updated.<br>
    3.5.6: The source code synced with the Eugene Game Development Kit 10.6.5.<br>
+   3.5.7: The source code synced with the Eugene Game Development Kit 10.6.6.<br>
  </big>
 </body>
 </html>
