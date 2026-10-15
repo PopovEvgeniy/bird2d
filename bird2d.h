@@ -699,7 +699,7 @@ namespace BIRD2D
    void reset_animation_settings();
    unsigned int increase_frame();
    unsigned int set_frame(const unsigned int target);
-   void set_frames(const unsigned int amount);
+   unsigned int set_frames(const unsigned int amount);
    public:
    Animation();
    ~Animation();
