@@ -1096,6 +1096,18 @@ namespace BIRD2D
 
   }
 
+  void Shape::set_texture_offset(const float row,const float rows,const float column,const float columns)
+  {
+   point[0].u=Core::get_start_offset(row,rows);
+   point[0].v=Core::get_end_offset(column,columns);
+   point[1].u=Core::get_end_offset(row,rows);
+   point[1].v=Core::get_end_offset(column,columns);
+   point[2].u=Core::get_end_offset(row,rows);
+   point[2].v=Core::get_start_offset(column,columns);
+   point[3].u=Core::get_start_offset(row,rows);
+   point[3].v=Core::get_start_offset(column,columns);
+  }
+
   void Shape::set_data(const Core::MIRROR_KIND kind)
   {
    switch (kind)
@@ -1172,26 +1184,19 @@ namespace BIRD2D
    current_y=y;
   }
 
-  void Shape::set_tile_offset(const float row,const float rows,const float column,const float columns)
+  void Shape::set_tile_offset(const unsigned int row,const unsigned int rows,const unsigned int column,const unsigned int columns)
   {
-   point[0].u=Core::get_start_offset(row,rows);
-   point[0].v=Core::get_end_offset(column,columns);
-   point[1].u=Core::get_end_offset(row,rows);
-   point[1].v=Core::get_end_offset(column,columns);
-   point[2].u=Core::get_end_offset(row,rows);
-   point[2].v=Core::get_start_offset(column,columns);
-   point[3].u=Core::get_start_offset(row,rows);
-   point[3].v=Core::get_start_offset(column,columns);
+   this->set_texture_offset(static_cast<float>(row),static_cast<float>(rows),static_cast<float>(column),static_cast<float>(columns));
   }
 
-  void Shape::set_horizontal_offset(const float current,const float total)
+  void Shape::set_horizontal_offset(const unsigned int current,const unsigned int total)
   {
-   this->set_tile_offset(current,total,0.0f,1.0f);
+   this->set_tile_offset(current,total,0,1);
   }
 
-  void Shape::set_vertical_offset(const float current,const float total)
+  void Shape::set_vertical_offset(const unsigned int current,const unsigned int total)
   {
-   this->set_tile_offset(0.0f,1.0f,current,total);
+   this->set_tile_offset(0,1,current,total);
   }
 
   void Shape::set_texture_coordinates(const BIRD2D::VERTEX_INDEX index,const float u,const float v)
@@ -3279,7 +3284,7 @@ namespace BIRD2D
 
   void Ribbon::set_sprite_frame()
   {
-   billboard.set_horizontal_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
+   billboard.set_horizontal_offset(this->get_frame(),this->get_frames());
   }
 
   Ribbon* Ribbon::get_pointer()
@@ -3344,7 +3349,7 @@ namespace BIRD2D
 
   void Tier::set_sprite_frame()
   {
-   billboard.set_vertical_offset(static_cast<float>(this->get_frame()),static_cast<float>(this->get_frames()));
+   billboard.set_vertical_offset(this->get_frame(),this->get_frames());
   }
 
   Tier* Tier::get_pointer()
@@ -3540,7 +3545,7 @@ namespace BIRD2D
   {
    if (this->check_cell(row,column)==true)
    {
-    billboard.set_tile_offset(static_cast<float>(row),static_cast<float>(rows),static_cast<float>(column),static_cast<float>(columns));
+    billboard.set_tile_offset(row,rows,column,columns);
    }
 
   }
