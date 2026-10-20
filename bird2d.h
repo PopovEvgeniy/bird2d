@@ -754,7 +754,7 @@ namespace BIRD2D
    unsigned int get_y() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
-   bool is_load() const;
+   bool is_loaded() const;
    BIRD2D::BOX get_box() const;
    void disable_mirror();
    void horizontal_mirror();
@@ -873,7 +873,7 @@ namespace BIRD2D
    void draw(const unsigned int target);
    void destroy_image();
    void destroy();
-   bool is_load() const;
+   bool is_loaded() const;
    bool is_last_frame() const;
    bool check_frame(const unsigned int target) const;
    unsigned int get_frame() const;
@@ -910,7 +910,7 @@ namespace BIRD2D
    void draw(const unsigned int target);
    void destroy_image();
    void destroy();
-   bool is_load() const;
+   bool is_loaded() const;
    bool is_last_frame() const;
    bool check_frame(const unsigned int target) const;
    unsigned int get_frame() const;
@@ -944,7 +944,7 @@ namespace BIRD2D
    void draw();
    void destroy_image();
    void destroy();
-   bool is_load() const;
+   bool is_loaded() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
   };
@@ -986,7 +986,7 @@ namespace BIRD2D
    void draw();
    void destroy_image();
    void destroy();
-   bool is_load() const;
+   bool is_loaded() const;
    unsigned int get_width() const;
    unsigned int get_height() const;
   };

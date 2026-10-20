@@ -3177,7 +3177,7 @@ namespace BIRD2D
    return sprite_height;
   }
 
-  bool Billboard::is_load() const
+  bool Billboard::is_loaded() const
   {
    return billboard.is_texture_exist();
   }
@@ -3301,7 +3301,7 @@ namespace BIRD2D
     this->set_size(this->get_image_width()/this->set_frames(frames),this->get_image_height());
     this->set_sprite_frame();
    }
-   return this->is_load();
+   return this->is_loaded();
   }
 
   bool Ribbon::load(Image &buffer,const unsigned int frames)
@@ -3367,7 +3367,7 @@ namespace BIRD2D
     this->set_size(this->get_image_width(),this->get_image_height()/this->get_frames());
     this->set_sprite_frame();
    }
-   return this->is_load();
+   return this->is_loaded();
   }
 
   bool Tier::load(Image &buffer,const unsigned int frames)
@@ -3427,7 +3427,7 @@ namespace BIRD2D
     this->prepare(this->get_image_width(),this->get_image_height(),this->get_image());
     this->set_size(this->get_image_width(),this->get_image_height());
    }
-   return this->is_load();
+   return this->is_loaded();
   }
 
   bool Cartoon::load(Image &buffer)
@@ -3583,7 +3583,7 @@ namespace BIRD2D
     }
 
    }
-   return this->is_load();
+   return this->is_loaded();
   }
 
   bool Sheet::load(Image &sheet,const unsigned int row_amount,const unsigned int column_amount)
@@ -3718,9 +3718,9 @@ namespace BIRD2D
    stage.destroy();
   }
 
-  bool Segment::is_load() const
+  bool Segment::is_loaded() const
   {
-   return stage.is_load();
+   return stage.is_loaded();
   }
 
   bool Segment::is_last_frame() const
@@ -3873,9 +3873,9 @@ namespace BIRD2D
    stage.destroy();
   }
 
-  bool Section::is_load() const
+  bool Section::is_loaded() const
   {
-   return stage.is_load();
+   return stage.is_loaded();
   }
 
   bool Section::is_last_frame() const
@@ -4012,9 +4012,9 @@ namespace BIRD2D
    stage.destroy();
   }
 
-  bool Scene::is_load() const
+  bool Scene::is_loaded() const
   {
-   return stage.is_load();
+   return stage.is_loaded();
   }
 
   unsigned int Scene::get_width() const
@@ -4199,9 +4199,9 @@ namespace BIRD2D
    stage.destroy();
   }
 
-  bool Parallax::is_load() const
+  bool Parallax::is_loaded() const
   {
-   return stage.is_load();
+   return stage.is_loaded();
   }
 
   unsigned int Parallax::get_width() const
@@ -4260,7 +4260,7 @@ namespace BIRD2D
 
   bool Text::is_font_load() const
   {
-   return text.is_load();
+   return text.is_loaded();
   }
 
   unsigned int Text::get_font_width() const
