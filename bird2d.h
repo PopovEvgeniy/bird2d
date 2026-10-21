@@ -1004,7 +1004,7 @@ namespace BIRD2D
    Text* get_pointer();
    BIRD2D::TEXT_KIND get_orientation() const;
    void set_orientation(const BIRD2D::TEXT_KIND target);
-   bool is_font_load() const;
+   bool is_font_loaded() const;
    unsigned int get_font_width() const;
    unsigned int get_font_height() const;
    unsigned int get_x() const;
