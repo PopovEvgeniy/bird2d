@@ -789,8 +789,6 @@ namespace BIRD2D
 
   class Tier:public Billboard,public Animation,public Picture
   {
-   private:
-   void set_sprite_frame();
    public:
    Tier();
    ~Tier();
