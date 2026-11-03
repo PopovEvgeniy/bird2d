@@ -3484,6 +3484,10 @@ namespace BIRD2D
    {
     row=target%rows;
    }
+   else
+   {
+    row=this->get_frame()%rows;
+   }
    return row;
   }
 
@@ -3494,6 +3498,10 @@ namespace BIRD2D
    {
     column=target/rows;
    }
+   else
+   {
+    column=this->get_frame()/rows;
+   }
    return column;
   }
 
@@ -3503,6 +3511,10 @@ namespace BIRD2D
    if (this->check_cell(row,column)==true)
    {
     target=row+(column*rows);
+   }
+   else
+   {
+    target=this->get_frame();
    }
    return target;
   }
