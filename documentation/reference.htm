@@ -139,7 +139,7 @@
    Yes. This is really all you need to do.<br>
   </big>
   <h2><a id="mozTocId278294" class="mozTocH2"></a><big>Chapter 2. Special thanks</big></h2>
-  <big>Special thanks for technical consultation to these people:<br>
+  <big>Special thanks to these people for technical consultation:<br>
   </big>
   <ul>
    <li><big><a href="https://github.com/dmitrysmagin">Dmitry Smagin</a></big></li>
@@ -221,7 +221,7 @@
    <br>
    <i>void Screen::initialize(); -</i> Initialize the base graphics subsystem.<br>
    <br>
-   <i>void Screen::sync(); -</i> Show the game scene. This method uses the FPS limits and waits between frames.<br>
+   <i>void Screen::sync(); -</i> Show the game scene. This method uses the FPS limit and waits between frames.<br>
    <br>
    <i>void Screen::update(); -</i> Show the game scene. This method ignores the FPS limit.<br>
    <br>
@@ -333,7 +333,7 @@
   </big>
   <h2><a id="mozTocId947671" class="mozTocH2"></a><big>Chapter 6. Background</big></h2>
   <big>A background is a large image. It contains one or more frames. The background will be scaled to fit the screen. The background transparency is always disabled.<br>
-   The horizontal animated backgrounds look like a horizontal photo ribbons. The vertical animated backgrounds look like a vertical photo ribbons.</big><br>
+   The horizontal animated background looks like a horizontal photo ribbon. The vertical animated background looks like a vertical photo ribbon.</big><br>
   <h2><a id="mozTocId251490" class="mozTocH2"></a><big>Chapter 7. Segment</big></h2>
   <big><u>A few words about the segment.</u><br>
    <br>
@@ -817,7 +817,7 @@
    <br>
    <i>void Sheet::destroy(); -</i> Completely destroy the sprite sheet.<br>
    <br>
-   <i>void Sheet::select(const unsigned int row, const unsigned int column); -</i> Select the target frame by row and column.<br>
+   <i>unsigned int Sheet::select(const unsigned int row, const unsigned int column); -</i> Select the target frame by row and column and return it.<br>
    <br>
    <i>unsigned int Sheet::set_target(const unsigned int target); -</i> Set the target frame and return it.<br>
    <br>
@@ -2052,6 +2052,7 @@
    3.6.5: The changes have been merged with the Eugene Game Development Kit 10.7.4.<br>
    3.6.6: The changes have been merged with the Eugene Game Development Kit 10.7.5.<br>
    3.6.7: The changes have been merged with the Eugene Game Development Kit 10.7.6.<br>
+   3.6.8: The changes have been merged with the Eugene Game Development Kit 10.7.7.<br>
   </big>
  </body>
 </html>
