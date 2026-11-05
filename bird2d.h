@@ -1064,8 +1064,8 @@ namespace BIRD2D
    private:
    int start_x;
    int start_y;
-   int halft_tile_width;
-   int halft_tile_height;
+   int half_tile_width;
+   int half_tile_height;
    public:
    Level();
    ~Level();
